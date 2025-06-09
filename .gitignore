@@ -1,0 +1,5 @@
+episcope_env/
+node_modules/
+logs/
+disease_monitor.log
+training.log
