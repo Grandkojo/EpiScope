@@ -10,6 +10,8 @@ import Trends from "./pages/Trends"
 import Settings from "./pages/Settings"
 import UserLayout from "./user/UserLayout"
 import UserDashboard from "./user/UserDashboard"
+import Landing from "./pages/Landing"
+
 
 function App() {
   return (
@@ -24,7 +26,9 @@ function App() {
             <Route path="hotspots" element={<Hotspots />} />
             <Route path="trends" element={<Trends />} />
             <Route path="settings" element={<Settings />} />
+
           </Route>
+          <Route path="landing" element={<Landing />} />
           <Route path="/users/*" element={<UserLayout />}>
             <Route index element={<UserDashboard />} />
           </Route>
