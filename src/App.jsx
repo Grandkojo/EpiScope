@@ -11,6 +11,8 @@ import Settings from "./pages/Settings"
 import UserLayout from "./user/UserLayout"
 import UserDashboard from "./user/UserDashboard"
 import Landing from "./pages/Landing"
+import Login from "./pages/Login"
+import Signup from "./pages/Signup"
 
 
 function App() {
@@ -29,6 +31,8 @@ function App() {
 
           </Route>
           <Route path="landing" element={<Landing />} />
+          <Route path="login" element={<Login/>}></Route>
+          <Route path="signup" element={<Signup/>}></Route>
           <Route path="/users/*" element={<UserLayout />}>
             <Route index element={<UserDashboard />} />
           </Route>
