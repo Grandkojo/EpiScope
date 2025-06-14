@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+api/
+disease_monitor/
+episcope/
+episcope_env/
+src/data/dummyData.js

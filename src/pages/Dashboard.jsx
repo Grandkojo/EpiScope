@@ -17,8 +17,30 @@ import {
 } from "recharts"
 import { Heart, Droplets, MapPin, Users, TrendingUp, AlertTriangle } from "lucide-react"
 import { healthMetrics, monthlyTrends, diabetesData, malariaData } from "../data/dummyData"
+import api from "../api"
+import { useEffect, useState } from "react"
 
 const Dashboard = () => {
+  const [dashboardData, setDashboardData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const getDashBoardData =  async () => {
+    try {
+      setLoading(true)
+      const response = await api.get('disease/dashboard/?year=2025');
+      setDashboardData(response.data)
+    } catch (error) {
+      setError(error.message)
+    } finally{
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    getDashBoardData();
+  }, [])
+
   const COLORS = ["#22c55e", "#ef4444", "#f59e0b", "#3b82f6", "#8b5cf6"]
 
   const diseaseDistribution = [
@@ -42,14 +64,23 @@ const Dashboard = () => {
 
       {/* Key Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <MetricCard
-          title="Total Diabetes Cases"
-          value={healthMetrics.totalDiabetesCases.toLocaleString()}
+        {loading ? (
+          <div>Loading...</div>
+        ) : error ? (
+          <div>Error: {error} </div>
+        ) : dashboardData?.diabetes ? (
+
+          <MetricCard
+          title={dashboardData.diabetes.title}
+          value={dashboardData.diabetes.total_count.toLocaleString()}
           change={healthMetrics.monthlyGrowthDiabetes}
           icon={Heart}
           trend="up"
           color="health"
-        />
+          />
+        ) : (
+          <div>No data available</div>
+        )}
         <MetricCard
           title="Total Malaria Cases"
           value={healthMetrics.totalMalariaCases.toLocaleString()}

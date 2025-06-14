@@ -1,51 +1,216 @@
-import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card"
-import { LineChart } from "../components/charts/LineChart"
-import { PieChart } from "../components/charts/PieChart"
-import { StatCard } from "../components/dashboard/StatCard"
-import { healthMetrics, monthlyTrends, ghanaRegions, hotspots } from "../data/dummyData"
-import { Activity, HeartPulse, TrendingUp, Users, MapPin, AlertTriangle } from "lucide-react"
-import { useState } from "react"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select"
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "../components/ui/card";
+import { LineChart } from "../components/charts/LineChart";
+import { PieChart } from "../components/charts/PieChart";
+import { StatCard } from "../components/dashboard/StatCard";
+import {
+  healthMetrics,
+  monthlyTrends,
+  ghanaRegions,
+  hotspots,
+  diseases_,
+  years,
+} from "../data/dummyData";
+import {
+  Activity,
+  HeartPulse,
+  TrendingUp,
+  Users,
+  MapPin,
+  AlertTriangle,
+} from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../components/ui/select";
+import { useDiseaseYears } from "../data/all_years";
+import { useDiseases } from "../data/all_dseases";
+import { useDashboardData } from "../data/dashboard_data";
+import { useState, useEffect } from "react";
+import { Loader2 } from "lucide-react";
+import api from "../api";
+import { useQuery } from "@tanstack/react-query";
+import { data } from "react-router-dom";
 
 const UserDashboard = () => {
-  const [selectedRegion, setSelectedRegion] = useState("Greater Accra")
+  // const [dashboardData, setDashboardData] = useState(null);
 
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState(null);
+
+  // const getDashBoardData = async () => {
+  //   try {
+  //     setLoading(true);
+  //     const response = await api.get("diseases/dashboard/?year=2025");
+  //     setDashboardData(response.data);
+  //   } catch (error) {
+  //     setError(error.message);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   getDashBoardData();
+  // }, []);
+
+  const [dashboard, setDashboard] = useState("");
+  const [selectedRegion, setSelectedRegion] = useState("Greater Accra");
+
+  const [selectedDisease, setSelectedDisease] = useState(() => {
+    return localStorage.getItem("selectedDisease") || "Diabetes";
+  });
+  const [selectedDiseaseYear, setSelectedDiseaseYear] = useState(() => {
+    return (
+      localStorage.getItem("selectedDiseaseYear") || new Date().getFullYear()
+    );
+  });
+  const { data: diseases, isLoading: isDiseasesLoading, error } = useDiseases();
+
+  const selectedDiseaseId = diseases?.find(
+    (disease) => disease.disease_name === selectedDisease
+  )?.id;
+
+  const {
+    data: diseaseYears,
+    isLoading: isDiseaseYearsLoading,
+    error: isDiseaseYearsError,
+  } = useDiseaseYears(selectedDiseaseId);
+
+  const {
+    data: dashboardData,
+    isLoading: isDashboardDataLoading,
+    error: isDashboardDataError,
+  } = useDashboardData(selectedDisease ,selectedDiseaseYear);
+  // const {data: diseaseYears, isLoading, error} = useDiseaseYears()
   // Transform monthly trends data for the selected region
-  const regionTrends = monthlyTrends.map(trend => ({
+  const regionTrends = monthlyTrends.map((trend) => ({
     month: trend.month,
-    diabetes: Math.round(trend.diabetes * (selectedRegion === "All Regions" ? 1 : 0.15)),
-    malaria: Math.round(trend.malaria * (selectedRegion === "All Regions" ? 1 : 0.15))
-  }))
+    diabetes: Math.round(
+      trend.diabetes * (selectedRegion === "All Regions" ? 1 : 0.15)
+    ),
+    malaria: Math.round(
+      trend.malaria * (selectedRegion === "All Regions" ? 1 : 0.15)
+    ),
+  }));
 
   // Disease distribution data
   const diseaseDistribution = [
     { name: "Diabetes", value: 35 },
     { name: "Malaria", value: 45 },
-    { name: "Other", value: 20 }
-  ]
+    { name: "Other", value: 20 },
+  ];
 
   // Get hotspots for selected region
-  const regionHotspots = selectedRegion === "All Regions" 
-    ? hotspots 
-    : hotspots.filter(hotspot => hotspot.region === selectedRegion)
+  const regionHotspots =
+    selectedRegion === "All Regions"
+      ? hotspots
+      : hotspots.filter((hotspot) => hotspot.region === selectedRegion);
 
+  const handleDiseaseChange = (value) => {
+    setSelectedDisease(value);
+    localStorage.setItem("selectedDisease", value);
+  };
+
+  const handleDiseaseYearChange = (value) => {
+    setSelectedDiseaseYear(value);
+    localStorage.setItem("selectedDiseaseYear", value);
+  };
   return (
     <div className="p-6 space-y-6">
       <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-gray-900">My Health Dashboard</h1>
-        <Select value={selectedRegion} onValueChange={setSelectedRegion}>
-          <SelectTrigger className="w-[180px]">
-            <SelectValue placeholder="Select Region" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="All Regions">All Regions</SelectItem>
-            {ghanaRegions.map(region => (
-              <SelectItem key={region} value={region}>{region}</SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+        <h1 className="text-2xl font-bold text-gray-900">
+          My Health Dashboard
+        </h1>
+        <div className="flex">
+          {/* Diseases available */}
+          <Select value={selectedDisease} onValueChange={handleDiseaseChange}>
+            <SelectTrigger className="w-[180px] mr-5">
+              <SelectValue placeholder="Select Disease" />
+            </SelectTrigger>
+            <SelectContent>
+              {isDiseasesLoading ? (
+                <SelectItem value="loading" disabled>
+                  Loading diseases...
+                </SelectItem>
+              ) : (
+                <>
+                  {diseases?.find(
+                    (disease) => disease.disease_name === "Diabetes"
+                  ) && <SelectItem value="Diabetes">Diabetes</SelectItem>}
+                  {Array.isArray(diseases) &&
+                    diseases
+                      .filter((disease) => disease.disease_name !== "Diabetes")
+                      .map((disease) => (
+                        <SelectItem
+                          key={disease.id}
+                          value={disease.disease_name}
+                        >
+                          {disease.disease_name}
+                        </SelectItem>
+                      ))}
+                </>
+              )}
+            </SelectContent>
+          </Select>
+          {/* Years available per year*/}
+          <Select
+            value={selectedDiseaseYear}
+            onValueChange={handleDiseaseYearChange}
+          >
+            <SelectTrigger className="w-[150px] mr-5">
+              <SelectValue placeholder="Select Year" />
+            </SelectTrigger>
+            <SelectContent>
+              {isDiseaseYearsLoading ? (
+                <SelectItem value="loading" disabled>
+                  Loading years...
+                </SelectItem>
+              ) : (
+                <>
+                  <SelectItem value="all">All Years</SelectItem>
+                  {diseaseYears?.find(
+                    (disease) => disease.periodname === 2025
+                  ) && <SelectItem value="2025">2025</SelectItem>}
+                  {Array.isArray(diseaseYears) &&
+                    diseaseYears
+                      .filter((diseaseYear) => diseaseYear.periodname !== 2025)
+                      .map((diseaseYear) => (
+                        <SelectItem
+                          key={diseaseYear.id}
+                          value={diseaseYear.periodname}
+                        >
+                          {diseaseYear.periodname}
+                        </SelectItem>
+                      ))}
+                </>
+              )}
+            </SelectContent>
+          </Select>
+
+          {/* <Select value={selectedRegion} onValueChange={setSelectedRegion}>
+            <SelectTrigger className="w-[180px]">
+              <SelectValue placeholder="Select Region" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="All Regions">All Regions</SelectItem>
+              {ghanaRegions.map((region) => (
+                <SelectItem key={region} value={region}>
+                  {region}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select> */}
+        </div>
       </div>
-      
+
       {/* Stats Overview */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <StatCard
@@ -60,15 +225,33 @@ const UserDashboard = () => {
           description="Based on your region"
           icon={<Activity className="h-4 w-4 text-blue-500" />}
         />
+
         <StatCard
-          title="Monthly Cases"
-          value={regionTrends[regionTrends.length - 1].diabetes}
-          description="Diabetes cases in your region"
-          icon={<TrendingUp className="h-4 w-4 text-orange-500" />}
+          title={
+            dashboardData?.diabetes
+              ? `${dashboardData.diabetes.title} - ${dashboardData.diabetes.year}`
+              : "Loading..."
+          }
+          value={isDashboardDataLoading ? "..." : dashboardData?.diabetes?.total_count}
+          description={
+            isDashboardDataLoading ? "Loading data..." : "Diabetes cases in your region"
+          }
+          icon={
+            isDashboardDataLoading ? (
+              <Loader2 className="h-4 w-4 animate-spin text-gray-500" />
+            ) : (
+              <TrendingUp className="h-4 w-4 text-orange-500" />
+            )
+          }
+          isLoading={isDashboardDataLoading}
+          error={error}
         />
         <StatCard
           title="Population at Risk"
-          value={Math.round(healthMetrics.populationAtRisk * (selectedRegion === "All Regions" ? 1 : 0.15))}
+          value={Math.round(
+            healthMetrics.populationAtRisk *
+              (selectedRegion === "All Regions" ? 1 : 0.15)
+          )}
           description="In your region"
           icon={<Users className="h-4 w-4 text-purple-500" />}
         />
@@ -118,11 +301,15 @@ const UserDashboard = () => {
                 className="flex items-start space-x-4 p-4 rounded-lg border"
               >
                 <div className="flex-shrink-0">
-                  <AlertTriangle className={`h-5 w-5 ${
-                    hotspot.severity === "high" ? "text-red-500" :
-                    hotspot.severity === "medium" ? "text-yellow-500" :
-                    "text-green-500"
-                  }`} />
+                  <AlertTriangle
+                    className={`h-5 w-5 ${
+                      hotspot.severity === "high"
+                        ? "text-red-500"
+                        : hotspot.severity === "medium"
+                        ? "text-yellow-500"
+                        : "text-green-500"
+                    }`}
+                  />
                 </div>
                 <div>
                   <h3 className="font-medium">{hotspot.region}</h3>
@@ -186,7 +373,7 @@ const UserDashboard = () => {
         </CardContent>
       </Card>
     </div>
-  )
-}
+  );
+};
 
-export default UserDashboard 
+export default UserDashboard;

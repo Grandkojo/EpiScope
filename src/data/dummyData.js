@@ -12,6 +12,21 @@ export const ghanaRegions = [
   "Brong Ahafo",
 ]
 
+export const diseases_ = [
+  "Diabetes",
+  "Malaria",
+  "Cholera"
+]
+
+export const years = [
+  2025,
+  2024,
+  2023,
+  2022,
+  2021,
+  2020
+]
+
 export const diabetesData = [
   { region: "Greater Accra", cases: 15420, population: 5455692, rate: 2.83, month: "Jan" },
   { region: "Ashanti", cases: 12890, population: 4780380, rate: 2.7, month: "Jan" },
