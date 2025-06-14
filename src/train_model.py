@@ -1,7 +1,6 @@
 import pandas as pd
-from models.disease_monitor import DiseaseMonitor
 import logging
-
+from src.models.disease_monitor import DiseaseMonitor
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,

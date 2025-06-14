@@ -3,3 +3,6 @@ node_modules/
 logs/
 disease_monitor.log
 training.log
+rr/
+.env
+.env.local
