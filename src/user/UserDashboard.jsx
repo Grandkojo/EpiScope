@@ -69,7 +69,7 @@ const UserDashboard = () => {
   });
   const [selectedDiseaseYear, setSelectedDiseaseYear] = useState(() => {
     return (
-      localStorage.getItem("selectedDiseaseYear") || new Date().getFullYear()
+      localStorage.getItem("selectedDiseaseYear") || String(new Date().getFullYear())
     );
   });
   const { data: diseases, isLoading: isDiseasesLoading, error } = useDiseases();
