@@ -6,3 +6,14 @@ training.log
 rr/
 .env
 .env.local
+frontend/
+*.log
+*.log.*
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+*.pyw
+*.pyz
+*.pywz
+*.pyzw

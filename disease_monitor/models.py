@@ -33,17 +33,39 @@ class MeningitisData(models.Model):
     meningococcal_meningitis_cases_cds = models.IntegerField(db_column="Meningococcal meningitis cases (CDS)")
     meningococcal_meningitis_deaths = models.IntegerField(db_column="Meningococcal meningitis deaths")
 
-   
-
     class Meta:
-        db_table = "meningitis"
+        db_table = 'meningitis'
+        verbose_name = 'Meningitis Data'
+        verbose_name_plural = 'Meningitis Data'
         managed = False
-        verbose_name = "Meningitis Data"
-        verbose_name_plural = "Meningitis Data"
         ordering = ['-periodname']
 
     def __str__(self):
         return f"Meningitis Data for {self.periodname}"
+
+class CholeraData(models.Model):
+    periodname = models.CharField(max_length=100)
+    cholera_female = models.IntegerField(db_column="Cholera - Female", null=True)
+    cholera_male = models.IntegerField(db_column="Cholera - Male", null=True)
+    cholera_deaths_cds = models.IntegerField(db_column="Cholera Deaths (CDS)", null=True)
+    cholera_cases_cds = models.IntegerField(db_column="Cholera cases (CDS)", null=True)
+    cholera_cases_weekly = models.IntegerField(db_column="Cholera cases (weekly)", null=True)
+    cholera_deaths_weekly = models.IntegerField(db_column="Cholera deaths (weekly)", null=True)
+    cholera_lab_confirmed = models.IntegerField(db_column="Cholera lab confirmed cases", null=True)
+    cholera_lab_confirmed_weekly = models.IntegerField(db_column="Cholera lab confirmed cases (weekly)", null=True)
+    cholera_waho_cases = models.IntegerField(db_column="WAHO/OOAS Cholera cases", null=True)
+
+    class Meta:
+        db_table = 'cholera'
+        verbose_name = 'Cholera Data'
+        verbose_name_plural = 'Cholera Data'
+        managed = False
+        ordering = ['-periodname']
+
+    def __str__(self):
+        return f"Cholera Data - {self.periodname}"
+
+
 
 class Disease(models.Model):
     disease_name = models.CharField(max_length=100)

@@ -1,5 +1,5 @@
 from django.core.cache import cache
-from disease_monitor.models import DiabetesData, Disease, DiseaseYear, MeningitisData
+from disease_monitor.models import DiabetesData, Disease, DiseaseYear, MeningitisData, CholeraData
 
 def get_cache_key(year):
     return f'dashboard_counts_{year}'
@@ -37,6 +37,21 @@ def get_disease_data(disease_name, year):
             "lab_confirmed_cases_count_weekly": MeningitisData.objects.filter(periodname=year, meningococcal_meningitis_lab_confirmed_cases_weekly__isnull=False).values_list('meningococcal_meningitis_lab_confirmed_cases_weekly', flat=True).first(),
             "cases_cds_count": MeningitisData.objects.filter(periodname=year, meningococcal_meningitis_cases_cds__isnull=False).values_list('meningococcal_meningitis_cases_cds', flat=True).first(),
             "deaths_count": MeningitisData.objects.filter(periodname=year, meningococcal_meningitis_deaths__isnull=False).values_list('meningococcal_meningitis_deaths', flat=True).first()
+        }
+    elif disease_name == "Cholera":
+        return {
+            "title": "Summary of Cholera Cases",
+            "year": year,
+            "total_count": CholeraData.objects.filter(periodname=year).values_list('cholera_cases_weekly', flat=True).first(), #for the year
+            "cholera_cases_weekly": CholeraData.objects.filter(periodname=year).values_list('cholera_cases_weekly', flat=True).first(),
+            "cholera_male": CholeraData.objects.filter(periodname=year, cholera_male__isnull=False).values_list('cholera_male', flat=True).first(),
+            "cholera_female": CholeraData.objects.filter(periodname=year, cholera_female__isnull=False).values_list('cholera_female', flat=True).first(),
+            "cholera_deaths_weekly": CholeraData.objects.filter(periodname=year, cholera_deaths_weekly__isnull=False).values_list('cholera_deaths_weekly', flat=True).first(),
+            "cholera_lab_confirmed": CholeraData.objects.filter(periodname=year, cholera_lab_confirmed__isnull=False).values_list('cholera_lab_confirmed', flat=True).first(),
+            "cholera_lab_confirmed_weekly": CholeraData.objects.filter(periodname=year, cholera_lab_confirmed_weekly__isnull=False).values_list('cholera_lab_confirmed_weekly', flat=True).first(),
+            "cholera_cases_cds": CholeraData.objects.filter(periodname=year, cholera_cases_cds__isnull=False).values_list('cholera_cases_cds', flat=True).first(),
+            "cholera_deaths_cds": CholeraData.objects.filter(periodname=year, cholera_deaths_cds__isnull=False).values_list('cholera_deaths_cds', flat=True).first(),
+            "cholera_waho_cases": CholeraData.objects.filter(periodname=year, cholera_waho_cases__isnull=False).values_list('cholera_waho_cases', flat=True).first()
         }
     return None
 
