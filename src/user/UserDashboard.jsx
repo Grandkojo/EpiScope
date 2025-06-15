@@ -34,7 +34,7 @@ import { useDiseaseYears } from "../data/all_years";
 import { useDiseases } from "../data/all_dseases";
 import { useDashboardData } from "../data/dashboard_data";
 import { useState, useEffect } from "react";
-import { Loader2 } from "lucide-react";
+import { Loader2, AlertCircle } from "lucide-react";
 import api from "../api";
 import { useQuery } from "@tanstack/react-query";
 import { data } from "react-router-dom";
@@ -67,9 +67,11 @@ const UserDashboard = () => {
   const [selectedDisease, setSelectedDisease] = useState(() => {
     return localStorage.getItem("selectedDisease") || "Diabetes";
   });
+  const selectedDiseaseL = selectedDisease.toLowerCase();
   const [selectedDiseaseYear, setSelectedDiseaseYear] = useState(() => {
     return (
-      localStorage.getItem("selectedDiseaseYear") || String(new Date().getFullYear())
+      localStorage.getItem("selectedDiseaseYear") ||
+      String(new Date().getFullYear())
     );
   });
   const { data: diseases, isLoading: isDiseasesLoading, error } = useDiseases();
@@ -88,7 +90,7 @@ const UserDashboard = () => {
     data: dashboardData,
     isLoading: isDashboardDataLoading,
     error: isDashboardDataError,
-  } = useDashboardData(selectedDisease ,selectedDiseaseYear);
+  } = useDashboardData(selectedDisease, selectedDiseaseYear);
   // const {data: diseaseYears, isLoading, error} = useDiseaseYears()
   // Transform monthly trends data for the selected region
   const regionTrends = monthlyTrends.map((trend) => ({
@@ -123,6 +125,7 @@ const UserDashboard = () => {
     setSelectedDiseaseYear(value);
     localStorage.setItem("selectedDiseaseYear", value);
   };
+
   return (
     <div className="p-6 space-y-6">
       <div className="flex justify-between items-center">
@@ -226,26 +229,45 @@ const UserDashboard = () => {
           icon={<Activity className="h-4 w-4 text-blue-500" />}
         />
 
+        {/* Display counts */}
         <StatCard
           title={
-            dashboardData?.diabetes
-              ? `${dashboardData.diabetes.title} - ${dashboardData.diabetes.year}`
+            dashboardData?.error
+              ? "Error"
+              : dashboardData?.[selectedDiseaseL]
+              ? `${dashboardData?.[selectedDiseaseL]?.title} - ${
+                  dashboardData?.[selectedDiseaseL]?.year
+                }`
               : "Loading..."
           }
-          value={isDashboardDataLoading ? "..." : dashboardData?.diabetes?.total_count}
+          value={
+            isDashboardDataLoading
+              ? "..."
+              : dashboardData?.error
+              ? "No data"
+              : dashboardData?.[selectedDiseaseL]?.total_count || 0
+          }
           description={
-            isDashboardDataLoading ? "Loading data..." : "Diabetes cases in your region"
+            isDashboardDataLoading
+              ? "Loading data..."
+              : dashboardData?.error
+              ? dashboardData.error
+              : `${selectedDisease} cases in your region`
           }
           icon={
             isDashboardDataLoading ? (
               <Loader2 className="h-4 w-4 animate-spin text-gray-500" />
+            ) : dashboardData?.error ? (
+              <AlertCircle className="h-4 w-4 text-red-500" />
             ) : (
               <TrendingUp className="h-4 w-4 text-orange-500" />
             )
           }
           isLoading={isDashboardDataLoading}
-          error={error}
+          error={dashboardData?.error || error}
         />
+
+
         <StatCard
           title="Population at Risk"
           value={Math.round(
