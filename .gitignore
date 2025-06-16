@@ -16,4 +16,5 @@ __pycache__/
 *.pyw
 *.pyz
 *.pywz
-*.pyzw
+*.
+test_gemini.py

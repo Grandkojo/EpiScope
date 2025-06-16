@@ -9,9 +9,10 @@ from .serializers import DiseaseSerializer, DiseaseYearSerializer
 class EpidemicDashboardView(APIView):
     def get(self, request):
         year = request.query_params.get('year', 2025)
+        previous_year = request.query_params.get('prev_year', None)
         disease_name = request.query_params.get('disease_name', None)
         region = request.query_params.get('region', None)
-        return Response(get_dashboard_counts(int(year), disease_name, region))
+        return Response(get_dashboard_counts(int(year), previous_year, disease_name, region))
     
 class DiseaseYearsView(APIView):
     serializer_class = DiseaseYearSerializer

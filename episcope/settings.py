@@ -160,3 +160,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+GCP_PROJECT_ID = os.getenv('GCP_PROJECT_ID')
+GCP_LOCATION = os.getenv('GCP_LOCATION')
+# GCP_MODEL_NAME = os.getenv('GCP_MODEL_NAME')
+# GCP_MODEL_VERSION = os.getenv('GCP_MODEL_VERSION')

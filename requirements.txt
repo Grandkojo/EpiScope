@@ -16,3 +16,4 @@ PyJWT
 psycopg2-binary
 daphne
 channels
+google-cloud-aiplatform
