@@ -159,10 +159,69 @@ export default function SignupPage() {
       </header>
 
       {/* Main content */}
+      
       <div className="relative z-10 flex items-center justify-center min-h-[calc(100vh-80px)] p-6">
-        <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-30 items-center">
+      
+          {/* Right side - Branding */}
+          <div className="text-center lg:text-left order-1 lg:order-1">
+            <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
+              Join the{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
+                EpiScope
+              </span>{" "}
+              community
+            </h1>
+
+            <p className="text-gray-700 text-lg mb-8 max-w-md mx-auto lg:mx-0">
+              Create an account to access powerful epidemic monitoring tools and join healthcare professionals
+              worldwide.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto lg:mx-0">
+              <div className="bg-white/20 backdrop-blur-sm p-4 rounded-lg border border-white/20">
+                <div className="bg-green-100 p-2 rounded-full w-fit mb-3">
+                  <svg className="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <div className="font-medium text-gray-900">Real-time Analytics</div>
+                <div className="text-sm text-gray-600">Track disease patterns as they emerge</div>
+              </div>
+
+              <div className="bg-white/20 backdrop-blur-sm p-4 rounded-lg border border-white/20">
+                <div className="bg-blue-100 p-2 rounded-full w-fit mb-3">
+                  <svg className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <div className="font-medium text-gray-900">Predictive Modeling</div>
+                <div className="text-sm text-gray-600">Forecast potential outbreak patterns</div>
+              </div>
+
+              {/* <div className="bg-white/20 backdrop-blur-sm p-4 rounded-lg border border-white/20">
+                <div className="bg-purple-100 p-2 rounded-full w-fit mb-3">
+                  <svg className="h-6 w-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <div className="font-medium text-gray-900">Global Coverage</div>
+                <div className="text-sm text-gray-600">Monitor epidemics across 89+ countries</div>
+              </div> */}
+
+              {/* <div className="bg-white/20 backdrop-blur-sm p-4 rounded-lg border border-white/20">
+                <div className="bg-indigo-100 p-2 rounded-full w-fit mb-3">
+                  <svg className="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <div className="font-medium text-gray-900">Secure Data</div>
+                <div className="text-sm text-gray-600">Enterprise-grade security protocols</div>
+              </div> */}
+            </div>
+          </div>
           {/* Left side - Signup form */}
-          <div className="flex justify-center lg:justify-start order-2 lg:order-1">
+          <div className="flex justify-center lg:justify-start order-2 lg:order-2">
             <div className="w-full max-w-md">
               <Card className="backdrop-blur-md bg-white/30 border-white/20 shadow-2xl">
                 <CardContent className="pt-6">
@@ -387,63 +446,6 @@ export default function SignupPage() {
             </div>
           </div>
 
-          {/* Right side - Branding */}
-          <div className="text-center lg:text-left order-1 lg:order-2">
-            <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
-              Join the{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
-                EpiScope
-              </span>{" "}
-              community
-            </h1>
-
-            <p className="text-gray-700 text-lg mb-8 max-w-md mx-auto lg:mx-0">
-              Create an account to access powerful epidemic monitoring tools and join healthcare professionals
-              worldwide.
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto lg:mx-0">
-              <div className="bg-white/20 backdrop-blur-sm p-4 rounded-lg border border-white/20">
-                <div className="bg-green-100 p-2 rounded-full w-fit mb-3">
-                  <svg className="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <div className="font-medium text-gray-900">Real-time Analytics</div>
-                <div className="text-sm text-gray-600">Track disease patterns as they emerge</div>
-              </div>
-
-              <div className="bg-white/20 backdrop-blur-sm p-4 rounded-lg border border-white/20">
-                <div className="bg-blue-100 p-2 rounded-full w-fit mb-3">
-                  <svg className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <div className="font-medium text-gray-900">Predictive Modeling</div>
-                <div className="text-sm text-gray-600">Forecast potential outbreak patterns</div>
-              </div>
-
-              <div className="bg-white/20 backdrop-blur-sm p-4 rounded-lg border border-white/20">
-                <div className="bg-purple-100 p-2 rounded-full w-fit mb-3">
-                  <svg className="h-6 w-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <div className="font-medium text-gray-900">Global Coverage</div>
-                <div className="text-sm text-gray-600">Monitor epidemics across 89+ countries</div>
-              </div>
-
-              <div className="bg-white/20 backdrop-blur-sm p-4 rounded-lg border border-white/20">
-                <div className="bg-indigo-100 p-2 rounded-full w-fit mb-3">
-                  <svg className="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <div className="font-medium text-gray-900">Secure Data</div>
-                <div className="text-sm text-gray-600">Enterprise-grade security protocols</div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 

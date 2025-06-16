@@ -144,7 +144,7 @@ function ScrollReveal({ children, className, delay = 0 }) {
 function HeartbeatIcon({ className }) {
   return (
     <div className={`${className} animate-heartbeat`}>
-      <Heart className="text-red-500 w-full h-full" />
+      <Heart className="text-green-500 w-full h-full" />
     </div>
   )
 }
@@ -154,12 +154,12 @@ function PulseWave() {
   return (
     <div className="relative h-20 w-full overflow-hidden my-8">
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="h-0.5 w-full bg-gray-200 relative">
+        <div className="h-0.5 w-full bg-gray-250 relative">
           <div className="absolute inset-0">
             {[...Array(5)].map((_, i) => (
               <div
                 key={i}
-                className="absolute h-8 w-8 rounded-full bg-blue-500/10 animate-pulse-wave"
+                className="absolute h-8 w-8 rounded-full bg-blue-500/30 animate-pulse-wave"
                 style={{
                   left: `${20 * i}%`,
                   animationDelay: `${i * 0.2}s`,
@@ -167,13 +167,13 @@ function PulseWave() {
               />
             ))}
           </div>
-          <div className="absolute top-1/2 left-0 w-full h-px bg-blue-500/30 transform -translate-y-1/2">
+          <div className="absolute top-1/2 left-0 w-full h-px bg-blue-300/30 transform -translate-y-1/2">
             <svg height="100%" width="100%" className="absolute">
               <path
                 d="M0,10 L30,10 L40,0 L50,20 L60,10 L70,10 L80,0 L90,20 L100,10 L110,10"
                 fill="none"
                 stroke="rgba(59, 130, 246, 0.8)"
-                strokeWidth="2"
+                strokeWidth="5"
                 className="animate-pulse-line"
               />
             </svg>
@@ -242,13 +242,13 @@ export default function Landing() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-150 relative overflow-hidden">
       <AnimatedBackground />
 
       {/* Navigation */}
       <nav className="relative z-10 flex items-center justify-between p-6 bg-white/80 backdrop-blur-sm border-b border-blue-100">
         <div className="flex items-center space-x-2">
-          <Microscope className="h-8 w-8 text-blue-600" />
+          <Microscope className="h-8 w-8 text-green-600" />
           <span className="text-2xl font-bold text-gray-900">EpiScope</span>
         </div>
         <div className="hidden md:flex items-center space-x-8">
@@ -271,14 +271,14 @@ export default function Landing() {
           <ScrollReveal>
             <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
               Advanced Epidemic
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-600 block">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600 block">
                 Monitoring System
               </span>
             </h1>
           </ScrollReveal>
 
           <ScrollReveal delay={200}>
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
               Real-time tracking and analysis of disease outbreaks with AI-powered insights to protect communities and
               save lives.
             </p>
@@ -286,7 +286,7 @@ export default function Landing() {
 
           <ScrollReveal delay={400}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg">
+              <Button size="lg" className="bg-green-600 hover:bg-blue-700 text-white px-8 py-4 text-lg">
                 Access Dashboard
                 <Zap className="ml-2 h-5 w-5" />
               </Button>
@@ -320,7 +320,7 @@ export default function Landing() {
               <ScrollReveal key={index} delay={index * 100}>
                 <Card className="text-center bg-white/80 backdrop-blur-sm border-blue-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                   <CardContent className="p-6">
-                    <stat.icon className="h-8 w-8 text-blue-600 mx-auto mb-4" />
+                    <stat.icon className="h-8 w-8 text-green-600 mx-auto mb-4" />
                     <div className="text-3xl font-bold text-gray-900 mb-2">
                       <AnimatedCounter end={stat.value} />
                     </div>
@@ -349,9 +349,9 @@ export default function Landing() {
               <div className="bg-white/80 backdrop-blur-sm rounded-lg p-2 border border-blue-100 overflow-x-auto">
                 <div className="flex gap-1 min-w-max">
                   {[
-                    { key: "diabetes", label: "Diabetes", color: "bg-blue-500" },
-                    { key: "malaria", label: "Malaria", color: "bg-green-500" },
-                    { key: "cholera", label: "Cholera", color: "bg-red-500" },
+                    { key: "diabetes", label: "Diabetes", color: "bg-green-500" },
+                    { key: "malaria", label: "Malaria", color: "bg-gray-500" },
+                    { key: "cholera", label: "Cholera", color: "bg-green-500" },
                   ].map((disease) => (
                     <button
                       key={disease.key}
@@ -374,10 +374,10 @@ export default function Landing() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-7xl mx-auto">
             {/* Line Chart */}
             <ScrollReveal delay={300}>
-              <Card className="bg-white/80 backdrop-blur-sm border-blue-100 h-full min-h-[450px]">
+              <Card className="bg-white/80 backdrop-blur-sm border-green-100 h-full min-h-[450px]">
                 <CardHeader className="pb-4">
                   <CardTitle className="flex items-center gap-2 text-lg">
-                    <TrendingUp className="h-5 w-5 text-blue-600" />
+                    <TrendingUp className="h-5 w-5 text-green-600" />
                     Cases Trend - {activeChart.charAt(0).toUpperCase() + activeChart.slice(1)}
                   </CardTitle>
                   <CardDescription className="text-sm">Monthly progression over the last 6 months</CardDescription>
@@ -511,7 +511,7 @@ export default function Landing() {
               <ScrollReveal key={index} delay={index * 100}>
                 <Card className="bg-white/80 backdrop-blur-sm border-blue-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                   <CardContent className="p-6 text-center">
-                    <feature.icon className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+                    <feature.icon className="h-12 w-12 text-green-600 mx-auto mb-4" />
                     <h3 className="text-xl font-semibold text-gray-900 mb-3">{feature.title}</h3>
                     <p className="text-gray-600">{feature.description}</p>
                   </CardContent>
@@ -550,7 +550,7 @@ export default function Landing() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-12 py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                className="bg-gradient-to-r from-green-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-12 py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 Launch Dashboard
                 <Activity className="ml-2 h-5 w-5" />
@@ -569,7 +569,7 @@ export default function Landing() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <Microscope className="h-6 w-6 text-blue-400" />
+                <Microscope className="h-6 w-6 text-green-400" />
                 <span className="text-xl font-bold">EpiScope</span>
               </div>
               <p className="text-gray-400">Advanced epidemic monitoring for a healthier world.</p>
@@ -603,11 +603,11 @@ export default function Landing() {
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  {/* <a href="#" className="hover:text-white transition-colors">
                     Careers
                   </a>
                 </li>
-                <li>
+                <li> */}
                   <a href="#" className="hover:text-white transition-colors">
                     Contact
                   </a>
