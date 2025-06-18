@@ -8,8 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "dev:prod": "VITE_API_URL=http://34.61.75.3/api/ vite"
-
+    "dev:prod": "cross-env VITE_API_URL=http://34.61.75.3/api/ vite"
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.3.2",
@@ -36,6 +35,7 @@
     "@types/react": "^19.1.6",
     "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react": "^4.4.1",
+    "cross-env": "^7.0.3",
     "eslint": "^9.25.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
