@@ -222,7 +222,7 @@ export default function SignupPage() {
           </div>
           {/* Left side - Signup form */}
           <div className="flex justify-center lg:justify-start order-2 lg:order-2">
-            <div className="w-full max-w-m">
+            <div className="w-full max-w-md">
               <Card className="backdrop-blur-md bg-white/30 border-white/20 shadow-2xl">
                 <CardContent className="pt-2">
                   <div className="text-center mb-6">
