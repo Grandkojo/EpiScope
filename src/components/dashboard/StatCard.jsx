@@ -31,7 +31,7 @@ const StatCard = ({ title, value, description, icon, isLoading, error }) => {
       </CardHeader>
       <CardContent>
         <div className="text-2xl font-bold">{isLoading ? "..." : value}</div>
-        <p className="text-xs text-muted-foreground">
+        <p className="text-xs pt-1 text-muted-foreground">
           {isLoading ? "Loading data..." : description}
         </p>
       </CardContent>
