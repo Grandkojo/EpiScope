@@ -38,6 +38,8 @@ import { Loader2, AlertCircle } from "lucide-react";
 import api from "../api";
 import { useQuery } from "@tanstack/react-query";
 import { data } from "react-router-dom";
+import { Skull } from "lucide-react";
+
 
 const UserDashboard = () => {
   // const [dashboardData, setDashboardData] = useState(null);
@@ -269,13 +271,15 @@ const UserDashboard = () => {
 
 
         <StatCard
-          title="Population at Risk"
+          title="Death Counts"
           value={Math.round(
             healthMetrics.populationAtRisk *
               (selectedRegion === "All Regions" ? 1 : 0.15)
           )}
           description="In your region"
-          icon={<Users className="h-4 w-4 text-purple-500" />}
+          // icon={<Users className="h-4 w-4 text-purple-500" />}
+          icon={<Skull className="h-5 w-5 text-red-600" />}
+
         />
       </div>
 
