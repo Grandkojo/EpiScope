@@ -28,5 +28,9 @@ disease_monitor/
 episcope/
 episcope_env/
 src/data/dummyData.js
+<<<<<<< Updated upstream
 .env.production
 .env
+=======
+.env.production
+>>>>>>> Stashed changes

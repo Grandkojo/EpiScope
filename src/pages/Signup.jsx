@@ -167,7 +167,7 @@ export default function SignupPage() {
           <div className="text-center lg:text-left order-1 lg:order-1">
             <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
               Join the{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-600">
                 EpiScope
               </span>{" "}
               community
@@ -190,8 +190,8 @@ export default function SignupPage() {
               </div>
 
               <div className="bg-white/20 backdrop-blur-sm p-4 rounded-lg border border-white/20">
-                <div className="bg-blue-100 p-2 rounded-full w-fit mb-3">
-                  <svg className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="bg-green-100 p-2 rounded-full w-fit mb-3">
+                  <svg className="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
@@ -224,14 +224,14 @@ export default function SignupPage() {
           <div className="flex justify-center lg:justify-start order-2 lg:order-2">
             <div className="w-full max-w-md">
               <Card className="backdrop-blur-md bg-white/30 border-white/20 shadow-2xl">
-                <CardContent className="pt-6">
+                <CardContent className="pt-2">
                   <div className="text-center mb-6">
                     <h2 className="text-2xl font-bold text-gray-900">Create an Account</h2>
                     <p className="text-gray-600 mt-1">Join EpiScope to start monitoring epidemic data</p>
                   </div>
 
-                  <form onSubmit={handleSignupSubmit} className="mt-6">
-                    <div className="grid gap-6">
+                  <form onSubmit={handleSignupSubmit} className="mt-4">
+                    <div className="grid gap-2">
                       <div className="grid gap-3">
                         <Label htmlFor="signup-name" className="text-sm font-medium text-gray-900">
                           Full Name

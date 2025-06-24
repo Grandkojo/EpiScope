@@ -87,7 +87,7 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen bg-white/10 backdrop-blur-md relative overflow-hidden">
       {/* Full background with glass effect */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-purple-500/10 to-green-500/20"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-green-500/10 to-green-500/20"></div>
 
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -127,14 +127,14 @@ export default function LoginPage() {
       <header className="relative z-20 px-6 py-4 border-b border-white/10">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Microscope className="h-8 w-8 text-blue-600" />
+            <Microscope className="h-8 w-8 text-green-600" />
             <span className="text-2xl font-bold text-gray-900">EpiScope</span>
           </div>
           <div className="flex items-center gap-4">
-            <Link href="/signup" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">
+            <Link href="/signup" className="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">
               Sign Up
             </Link>
-            <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
+            <Button size="sm" className="bg-green-600 hover:bg-green-700">
               Sign In
             </Button>
           </div>
@@ -148,7 +148,7 @@ export default function LoginPage() {
           <div className="text-center lg:text-left">
             <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
               Welcome back to{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-600">
                 EpiScope
               </span>
             </h1>
@@ -159,8 +159,8 @@ export default function LoginPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto lg:mx-0">
               <div className="bg-white/20 backdrop-blur-sm p-4 rounded-lg border border-white/20">
-                <div className="bg-blue-100 p-2 rounded-full w-fit mb-3">
-                  <svg className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="bg-green-50 p-2 rounded-full w-fit mb-3">
+                  <svg className="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -174,8 +174,8 @@ export default function LoginPage() {
               </div>
 
               <div className="bg-white/20 backdrop-blur-sm p-4 rounded-lg border border-white/20">
-                <div className="bg-purple-100 p-2 rounded-full w-fit mb-3">
-                  <svg className="h-6 w-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="bg-green-50 p-2 rounded-full w-fit mb-3">
+                  <svg className="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
@@ -229,7 +229,7 @@ export default function LoginPage() {
                           <Label htmlFor="login-password" className="text-sm font-medium text-gray-900">
                             Password
                           </Label>
-                          <a href="#" className="text-sm font-medium text-blue-600 hover:text-blue-500">
+                          <a href="#" className="text-sm font-medium text-green-600 hover:text-green-500">
                             Forgot password?
                           </a>
                         </div>
@@ -275,7 +275,7 @@ export default function LoginPage() {
                         </Label>
                       </div>
 
-                      <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700" disabled={isLoading}>
+                      <Button type="submit" className="w-full bg-green-600 hover:bg-green-700" disabled={isLoading}>
                         {isLoading ? (
                           <div className="flex items-center">
                             <div className="animate-spin mr-2 h-4 w-4 border-2 border-b-transparent border-white rounded-full"></div>
@@ -331,7 +331,7 @@ export default function LoginPage() {
                 <CardFooter className="flex justify-center pb-6">
                   <p className="text-sm text-gray-600">
                     Don't have an account?{" "}
-                    <Link href="/signup" className="text-blue-600 hover:text-blue-500 font-medium">
+                    <Link href="/signup" className="text-green-600 hover:text-green-500 font-medium">
                       Sign up
                     </Link>
                   </p>
