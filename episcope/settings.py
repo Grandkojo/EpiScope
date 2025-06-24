@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import os
 from dotenv import load_dotenv
-
+from datetime import timedelta
 load_dotenv(override=True)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,12 +24,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-p+w$#e+@8hq08wt!d$ohmm3cvq3!wno_p7+f)k7%9+gh+f)mt5'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
 ALLOWED_HOSTS = ["127.0.0.1", "localhost", os.getenv('P_IP')]
+
+AUTH_USER_MODEL = 'api.User'
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
@@ -51,8 +53,35 @@ INSTALLED_APPS = [
     'disease_monitor',
     'corsheaders',
     'rest_framework',
+    'rest_framework_simplejwt',
     'channels',
 ]
+
+AUTHENTICATION_BACKENDS = [
+    "unique_user_email.backend.EmailBackend",
+    "django.contrib.auth.backends.ModelBackend",
+]
+
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
+SPECTACULAR_SETTINGS = {"TITLE": "EPISCOPE"}
+
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=15),
+    "SLIDING_TOKEN_REFRESH_LIFETIME": timedelta(days=1),
+    "SLIDING_TOKEN_LIFETIME": timedelta(days=30),
+    "SLIDING_TOKEN_REFRESH_LIFETIME_LATE_USER": timedelta(days=1),
+    "SLIDING_TOKEN_LIFETIME_LATE_USER": timedelta(days=30),
+    "ROTATE_REFRESH_TOKENS": True,
+    "BLACKLIST_AFTER_ROTATION": True,
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

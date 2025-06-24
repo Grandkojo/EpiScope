@@ -9,7 +9,6 @@ joblib
 python-multipart
 django
 django-cors-headers
-django-rest-framework
 whitenoise
 python-dotenv
 PyJWT
@@ -17,3 +16,9 @@ psycopg2-binary
 daphne
 channels
 google-cloud-aiplatform
+drf-spectacular
+djangorestframework
+djangorestframework_simplejwt
+pytest 
+pytest-django
+django-unique-user-email

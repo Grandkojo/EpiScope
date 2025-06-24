@@ -1,10 +1,39 @@
 from django.shortcuts import render
 from rest_framework.decorators import api_view
+from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .services.dashboard_data import get_dashboard_counts, get_disease_years, get_disease_all
-from .serializers import DiseaseSerializer, DiseaseYearSerializer
-# Create your views here.
+from .serializers import DiseaseSerializer, DiseaseYearSerializer, UserRegisterSerializer, UserProfileSerializer
+from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework import status
+
+class UserRegisterView(generics.CreateAPIView):
+    serializer_class = UserRegisterSerializer
+    permission_classes = [AllowAny]
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        if serializer.is_valid():
+            user = serializer.save()
+            if user:
+                return Response({"message": "User registered successfully"}, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class UserProfileView(generics.RetrieveUpdateAPIView):
+    serializer_class = UserProfileSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        user = request.user
+        serializer = self.serializer_class(user)
+        return Response(serializer.data)
+    
+    def put(self, request):
+        user = request.user
+        serializer = self.serializer_class(user, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
 
 class EpidemicDashboardView(APIView):
     def get(self, request):

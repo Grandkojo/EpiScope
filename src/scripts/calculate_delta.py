@@ -10,6 +10,8 @@ def calculate_delta(current, previous):
         "direction": direction
     }
 
+def summarize_insights(df, disease, current_year, previous_year=None):
+    pass
 # def summarize_insights(df, disease, current_year, previous_year=None):
 #     row = df[df["periodname"] == current_year].iloc[0]
 #     summary = {
