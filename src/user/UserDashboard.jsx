@@ -19,6 +19,7 @@ import {
   Activity,
   HeartPulse,
   TrendingUp,
+  TrendingDown,
   Users,
   MapPin,
   AlertTriangle,
@@ -249,13 +250,17 @@ const UserDashboard = () => {
               ? "No data"
               : dashboardData?.[selectedDiseaseL]?.total_count || 0
           }
-          description={
+         description={
             isDashboardDataLoading
               ? "Loading data..."
               : dashboardData?.error
-              ? dashboardData.error
-              : `${selectedDisease} cases in your region`
+                ? dashboardData.error
+                : dashboardData?.[selectedDiseaseL]?.delta_vals === 'up'
+                  ? <TrendingUp className="h-4 w-4 text-orange-500"/>
+                  : "No delta rate"
           }
+          
+          
           icon={
             isDashboardDataLoading ? (
               <Loader2 className="h-4 w-4 animate-spin text-gray-500" />

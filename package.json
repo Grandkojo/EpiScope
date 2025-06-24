@@ -8,7 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "dev:prod": "cross-env VITE_API_URL=http://34.61.75.3/api/ vite"
+    "dev:prod": "vite --mode production"
+
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.3.2",

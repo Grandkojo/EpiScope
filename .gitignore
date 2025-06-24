@@ -28,3 +28,5 @@ disease_monitor/
 episcope/
 episcope_env/
 src/data/dummyData.js
+.env.production
+.env
