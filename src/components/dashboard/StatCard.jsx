@@ -2,6 +2,23 @@ import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Loader2 } from "lucide-react";
 
 const StatCard = ({ title, value, description, icon, isLoading, error }) => {
+  // Helper function to extract error message
+  const getErrorMessage = (error) => {
+    if (typeof error === 'string') {
+      return error;
+    }
+    if (error?.message) {
+      return error.message;
+    }
+    if (error?.response?.data?.message) {
+      return error.response.data.message;
+    }
+    if (error?.response?.data?.detail) {
+      return error.response.data.detail;
+    }
+    return 'An error occurred';
+  };
+
   if (error) {
     return (
       <Card className="border-red-200 bg-red-50">
@@ -11,7 +28,7 @@ const StatCard = ({ title, value, description, icon, isLoading, error }) => {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="text-sm text-red-600">{error}</div>
+          <div className="text-sm text-red-600">{getErrorMessage(error)}</div>
         </CardContent>
       </Card>
     );

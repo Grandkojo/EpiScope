@@ -41,9 +41,16 @@ import api from "../api";
 import { useQuery } from "@tanstack/react-query";
 import { data } from "react-router-dom";
 import { Skull } from "lucide-react";
-
+import { useQueuedNotifications } from "../hooks/use-queued-notifications"
 
 const UserDashboard = () => {
+  useQueuedNotifications()
+
+  useEffect(() => {
+    console.log("Dashboard Content mounted")
+    const stored = sessionStorage.getItem("queuedNotifications")
+    console.log("SessionStorage on Dashboard:", stored)
+  }, [])
   // const [dashboardData, setDashboardData] = useState(null);
 
   // const [loading, setLoading] = useState(true);

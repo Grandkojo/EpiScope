@@ -1,23 +1,76 @@
 "use client"
 
 import { useState } from "react"
+import { useMutation } from "@tanstack/react-query"
 import { Button } from "../components/ui/button"
 import { Input } from "../components/ui/input"
 import { Label } from "../components/ui/label"
 import { Checkbox } from "../components/ui/checkbox"
 import { Card, CardContent, CardFooter } from "../components/ui/card"
-import { Eye, EyeOff, Mail, Lock, AlertCircle, ArrowRight, Microscope } from "lucide-react"
+import { Eye, EyeOff, User, Lock, AlertCircle, ArrowRight, Microscope } from "lucide-react"
 import { cn } from "../lib/utils"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"
+import {useCrossPageNotifications} from "../hooks/use-cross-page-notifications"
+import api from "../api"
+import { useQueuedNotifications } from "../hooks/use-queued-notifications"
+// Custom hook for login mutation
+const useLoginMutation = () => {
+  const { showOnNextPage } = useCrossPageNotifications()
+
+  return useMutation({
+    mutationFn: async (loginData) => {
+      const response = await api.post("auth/user/login/", loginData)
+      return response.data
+    },
+    onSuccess: (data) => {
+      if (data.access && data.refresh) {
+        localStorage.setItem('ACCESS_TOKEN', data.access)
+        localStorage.setItem('REFRESH_TOKEN', data.refresh)
+      }
+      showOnNextPage({
+        type: "success",
+        title: "Login successful",
+        message: "You have been logged in successfully",
+        duration: 3000,
+      },
+      "/users/",
+    )
+    },
+    onError: (error) => {
+      console.error("Login error:", error)
+      console.error("Error response:", error.response)
+      
+      if (error.response) {
+        if (error.response.status === 405) {
+          console.error("Method not allowed - server doesn't accept POST on this endpoint")
+        } else if (error.response.status === 400) {
+          const serverErrors = error.response.data
+          console.error("Server validation errors:", serverErrors)
+        } else if (error.response.status === 401) {
+          console.error("Invalid credentials")
+        }
+      } else if (error.request) {
+        console.error("Network error - no response received")
+      } else {
+        console.error("Error setting up request:", error.message)
+      }
+    }
+  })
+}
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
   const [formErrors, setFormErrors] = useState({})
+  useQueuedNotifications()
+
+
+  // Use React Query mutation
+  const loginMutation = useLoginMutation()
+  const isLoading = loginMutation.isPending
 
   // Form state
   const [loginForm, setLoginForm] = useState({
-    email: "",
+    username: "",
     password: "",
     rememberMe: false,
   })
@@ -41,10 +94,8 @@ export default function LoginPage() {
   const validateLoginForm = () => {
     const errors = {}
 
-    if (!loginForm.email) {
-      errors.email = "Email is required"
-    } else if (!/\S+@\S+\.\S+/.test(loginForm.email)) {
-      errors.email = "Email is invalid"
+    if (!loginForm.username) {
+      errors.username = "Username is required"
     }
 
     if (!loginForm.password) {
@@ -54,7 +105,7 @@ export default function LoginPage() {
     return errors
   }
 
-  const handleLoginSubmit = (e) => {
+  const handleLoginSubmit = async (e) => {
     e.preventDefault()
     const errors = validateLoginForm()
 
@@ -63,25 +114,14 @@ export default function LoginPage() {
       return
     }
 
-    setIsLoading(true)
-
-    // Simulate API call
-    setTimeout(() => {
-      console.log("Login form submitted:", loginForm)
-      setIsLoading(false)
-      // Here you would typically redirect or update UI based on successful login
-    }, 1500)
+    // Use React Query mutation
+    loginMutation.mutate(loginForm)
   }
 
   const handleGoogleSignIn = () => {
-    setIsLoading(true)
-
     // Simulate Google sign-in
-    setTimeout(() => {
-      console.log("Google sign-in initiated")
-      setIsLoading(false)
-      // Here you would typically redirect to Google OAuth flow
-    }, 1000)
+    console.log("Google sign-in initiated")
+    // Here you would typically redirect to Google OAuth flow
   }
 
   return (
@@ -131,7 +171,7 @@ export default function LoginPage() {
             <span className="text-2xl font-bold text-gray-900">EpiScope</span>
           </div>
           <div className="flex items-center gap-4">
-            <Link href="/signup" className="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">
+            <Link to="/signup" className="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">
               Sign Up
             </Link>
             <Button size="sm" className="bg-green-600 hover:bg-green-700">
@@ -198,28 +238,28 @@ export default function LoginPage() {
                   <form onSubmit={handleLoginSubmit} className="mt-6">
                     <div className="grid gap-6">
                       <div className="grid gap-3">
-                        <Label htmlFor="login-email" className="text-sm font-medium text-gray-900">
-                          Email
+                        <Label htmlFor="login-username" className="text-sm font-medium text-gray-900">
+                          Username
                         </Label>
                         <div className="relative">
-                          <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 h-4 w-4" />
+                          <User className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 h-4 w-4" />
                           <Input
-                            id="login-email"
-                            name="email"
-                            type="email"
-                            placeholder="name@example.com"
+                            id="login-username"
+                            name="username"
+                            type="username"
+                            placeholder="username"
                             className={cn(
-                              "pl-10 bg-white/50 backdrop-blur-sm border-white/30",
-                              formErrors.email && "border-red-500 focus-visible:ring-red-500",
+                              "pl-10 bg-white/50  border-white/30",
+                              formErrors.username && "border-red-500 focus-visible:ring-red-500",
                             )}
-                            value={loginForm.email}
+                            value={loginForm.username}
                             onChange={handleLoginChange}
                           />
                         </div>
-                        {formErrors.email && (
+                        {formErrors.username && (
                           <div className="flex items-center text-red-600 text-sm">
                             <AlertCircle className="h-4 w-4 mr-1" />
-                            {formErrors.email}
+                            {formErrors.username}
                           </div>
                         )}
                       </div>
@@ -241,7 +281,7 @@ export default function LoginPage() {
                             type={showPassword ? "text" : "password"}
                             placeholder="••••••••"
                             className={cn(
-                              "pl-10 bg-white/50 backdrop-blur-sm border-white/30",
+                              "pl-10 bg-white/50  border-white/30",
                               formErrors.password && "border-red-500 focus-visible:ring-red-500",
                             )}
                             value={loginForm.password}
@@ -275,7 +315,7 @@ export default function LoginPage() {
                         </Label>
                       </div>
 
-                      <Button type="submit" className="w-full bg-green-600 hover:bg-green-700" disabled={isLoading}>
+                      <Button type="submit" className="w-full bg-green-600 cursor-pointer hover:bg-green-700" disabled={isLoading}>
                         {isLoading ? (
                           <div className="flex items-center">
                             <div className="animate-spin mr-2 h-4 w-4 border-2 border-b-transparent border-white rounded-full"></div>
@@ -342,7 +382,7 @@ export default function LoginPage() {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes grid-move {
           0% { transform: translate(0, 0); }
           100% { transform: translate(50px, 50px); }

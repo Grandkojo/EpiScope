@@ -67,7 +67,7 @@ const Dashboard = () => {
         {loading ? (
           <div>Loading...</div>
         ) : error ? (
-          <div>Error: {error} </div>
+          <div>Error: {typeof error === 'string' ? error : error?.message || 'An error occurred'}</div>
         ) : dashboardData?.diabetes ? (
 
           <MetricCard
