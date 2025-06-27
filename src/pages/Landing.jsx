@@ -286,11 +286,11 @@ export default function Landing() {
 
           <ScrollReveal delay={400}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-green-600 hover:bg-blue-700 text-white px-8 py-4 text-lg">
+              <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 text-lg">
                 Access Dashboard
                 <Zap className="ml-2 h-5 w-5" />
               </Button>
-              <Button size="lg" variant="outline" className="px-8 py-4 text-lg">
+              <Button size="lg" variant="outline" className="bg-green-600 hover:bg-green-700 text-white  px-8 py-4 text-lg">
                 Watch Demo
               </Button>
             </div>
@@ -550,7 +550,7 @@ export default function Landing() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-green-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-12 py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                className="bg-gradient-to-r from-green-600 to-green-600 hover:from-green-200 hover:to-green-700 text-white px-12 py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 Launch Dashboard
                 <Activity className="ml-2 h-5 w-5" />

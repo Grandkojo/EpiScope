@@ -1,23 +1,76 @@
 "use client"
 
 import { useState } from "react"
+import { useMutation } from "@tanstack/react-query"
 import { Button } from "../components/ui/button"
 import { Input } from "../components/ui/input"
 import { Label } from "../components/ui/label"
 import { Checkbox } from "../components/ui/checkbox"
 import { Card, CardContent, CardFooter } from "../components/ui/card"
-import { Eye, EyeOff, Mail, Lock, AlertCircle, ArrowRight, Microscope } from "lucide-react"
+import { Eye, EyeOff, User, Lock, AlertCircle, ArrowRight, Microscope } from "lucide-react"
 import { cn } from "../lib/utils"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"
+import {useCrossPageNotifications} from "../hooks/use-cross-page-notifications"
+import api from "../api"
+import { useQueuedNotifications } from "../hooks/use-queued-notifications"
+// Custom hook for login mutation
+const useLoginMutation = () => {
+  const { showOnNextPage } = useCrossPageNotifications()
+
+  return useMutation({
+    mutationFn: async (loginData) => {
+      const response = await api.post("auth/user/login/", loginData)
+      return response.data
+    },
+    onSuccess: (data) => {
+      if (data.access && data.refresh) {
+        localStorage.setItem('ACCESS_TOKEN', data.access)
+        localStorage.setItem('REFRESH_TOKEN', data.refresh)
+      }
+      showOnNextPage({
+        type: "success",
+        title: "Login successful",
+        message: "You have been logged in successfully",
+        duration: 3000,
+      },
+      "/users/",
+    )
+    },
+    onError: (error) => {
+      console.error("Login error:", error)
+      console.error("Error response:", error.response)
+      
+      if (error.response) {
+        if (error.response.status === 405) {
+          console.error("Method not allowed - server doesn't accept POST on this endpoint")
+        } else if (error.response.status === 400) {
+          const serverErrors = error.response.data
+          console.error("Server validation errors:", serverErrors)
+        } else if (error.response.status === 401) {
+          console.error("Invalid credentials")
+        }
+      } else if (error.request) {
+        console.error("Network error - no response received")
+      } else {
+        console.error("Error setting up request:", error.message)
+      }
+    }
+  })
+}
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
   const [formErrors, setFormErrors] = useState({})
+  useQueuedNotifications()
+
+
+  // Use React Query mutation
+  const loginMutation = useLoginMutation()
+  const isLoading = loginMutation.isPending
 
   // Form state
   const [loginForm, setLoginForm] = useState({
-    email: "",
+    username: "",
     password: "",
     rememberMe: false,
   })
@@ -41,10 +94,8 @@ export default function LoginPage() {
   const validateLoginForm = () => {
     const errors = {}
 
-    if (!loginForm.email) {
-      errors.email = "Email is required"
-    } else if (!/\S+@\S+\.\S+/.test(loginForm.email)) {
-      errors.email = "Email is invalid"
+    if (!loginForm.username) {
+      errors.username = "Username is required"
     }
 
     if (!loginForm.password) {
@@ -54,7 +105,7 @@ export default function LoginPage() {
     return errors
   }
 
-  const handleLoginSubmit = (e) => {
+  const handleLoginSubmit = async (e) => {
     e.preventDefault()
     const errors = validateLoginForm()
 
@@ -63,31 +114,20 @@ export default function LoginPage() {
       return
     }
 
-    setIsLoading(true)
-
-    // Simulate API call
-    setTimeout(() => {
-      console.log("Login form submitted:", loginForm)
-      setIsLoading(false)
-      // Here you would typically redirect or update UI based on successful login
-    }, 1500)
+    // Use React Query mutation
+    loginMutation.mutate(loginForm)
   }
 
   const handleGoogleSignIn = () => {
-    setIsLoading(true)
-
     // Simulate Google sign-in
-    setTimeout(() => {
-      console.log("Google sign-in initiated")
-      setIsLoading(false)
-      // Here you would typically redirect to Google OAuth flow
-    }, 1000)
+    console.log("Google sign-in initiated")
+    // Here you would typically redirect to Google OAuth flow
   }
 
   return (
     <div className="min-h-screen bg-white/10 backdrop-blur-md relative overflow-hidden">
       {/* Full background with glass effect */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-purple-500/10 to-green-500/20"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-green-500/10 to-green-500/20"></div>
 
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -127,14 +167,14 @@ export default function LoginPage() {
       <header className="relative z-20 px-6 py-4 border-b border-white/10">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Microscope className="h-8 w-8 text-blue-600" />
+            <Microscope className="h-8 w-8 text-green-600" />
             <span className="text-2xl font-bold text-gray-900">EpiScope</span>
           </div>
           <div className="flex items-center gap-4">
-            <Link href="/signup" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">
+            <Link to="/signup" className="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">
               Sign Up
             </Link>
-            <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
+            <Button size="sm" className="bg-green-600 hover:bg-green-700">
               Sign In
             </Button>
           </div>
@@ -148,7 +188,7 @@ export default function LoginPage() {
           <div className="text-center lg:text-left">
             <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
               Welcome back to{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-600">
                 EpiScope
               </span>
             </h1>
@@ -159,8 +199,8 @@ export default function LoginPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto lg:mx-0">
               <div className="bg-white/20 backdrop-blur-sm p-4 rounded-lg border border-white/20">
-                <div className="bg-blue-100 p-2 rounded-full w-fit mb-3">
-                  <svg className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="bg-green-50 p-2 rounded-full w-fit mb-3">
+                  <svg className="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -174,8 +214,8 @@ export default function LoginPage() {
               </div>
 
               <div className="bg-white/20 backdrop-blur-sm p-4 rounded-lg border border-white/20">
-                <div className="bg-purple-100 p-2 rounded-full w-fit mb-3">
-                  <svg className="h-6 w-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="bg-green-50 p-2 rounded-full w-fit mb-3">
+                  <svg className="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
@@ -198,28 +238,28 @@ export default function LoginPage() {
                   <form onSubmit={handleLoginSubmit} className="mt-6">
                     <div className="grid gap-6">
                       <div className="grid gap-3">
-                        <Label htmlFor="login-email" className="text-sm font-medium text-gray-900">
-                          Email
+                        <Label htmlFor="login-username" className="text-sm font-medium text-gray-900">
+                          Username
                         </Label>
                         <div className="relative">
-                          <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 h-4 w-4" />
+                          <User className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 h-4 w-4" />
                           <Input
-                            id="login-email"
-                            name="email"
-                            type="email"
-                            placeholder="name@example.com"
+                            id="login-username"
+                            name="username"
+                            type="username"
+                            placeholder="username"
                             className={cn(
-                              "pl-10 bg-white/50 backdrop-blur-sm border-white/30",
-                              formErrors.email && "border-red-500 focus-visible:ring-red-500",
+                              "pl-10 bg-white/50  border-white/30",
+                              formErrors.username && "border-red-500 focus-visible:ring-red-500",
                             )}
-                            value={loginForm.email}
+                            value={loginForm.username}
                             onChange={handleLoginChange}
                           />
                         </div>
-                        {formErrors.email && (
+                        {formErrors.username && (
                           <div className="flex items-center text-red-600 text-sm">
                             <AlertCircle className="h-4 w-4 mr-1" />
-                            {formErrors.email}
+                            {formErrors.username}
                           </div>
                         )}
                       </div>
@@ -229,7 +269,7 @@ export default function LoginPage() {
                           <Label htmlFor="login-password" className="text-sm font-medium text-gray-900">
                             Password
                           </Label>
-                          <a href="#" className="text-sm font-medium text-blue-600 hover:text-blue-500">
+                          <a href="#" className="text-sm font-medium text-green-600 hover:text-green-500">
                             Forgot password?
                           </a>
                         </div>
@@ -241,7 +281,7 @@ export default function LoginPage() {
                             type={showPassword ? "text" : "password"}
                             placeholder="••••••••"
                             className={cn(
-                              "pl-10 bg-white/50 backdrop-blur-sm border-white/30",
+                              "pl-10 bg-white/50  border-white/30",
                               formErrors.password && "border-red-500 focus-visible:ring-red-500",
                             )}
                             value={loginForm.password}
@@ -275,7 +315,7 @@ export default function LoginPage() {
                         </Label>
                       </div>
 
-                      <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700" disabled={isLoading}>
+                      <Button type="submit" className="w-full bg-green-600 cursor-pointer hover:bg-green-700" disabled={isLoading}>
                         {isLoading ? (
                           <div className="flex items-center">
                             <div className="animate-spin mr-2 h-4 w-4 border-2 border-b-transparent border-white rounded-full"></div>
@@ -331,7 +371,7 @@ export default function LoginPage() {
                 <CardFooter className="flex justify-center pb-6">
                   <p className="text-sm text-gray-600">
                     Don't have an account?{" "}
-                    <Link href="/signup" className="text-blue-600 hover:text-blue-500 font-medium">
+                    <Link href="/signup" className="text-green-600 hover:text-green-500 font-medium">
                       Sign up
                     </Link>
                   </p>
@@ -342,7 +382,7 @@ export default function LoginPage() {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes grid-move {
           0% { transform: translate(0, 0); }
           100% { transform: translate(50px, 50px); }

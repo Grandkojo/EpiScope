@@ -3,6 +3,7 @@ import {
   Home,
   User,
   HeartPulse,
+  BrainCircuit,
   Bell,
   LifeBuoy,
   ChevronLeft,
@@ -12,10 +13,10 @@ import { Button } from "../components/ui/button"
 
 const navItems = [
   { path: "/users", icon: Home, label: "Home", end: true },
-  { path: "/users/profile", icon: User, label: "Profile" },
-  { path: "/users/health", icon: HeartPulse, label: "My Health" },
-  { path: "/users/notifications", icon: Bell, label: "Notifications" },
-  { path: "/users/support", icon: LifeBuoy, label: "Support" },
+  { path: "/users/analytics", icon: User, label: "Analytics" },
+  { path: "/users/health trends", icon: HeartPulse, label: "Health Trends" },
+  { path: "/users/ai", icon: BrainCircuit, label: "AI" },
+  { path: "/users/settings", icon: LifeBuoy, label: "Settings" },
 
 ]
 
