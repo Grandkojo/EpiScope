@@ -55,10 +55,32 @@ import {
   Cell,
   Legend,
 } from "recharts";
+import { GenderDistribution } from "../components/PieChartData";
 
 const UserDashboard = () => {
-  
+
   useQueuedNotifications();
+
+  const [selectedHotspot, setSelectedHotspot] = useState(null);
+  const [filterSeverity, setFilterSeverity] = useState("all");
+
+  const filteredHotspots = hotspots.filter(
+    (hotspot) =>
+      filterSeverity === "all" || hotspot.severity === filterSeverity
+  );
+
+  const getSeverityColor = (severity) => {
+    switch (severity) {
+      case "high":
+        return "bg-red-500/20 text-red-500 border-red-500/30";
+      case "medium":
+        return "bg-yellow-400/20 text-yellow-500 border-yellow-400/30";
+      case "low":
+        return "bg-green-400/20 text-green-500 border-green-400/30";
+      default:
+        return "bg-gray-500/20 text-gray-500 border-gray-500/30";
+    }
+  };
 
   useEffect(() => {
     console.log("Dashboard Content mounted");
@@ -134,10 +156,7 @@ const UserDashboard = () => {
   //   { name: "Malaria", value: 45 },
   //   { name: "Other", value: 20 },
   // ];
-  const diseaseDistribution = [
-    { name: "Malaria", value: healthMetrics.totalMalariaCases, color: "#ef4444" },
-    { name: "Diabetes", value: healthMetrics.totalDiabetesCases, color: "#22c55e" },
-  ]
+
   // <Card className="col-span-1">
   //   <CardHeader>
   //     <CardTitle className="flex items-center space-x-2">
@@ -285,15 +304,15 @@ const UserDashboard = () => {
             dashboardData?.error
               ? "Error"
               : dashboardData?.[selectedDiseaseL]
-              ? `${dashboardData?.[selectedDiseaseL]?.title} - ${dashboardData?.[selectedDiseaseL]?.year}`
-              : "Loading..."
+                ? `${dashboardData?.[selectedDiseaseL]?.title} - ${dashboardData?.[selectedDiseaseL]?.year}`
+                : "Loading..."
           }
           value={
             isDashboardDataLoading
               ? "..."
               : dashboardData?.error
-              ? "No data"
-              : dashboardData?.[selectedDiseaseL]?.total_count || 0
+                ? "No data"
+                : dashboardData?.[selectedDiseaseL]?.total_count || 0
           }
           description={
             isDashboardDataLoading ? (
@@ -336,15 +355,15 @@ const UserDashboard = () => {
             dashboardData?.error
               ? "Error"
               : dashboardData?.[selectedDiseaseL]
-              ? "Death Counts"
-              : "Loading..."
+                ? "Death Counts"
+                : "Loading..."
           }
           value={
             isDashboardDataLoading
               ? "..."
               : dashboardData?.error
-              ? "No data"
-              : dashboardData?.[selectedDiseaseL]?.deaths_count || 0
+                ? "No data"
+                : dashboardData?.[selectedDiseaseL]?.deaths_count || 0
           }
           description={
             isDashboardDataLoading ? (
@@ -375,15 +394,15 @@ const UserDashboard = () => {
             dashboardData?.error
               ? "Error"
               : dashboardData?.[selectedDiseaseL]
-              ? "Lab Confirmed Cases"
-              : "Loading..."
+                ? "Lab Confirmed Cases"
+                : "Loading..."
           }
           value={
             isDashboardDataLoading
               ? "..."
               : dashboardData?.error
-              ? "No data"
-              : dashboardData?.[selectedDiseaseL]?.lab_confirmed_cases_count ||
+                ? "No data"
+                : dashboardData?.[selectedDiseaseL]?.lab_confirmed_cases_count ||
                 0
           }
           description={
@@ -464,21 +483,27 @@ const UserDashboard = () => {
           <CardContent>
             <ResponsiveContainer width="100%" height={300}>
               <PieChart>
-                <Pie
-                  data={diseaseDistribution}
-                  cx="50%"
-                  cy="50%"
-                  outerRadius={100}
-                  fill="#8884d8"
-                  dataKey="value"
-                  label={({ name, percent }) =>
-                    `${name} ${(percent * 100).toFixed(0)}%`
-                  }
-                >
-                  {diseaseDistribution.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.color} />
-                  ))}
-                </Pie>
+                {dashboardData?.[selectedDiseaseL]?.male_count && dashboardData?.[selectedDiseaseL]?.female_count ? (
+                  <Pie
+                    data={GenderDistribution(dashboardData?.[selectedDiseaseL]?.male_count, dashboardData?.[selectedDiseaseL]?.female_count)}
+                    cx="50%"
+                    cy="50%"
+                    outerRadius={100}
+                    fill="#8884d8"
+                    dataKey="value"
+                    label={({ name, percent }) =>
+                      `${name} ${(percent * 100).toFixed(0)}%`
+                    }
+                  >
+                    {GenderDistribution(dashboardData?.[selectedDiseaseL]?.male_count, dashboardData?.[selectedDiseaseL]?.female_count).map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.color} />
+                    ))}
+                  </Pie>
+                ) : (
+                  <text x="50%" y="50%" textAnchor="middle" dy=".3em" fill="#666">
+                    Loading...
+                  </text>
+                )}
                 <Tooltip
                   contentStyle={{
                     backgroundColor: "grey",
@@ -488,7 +513,21 @@ const UserDashboard = () => {
                 />
               </PieChart>
             </ResponsiveContainer>
-            
+          </CardContent>
+        </Card>
+
+        {/* AI Insights */}
+        <Card>
+          <CardHeader>
+            <CardTitle>AI Insights</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ResponsiveContainer width="100%" height={300}>
+              <p>
+                This is just a placeholder for the AI insights.
+              </p>
+            </ResponsiveContainer>
+
           </CardContent>
         </Card>
       </div>
@@ -499,41 +538,171 @@ const UserDashboard = () => {
           <CardTitle>Health Hotspots in {selectedRegion}</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {regionHotspots.map((hotspot) => (
+          <div className="relative h-96 bg-gradient-to-br from-slate-900/20 to-green-800/10 rounded-xl border border-border overflow-hidden shadow-inner">
+            <div className="absolute inset-0 bg-[url('/ghana-map.svg')] bg-center bg-contain bg-no-repeat opacity-10"></div>
+
+
+            {/* Markers */}
+            {filteredHotspots.map((hotspot) => (
               <div
                 key={hotspot.id}
-                className="flex items-start space-x-4 p-4 rounded-lg border"
+                className={`absolute w-4 h-4 rounded-full cursor-pointer transition-all duration-200 hover:scale-150 z-10 ${hotspot.severity === "high"
+                    ? "bg-red-500"
+                    : hotspot.severity === "medium"
+                      ? "bg-yellow-400"
+                      : "bg-green-500"
+                  }`}
+                style={{
+                  left: `${(hotspot.lng + 3) * 15 + 20}%`,
+                  top: `${(11 - hotspot.lat) * 8 + 10}%`,
+                }}
+                onClick={() => setSelectedHotspot(hotspot)}
               >
-                <div className="flex-shrink-0">
-                  <AlertTriangle
-                    className={`h-5 w-5 ${
-                      hotspot.severity === "high"
-                        ? "text-red-500"
-                        : hotspot.severity === "medium"
-                        ? "text-yellow-500"
-                        : "text-green-500"
-                    }`}
-                  />
-                </div>
-                <div>
-                  <h3 className="font-medium">{hotspot.region}</h3>
-                  <p className="text-sm text-gray-500">
-                    Diabetes Rate: {hotspot.diabetesRate}%
-                  </p>
-                  <p className="text-sm text-gray-500">
-                    Malaria Rate: {hotspot.malariaRate}%
-                  </p>
-                  <p className="text-sm text-gray-500">
-                    Severity: {hotspot.severity}
-                  </p>
-                </div>
+                <span className="absolute inset-0 rounded-full group-hover:animate-ping opacity-50 blur-sm"></span>
               </div>
             ))}
+
+            <div className="absolute top-4 left-4 text-sm text-muted-foreground">
+              <p className="font-medium">Hotspot Overview</p>
+              <p className="text-xs">Click markers to view more</p>
+            </div>
           </div>
         </CardContent>
       </Card>
 
+      {/* Hotspot Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {filteredHotspots.map((hotspot) => (
+          <Card
+            key={hotspot.id}
+            onClick={() => setSelectedHotspot(hotspot)}
+            className={`transition-transform duration-300 cursor-pointer hover:scale-[1.02] hover:shadow-xl ${selectedHotspot?.id === hotspot.id
+                ? "ring-2 ring-purple-500/60"
+                : ""
+              }`}
+          >
+            <CardHeader className="pb-3">
+              <div className="flex items-center justify-between">
+                <CardTitle className="text-lg font-semibold">
+                  {hotspot.region}
+                </CardTitle>
+                <div
+                  className={`px-2 py-1 rounded-full text-xs font-semibold uppercase border shadow-sm ${getSeverityColor(
+                    hotspot.severity
+                  )}`}
+                >
+                  {hotspot.severity}
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-4 text-sm">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="flex items-center gap-2">
+                  <Activity className="h-4 w-4 text-red-500" />
+                  <div>
+                    <p className="text-muted-foreground text-xs">
+                      Malaria Rate
+                    </p>
+                    <p className="font-bold">
+                      {hotspot.malariaRate.toFixed(1)}%
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Activity className="h-4 w-4 text-green-500" />
+                  <div>
+                    <p className="text-muted-foreground text-xs">
+                      Diabetes Rate
+                    </p>
+                    <p className="font-bold">
+                      {hotspot.diabetesRate.toFixed(1)}%
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <Users className="h-4 w-4 text-blue-500" />
+                <div>
+                  <p className="text-muted-foreground text-xs">Population</p>
+                  <p className="font-bold">
+                    {hotspot.population.toLocaleString()}
+                  </p>
+                </div>
+              </div>
+
+              <div className="pt-2 border-t border-border">
+                <div className="flex justify-between text-xs text-muted-foreground">
+                  <span>Risk Level</span>
+                  <span className="flex items-center gap-1">
+                    <AlertTriangle className="h-3 w-3 text-yellow-500" />
+                    {hotspot.severity}
+                  </span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+
+      {/* Selected Hotspot Details */}
+      {selectedHotspot && (
+        <Card className="border border-purple-500/20 shadow-md rounded-xl">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-lg text-purple-600">
+              <MapPin className="h-5 w-5" />
+              <span>{selectedHotspot.region} – Detailed Analysis</span>
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-muted-foreground">
+              <div className="space-y-2">
+                <h3 className="font-semibold text-foreground">Geography</h3>
+                <p>
+                  <strong className="text-foreground">Lat:</strong>{" "}
+                  {selectedHotspot.lat}
+                </p>
+                <p>
+                  <strong className="text-foreground">Lng:</strong>{" "}
+                  {selectedHotspot.lng}
+                </p>
+                <p>
+                  <strong className="text-foreground">Population:</strong>{" "}
+                  {selectedHotspot.population.toLocaleString()}
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="font-semibold text-foreground">Disease Rates</h3>
+                <p>
+                  <strong className="text-foreground">Malaria:</strong>{" "}
+                  {selectedHotspot.malariaRate.toFixed(2)}%
+                </p>
+                <p>
+                  <strong className="text-foreground">Diabetes:</strong>{" "}
+                  {selectedHotspot.diabetesRate.toFixed(2)}%
+                </p>
+                <p>
+                  <strong className="text-foreground">Risk Level:</strong>{" "}
+                  {selectedHotspot.severity}
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="font-semibold text-foreground">
+                  Recommendations
+                </h3>
+                <ul className="list-disc list-inside text-xs space-y-1">
+                  <li>Increase healthcare facilities</li>
+                  <li>Community awareness programs</li>
+                  <li>Disease monitoring tech</li>
+                  <li>Policy intervention & support</li>
+                </ul>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      )}
       {/* Hotspots Section Styled Like Hotspots.jsx */}
       {/* {<Card>
         <CardHeader>
