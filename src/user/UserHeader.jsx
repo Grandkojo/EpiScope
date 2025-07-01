@@ -70,6 +70,11 @@ const UserHeader = () => {
   )
   };
 
+  const handleSettings = () => {
+    setIsOpen(false);
+    navigate('/users/settings/');
+  }
+
   // Close dropdown if clicked outside
   useEffect(() => {
     function handleClickOutside(event) {
@@ -131,14 +136,13 @@ const UserHeader = () => {
             </div>
 
             <div className="p-2">
-              <Link
-                to="/settings"
+              <button
                 className="flex items-center w-full px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded"
-                onClick={() => setIsOpen(false)}
+                onClick={() => handleSettings()}
               >
-                <Settings className="w-4 h-4 mr-2" />
+                <Settings className="w-4 h-4 mr-2"/>
                 Settings
-              </Link>
+              </button>
               <button
                 onClick={() => handleLogout()}
                 className="flex items-center w-full px-4 py-2 text-sm text-red-600 dark:text-red-400 hover:bg-red-50 cursor-pointer dark:hover:bg-red-900 rounded"

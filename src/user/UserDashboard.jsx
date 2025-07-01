@@ -41,16 +41,29 @@ import api from "../api";
 import { useQuery } from "@tanstack/react-query";
 import { data } from "react-router-dom";
 import { Skull } from "lucide-react";
-import { useQueuedNotifications } from "../hooks/use-queued-notifications"
+import { useQueuedNotifications } from "../hooks/use-queued-notifications";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+  Line,
+  Pie,
+  Cell,
+  Legend,
+} from "recharts";
 
 const UserDashboard = () => {
-  useQueuedNotifications()
+  useQueuedNotifications();
 
   useEffect(() => {
-    console.log("Dashboard Content mounted")
-    const stored = sessionStorage.getItem("queuedNotifications")
-    console.log("SessionStorage on Dashboard:", stored)
-  }, [])
+    console.log("Dashboard Content mounted");
+    const stored = sessionStorage.getItem("queuedNotifications");
+    console.log("SessionStorage on Dashboard:", stored);
+  }, []);
   // const [dashboardData, setDashboardData] = useState(null);
 
   // const [loading, setLoading] = useState(true);
@@ -120,6 +133,40 @@ const UserDashboard = () => {
     { name: "Malaria", value: 45 },
     { name: "Other", value: 20 },
   ];
+  // <Card className="col-span-1">
+  //   <CardHeader>
+  //     <CardTitle className="flex items-center space-x-2">
+  //       <AlertTriangle className="h-5 w-5 text-health-400" />
+  //       <span>Disease Distribution</span>
+  //     </CardTitle>
+  //   </CardHeader>
+  //   <CardContent>
+  //     <ResponsiveContainer width="100%" height={300}>
+  //       <PieChart>
+  //         <Pie
+  //           data={diseaseDistribution}
+  //           cx="50%"
+  //           cy="50%"
+  //           outerRadius={100}
+  //           fill="#8884d8"
+  //           dataKey="value"
+  //           label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+  //         >
+  //           {diseaseDistribution.map((entry, index) => (
+  //             <Cell key={`cell-${index}`} fill={entry.color} />
+  //           ))}
+  //         </Pie>
+  //         <Tooltip
+  //           contentStyle={{
+  //             backgroundColor: "#1f2937",
+  //             border: "1px solid #374151",
+  //             borderRadius: "8px",
+  //           }}
+  //         />
+  //       </PieChart>
+  //     </ResponsiveContainer>
+  //   </CardContent>
+  // </Card>
 
   // Get hotspots for selected region
   const regionHotspots =
@@ -225,8 +272,6 @@ const UserDashboard = () => {
         </div>
       </div>
 
-
-
       {/* Stats Overview */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         {/* Display counts */}
@@ -235,28 +280,27 @@ const UserDashboard = () => {
             dashboardData?.error
               ? "Error"
               : dashboardData?.[selectedDiseaseL]
-                ? `${dashboardData?.[selectedDiseaseL]?.title} - ${dashboardData?.[selectedDiseaseL]?.year
-                }`
-                : "Loading..."
+              ? `${dashboardData?.[selectedDiseaseL]?.title} - ${dashboardData?.[selectedDiseaseL]?.year}`
+              : "Loading..."
           }
           value={
             isDashboardDataLoading
               ? "..."
               : dashboardData?.error
-                ? "No data"
-                : dashboardData?.[selectedDiseaseL]?.total_count || 0
+              ? "No data"
+              : dashboardData?.[selectedDiseaseL]?.total_count || 0
           }
           description={
-            isDashboardDataLoading
-              ? "Loading data..."
-              : dashboardData?.error
-                ? dashboardData.error
-                : dashboardData?.[selectedDiseaseL]?.delta_vals === 'up'
-                  ? <TrendingUp className="h-4 w-4 text-orange-500" />
-                  : "No delta rate"
+            isDashboardDataLoading ? (
+              "Loading data..."
+            ) : dashboardData?.error ? (
+              dashboardData.error
+            ) : dashboardData?.[selectedDiseaseL]?.delta_vals === "up" ? (
+              <TrendingUp className="h-4 w-4 text-orange-500" />
+            ) : (
+              "No delta rate"
+            )
           }
-
-
           icon={
             isDashboardDataLoading ? (
               <Loader2 className="h-4 w-4 animate-spin text-gray-500" />
@@ -282,32 +326,32 @@ const UserDashboard = () => {
 
         />} */}
 
-       <StatCard
+        <StatCard
           title={
             dashboardData?.error
               ? "Error"
               : dashboardData?.[selectedDiseaseL]
-                ? "Death Counts"
-                : "Loading..."
+              ? "Death Counts"
+              : "Loading..."
           }
           value={
             isDashboardDataLoading
               ? "..."
               : dashboardData?.error
-                ? "No data"
-                : dashboardData?.[selectedDiseaseL]?.deaths_count || 0
+              ? "No data"
+              : dashboardData?.[selectedDiseaseL]?.deaths_count || 0
           }
           description={
-            isDashboardDataLoading
-              ? "Loading data..."
-              : dashboardData?.error
-                ? dashboardData.error
-                : dashboardData?.[selectedDiseaseL]?.delta_vals === 'up'
-                  ? < Skull className="h-5 w-5 text-red-600" />
-                  : "No delta rate"
+            isDashboardDataLoading ? (
+              "Loading data..."
+            ) : dashboardData?.error ? (
+              dashboardData.error
+            ) : dashboardData?.[selectedDiseaseL]?.delta_vals === "up" ? (
+              <Skull className="h-5 w-5 text-red-600" />
+            ) : (
+              "No delta rate"
+            )
           }
-
-
           icon={
             isDashboardDataLoading ? (
               <Loader2 className="h-4 w-4 animate-spin text-gray-500" />
@@ -321,39 +365,40 @@ const UserDashboard = () => {
           error={dashboardData?.error || error}
         />
 
-  <StatCard
+        <StatCard
           title={
             dashboardData?.error
               ? "Error"
               : dashboardData?.[selectedDiseaseL]
-                ? "Lab Confirmed Cases"
-                : "Loading..."
+              ? "Lab Confirmed Cases"
+              : "Loading..."
           }
           value={
             isDashboardDataLoading
               ? "..."
               : dashboardData?.error
-                ? "No data"
-                : dashboardData?.[selectedDiseaseL]?.lab_confirmed_cases_count|| 0
+              ? "No data"
+              : dashboardData?.[selectedDiseaseL]?.lab_confirmed_cases_count ||
+                0
           }
           description={
-            isDashboardDataLoading
-              ? "Loading data..."
-              : dashboardData?.error
-                ? dashboardData.error
-                : dashboardData?.[selectedDiseaseL]?.delta_vals === 'up'
-                  ? < TestTubeDiagonal className="h-5 w-5 text-red-600" />
-                  : "No delta rate"
+            isDashboardDataLoading ? (
+              "Loading data..."
+            ) : dashboardData?.error ? (
+              dashboardData.error
+            ) : dashboardData?.[selectedDiseaseL]?.delta_vals === "up" ? (
+              <TestTubeDiagonal className="h-5 w-5 text-red-600" />
+            ) : (
+              "No delta rate"
+            )
           }
-
-
           icon={
             isDashboardDataLoading ? (
               <Loader2 className="h-4 w-4 animate-spin text-gray-500" />
             ) : dashboardData?.error ? (
               <AlertCircle className="h-4 w-4 text-red-500" />
             ) : (
-              < TestTubeDiagonal className="h-5 w-5 text-red-600" />
+              <TestTubeDiagonal className="h-5 w-5 text-red-600" />
             )
           }
           isLoading={isDashboardDataLoading}
@@ -391,7 +436,7 @@ const UserDashboard = () => {
 
       <div className="grid gap-6 md:grid-cols-2">
         {/* Health Trends */}
-        <Card>
+        {/* <Card>
           <CardHeader>
             <CardTitle>Health Trends in {selectedRegion}</CardTitle>
           </CardHeader>
@@ -404,7 +449,7 @@ const UserDashboard = () => {
               valueFormatter={(value) => `${value} cases`}
             />
           </CardContent>
-        </Card>
+        </Card> */}
 
         {/* Disease Distribution */}
         <Card>
@@ -412,16 +457,42 @@ const UserDashboard = () => {
             <CardTitle>Disease Distribution</CardTitle>
           </CardHeader>
           <CardContent>
-            <PieChart
+            <ResponsiveContainer width="100%" height={300}>
+              <PieChart>
+                <Pie
+                  data={diseaseDistribution}
+                  cx="50%"
+                  cy="50%"
+                  outerRadius={100}
+                  fill="#8884d8"
+                  dataKey="value"
+                  label={({ name, percent }) =>
+                    `${name} ${(percent * 100).toFixed(0)}%`
+                  }
+                >
+                  {diseaseDistribution.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={entry.color} />
+                  ))}
+                </Pie>
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: "#1f2937",
+                    border: "1px solid #374151",
+                    borderRadius: "8px",
+                  }}
+                />
+              </PieChart>
+            </ResponsiveContainer>
+            {/* <PieChart
               data={diseaseDistribution}
               colors={["#f97316", "#3b82f6", "#22c55e"]}
-            />
+            /> */}
           </CardContent>
         </Card>
       </div>
 
       {/* Hotspots */}
-      {/* <Card>
+      <Card>
         <CardHeader>
           <CardTitle>Health Hotspots in {selectedRegion}</CardTitle>
         </CardHeader>
@@ -459,9 +530,10 @@ const UserDashboard = () => {
             ))}
           </div>
         </CardContent>
-      </Card> */}
+      </Card>
+
       {/* Hotspots Section Styled Like Hotspots.jsx */}
-      {<Card>
+      {/* {<Card>
         <CardHeader>
           <CardTitle className="text-lg font-semibold text-foreground">
             Health Hotspots in {selectedRegion}
@@ -539,8 +611,7 @@ const UserDashboard = () => {
             ))}
           </div>
         </CardContent>
-      </Card>}
-
+      </Card>} */}
 
       {/* Health Tips */}
       <Card>
