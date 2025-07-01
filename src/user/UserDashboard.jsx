@@ -5,7 +5,6 @@ import {
   CardTitle,
 } from "../components/ui/card";
 import { LineChart } from "../components/charts/LineChart";
-import { PieChart } from "../components/charts/PieChart";
 import { StatCard } from "../components/dashboard/StatCard";
 import {
   healthMetrics,
@@ -49,6 +48,7 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
+  PieChart,
   ResponsiveContainer,
   Line,
   Pie,
@@ -57,6 +57,7 @@ import {
 } from "recharts";
 
 const UserDashboard = () => {
+  
   useQueuedNotifications();
 
   useEffect(() => {
@@ -128,11 +129,15 @@ const UserDashboard = () => {
   }));
 
   // Disease distribution data
+  // const diseaseDistribution = [
+  //   { name: "Diabetes", value: 35 },
+  //   { name: "Malaria", value: 45 },
+  //   { name: "Other", value: 20 },
+  // ];
   const diseaseDistribution = [
-    { name: "Diabetes", value: 35 },
-    { name: "Malaria", value: 45 },
-    { name: "Other", value: 20 },
-  ];
+    { name: "Malaria", value: healthMetrics.totalMalariaCases, color: "#ef4444" },
+    { name: "Diabetes", value: healthMetrics.totalDiabetesCases, color: "#22c55e" },
+  ]
   // <Card className="col-span-1">
   //   <CardHeader>
   //     <CardTitle className="flex items-center space-x-2">
@@ -476,17 +481,14 @@ const UserDashboard = () => {
                 </Pie>
                 <Tooltip
                   contentStyle={{
-                    backgroundColor: "#1f2937",
+                    backgroundColor: "grey",
                     border: "1px solid #374151",
                     borderRadius: "8px",
                   }}
                 />
               </PieChart>
             </ResponsiveContainer>
-            {/* <PieChart
-              data={diseaseDistribution}
-              colors={["#f97316", "#3b82f6", "#22c55e"]}
-            /> */}
+            
           </CardContent>
         </Card>
       </div>

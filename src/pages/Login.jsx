@@ -13,6 +13,8 @@ import { Link, useNavigate } from "react-router-dom"
 import {useCrossPageNotifications} from "../hooks/use-cross-page-notifications"
 import api from "../api"
 import { useQueuedNotifications } from "../hooks/use-queued-notifications"
+import { ACCESS_TOKEN_LIFETIME } from "../constants"
+
 // Custom hook for login mutation
 const useLoginMutation = () => {
   const { showOnNextPage } = useCrossPageNotifications()
@@ -20,6 +22,9 @@ const useLoginMutation = () => {
   return useMutation({
     mutationFn: async (loginData) => {
       const response = await api.post("auth/user/login/", loginData)
+      const exp_date = new Date()
+      exp_date.setMinutes(exp_date.getMinutes() + 14)
+      localStorage.setItem(ACCESS_TOKEN_LIFETIME, exp_date.getTime())
       return response.data
     },
     onSuccess: (data) => {
