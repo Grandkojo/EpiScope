@@ -17,6 +17,7 @@ import {
   Stethoscope,
   Pill,
 } from "lucide-react"
+import { useNavigate } from "react-router-dom";
 
 // Animated background component
 function AnimatedBackground() {
@@ -185,7 +186,10 @@ function PulseWave() {
 }
 
 export default function Landing() {
-  const [activeChart, setActiveChart] = useState("diabetes")
+  const [activeChart, setActiveChart] = useState("diabetes") 
+
+   const navigate = useNavigate()
+
 
   // Dummy data for different diseases
   const diabetesData = [
@@ -286,7 +290,7 @@ export default function Landing() {
 
           <ScrollReveal delay={400}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 text-lg">
+              <Button size="lg" onClick={() => navigate("/users/")} className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 text-lg">
                 Access Dashboard
                 <Zap className="ml-2 h-5 w-5" />
               </Button>
