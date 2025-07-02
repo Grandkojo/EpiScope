@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Loader2 } from "lucide-react";
 
-const StatCard = ({ title, value, description, icon, isLoading, error }) => {
+const StatCard = ({ title, value, value2, description, icon, isLoading, error }) => {
   // Helper function to extract error message
   const getErrorMessage = (error) => {
     if (typeof error === 'string') {
@@ -48,6 +48,9 @@ const StatCard = ({ title, value, description, icon, isLoading, error }) => {
       </CardHeader>
       <CardContent>
         <div className="text-2xl font-bold">{isLoading ? "..." : value}</div>
+        {value2 != null && !isLoading && (
+          <div className="text-sm text-muted-foreground mt-1">{value2}</div>
+        )}
         <p className="text-xs pt-1 text-muted-foreground">
           {isLoading ? "Loading data..." : description}
         </p>

@@ -56,7 +56,9 @@ import {
   Legend,
 } from "recharts";
 import { GenderDistribution } from "../components/PieChartData";
-
+import { DiabetesDataStats } from "../components/dashboard/DiseaseData/DiabetesDataStats";
+import { MeningitisDataStats } from "../components/dashboard/DiseaseData/MeningitisDataStats";
+import { CholeraDataStats } from "../components/dashboard/DiseaseData/CholeraDataStats";
 const UserDashboard = () => {
 
   useQueuedNotifications();
@@ -208,6 +210,21 @@ const UserDashboard = () => {
     localStorage.setItem("selectedDiseaseYear", value);
   };
 
+  const diseaseStats = (selectedDisease) => {
+    switch (selectedDisease) {
+      case "Diabetes":
+        return DiabetesDataStats(dashboardData, isDashboardDataLoading, error, selectedDiseaseL);
+      case "Meningitis":
+        return MeningitisDataStats(dashboardData, isDashboardDataLoading, error, selectedDiseaseL);
+      case "Cholera":
+        return CholeraDataStats(dashboardData, isDashboardDataLoading, error, selectedDiseaseL);
+      case "Malaria":
+        return MalariaDataStats(dashboardData, isDashboardDataLoading, error, selectedDiseaseL);
+      default:
+        return {};
+    }
+  }
+
   return (
     <div className="p-6 space-y-6">
       <div className="flex justify-between items-center">
@@ -297,166 +314,10 @@ const UserDashboard = () => {
       </div>
 
       {/* Stats Overview */}
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        {/* Display counts */}
-        <StatCard
-          title={
-            dashboardData?.error
-              ? "Error"
-              : dashboardData?.[selectedDiseaseL]
-                ? `${dashboardData?.[selectedDiseaseL]?.title} - ${dashboardData?.[selectedDiseaseL]?.year}`
-                : "Loading..."
-          }
-          value={
-            isDashboardDataLoading
-              ? "..."
-              : dashboardData?.error
-                ? "No data"
-                : dashboardData?.[selectedDiseaseL]?.total_count || 0
-          }
-          description={
-            isDashboardDataLoading ? (
-              "Loading data..."
-            ) : dashboardData?.error ? (
-              dashboardData.error
-            ) : dashboardData?.[selectedDiseaseL]?.delta_vals === "up" ? (
-              <TrendingUp className="h-4 w-4 text-orange-500" />
-            ) : (
-              "No delta rate"
-            )
-          }
-          icon={
-            isDashboardDataLoading ? (
-              <Loader2 className="h-4 w-4 animate-spin text-gray-500" />
-            ) : dashboardData?.error ? (
-              <AlertCircle className="h-4 w-4 text-red-500" />
-            ) : (
-              <TrendingUp className="h-4 w-4 text-orange-500" />
-            )
-          }
-          isLoading={isDashboardDataLoading}
-          error={dashboardData?.error || error}
-        />
-
-        {/* {<StatCard
-          title="Death Counts"
-          value={Math.round(
-            healthMetrics.populationAtRisk *
-            (selectedRegion === "All Regions" ? 1 : 0.15)
-          )}
-          description="In your region"
-          // icon={<Users className="h-4 w-4 text-purple-500" />}
-          icon={<Skull className="h-5 w-5 text-red-600" />}
-
-        />} */}
-
-        <StatCard
-          title={
-            dashboardData?.error
-              ? "Error"
-              : dashboardData?.[selectedDiseaseL]
-                ? "Death Counts"
-                : "Loading..."
-          }
-          value={
-            isDashboardDataLoading
-              ? "..."
-              : dashboardData?.error
-                ? "No data"
-                : dashboardData?.[selectedDiseaseL]?.deaths_count || 0
-          }
-          description={
-            isDashboardDataLoading ? (
-              "Loading data..."
-            ) : dashboardData?.error ? (
-              dashboardData.error
-            ) : dashboardData?.[selectedDiseaseL]?.delta_vals === "up" ? (
-              <Skull className="h-5 w-5 text-red-600" />
-            ) : (
-              "No delta rate"
-            )
-          }
-          icon={
-            isDashboardDataLoading ? (
-              <Loader2 className="h-4 w-4 animate-spin text-gray-500" />
-            ) : dashboardData?.error ? (
-              <AlertCircle className="h-4 w-4 text-red-500" />
-            ) : (
-              <Skull className="h-5 w-5 text-red-600" />
-            )
-          }
-          isLoading={isDashboardDataLoading}
-          error={dashboardData?.error || error}
-        />
-
-        <StatCard
-          title={
-            dashboardData?.error
-              ? "Error"
-              : dashboardData?.[selectedDiseaseL]
-                ? "Lab Confirmed Cases"
-                : "Loading..."
-          }
-          value={
-            isDashboardDataLoading
-              ? "..."
-              : dashboardData?.error
-                ? "No data"
-                : dashboardData?.[selectedDiseaseL]?.lab_confirmed_cases_count ||
-                0
-          }
-          description={
-            isDashboardDataLoading ? (
-              "Loading data..."
-            ) : dashboardData?.error ? (
-              dashboardData.error
-            ) : dashboardData?.[selectedDiseaseL]?.delta_vals === "up" ? (
-              <TestTubeDiagonal className="h-5 w-5 text-red-600" />
-            ) : (
-              "No delta rate"
-            )
-          }
-          icon={
-            isDashboardDataLoading ? (
-              <Loader2 className="h-4 w-4 animate-spin text-gray-500" />
-            ) : dashboardData?.error ? (
-              <AlertCircle className="h-4 w-4 text-red-500" />
-            ) : (
-              <TestTubeDiagonal className="h-5 w-5 text-red-600" />
-            )
-          }
-          isLoading={isDashboardDataLoading}
-          error={dashboardData?.error || error}
-        />
-
-        <StatCard
-          title="Health Status"
-          value="Good"
-          description="Your current health status"
-          icon={<HeartPulse className="h-4 w-4 text-green-500" />}
-        />
-
-        {/* <StatCard
-          title="Risk Level"
-          value="Low"
-          description="Based on your region"
-          icon={<Activity className="h-4 w-4 text-blue-500" />}
-        /> */}
-
-        {/* 
-
-        <StatCard
-          title="Death Counts"
-          value={Math.round(
-            healthMetrics.populationAtRisk *
-              (selectedRegion === "All Regions" ? 1 : 0.15)
-          )}
-          description="In your region"
-          // icon={<Users className="h-4 w-4 text-purple-500" />}
-          icon={<Skull className="h-5 w-5 text-red-600" />}
-
-        /> */}
-      </div>
+      {
+        selectedDisease && diseaseStats(selectedDisease)
+      }
+      
 
       <div className="grid gap-6 md:grid-cols-2">
         {/* Health Trends */}
@@ -478,12 +339,16 @@ const UserDashboard = () => {
         {/* Disease Distribution */}
         <Card>
           <CardHeader>
-            <CardTitle>Disease Distribution</CardTitle>
+            <CardTitle>Disease Distribution (Gender)</CardTitle>
           </CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={300}>
               <PieChart>
-                {dashboardData?.[selectedDiseaseL]?.male_count && dashboardData?.[selectedDiseaseL]?.female_count ? (
+                {isDashboardDataLoading ? (
+                   <text x="50%" y="50%" textAnchor="middle" dy=".3em" fill="#666">
+                    Loading...
+                 </text>
+                ) : dashboardData?.[selectedDiseaseL]?.male_count && dashboardData?.[selectedDiseaseL]?.female_count ? (
                   <Pie
                     data={GenderDistribution(dashboardData?.[selectedDiseaseL]?.male_count, dashboardData?.[selectedDiseaseL]?.female_count)}
                     cx="50%"
@@ -501,7 +366,7 @@ const UserDashboard = () => {
                   </Pie>
                 ) : (
                   <text x="50%" y="50%" textAnchor="middle" dy=".3em" fill="#666">
-                    Loading...
+                    No data available
                   </text>
                 )}
                 <Tooltip
@@ -703,86 +568,7 @@ const UserDashboard = () => {
           </CardContent>
         </Card>
       )}
-      {/* Hotspots Section Styled Like Hotspots.jsx */}
-      {/* {<Card>
-        <CardHeader>
-          <CardTitle className="text-lg font-semibold text-foreground">
-            Health Hotspots in {selectedRegion}
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {regionHotspots.map((hotspot) => (
-              <Card
-                key={hotspot.id}
-                className="transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg"
-              >
-                <CardHeader className="pb-3">
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="text-base font-medium">
-                      {hotspot.region}
-                    </CardTitle>
-                    <div
-                      className={`px-2 py-1 rounded-full text-xs font-semibold uppercase border ${hotspot.severity === "high"
-                        ? "bg-red-500/20 text-red-500 border-red-500/30"
-                        : hotspot.severity === "medium"
-                          ? "bg-yellow-400/20 text-yellow-500 border-yellow-400/30"
-                          : "bg-green-400/20 text-green-500 border-green-400/30"
-                        }`}
-                    >
-                      {hotspot.severity}
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-4 text-sm">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="flex items-center gap-2">
-                      <Activity className="h-4 w-4 text-red-500" />
-                      <div>
-                        <p className="text-xs text-muted-foreground">Malaria Rate</p>
-                        <p className="font-semibold">
-                          {hotspot.malariaRate.toFixed(1)}%
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Activity className="h-4 w-4 text-green-500" />
-                      <div>
-                        <p className="text-xs text-muted-foreground">
-                          Diabetes Rate
-                        </p>
-                        <p className="font-semibold">
-                          {hotspot.diabetesRate.toFixed(1)}%
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-2">
-                    <Users className="h-4 w-4 text-blue-500" />
-                    <div>
-                      <p className="text-xs text-muted-foreground">Population</p>
-                      <p className="font-semibold">
-                        {hotspot.population.toLocaleString()}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="pt-2 border-t border-border">
-                    <div className="flex justify-between text-xs text-muted-foreground">
-                      <span>Risk Level</span>
-                      <span className="flex items-center gap-1">
-                        <AlertTriangle className="h-3 w-3 text-yellow-500" />
-                        {hotspot.severity}
-                      </span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </CardContent>
-      </Card>} */}
+      
 
       {/* Health Tips */}
       <Card>
