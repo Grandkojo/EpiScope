@@ -34,6 +34,8 @@ class UserProfileView(generics.RetrieveUpdateAPIView):
         serializer = self.serializer_class(user, data=request.data)
         if serializer.is_valid():
             serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class EpidemicDashboardView(APIView):
     def get(self, request):

@@ -22,3 +22,10 @@ djangorestframework_simplejwt
 pytest 
 pytest-django
 django-unique-user-email
+matplotlib
+seaborn
+plotly
+plotly-express
+pytrends
+scipy
+nbformat
