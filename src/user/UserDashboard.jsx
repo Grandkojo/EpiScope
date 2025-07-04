@@ -32,7 +32,7 @@ import {
   SelectValue,
 } from "../components/ui/select";
 import { useDiseaseYears } from "../data/all_years";
-import { useDiseases } from "../data/all_dseases";
+import { useDiseases } from "../data/all_diseases";
 import { useDashboardData } from "../data/dashboard_data";
 import { useState, useEffect } from "react";
 import { Loader2, AlertCircle } from "lucide-react";

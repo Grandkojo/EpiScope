@@ -15,6 +15,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
 import UserSettings from "./user/UserSettings";
+import UserAnalytics from "./user/UserAnalytics";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { NotificationProvider } from "./contexts/notification-context"
 import { NotificationContainer } from "./components/notification-container"
@@ -45,6 +46,7 @@ function App() {
               <Route element={<ProtectedRoute />}>
                 <Route path="/users/*" element={<UserLayout />}>
                   <Route index element={<UserDashboard />} />
+                  <Route path="analytics" element={<UserAnalytics />} />
                   <Route path="settings" element={<UserSettings/>}></Route>
                 </Route>
               </Route>
