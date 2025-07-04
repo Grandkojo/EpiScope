@@ -65,7 +65,35 @@ class CholeraData(models.Model):
     def __str__(self):
         return f"Cholera Data - {self.periodname}"
 
+class NationalHotspots(models.Model):
+    organisationunitname = models.CharField(db_column='organisationunitname', max_length=100, primary_key=True)
+    cholera_lab_confirmed_cases_2020 = models.IntegerField(db_column='Cholera lab confirmed cases 2020', null=True)
+    cholera_lab_confirmed_cases_2021 = models.IntegerField(db_column='Cholera lab confirmed cases 2021', null=True)
+    cholera_lab_confirmed_cases_2022 = models.IntegerField(db_column='Cholera lab confirmed cases 2022', null=True)
+    cholera_lab_confirmed_cases_2023 = models.IntegerField(db_column='Cholera lab confirmed cases 2023', null=True)
+    cholera_lab_confirmed_cases_2024 = models.IntegerField(db_column='Cholera lab confirmed cases 2024', null=True)
+    cholera_lab_confirmed_cases_2025 = models.IntegerField(db_column='Cholera lab confirmed cases 2025', null=True)
+    diabetes_mellitus_lab_confirmed_cases_2020 = models.IntegerField(db_column='Diabetes mellitus lab confirmed cases 2020', null=True)
+    diabetes_mellitus_lab_confirmed_cases_2021 = models.IntegerField(db_column='Diabetes mellitus lab confirmed cases 2021', null=True)
+    diabetes_mellitus_lab_confirmed_cases_2022 = models.IntegerField(db_column='Diabetes mellitus lab confirmed cases 2022', null=True)
+    diabetes_mellitus_lab_confirmed_cases_2023 = models.IntegerField(db_column='Diabetes mellitus lab confirmed cases 2023', null=True)
+    diabetes_mellitus_lab_confirmed_cases_2024 = models.IntegerField(db_column='Diabetes mellitus lab confirmed cases 2024', null=True)
+    diabetes_mellitus_lab_confirmed_cases_2025 = models.IntegerField(db_column='Diabetes mellitus lab confirmed cases 2025', null=True)
+    meningococcal_meningitis_lab_confirmed_cases_2020 = models.IntegerField(db_column='Meningococcal Meningitis lab confirmed cases 2020', null=True)
+    meningococcal_meningitis_lab_confirmed_cases_2021 = models.IntegerField(db_column='Meningococcal Meningitis lab confirmed cases 2021', null=True)
+    meningococcal_meningitis_lab_confirmed_cases_2022 = models.IntegerField(db_column='Meningococcal Meningitis lab confirmed cases 2022', null=True)
+    meningococcal_meningitis_lab_confirmed_cases_2023 = models.IntegerField(db_column='Meningococcal Meningitis lab confirmed cases 2023', null=True)
+    meningococcal_meningitis_lab_confirmed_cases_2024 = models.IntegerField(db_column='Meningococcal Meningitis lab confirmed cases 2024', null=True)
+    meningococcal_meningitis_lab_confirmed_cases_2025 = models.IntegerField(db_column='Meningococcal Meningitis lab confirmed cases 2025', null=True)
 
+    class Meta:
+        managed = False
+        db_table = 'national_hotspots'
+        verbose_name = 'National Hotspots'
+        verbose_name_plural = 'National Hotspots'
+
+    def __str__(self):
+        return f"National Hotspots - {self.organisationunitname} - {self.periodname}"
 
 class Disease(models.Model):
     disease_name = models.CharField(max_length=100)

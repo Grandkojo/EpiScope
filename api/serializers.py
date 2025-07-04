@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import User
-from disease_monitor.models import Disease, DiseaseYear
+from disease_monitor.models import Disease, DiseaseYear, NationalHotspots
 
 class DiseaseSerializer(serializers.ModelSerializer):
     class Meta:
@@ -48,3 +48,8 @@ class UserProfileSerializer(serializers.ModelSerializer):
         instance.address = validated_data.get('address', instance.address)
         instance.save()
         return instance
+
+class NationalHotspotsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = NationalHotspots
+        fields = '__all__'

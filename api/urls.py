@@ -14,6 +14,9 @@ urlpatterns = [
     path('auth/user/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('auth/user/logout/', TokenBlacklistView.as_view(), name='token_blacklist'),
     # path('auth/google/', views.GoogleLoginView.as_view(), name='google-login'),
+    path('hotspots/national/', views.NationalHotspotsView.as_view(), name='national-hotspots'),
+    path('hotspots/national/filters/', views.NationalHotspotsFiltersView.as_view(), name='national-hotspots-filters'),
+    path('regions/all/', views.AllRegionsView.as_view(), name='all-regions'),
 ]
 
 
