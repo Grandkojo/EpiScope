@@ -1,6 +1,6 @@
 import React from "react";
 
-export const MapComponent = ({ hotspots = [], onMarkerClick }) => (
+export const MapComponent = ({ hotspots = [], onMarkerClick, disease }) => (
   <svg
     viewBox="0 0 100 100"
     className="absolute inset-0 w-full h-full"
@@ -147,9 +147,9 @@ export const MapComponent = ({ hotspots = [], onMarkerClick }) => (
         typeof hotspot.coordinates.x === "number" &&
         typeof hotspot.coordinates.y === "number"
       )
-      .map((hotspot) => (
+      .map((hotspot, index) => (
         <g
-          key={hotspot.id}
+          key={`${hotspot.organisationunitname}-${hotspot.code}-${Date.now()}`}
           onClick={() => onMarkerClick?.(hotspot)}
           style={{ cursor: "pointer" }}
         >
@@ -185,7 +185,13 @@ export const MapComponent = ({ hotspots = [], onMarkerClick }) => (
           />
           {/* Tooltip (SVG title) */}
           <title>
-            {hotspot?.disease} - {hotspot?.city} ({hotspot?.cases} cases)
+            {disease} - ({(() => {
+              const casesKey = Object.keys(hotspot || {}).find(key => key.includes('cases'));
+              const casesValue = casesKey && hotspot[casesKey] !== null && hotspot[casesKey] !== undefined 
+                ? hotspot[casesKey] 
+                : hotspot?.cases || 0;
+              return `${casesValue} ${casesKey ? 'cases' : 'values'}`;
+            })()})
           </title>
         </g>
       ))}
