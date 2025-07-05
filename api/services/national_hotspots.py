@@ -16,12 +16,26 @@ def get_national_hotspots(year=None, region=None, disease=None):
     # Start with all hotspots
     hotspots = NationalHotspots.objects.all()
     
+    # Exclude Ghana region (it's a summary/total row)
+    hotspots = hotspots.exclude(organisationunitname='Ghana')
+    
     # Filter by region if provided
     if region:
-        hotspots = hotspots.filter(organisationunitname__icontains=region)
+        if region.lower() == 'all':
+            # Don't filter by region, return all regions
+            pass
+        else:
+            # Filter by specific region name
+            hotspots = hotspots.filter(organisationunitname__icontains=region)
     
     # Filter by year if provided
-    if year:
+    if year and year.lower() != 'all':
+        # Validate that the year exists in available years
+        available_years = get_available_years()
+        if year not in available_years:
+            # Return empty queryset if year doesn't exist
+            return NationalHotspots.objects.none()
+        
         # Create a filter for the specific year across all disease types
         year_filters = models.Q()
         year_filters |= models.Q(**{f'cholera_lab_confirmed_cases_{year}__isnull': False})
@@ -32,24 +46,33 @@ def get_national_hotspots(year=None, region=None, disease=None):
     # Filter by disease type if provided
     if disease:
         disease = disease.lower()
-        disease_filters = models.Q()
         
-        if disease in ['cholera', 'all']:
-            # Add cholera filters for all years
-            for year_suffix in ['2020', '2021', '2022', '2023', '2024', '2025']:
+        if disease == 'all':
+            # For 'all', keep the OR logic to get any disease data
+            disease_filters = models.Q()
+            for year_suffix in get_available_years():
                 disease_filters |= models.Q(**{f'cholera_lab_confirmed_cases_{year_suffix}__isnull': False})
-        
-        if disease in ['diabetes', 'diabetes mellitus', 'all']:
-            # Add diabetes filters for all years
-            for year_suffix in ['2020', '2021', '2022', '2023', '2024', '2025']:
                 disease_filters |= models.Q(**{f'diabetes_mellitus_lab_confirmed_cases_{year_suffix}__isnull': False})
-        
-        if disease in ['meningitis', 'meningococcal meningitis', 'all']:
-            # Add meningitis filters for all years
-            for year_suffix in ['2020', '2021', '2022', '2023', '2024', '2025']:
                 disease_filters |= models.Q(**{f'meningococcal_meningitis_lab_confirmed_cases_{year_suffix}__isnull': False})
-        
-        hotspots = hotspots.filter(disease_filters)
+            hotspots = hotspots.filter(disease_filters)
+        elif disease == 'cholera':
+            # For specific disease, only return records with that disease data
+            cholera_filters = models.Q()
+            for year_suffix in get_available_years():
+                cholera_filters |= models.Q(**{f'cholera_lab_confirmed_cases_{year_suffix}__isnull': False})
+            hotspots = hotspots.filter(cholera_filters)
+        elif disease == 'diabetes':
+            # For specific disease, only return records with that disease data
+            diabetes_filters = models.Q()
+            for year_suffix in get_available_years():
+                diabetes_filters |= models.Q(**{f'diabetes_mellitus_lab_confirmed_cases_{year_suffix}__isnull': False})
+            hotspots = hotspots.filter(diabetes_filters)
+        elif disease == 'meningitis':
+            # For specific disease, only return records with that disease data
+            meningitis_filters = models.Q()
+            for year_suffix in get_available_years():
+                meningitis_filters |= models.Q(**{f'meningococcal_meningitis_lab_confirmed_cases_{year_suffix}__isnull': False})
+            hotspots = hotspots.filter(meningitis_filters)
     
     return hotspots
 
@@ -79,7 +102,7 @@ def get_national_hotspots_summary(hotspots, year=None, disease=None):
         diabetes_total = 0
         meningitis_total = 0
         
-        for year_suffix in ['2020', '2021', '2022', '2023', '2024', '2025']:
+        for year_suffix in get_available_years():
             # Only include specific year if requested
             if year and year_suffix != year:
                 continue
@@ -89,19 +112,19 @@ def get_national_hotspots_summary(hotspots, year=None, disease=None):
                 cholera_cases = getattr(hotspot, f'cholera_lab_confirmed_cases_{year_suffix}', 0) or 0
                 cholera_total += cholera_cases
             
-            if not disease or disease in ['diabetes', 'diabetes mellitus', 'all']:
+            if not disease or disease in ['diabetes', 'all']:
                 diabetes_cases = getattr(hotspot, f'diabetes_mellitus_lab_confirmed_cases_{year_suffix}', 0) or 0
                 diabetes_total += diabetes_cases
             
-            if not disease or disease in ['meningitis', 'meningococcal meningitis', 'all']:
+            if not disease or disease in ['meningitis', 'all']:
                 meningitis_cases = getattr(hotspot, f'meningococcal_meningitis_lab_confirmed_cases_{year_suffix}', 0) or 0
                 meningitis_total += meningitis_cases
         
         region_data['total_cases'] = cholera_total + diabetes_total + meningitis_total
         region_data['disease_breakdown'] = {
             'cholera': cholera_total,
-            'diabetes_mellitus': diabetes_total,
-            'meningococcal_meningitis': meningitis_total
+            'diabetes': diabetes_total,
+            'meningitis': meningitis_total
         }
         
         summary_data.append(region_data)

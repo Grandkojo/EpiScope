@@ -93,7 +93,7 @@ class NationalHotspots(models.Model):
         verbose_name_plural = 'National Hotspots'
 
     def __str__(self):
-        return f"National Hotspots - {self.organisationunitname} - {self.periodname}"
+        return f"National Hotspots - {self.organisationunitname}"
 
 class Disease(models.Model):
     disease_name = models.CharField(max_length=100)

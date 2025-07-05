@@ -74,8 +74,6 @@ class DiseaseAllView(APIView):
         return Response(serializer.data)
 
 class NationalHotspotsView(APIView):
-    authentication_classes = [JWTAuthentication]
-    permission_classes = [IsAuthenticated]
     serializer_class = NationalHotspotsSerializer
     def get(self, request):
         # Get query parameters
@@ -92,7 +90,13 @@ class NationalHotspotsView(APIView):
             summary_data = get_national_hotspots_summary(hotspots, year=year, disease=disease)
             return Response(summary_data)
         
-        serializer = self.serializer_class(hotspots, many=True)
+        # Pass disease filter and year filter as context to serializer
+        serializer_context = {}
+        if disease and disease != 'all':
+            serializer_context['disease_filter'] = disease
+        if year:
+            serializer_context['year_filter'] = year
+        serializer = self.serializer_class(hotspots, many=True, context=serializer_context)
         return Response(serializer.data)
 
 class NationalHotspotsFiltersView(APIView):
