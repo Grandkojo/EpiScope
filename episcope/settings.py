@@ -29,7 +29,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", os.getenv('P_IP')]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", os.getenv('P_IP'), os.getenv('P_DOMAIN')]
 
 AUTH_USER_MODEL = 'api.User'
 
@@ -74,7 +74,7 @@ SPECTACULAR_SETTINGS = {"TITLE": "EPISCOPE"}
 
 
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=1),
     "SLIDING_TOKEN_REFRESH_LIFETIME": timedelta(days=1),
     "SLIDING_TOKEN_LIFETIME": timedelta(days=30),
     "SLIDING_TOKEN_REFRESH_LIFETIME_LATE_USER": timedelta(days=1),
