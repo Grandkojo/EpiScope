@@ -18,3 +18,5 @@ __pycache__/
 *.pywz
 *.
 test_gemini.py
+test-deploy.sh
+deploy.sh
