@@ -4,9 +4,9 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 WORKDIR /app
 
-RUN apt update && apt install -y python3-pip python3-venv python3
-RUN apt install nginx -y
-RUN apt install git -y
+RUN apt-get update && apt-get install -y python3-pip python3-venv python3
+RUN apt-get install nginx -y
+RUN apt-get install git -y
 
 COPY . . 
 
