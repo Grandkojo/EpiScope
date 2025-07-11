@@ -6,7 +6,7 @@ RUN apt install nginx -y
 RUN apt install git -y
 
 COPY . . 
-
+RUN python3 -m venv episcope_env
 RUN source episcope_env/bin/activate
 
 RUN pip3 install -r requirements.txt
