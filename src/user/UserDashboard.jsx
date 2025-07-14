@@ -59,6 +59,8 @@ import { GenderDistribution } from "../components/PieChartData";
 import { DiabetesDataStats } from "../components/dashboard/DiseaseData/DiabetesDataStats";
 import { MeningitisDataStats } from "../components/dashboard/DiseaseData/MeningitisDataStats";
 import { CholeraDataStats } from "../components/dashboard/DiseaseData/CholeraDataStats";
+import { MalariaDataStats } from "../components/dashboard/DiseaseData/MalariaDataStats";
+
 const UserDashboard = () => {
 
   useQueuedNotifications();

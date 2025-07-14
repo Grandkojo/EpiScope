@@ -12,3 +12,14 @@ export const useDashboardData = (disease_name,year) => {
     enabled: !!year
   })
 }
+
+export const useDashboardDataRegionRates = (disease_name,year) => {
+  return useQuery({
+    queryKey: ['diseaseRegionRates', year, disease_name],
+    queryFn: async () => {
+      const response = await api.get(`diseases/region-rates/?disease_name=${disease_name}&year=${year}`)
+      return response.data
+    },
+    enabled: !!year
+  })
+}

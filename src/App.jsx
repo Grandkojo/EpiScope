@@ -29,25 +29,26 @@ function App() {
         <ThemeProvider>
           <Router>
             <Routes>
-              <Route path="/" element={<Layout />}>
-                <Route index element={<Dashboard />} />
-                <Route path="analytics" element={<Analytics />} />
-                <Route path="diabetes" element={<Diabetes />} />
-                <Route path="malaria" element={<Malaria />} />
-                <Route path="hotspots" element={<Hotspots />} />
-                <Route path="trends" element={<Trends />} />
-                <Route path="settings" element={<Settings />} />
-              </Route>
               <Route path="landing" element={<Landing />} />
               <Route path="login" element={<Login />}></Route>
               <Route path="signup" element={<Signup />}></Route>
 
               {/* Protected User Routes */}
               <Route element={<ProtectedRoute />}>
+                <Route path="/" element={<Layout />}>
+                  <Route index element={<Dashboard />} />
+                  <Route path="analytics" element={<Analytics />} />
+                  <Route path="diabetes" element={<Diabetes />} />
+                  <Route path="malaria" element={<Malaria />} />
+                  <Route path="hotspots" element={<Hotspots />} />
+                  <Route path="trends" element={<Trends />} />
+                  <Route path="settings" element={<Settings />} />
+                </Route>
+
                 <Route path="/users/*" element={<UserLayout />}>
                   <Route index element={<UserDashboard />} />
                   <Route path="analytics" element={<UserAnalytics />} />
-                  <Route path="settings" element={<UserSettings/>}></Route>
+                  <Route path="settings" element={<UserSettings />}></Route>
                 </Route>
               </Route>
             </Routes>
