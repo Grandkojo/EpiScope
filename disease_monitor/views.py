@@ -1,3 +1,2 @@
 from django.shortcuts import render
-
-# Create your views here.
+# DiseaseTrendsAPIView and related imports removed; now in api/views.py

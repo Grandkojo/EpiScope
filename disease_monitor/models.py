@@ -2,8 +2,23 @@ from django.db import models
 
 # Create your models here.
 
-class DiabetesData(models.Model):
+class RegionPopulation(models.Model):
+    region = models.CharField(max_length=100)
     periodname = models.CharField(max_length=100)
+    population = models.IntegerField()
+    
+    class Meta:
+        db_table = 'region_population'
+        verbose_name = 'Region Population'
+        verbose_name_plural = 'Region Populations'
+        unique_together = ['region', 'periodname']
+        ordering = ['-periodname', 'region']
+
+    def __str__(self):
+        return f"{self.region} - {self.periodname} ({self.population:,})"
+
+class DiabetesData(models.Model):
+    periodname = models.CharField(max_length=100, primary_key=True)
     diabetes_mellitus = models.IntegerField(db_column='Diabetes Mellitus')
     diabetes_mellitus_female = models.IntegerField(db_column='Diabetes Mellitus +AC0- Female')
     diabetes_mellitus_male = models.IntegerField(db_column='Diabetes Mellitus +AC0- Male')
@@ -21,7 +36,7 @@ class DiabetesData(models.Model):
         return f"Diabetes Data for {self.periodname}"
 
 class MeningitisData(models.Model):
-    periodname = models.CharField(max_length=100)
+    periodname = models.CharField(max_length=100, primary_key=True)
     meningitis_cases = models.IntegerField(db_column='Meningitis')
     meningitis_cases_female = models.IntegerField(db_column="Meningitis - Female")
     meningitis_cases_male = models.IntegerField(db_column="Meningitis - Male")
@@ -44,7 +59,7 @@ class MeningitisData(models.Model):
         return f"Meningitis Data for {self.periodname}"
 
 class CholeraData(models.Model):
-    periodname = models.CharField(max_length=100)
+    periodname = models.CharField(max_length=100, primary_key=True)
     cholera_female = models.IntegerField(db_column="Cholera - Female", null=True)
     cholera_male = models.IntegerField(db_column="Cholera - Male", null=True)
     cholera_deaths_cds = models.IntegerField(db_column="Cholera Deaths (CDS)", null=True)
@@ -116,3 +131,18 @@ class DiseaseYear(models.Model):
 
     def __str__(self):
         return f"Disease Year {self.periodname}"
+
+class DiseaseTrends(models.Model):
+    disease = models.ForeignKey(Disease, on_delete=models.CASCADE, related_name='trends')
+    year = models.IntegerField()
+    month = models.IntegerField()  # 1=Jan, 12=Dec
+    trend_value = models.FloatField()
+
+    class Meta:
+        unique_together = ('disease', 'year', 'month')
+        verbose_name = 'Disease Trend'
+        verbose_name_plural = 'Disease Trends'
+        ordering = ['disease', 'year', 'month']
+
+    def __str__(self):
+        return f"{self.disease.disease_name} - {self.year}-{self.month:02d}: {self.trend_value}"

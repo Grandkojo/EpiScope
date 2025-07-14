@@ -12,6 +12,17 @@ from .serializers import DiseaseSerializer, DiseaseYearSerializer, UserRegisterS
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework import status
 from rest_framework_simplejwt.authentication import JWTAuthentication
+from .permissions import (
+    DashboardPermission, 
+    DiseaseManagementPermission, 
+    UserManagementPermission, 
+    HotspotsPermission,
+    IsAdminUser,
+    IsSuperUser
+)
+from disease_monitor.models import DiabetesData, MeningitisData, CholeraData, NationalHotspots, DiseaseYear, RegionPopulation, Disease, DiseaseTrends
+from .services.admin.regional_rates import get_regional_disease_rates, get_available_years_for_rates, get_available_regions_for_rates, get_available_diseases_for_rates, get_rate_statistics
+from disease_monitor.serializers import DiseaseTrendsSerializer
 
 class UserRegisterView(generics.CreateAPIView):
     serializer_class = UserRegisterSerializer
@@ -29,7 +40,7 @@ class UserRegisterView(generics.CreateAPIView):
     
 class UserProfileView(generics.RetrieveUpdateAPIView):
     serializer_class = UserProfileSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [UserManagementPermission]
 
     def get(self, request):
         user = request.user
@@ -45,6 +56,8 @@ class UserProfileView(generics.RetrieveUpdateAPIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class EpidemicDashboardView(APIView):
+    permission_classes = [DashboardPermission]
+    
     def get(self, request):
         year = request.query_params.get('year', 2025)
         previous_year = request.query_params.get('prev_year', None)
@@ -54,6 +67,8 @@ class EpidemicDashboardView(APIView):
     
 class DiseaseYearsView(APIView):
     serializer_class = DiseaseYearSerializer
+    permission_classes = [DiseaseManagementPermission]
+    
     def get(self, request):
         disease_id = request.query_params.get('disease_id')
         disease_years = get_disease_years(disease_id)
@@ -71,13 +86,74 @@ class DiseaseYearsView(APIView):
     
 class DiseaseAllView(APIView):
     serializer_class = DiseaseSerializer
+    permission_classes = [DiseaseManagementPermission]
+    
     def get(self, request):
         disease_all = get_disease_all()
         serializer = self.serializer_class(disease_all, many=True)
         return Response(serializer.data)
 
+class RegionalDiseaseRatesView(APIView):
+    """
+    Returns regional disease rates (cases per 1000 population) for a selected disease and year.
+    Query params: disease (e.g. 'diabetes'), year (e.g. '2022')
+    """
+    permission_classes = [DashboardPermission]
+
+    def get(self, request):
+        disease = request.query_params.get('disease_name', None)
+        year = request.query_params.get('year', None)
+        
+        if not disease or not year:
+            return Response({'error': 'disease and year are required query parameters.'}, status=400)
+        
+        # Use the service to get regional disease rates
+        result = get_regional_disease_rates(disease, year)
+        
+        if not result['success']:
+            return Response({'error': result['error']}, status=result.get('status_code', 500))
+        
+        return Response(result['data'])
+
+class RegionalDiseaseRatesStatisticsView(APIView):
+    """
+    Returns statistical summary for regional disease rates.
+    Query params: disease (e.g. 'diabetes'), year (e.g. '2022')
+    """
+    permission_classes = [DashboardPermission]
+
+    def get(self, request):
+        disease = request.query_params.get('disease_name', None)
+        year = request.query_params.get('year', None)
+        
+        if not disease or not year:
+            return Response({'error': 'disease and year are required query parameters.'}, status=400)
+        
+        # Use the service to get rate statistics
+        result = get_rate_statistics(disease, year)
+        
+        if not result['success']:
+            return Response({'error': result['error']}, status=result.get('status_code', 500))
+        
+        return Response(result['statistics'])
+
+class RegionalDiseaseRatesFiltersView(APIView):
+    """
+    Get available filter options for regional disease rates.
+    """
+    permission_classes = [DashboardPermission]
+    
+    def get(self, request):
+        return Response({
+            'years': get_available_years_for_rates(),
+            'regions': get_available_regions_for_rates(),
+            'diseases': get_available_diseases_for_rates()
+        })
+
 class NationalHotspotsView(APIView):
     serializer_class = NationalHotspotsSerializer
+    permission_classes = [HotspotsPermission]
+    
     def get(self, request):
         # Get query parameters
         year = request.query_params.get('year')
@@ -104,6 +180,8 @@ class NationalHotspotsView(APIView):
 
 class NationalHotspotsFiltersView(APIView):
     """Get available filter options for national hotspots"""
+    permission_classes = [HotspotsPermission]
+    
     def get(self, request):
         return Response({
             'years': get_available_years(),
@@ -114,8 +192,23 @@ class NationalHotspotsFiltersView(APIView):
 class AllRegionsView(APIView):
     permission_classes = [IsAuthenticated]
     authentication_classes = [JWTAuthentication]
+    
     def get(self, request):
         regions_path = os.path.join(settings.BASE_DIR, 'api', 'static', 'regions.json')
         with open(regions_path, 'r') as f:
             regions = json.load(f)
         return Response(regions)
+
+class DiseaseTrendsAPIView(APIView):
+    def get(self, request):
+        disease_name = request.query_params.get('disease')
+        year = request.query_params.get('year')
+        if not disease_name or not year:
+            return Response({'error': 'disease and year are required query parameters.'}, status=status.HTTP_400_BAD_REQUEST)
+        try:
+            disease = Disease.objects.get(disease_name__iexact=disease_name)
+        except Disease.DoesNotExist:
+            return Response({'error': 'Disease not found.'}, status=status.HTTP_404_NOT_FOUND)
+        trends = DiseaseTrends.objects.filter(disease=disease, year=year).order_by('month')
+        serializer = DiseaseTrendsSerializer(trends, many=True)
+        return Response(serializer.data)
