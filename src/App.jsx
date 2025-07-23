@@ -15,10 +15,13 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
 import UserSettings from "./user/UserSettings";
+import UserTrends from "./user/UserTrends";
+import UserAIProfile from "./user/UserAiProfile";
 import UserAnalytics from "./user/UserAnalytics";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { NotificationProvider } from "./contexts/notification-context"
-import { NotificationContainer } from "./components/notification-container"
+import { NotificationProvider } from "./contexts/notification-context";
+import { NotificationContainer } from "./components/notification-container";
+// import UserAIProfile from "./user/UserAiProfile";
 
 const queryClient = new QueryClient();
 
@@ -47,6 +50,9 @@ function App() {
 
                 <Route path="/users/*" element={<UserLayout />}>
                   <Route index element={<UserDashboard />} />
+                  <Route path="settings" element={<UserSettings/>}></Route>
+                  <Route path="health trends" element={<UserTrends/>}> </Route>
+                  <Route  path="ai" element={<UserAIProfile/>}></Route>
                   <Route path="analytics" element={<UserAnalytics />} />
                   <Route path="settings" element={<UserSettings />}></Route>
                 </Route>
