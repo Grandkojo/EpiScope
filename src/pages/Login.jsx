@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 
 import { useState } from "react"
 import { useMutation } from "@tanstack/react-query"
@@ -22,13 +22,12 @@ const useLoginMutation = () => {
   return useMutation({
     mutationFn: async (loginData) => {
       const response = await api.post("auth/user/login/", loginData)
-      const exp_date = new Date()
-      exp_date.setMinutes(exp_date.getMinutes() + 14)
-      localStorage.setItem(ACCESS_TOKEN_LIFETIME, exp_date.getTime())
       return response.data
     },
     onSuccess: (data) => {
       if (data.access && data.refresh) {
+        const expiryTimestamp = Date.now() + ACCESS_TOKEN_LIFETIME
+        localStorage.setItem(ACCESS_TOKEN_LIFETIME, expiryTimestamp)
         localStorage.setItem('ACCESS_TOKEN', data.access)
         localStorage.setItem('REFRESH_TOKEN', data.refresh)
       }
@@ -42,6 +41,12 @@ const useLoginMutation = () => {
     )
     },
     onError: (error) => {
+      // showOnNextPage({
+      //   type: "error",
+      //   title: "Login failed",
+      //   message: error.response,
+      //   duration: 3000,
+      // })
       console.error("Login error:", error)
       console.error("Error response:", error.response)
       
@@ -52,14 +57,14 @@ const useLoginMutation = () => {
           const serverErrors = error.response.data
           console.error("Server validation errors:", serverErrors)
         } else if (error.response.status === 401) {
-          console.error("Invalid credentials")
-        }
+          console.error(error.response.data.detail);
+
       } else if (error.request) {
         console.error("Network error - no response received")
       } else {
         console.error("Error setting up request:", error.message)
       }
-    }
+    }}
   })
 }
 
