@@ -8,12 +8,13 @@ import {
   LifeBuoy,
   ChevronLeft,
   ChevronRight,
+  ChartArea
 } from "lucide-react"
 import { Button } from "../components/ui/button"
 
 const navItems = [
   { path: "/users", icon: Home, label: "Home", end: true },
-  { path: "/users/analytics", icon: User, label: "Analytics" },
+  { path: "/users/analytics", icon: ChartArea, label: "Analytics" },
   { path: "/users/health trends", icon: HeartPulse, label: "Health Trends" },
   { path: "/users/ai", icon: BrainCircuit, label: "AI" },
   { path: "/users/settings", icon: LifeBuoy, label: "Settings" },

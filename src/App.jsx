@@ -14,9 +14,14 @@ import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
+import UserSettings from "./user/UserSettings";
+import UserTrends from "./user/UserTrends";
+import UserAIProfile from "./user/UserAiProfile";
+import UserAnalytics from "./user/UserAnalytics";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { NotificationProvider } from "./contexts/notification-context"
-import { NotificationContainer } from "./components/notification-container"
+import { NotificationProvider } from "./contexts/notification-context";
+import { NotificationContainer } from "./components/notification-container";
+// import UserAIProfile from "./user/UserAiProfile";
 
 const queryClient = new QueryClient();
 
@@ -27,23 +32,29 @@ function App() {
         <ThemeProvider>
           <Router>
             <Routes>
-              <Route path="/" element={<Layout />}>
-                <Route index element={<Dashboard />} />
-                <Route path="analytics" element={<Analytics />} />
-                <Route path="diabetes" element={<Diabetes />} />
-                <Route path="malaria" element={<Malaria />} />
-                <Route path="hotspots" element={<Hotspots />} />
-                <Route path="trends" element={<Trends />} />
-                <Route path="settings" element={<Settings />} />
-              </Route>
               <Route path="landing" element={<Landing />} />
               <Route path="login" element={<Login />}></Route>
               <Route path="signup" element={<Signup />}></Route>
 
               {/* Protected User Routes */}
               <Route element={<ProtectedRoute />}>
+                <Route path="/" element={<Layout />}>
+                  <Route index element={<Dashboard />} />
+                  <Route path="analytics" element={<Analytics />} />
+                  <Route path="diabetes" element={<Diabetes />} />
+                  <Route path="malaria" element={<Malaria />} />
+                  <Route path="hotspots" element={<Hotspots />} />
+                  <Route path="trends" element={<Trends />} />
+                  <Route path="settings" element={<Settings />} />
+                </Route>
+
                 <Route path="/users/*" element={<UserLayout />}>
                   <Route index element={<UserDashboard />} />
+                  <Route path="settings" element={<UserSettings/>}></Route>
+                  <Route path="health trends" element={<UserTrends/>}> </Route>
+                  <Route  path="ai" element={<UserAIProfile/>}></Route>
+                  <Route path="analytics" element={<UserAnalytics />} />
+                  <Route path="settings" element={<UserSettings />}></Route>
                 </Route>
               </Route>
             </Routes>

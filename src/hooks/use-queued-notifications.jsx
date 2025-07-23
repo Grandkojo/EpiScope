@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 
 import { useEffect } from "react"
 import { useNotification } from "../contexts/notification-context"
@@ -10,12 +10,12 @@ export function useQueuedNotifications() {
     const checkAndShowQueuedNotifications = () => {
       try {
         const stored = sessionStorage.getItem("queuedNotifications")
-        console.log("Checking for queued notifications:", stored)
+        // console.log("Checking for queued notifications:", stored)
 
         if (stored) {
           const notifications = JSON.parse(stored)
           if (notifications.length > 0) {
-            console.log("Found queued notifications, showing them:", notifications)
+            // console.log("Found queued notifications, showing them:", notifications)
 
             // Clear from storage immediately
             sessionStorage.removeItem("queuedNotifications")
@@ -23,7 +23,7 @@ export function useQueuedNotifications() {
             // Show each notification with a small delay
             notifications.forEach((notification, index) => {
               setTimeout(() => {
-                console.log("Displaying notification:", notification)
+                // console.log("Displaying notification:", notification)
                 addNotification(notification)
               }, index * 200)
             })

@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 
 import { useNotification } from "../contexts/notification-context"
 
