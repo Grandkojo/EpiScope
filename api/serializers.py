@@ -133,8 +133,10 @@ class NationalHotspotsSerializer(serializers.ModelSerializer):
             return "high"
         elif total_cases >= 100:
             return "medium"
-        else:
+        elif total_cases > 1 and total_cases < 100:
             return "low"
+        else:
+            return "none"
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

@@ -3,6 +3,7 @@
 Script to test if the models are working correctly
 """
 
+import pandas as pd
 import os
 import django
 
@@ -11,6 +12,26 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'episcope.settings')
 django.setup()
 
 from disease_monitor.models import DiabetesData, MeningitisData, CholeraData, NationalHotspots, Disease, DiseaseYear
+from src.models.disease_monitor import DiseaseMonitor
+
+# Sample input (edit as needed)
+input_data = {
+    "age": 22,
+    "sex": "Female",
+    "pregnant_patient": False,
+    "nhia_patient": True,
+    "orgname": "Weija",
+    "address_locality": "DANSOMAN",
+    "disease_type": "malaria",
+    "symptoms": [
+        "Unexplained Weight Loss",
+        "Fatigue",
+        "Blurred Vision",
+        "Frequent Infections"
+    ],
+    # "symptoms": ["Fever", "Headache", "Chills and Shivering", "Sweating", "Nausea and Vomiting"],
+    "gemini_enabled": False
+}
 
 def test_model_queries():
     """Test if we can query the models without errors"""
@@ -79,7 +100,27 @@ def test_admin_queries():
     except Exception as e:
         print(f"✗ Error in admin-like query: {e}")
 
+def test_model(input_data):
+    disease_type = input_data["disease_type"].lower()
+    model_dir = os.path.join("models", disease_type)
+    monitor = DiseaseMonitor()
+    monitor.load_models(path=model_dir)
+
+    # Build DataFrame for prediction
+    input_df = pd.DataFrame([{**input_data, 'symptoms': input_data['symptoms']}])
+    X, _, feature_cols = monitor.preprocess_data(input_df, disease_type, training=False)
+    model = monitor.models[disease_type]
+    prediction = model.predict(X)[0]
+    probability = float(model.predict_proba(X)[0][1])
+
+    print(f"Disease type: {disease_type}")
+    print(f"Feature columns: {feature_cols}")
+    print(f"Feature values: {X.values.tolist()[0]}")
+    print(f"Prediction: {prediction}")
+    print(f"Probability: {probability}")
+
 if __name__ == "__main__":
-    test_model_queries()
-    test_model_fields()
-    test_admin_queries() 
+    # test_model_queries()
+    # test_model_fields()
+    # test_admin_queries()
+    test_model(input_data) 

@@ -3,13 +3,15 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from xgboost import XGBClassifier
-from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+from sklearn.metrics import accuracy_score, classification_report
+import shap
 import logging
-from datetime import datetime
 import joblib
 import os
+import matplotlib.pyplot as plt
+from disease_monitor.models import CommonSymptom, Disease
+from src.utils.data_preparation import combine_and_label_datasets
 
-# Configure logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -22,151 +24,176 @@ logger = logging.getLogger(__name__)
 
 class DiseaseMonitor:
     def __init__(self):
-        self.diabetes_model = None
-        self.malaria_model = None
+        self.models = {}
         self.label_encoders = {}
         self.scaler = StandardScaler()
-        
-    def preprocess_data(self, df, disease_type):
-        """Preprocess the data for model training"""
+
+    def preprocess_data(self, df, disease_type, training=True):
         logger.info(f"Preprocessing {disease_type} data")
-        
-        # Create features
-        df['Age'] = df['Age'].str.extract(r'(\d+)').astype(float)
-        df['Sex'] = df['Sex'].map({'Male': 1, 'Female': 0})
-        df['NHIA_Patient'] = df['NHIA Patient'].map({'Yes': 1, 'No': 0})
-        df['Pregnant'] = df['Pregnant Patient'].map({'Yes': 1, 'No': 0})
-        
-        # Extract location features
-        df['Location'] = df['Address (Locality)'].fillna('Unknown')
-        
-        # Create target variable based on disease type
-        if disease_type == 'diabetes':
-            # For diabetes data, all entries are diabetes cases
-            df['Target'] = 1
-            # Create synthetic negative cases by duplicating and modifying some entries
-            negative_cases = df.sample(n=min(len(df), 100), random_state=42).copy()
-            negative_cases['Target'] = 0
-            df = pd.concat([df, negative_cases], ignore_index=True)
-        else:  # malaria
-            # For malaria data, all entries are malaria cases
-            df['Target'] = 1
-            # Create synthetic negative cases by duplicating and modifying some entries
-            negative_cases = df.sample(n=min(len(df), 100), random_state=42).copy()
-            negative_cases['Target'] = 0
-            df = pd.concat([df, negative_cases], ignore_index=True)
-        
-        # Select features
-        features = ['Age', 'Sex', 'NHIA_Patient', 'Pregnant', 'Location']
-        X = df[features].copy()
-        y = df['Target']
-        
-        # Encode categorical variables
-        for col in ['Location']:
-            if col not in self.label_encoders:
+
+        df['age'] = df['age'].astype(float)
+        df['sex'] = df['sex'].map({'Male': 1, 'Female': 0, 1: 1, 0: 0})
+        df['pregnant_patient'] = df['pregnant_patient'].astype(int)
+        df['nhia_patient'] = df['nhia_patient'].astype(int)
+
+        df['orgname'] = df['orgname'].fillna('Unknown').astype(str)
+        df['address_locality'] = df['address_locality'].replace('', 'Unknown').fillna('Unknown').astype(str)
+
+        disease_obj = Disease.objects.get(disease_name__iexact=disease_type)
+        symptom_qs = CommonSymptom.objects.filter(disease=disease_obj).order_by('rank')
+        symptoms = list(symptom_qs.values_list('symptom', flat=True))
+        ranks = list(symptom_qs.values_list('rank', flat=True))
+
+        for symptom, rank in zip(symptoms, ranks):
+            col = f'has_{symptom.lower().replace(" ", "_")}'
+            df[col] = df['symptoms'].apply(
+                lambda x: int(symptom.lower() in [s.lower() for s in x]) * rank if isinstance(x, list) else 0
+            )
+
+        for col in ['orgname', 'address_locality']:
+            if training:
                 self.label_encoders[col] = LabelEncoder()
-            X[col] = self.label_encoders[col].fit_transform(X[col])
-        
-        # Scale numerical features
-        X = self.scaler.fit_transform(X)
-        
-        return X, y
-    
-    def train_model(self, diabetes_data, malaria_data):
-        """Train models for both diseases"""
-        logger.info("Starting model training")
-        
-        # Train diabetes model
-        X_diabetes, y_diabetes = self.preprocess_data(diabetes_data, 'diabetes')
-        X_train_d, X_test_d, y_train_d, y_test_d = train_test_split(
-            X_diabetes, y_diabetes, test_size=0.2, random_state=42
-        )
-        
-        self.diabetes_model = XGBClassifier(
+                df[col] = self.label_encoders[col].fit_transform(df[col])
+            else:
+                le = self.label_encoders[col]
+                df[col] = df[col].apply(lambda x: x if x in le.classes_ else 'Unknown')
+                if 'Unknown' not in le.classes_:
+                    le.classes_ = np.append(le.classes_, 'Unknown')
+                df[col] = le.transform(df[col])
+
+        feature_cols = ['age', 'sex', 'pregnant_patient', 'nhia_patient', 'orgname', 'address_locality'] + \
+                       [f'has_{s.lower().replace(" ", "_")}' for s in symptoms]
+
+        X = df[feature_cols].copy()
+        y = df['target'] if 'target' in df.columns else None
+
+        num_cols = ['age']
+        if training:
+            X[num_cols] = self.scaler.fit_transform(X[num_cols])
+        else:
+            X[num_cols] = self.scaler.transform(X[num_cols])
+
+        return X, y, feature_cols
+
+    def prepare_and_split_data(self, df_pos, df_neg, disease_type, target_col='target', test_size=0.2, val_size=0.1, random_state=42):
+        """
+        Combine, label, and split data into train/val/test sets.
+        Returns: X_train, X_val, X_test, y_train, y_val, y_test, feature_cols
+        """
+        combined = combine_and_label_datasets(df_pos, df_neg, target_col, disease_type)
+        X, y, feature_cols = self.preprocess_data(combined, disease_type, training=True)
+        # First split off test set
+        X_trainval, X_test, y_trainval, y_test = train_test_split(X, y, test_size=test_size, stratify=y, random_state=random_state)
+        # Then split train/val
+        val_relative_size = val_size / (1 - test_size)
+        X_train, X_val, y_train, y_val = train_test_split(X_trainval, y_trainval, test_size=val_relative_size, stratify=y_trainval, random_state=random_state)
+        return X_train, X_val, X_test, y_train, y_val, y_test, feature_cols
+
+    def train_with_validation(self, df_pos, df_neg, disease_type, threshold=0.5):
+        """
+        Train model with three-way split and probability-based output.
+        """
+        X_train, X_val, X_test, y_train, y_val, y_test, feature_cols = self.prepare_and_split_data(df_pos, df_neg, disease_type)
+        model = XGBClassifier(
             n_estimators=100,
             learning_rate=0.1,
             max_depth=5,
             random_state=42,
             early_stopping_rounds=10
         )
+        model.fit(X_train, y_train, eval_set=[(X_val, y_val)], verbose=False)
+        self.models[disease_type] = model
+        self._log_model_performance(model, X_test, y_test, disease_type)
+        self._save_shap_summary(model, X_test, feature_cols, disease_type)
+        # Store threshold for use in prediction
+        self.threshold = threshold
+        return model, (X_train, X_val, X_test, y_train, y_val, y_test)
+
+    def generate_shap_explanations(self, df, disease_name, path='models'):
+        """Generate and save SHAP summary plot for a trained disease model."""
+        logger.info(f"Generating SHAP for {disease_name}")
         
-        self.diabetes_model.fit(
-            X_train_d, y_train_d,
-            eval_set=[(X_test_d, y_test_d)],
-            verbose=False
-        )
-        
-        # Train malaria model
-        X_malaria, y_malaria = self.preprocess_data(malaria_data, 'malaria')
-        X_train_m, X_test_m, y_train_m, y_test_m = train_test_split(
-            X_malaria, y_malaria, test_size=0.2, random_state=42
-        )
-        
-        self.malaria_model = XGBClassifier(
-            n_estimators=100,
-            learning_rate=0.1,
-            max_depth=5,
-            random_state=42,
-            early_stopping_rounds=10
-        )
-        
-        self.malaria_model.fit(
-            X_train_m, y_train_m,
-            eval_set=[(X_test_m, y_test_m)],
-            verbose=False
-        )
-        
-        # Log model performance
-        self._log_model_performance(X_test_d, y_test_d, X_test_m, y_test_m)
-        
-    def _log_model_performance(self, X_test_d, y_test_d, X_test_m, y_test_m):
-        """Log model performance metrics"""
-        # Diabetes model performance
-        y_pred_d = self.diabetes_model.predict(X_test_d)
-        diabetes_accuracy = accuracy_score(y_test_d, y_pred_d)
-        diabetes_report = classification_report(y_test_d, y_pred_d)
-        
-        # Malaria model performance
-        y_pred_m = self.malaria_model.predict(X_test_m)
-        malaria_accuracy = accuracy_score(y_test_m, y_pred_m)
-        malaria_report = classification_report(y_test_m, y_pred_m)
-        
-        logger.info(f"Diabetes Model Accuracy: {diabetes_accuracy:.2f}")
-        logger.info(f"Diabetes Classification Report:\n{diabetes_report}")
-        logger.info(f"Malaria Model Accuracy: {malaria_accuracy:.2f}")
-        logger.info(f"Malaria Classification Report:\n{malaria_report}")
-    
-    def predict(self, data, disease_type):
-        """Make predictions for new data"""
-        logger.info(f"Making predictions for {disease_type}")
-        
-        X, _ = self.preprocess_data(data, disease_type)
-        model = self.diabetes_model if disease_type == 'diabetes' else self.malaria_model
-        
+        X, _, _ = self.preprocess_data(df.copy(), disease_name)
+        model = self.models.get(disease_name)
+
+        if model is None:
+            raise ValueError(f"No trained model found for '{disease_name}'.")
+
+        try:
+            print("DEBUG: About to call SHAP summary plot. SHAP version:", shap.__version__)
+            explainer = shap.Explainer(model)
+            shap_values = explainer(X)
+
+            shap_dir = os.path.join(path, disease_name, 'shap')
+            os.makedirs(shap_dir, exist_ok=True)
+
+            plt.figure(figsize=(10, 6))
+            shap.summary_plot(shap_values, X, show=False)
+            plot_path = os.path.join(shap_dir, f'shap_summary_{disease_name}.png')
+            plt.savefig(plot_path, bbox_inches='tight')
+            plt.close()
+
+            logger.info(f"SHAP summary plot saved to: {plot_path}")
+        except Exception as e:
+            import traceback
+            logger.warning(f"SHAP generation failed for {disease_name}: {e}\n{traceback.format_exc()}")
+
+    def _log_model_performance(self, model, X_test, y_test, disease_name):
+        y_pred = model.predict(X_test)
+        accuracy = accuracy_score(y_test, y_pred)
+        report = classification_report(y_test, y_pred)
+        logger.info(f"{disease_name.title()} Model Accuracy: {accuracy:.2f}")
+        logger.info(f"{disease_name.title()} Classification Report:\n{report}")
+
+    def _save_shap_summary(self, model, X, feature_names, disease_name):
+        explainer = shap.Explainer(model)
+        shap_values = explainer(X)
+        shap.summary_plot(shap_values, X, show=False)
+        os.makedirs(f'shap_outputs/{disease_name}', exist_ok=True)
+        shap.plots.beeswarm(shap_values, show=False)
+        shap.summary_plot(shap_values, X, plot_type="bar", show=False)
+
+    def predict(self, data, disease_name):
+        X, _, _ = self.preprocess_data(data, disease_name, training=False)
+        model = self.models[disease_name]
         predictions = model.predict(X)
-        probabilities = model.predict_proba(X)
-        
-        return predictions, probabilities
-    
+        probabilities = model.predict_proba(X)[:, 1]
+        return [
+            {
+                "prediction": int(pred),
+                "probability": float(prob)
+            }
+            for pred, prob in zip(predictions, probabilities)
+        ]
+
+    def predict_with_probabilities(self, data, disease_name, threshold=None, uncertain_range=(0.45, 0.55)):
+        X, _, _ = self.preprocess_data(data, disease_name, training=False)
+        model = self.models[disease_name]
+        probabilities = model.predict_proba(X)[:, 1]
+        threshold = threshold if threshold is not None else getattr(self, 'threshold', 0.5)
+        results = []
+        for prob in probabilities:
+            if uncertain_range[0] < prob < uncertain_range[1]:
+                pred = 'uncertain'
+            else:
+                pred = int(prob >= threshold)
+            results.append({
+                'prediction': pred,
+                'probability': float(prob)
+            })
+        return results
+
     def save_models(self, path='models'):
-        """Save trained models and encoders"""
-        logger.info("Saving models and encoders")
-        
         os.makedirs(path, exist_ok=True)
-        
-        # Save models
-        joblib.dump(self.diabetes_model, f'{path}/diabetes_model.joblib')
-        joblib.dump(self.malaria_model, f'{path}/malaria_model.joblib')
-        
-        # Save encoders
+        for disease_name, model in self.models.items():
+            joblib.dump(model, f'{path}/{disease_name}_model.joblib')
         joblib.dump(self.label_encoders, f'{path}/label_encoders.joblib')
         joblib.dump(self.scaler, f'{path}/scaler.joblib')
-    
+
     def load_models(self, path='models'):
-        """Load trained models and encoders"""
-        logger.info("Loading models and encoders")
-        
-        self.diabetes_model = joblib.load(f'{path}/diabetes_model.joblib')
-        self.malaria_model = joblib.load(f'{path}/malaria_model.joblib')
+        for fname in os.listdir(path):
+            if fname.endswith('_model.joblib'):
+                disease_name = fname.replace('_model.joblib', '')
+                self.models[disease_name] = joblib.load(os.path.join(path, fname))
         self.label_encoders = joblib.load(f'{path}/label_encoders.joblib')
-        self.scaler = joblib.load(f'{path}/scaler.joblib') 
+        self.scaler = joblib.load(f'{path}/scaler.joblib')

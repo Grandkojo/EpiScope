@@ -1,4 +1,5 @@
 from django.db import models
+import json
 
 # Create your models here.
 
@@ -146,3 +147,60 @@ class DiseaseTrends(models.Model):
 
     def __str__(self):
         return f"{self.disease.disease_name} - {self.year}-{self.month:02d}: {self.trend_value}"
+
+class CommonSymptom(models.Model):
+    disease = models.ForeignKey(Disease, on_delete=models.CASCADE, related_name='common_symptoms')
+    symptom = models.CharField(max_length=100)
+    description = models.TextField(null=True, blank=True)
+    rank = models.PositiveIntegerField(default=1)  
+
+    class Meta:
+        unique_together = ('disease', 'symptom')
+        ordering = ['disease', 'rank']
+
+    def __str__(self):
+        return f"{self.disease.disease_name}: {self.symptom} (#{self.rank})"
+
+
+class HospitalHealthData(models.Model):
+    orgname = models.CharField(max_length=100) 
+    address_locality = models.CharField(max_length=255)
+    age = models.IntegerField()
+    sex = models.CharField(max_length=10) 
+    principal_diagnosis_new = models.CharField(max_length=255)
+    additional_diagnosis_new = models.CharField(max_length=255, blank=True, null=True)
+    pregnant_patient = models.BooleanField()
+    nhia_patient = models.BooleanField()
+    month = models.DateField() 
+
+
+    class Meta:
+        indexes = [
+            models.Index(fields=['orgname', 'month']),
+        ]
+        verbose_name = 'Hospital Health Data'
+        verbose_name_plural = 'Hospital Health Data'
+
+class PredictionLog(models.Model):
+    orgname = models.CharField(max_length=100)
+    address_locality = models.CharField(max_length=255)
+    age = models.IntegerField()
+    sex = models.CharField(max_length=10)
+    pregnant_patient = models.BooleanField()
+    nhia_patient = models.BooleanField()
+    disease_type = models.CharField(max_length=50)
+    symptoms = models.TextField()  # Store as JSON string
+    prediction = models.CharField(max_length=100)
+    probability = models.FloatField()
+    gemini_enabled = models.BooleanField(default=False)
+    gemini_recommendation = models.TextField(blank=True, null=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def set_symptoms(self, symptoms_list):
+        self.symptoms = json.dumps(symptoms_list)
+
+    def get_symptoms(self):
+        return json.loads(self.symptoms)
+
+    def __str__(self):
+        return f"{self.orgname} | {self.disease_type} | {self.prediction} | {self.timestamp}"

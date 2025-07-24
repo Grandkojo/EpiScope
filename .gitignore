@@ -22,3 +22,12 @@ test-deploy.sh
 deploy.sh
 check_permissions.py
 show_permissions.py
+tt.py
+*.py
+*.pyc
+*.pyo
+*.pyd
+*.pyw
+*.pywz
+*.joblib
+MRCONSO.RRF
