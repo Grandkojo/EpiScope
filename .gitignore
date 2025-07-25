@@ -23,7 +23,7 @@ deploy.sh
 check_permissions.py
 show_permissions.py
 tt.py
-*.py
+# *.py
 *.pyc
 *.pyo
 *.pyd
