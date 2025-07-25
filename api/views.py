@@ -219,7 +219,7 @@ class AnalyticsDashboardOverviewView(APIView):
 
 class AnalyticsPrincipalDiagnosesView(APIView):
     """Get top principal diagnoses with counts"""
-    permission_classes = [DashboardPermission]
+    permission_classes = [IsAdminUser]
     
     def get(self, request):
         disease = request.query_params.get('disease', None)
@@ -230,7 +230,7 @@ class AnalyticsPrincipalDiagnosesView(APIView):
 
 class AnalyticsAdditionalDiagnosesView(APIView):
     """Get top additional diagnoses with counts"""
-    permission_classes = [DashboardPermission]
+    permission_classes = [IsAdminUser]
     
     def get(self, request):
         disease = request.query_params.get('disease', None)
@@ -241,7 +241,7 @@ class AnalyticsAdditionalDiagnosesView(APIView):
 
 class AnalyticsNHIAStatusView(APIView):
     """Get NHIA status distribution with disease_name, year, and locality filters"""
-    permission_classes = [DashboardPermission]
+    permission_classes = [IsAdminUser]
     
     def get(self, request):
         disease_name = request.query_params.get('disease_name', None)
@@ -260,7 +260,7 @@ class AnalyticsNHIAStatusView(APIView):
 
 class AnalyticsPregnancyStatusView(APIView):
     """Get pregnancy status distribution with disease_name, year, and locality filters"""
-    permission_classes = [DashboardPermission]
+    permission_classes = [IsAdminUser]
     
     def get(self, request):
         disease_name = request.query_params.get('disease_name', None)
@@ -279,7 +279,7 @@ class AnalyticsPregnancyStatusView(APIView):
 
 class AnalyticsHotspotsView(APIView):
     """Get disease hotspots by locality"""
-    permission_classes = [DashboardPermission]
+    permission_classes = [IsAdminUser]
     
     def get(self, request):
         disease = request.query_params.get('disease', None)
@@ -290,7 +290,7 @@ class AnalyticsHotspotsView(APIView):
 
 class AnalyticsDiseaseComparisonView(APIView):
     """Compare two diseases"""
-    permission_classes = [DashboardPermission]
+    permission_classes = [IsAdminUser]
     
     def get(self, request):
         disease1 = request.query_params.get('disease1', 'diabetes')
@@ -302,7 +302,7 @@ class AnalyticsDiseaseComparisonView(APIView):
 
 class AnalyticsTrendsView(APIView):
     """Get trends by locality over time"""
-    permission_classes = [DashboardPermission]
+    permission_classes = [IsAdminUser]
     
     def get(self, request):
         disease = request.query_params.get('disease', 'diabetes')
@@ -316,7 +316,7 @@ class AnalyticsTrendsView(APIView):
 
 class TimeSeriesForecastView(APIView):
     """Get time series forecast for disease data"""
-    permission_classes = [DashboardPermission]
+    permission_classes = [IsAdminUser]
     
     def get(self, request):
         disease = request.query_params.get('disease', 'diabetes')
