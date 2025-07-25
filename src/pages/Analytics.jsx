@@ -18,6 +18,7 @@ import {
   PolarRadiusAxis,
   Radar,
   ReferenceDot,
+  Cell,
   BarChart,
   PieChart,
   Pie,
@@ -37,6 +38,10 @@ import {
   Users,
   AlertCircle,
 } from "lucide-react"
+import { useNHIAStatusAnalyticsData, usePregnancyStatusAnalyticsData } from "../data/analytics_data"
+import { useDiseaseYears } from "../data/all_years"
+import { useDiseases } from "../data/all_diseases"
+import { NHIAStatusDistribution, PregnancyStatusDistribution } from "../components/PieChartData"
 import { monthlyTrends, diabetesData, malariaData } from "../data/dummyData"
 
 // Dummy disease meta
@@ -137,6 +142,53 @@ const TRENDS_BY_LOCALITY = [
 ]
 
 const Analytics = () => {
+
+  const { data: diseases, isLoading: isDiseasesLoading, error } = useDiseases();
+  const [selectedDisease, setSelectedDisease] = useState(() => {
+    return localStorage.getItem("selectedDisease") || "Diabetes";
+  });
+  const [isLiveDataEnabled, setIsLiveDataEnabled] = useState(() => {
+    return localStorage.getItem("isLiveDataEnabled") === "true" || false;
+  });
+
+  const handleDiseaseChange = (value) => {
+    setSelectedDisease(value);
+    localStorage.setItem("selectedDisease", value);
+  };
+
+  const handleDiseaseYearChange = (value) => {
+    setSelectedDiseaseYear(value);
+    localStorage.setItem("selectedDiseaseYear", value);
+  };
+  const selectedDiseaseId = diseases?.find(
+    (disease) => disease.disease_name === selectedDisease
+  )?.id;
+  const {
+    data: diseaseYears,
+    isLoading: isDiseaseYearsLoading,
+    error: isDiseaseYearsError,
+  } = useDiseaseYears(selectedDiseaseId);
+
+
+  const selectedDiseaseL = selectedDisease.toLowerCase();
+  const [selectedDiseaseYear, setSelectedDiseaseYear] = useState(() => {
+    return (
+      localStorage.getItem("selectedDiseaseYear") ||
+      String(new Date().getFullYear())
+    );
+  });
+
+  const {
+    data: nhiaStatusData,
+    isLoading: isNHIAStatusDataLoading,
+    error: isNHIAStatusDataError,
+  } = useNHIAStatusAnalyticsData(selectedDiseaseL, selectedDiseaseYear);
+  const {
+    data: pregnancyStatusData,
+    isLoading: isPregnancyStatusDataLoading,
+    error: isPregnancyStatusDataError,
+  } = usePregnancyStatusAnalyticsData(selectedDiseaseL, selectedDiseaseYear);
+
   // Disease dropdowns
   const [disease1, setDisease1] = useState("diabetes")
   const [disease2, setDisease2] = useState("malaria")
@@ -164,10 +216,10 @@ const Analytics = () => {
   // Dummy forecast data (extend by 2 months)
   const forecastData = showForecast
     ? [
-        ...trendData,
-        { month: "Jan+", d1: trendData[trendData.length - 1].d1 * 1.03, d2: trendData[trendData.length - 1].d2 * 1.02 },
-        { month: "Feb+", d1: trendData[trendData.length - 1].d1 * 1.06, d2: trendData[trendData.length - 1].d2 * 1.04 },
-      ]
+      ...trendData,
+      { month: "Jan+", d1: trendData[trendData.length - 1].d1 * 1.03, d2: trendData[trendData.length - 1].d2 * 1.02 },
+      { month: "Feb+", d1: trendData[trendData.length - 1].d1 * 1.06, d2: trendData[trendData.length - 1].d2 * 1.04 },
+    ]
     : trendData
 
   // Dummy annotation
@@ -602,6 +654,75 @@ const Analytics = () => {
           </CardContent>
         </Card>
 
+        {/* Dropdowns */}
+        <div className="flex items-center space-x-4 w-full justify-end">
+          {/* Disease Selection for Regional Chart */}
+          <Select value={selectedDisease} onValueChange={handleDiseaseChange}>
+            <SelectTrigger className="w-[180px]">
+              <SelectValue placeholder="Select Disease" />
+            </SelectTrigger>
+            <SelectContent>
+              {isDiseasesLoading ? (
+                <SelectItem value="loading" disabled>
+                  Loading diseases...
+                </SelectItem>
+              ) : (
+                <>
+                  {diseases?.find(
+                    (disease) => disease.disease_name === "Diabetes"
+                  ) && <SelectItem value="Diabetes">Diabetes</SelectItem>}
+                  {Array.isArray(diseases) &&
+                    diseases
+                      .filter((disease) => disease.disease_name !== "Diabetes")
+                      .map((disease) => (
+                        <SelectItem
+                          key={disease.id}
+                          value={disease.disease_name}
+                        >
+                          {disease.disease_name}
+                        </SelectItem>
+                      ))}
+                </>
+              )}
+            </SelectContent>
+          </Select>
+
+          {/* Year Selection for Regional Chart */}
+          <Select
+            value={selectedDiseaseYear}
+            onValueChange={handleDiseaseYearChange}
+          >
+            <SelectTrigger className="w-[150px]">
+              <SelectValue placeholder="Select Year" />
+            </SelectTrigger>
+            <SelectContent>
+              {isDiseaseYearsLoading ? (
+                <SelectItem value="loading" disabled>
+                  Loading years...
+                </SelectItem>
+              ) : (
+                <>
+                  <SelectItem value="all">All Years</SelectItem>
+                  {diseaseYears?.find(
+                    (disease) => disease.periodname === 2025
+                  ) && <SelectItem value="2025">2025</SelectItem>}
+                  {Array.isArray(diseaseYears) &&
+                    diseaseYears
+                      .filter((diseaseYear) => diseaseYear.periodname !== 2025)
+                      .map((diseaseYear) => (
+                        <SelectItem
+                          key={diseaseYear.id}
+                          value={diseaseYear.periodname}
+                        >
+                          {diseaseYear.periodname}
+                        </SelectItem>
+                      ))}
+                </>
+              )}
+            </SelectContent>
+          </Select>
+        </div>
+
         {/* Hotspots Table */}
         <Card className="shadow-lg border-slate-200 hover:shadow-xl transition-shadow duration-300">
           <CardHeader className="pb-4">
@@ -609,6 +730,9 @@ const Analytics = () => {
               <span className="text-slate-800">Hotspots in Weija Municipal</span>
             </CardTitle>
           </CardHeader>
+
+
+
           <CardContent className="pt-0">
             <div className="overflow-x-auto">
               <table className="min-w-full text-sm text-slate-700">
@@ -710,27 +834,95 @@ const Analytics = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Card className="shadow-lg border-slate-200 hover:shadow-xl transition-shadow duration-300">
             <CardHeader className="pb-4">
-              <CardTitle>NHIA Status</CardTitle>
+              <CardTitle>NHIA Status - {selectedDiseaseYear}</CardTitle>
             </CardHeader>
             <CardContent className="pt-0">
               <ResponsiveContainer width="100%" height={250}>
-                <PieChart>
-                  <Pie data={NHIA_STATUS} dataKey="count" nameKey="status" cx="50%" cy="50%" outerRadius={80} fill="#6366f1" label />
+              <PieChart>
+                {isNHIAStatusDataLoading ? (
+                  <text x="50%" y="50%" textAnchor="middle" dy=".3em" fill="#666">
+                    Loading...
+                  </text>
+                ) : nhiaStatusData?.[selectedDiseaseL]?.yes && nhiaStatusData?.[selectedDiseaseL]?.no ? (
+                  <Pie
+                    data={NHIAStatusDistribution(nhiaStatusData?.[selectedDiseaseL]?.yes, nhiaStatusData?.[selectedDiseaseL]?.no)}
+                    cx="50%"
+                    cy="50%"
+                    outerRadius={100}
+                    fill="#8884d8"
+                    dataKey="value"
+                    label={({ name, percent }) =>
+                      `${name} ${(percent * 100).toFixed(0)}%`
+                    }
+                  >
+                    {NHIAStatusDistribution(nhiaStatusData?.[selectedDiseaseL]?.yes, nhiaStatusData?.[selectedDiseaseL]?.no).map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.color} />
+                    ))}
+                  </Pie>
+                ) : (
+                  <text x="50%" y="50%" textAnchor="middle" dy=".3em" fill="#666">
+                    No data available
+                  </text>
+                )}
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: "grey",
+                    border: "1px solid #374151",
+                    borderRadius: "8px",
+                  }}
+                />
+              </PieChart>
+                {/* <PieChart>
+                  <Pie data={nhiaStatusData} dataKey="count" nameKey="status" cx="50%" cy="50%" outerRadius={80} fill="#6366f1" label />
                   <Tooltip />
-                </PieChart>
+                </PieChart> */}
               </ResponsiveContainer>
             </CardContent>
           </Card>
           <Card className="shadow-lg border-slate-200 hover:shadow-xl transition-shadow duration-300">
             <CardHeader className="pb-4">
-              <CardTitle>Pregnancy Status</CardTitle>
+              <CardTitle>Pregnancy Status - {selectedDiseaseYear}</CardTitle>
             </CardHeader>
             <CardContent className="pt-0">
               <ResponsiveContainer width="100%" height={250}>
-                <PieChart>
-                  <Pie data={PREGNANCY_STATUS} dataKey="count" nameKey="status" cx="50%" cy="50%" outerRadius={80} fill="#22c55e" label />
+              <PieChart>
+                {isPregnancyStatusDataLoading ? (
+                  <text x="50%" y="50%" textAnchor="middle" dy=".3em" fill="#666">
+                    Loading...
+                  </text>
+                ) : pregnancyStatusData?.[selectedDiseaseL]?.yes && pregnancyStatusData?.[selectedDiseaseL]?.no ? (
+                  <Pie
+                    data={PregnancyStatusDistribution(pregnancyStatusData?.[selectedDiseaseL]?.yes, pregnancyStatusData?.[selectedDiseaseL]?.no)}
+                    cx="50%"
+                    cy="50%"
+                    outerRadius={100}
+                    fill="#8884d8"
+                    dataKey="value"
+                    label={({ name, percent }) =>
+                      `${name} ${(percent * 100).toFixed(0)}%`
+                    }
+                  >
+                    {PregnancyStatusDistribution(pregnancyStatusData?.[selectedDiseaseL]?.yes, pregnancyStatusData?.[selectedDiseaseL]?.no).map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.color} />
+                    ))}
+                  </Pie>
+                ) : (
+                  <text x="50%" y="50%" textAnchor="middle" dy=".3em" fill="#666">
+                    No data available
+                  </text>
+                )}
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: "grey",
+                    border: "1px solid #374151",
+                    borderRadius: "8px",
+                  }}
+                />
+              </PieChart>
+                {/* <PieChart>
+                  <Pie data={pregnancyStatusData} dataKey="count" nameKey="status" cx="50%" cy="50%" outerRadius={80} fill="#22c55e" label />
                   <Tooltip />
-                </PieChart>
+                </PieChart> */}
               </ResponsiveContainer>
             </CardContent>
           </Card>

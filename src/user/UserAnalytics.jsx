@@ -1,10 +1,10 @@
 // "use client"
 
 import { useState } from "react"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import Badge from "../components/ui/Badge"
+import { Button } from "../components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select"
 import { AlertTriangle, MapPin, Users, TrendingUp, Filter } from "lucide-react"
 import { MapComponent, Coordinates } from "../components/MapComponent"
 import { useRegions } from "../data/all_regions"
@@ -12,106 +12,106 @@ import { useDiseases } from "../data/all_diseases"
 import { useDiseaseYears } from "../data/all_years"
 import { useHotspots } from "../data/hotspots"
 // Dummy data for disease hotspots
-const diseaseData = [
-    {
-        id: 1,
-        disease: "Malaria",
-        region: "Northern Region",
-        city: "Tamale",
-        cases: 1250,
-        severity: "high",
-        coordinates: (() => {
-            const found = Coordinates.find(item => item.name === "ET");
-            return found ? { x: found.coordinates[0], y: found.coordinates[1] } : null;
-        })(),
-        color: "#ef4444",
-        trend: "increasing",
-    },
-    {
-        id: 2,
-        disease: "Cholera",
-        region: "Greater Accra",
-        city: "Accra",
-        cases: 89,
-        severity: "medium",
-        coordinates: (() => {
-            const found = Coordinates.find(item => item.name === "GA");
-            return found ? { x: found.coordinates[0], y: found.coordinates[1] } : null;
-        })(),
-        color: "#f59e0b",
-        trend: "stable",
-    },
-    {
-        id: 3,
-        disease: "Yellow Fever",
-        region: "Ashanti Region",
-        city: "Kumasi",
-        cases: 45,
-        severity: "low",
-        coordinates: (() => {
-            const found = Coordinates.find(item => item.name === "AS");
-            return found ? { x: found.coordinates[0], y: found.coordinates[1] } : null;
-        })(),
-        color: "#eab308",
-        trend: "decreasing",
-    },
-    {
-        id: 4,
-        disease: "Dengue",
-        region: "Western Region",
-        city: "Takoradi",
-        cases: 156,
-        severity: "medium",
-        coordinates: (() => {
-            const found = Coordinates.find(item => item.name === "WE");
-            return found ? { x: found.coordinates[0], y: found.coordinates[1] } : null;
-        })(),
-        color: "#f97316",
-        trend: "increasing",
-    },
-    {
-        id: 5,
-        disease: "Meningitis",
-        region: "Upper East Region",
-        city: "Bolgatanga",
-        cases: 78,
-        severity: "high",
-        coordinates: (() => {
-            const found = Coordinates.find(item => item.name === "UE");
-            return found ? { x: found.coordinates[0], y: found.coordinates[1] } : null;
-        })(),
-        color: "#dc2626",
-        trend: "stable",
-    },
-    {
-        id: 6,
-        disease: "Typhoid",
-        region: "Central Region",
-        city: "Cape Coast",
-        cases: 234,
-        severity: "medium",
-        coordinates: (() => {
-            const found = Coordinates.find(item => item.name === "CE");
-            return found ? { x: found.coordinates[0], y: found.coordinates[1] } : null;
-        })(),
-        color: "#ea580c",
-        trend: "increasing",
-    },
-    {
-        id: 7,
-        disease: "Malaria",
-        region: "Volta Region",
-        city: "Ho",
-        cases: 167,
-        severity: "medium",
-        coordinates: (() => {
-            const found = Coordinates.find(item => item.name === "VO");
-            return found ? { x: found.coordinates[0], y: found.coordinates[1] } : null;
-        })(),
-        color: "#ef4444",
-        trend: "decreasing",
-    },
-]
+// const diseaseData = [
+//     {
+//         id: 1,
+//         disease: "Malaria",
+//         region: "Northern Region",
+//         city: "Tamale",
+//         cases: 1250,
+//         severity: "high",
+//         coordinates: (() => {
+//             const found = Coordinates.find(item => item.name === "ET");
+//             return found ? { x: found.coordinates[0], y: found.coordinates[1] } : null;
+//         })(),
+//         color: "#ef4444",
+//         trend: "increasing",
+//     },
+//     {
+//         id: 2,
+//         disease: "Cholera",
+//         region: "Greater Accra",
+//         city: "Accra",
+//         cases: 89,
+//         severity: "medium",
+//         coordinates: (() => {
+//             const found = Coordinates.find(item => item.name === "GA");
+//             return found ? { x: found.coordinates[0], y: found.coordinates[1] } : null;
+//         })(),
+//         color: "#f59e0b",
+//         trend: "stable",
+//     },
+//     {
+//         id: 3,
+//         disease: "Yellow Fever",
+//         region: "Ashanti Region",
+//         city: "Kumasi",
+//         cases: 45,
+//         severity: "low",
+//         coordinates: (() => {
+//             const found = Coordinates.find(item => item.name === "AS");
+//             return found ? { x: found.coordinates[0], y: found.coordinates[1] } : null;
+//         })(),
+//         color: "#eab308",
+//         trend: "decreasing",
+//     },
+//     {
+//         id: 4,
+//         disease: "Dengue",
+//         region: "Western Region",
+//         city: "Takoradi",
+//         cases: 156,
+//         severity: "medium",
+//         coordinates: (() => {
+//             const found = Coordinates.find(item => item.name === "WE");
+//             return found ? { x: found.coordinates[0], y: found.coordinates[1] } : null;
+//         })(),
+//         color: "#f97316",
+//         trend: "increasing",
+//     },
+//     {
+//         id: 5,
+//         disease: "Meningitis",
+//         region: "Upper East Region",
+//         city: "Bolgatanga",
+//         cases: 78,
+//         severity: "high",
+//         coordinates: (() => {
+//             const found = Coordinates.find(item => item.name === "UE");
+//             return found ? { x: found.coordinates[0], y: found.coordinates[1] } : null;
+//         })(),
+//         color: "#dc2626",
+//         trend: "stable",
+//     },
+//     {
+//         id: 6,
+//         disease: "Typhoid",
+//         region: "Central Region",
+//         city: "Cape Coast",
+//         cases: 234,
+//         severity: "medium",
+//         coordinates: (() => {
+//             const found = Coordinates.find(item => item.name === "CE");
+//             return found ? { x: found.coordinates[0], y: found.coordinates[1] } : null;
+//         })(),
+//         color: "#ea580c",
+//         trend: "increasing",
+//     },
+//     {
+//         id: 7,
+//         disease: "Malaria",
+//         region: "Volta Region",
+//         city: "Ho",
+//         cases: 167,
+//         severity: "medium",
+//         coordinates: (() => {
+//             const found = Coordinates.find(item => item.name === "VO");
+//             return found ? { x: found.coordinates[0], y: found.coordinates[1] } : null;
+//         })(),
+//         color: "#ef4444",
+//         trend: "decreasing",
+//     },
+// ]
 
 
 export default function UserAnalytics() {
@@ -141,19 +141,19 @@ export default function UserAnalytics() {
 
     const { data: diseaseYears, isLoading: isDiseaseYearsLoading, isError: isDiseaseYearsError } = useDiseaseYears(selectedDiseaseId)
 
-    const filteredData = diseaseData.filter((item) => {
-        const regionMatch = selectedRegion === "all" || item.region === selectedRegion
-        const diseaseMatch = selectedDisease === "all" || item.disease === selectedDisease
-        return regionMatch && diseaseMatch
-    })
+    // const filteredData = diseaseData.filter((item) => {
+    //     const regionMatch = selectedRegion === "all" || item.region === selectedRegion
+    //     const diseaseMatch = selectedDisease === "all" || item.disease === selectedDisease
+    //     return regionMatch && diseaseMatch
+    // })
 
-    const totalCases = filteredData.reduce((sum, item) => sum + item.cases, 0)
-    const highSeverityCount = filteredData.filter((item) => item.severity === "high").length
+    // const totalCases = filteredData.reduce((sum, item) => sum + item.cases, 0)
+    // const highSeverityCount = filteredData.filter((item) => item.severity === "high").length
     const { data: hotspots, isLoading: isHotspotsLoading, isError: isHotspotsError } = useHotspots(selectedRegion, selectedDiseaseL, selectedDiseaseYear)
 
     // map the hotspots to the diseaseData
-    const mappedHotspots = hotspots?.map((hotspot) => {
-        hotspot.color = hotspot.severity === "high" ? "#ef4444" : hotspot.severity === "medium" ? "#f59e0b" : "#eab308"
+    const mappedHotspots = hotspots?.map((hotspot) => { 
+        hotspot.color = hotspot.severity === "high" ? "#ef4444" : hotspot.severity === "medium" ? "#f59e0b" : hotspot.severity === "low" ? "#eab308" : "#D3D3D3"
         const foundCoordinates = Coordinates.find((item) => item.name === hotspot.code)
         hotspot.coordinates = foundCoordinates ? { x: foundCoordinates.coordinates[0], y: foundCoordinates.coordinates[1] } : null
         return hotspot
@@ -500,7 +500,11 @@ export default function UserAnalytics() {
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 bg-yellow-500 rounded-full"></div>
-                                        <span className="text-sm">Low Severity ({"<"}100 cases)</span>
+                                        <span className="text-sm">Low Severity (1-99 cases)</span>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <div className="w-4 h-4 bg-gray-500 rounded-full"></div>
+                                        <span className="text-sm">No Severity (0 cases)</span>
                                     </div>
                                 </div>
                             </CardContent>
