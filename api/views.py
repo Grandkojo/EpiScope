@@ -451,7 +451,7 @@ class TimeSeriesForecastView(APIView):
 
 class TimeSeriesMultiLocalityForecastView(APIView):
     """Get forecasts for multiple localities"""
-    permission_classes = [DashboardPermission]
+    permission_classes = [IsAdminUser]
     
     def get(self, request):
         disease = request.query_params.get('disease', 'diabetes')
@@ -468,7 +468,7 @@ class TimeSeriesMultiLocalityForecastView(APIView):
 
 class TimeSeriesSeasonalForecastView(APIView):
     """Get seasonal forecast with trend and seasonality"""
-    permission_classes = [DashboardPermission]
+    permission_classes = [IsAdminUser]
     
     def get(self, request):
         disease = request.query_params.get('disease', 'diabetes')
@@ -481,7 +481,7 @@ class TimeSeriesSeasonalForecastView(APIView):
 
 class TimeSeriesAccuracyMetricsView(APIView):
     """Get forecast accuracy metrics"""
-    permission_classes = [DashboardPermission]
+    permission_classes = [IsAdminUser]
     
     def get(self, request):
         disease = request.query_params.get('disease', 'diabetes')

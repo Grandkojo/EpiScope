@@ -35,6 +35,10 @@ AUTH_USER_MODEL = 'api.User'
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
+    "https://episcope.grandkojo.my",
+    "https://www.episcope.grandkojo.my",
+    "http://episcope.grandkojo.my",
+    "http://www.episcope.grandkojo.my",
 ]
 CORS_ALLOW_CREDENTIALS = True
 
@@ -153,10 +157,10 @@ if DEBUG:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': os.getenv('DB_NAME'),
-            'USER': os.getenv('DB_USER'),
-            'PASSWORD': os.getenv('DB_PASSWORD'),
-            'HOST': os.getenv('DB_HOST'),
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
             'PORT': os.getenv('DB_PORT'),
         }
     }
