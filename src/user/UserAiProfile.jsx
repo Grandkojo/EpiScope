@@ -27,8 +27,9 @@ import {
   MessageSquare,
   FileText,
   Globe,
+  Bot,
 } from "lucide-react"
-
+import EpiScopeHealthChatbot from "../components/EpiScopeHealthChatbot"
 // Dummy user data
 const userData = {
   profile: {
@@ -337,6 +338,7 @@ export default function UserAIProfile() {
   }
 
   return (
+
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 p-6">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Header */}
@@ -367,7 +369,7 @@ export default function UserAIProfile() {
             </Button>
           </div>
         </div>
-
+        <EpiScopeHealthChatbot />
         {/* Profile Header */}
         <Card className="bg-white/80 backdrop-blur-sm border-blue-100">
           <CardContent className="p-6">
@@ -501,7 +503,7 @@ export default function UserAIProfile() {
 
         {/* Tabs Section */}
         <Tabs defaultValue="activities" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-3 lg:w-auto lg:grid-cols-3">
+          {/* <TabsList className="grid w-full grid-cols-3 lg:w-auto lg:grid-cols-3">
             <TabsTrigger value="activities" className="flex items-center gap-2">
               <Activity className="h-4 w-4" />
               Activities
@@ -514,9 +516,9 @@ export default function UserAIProfile() {
               <Award className="h-4 w-4" />
               Achievements
             </TabsTrigger>
-          </TabsList>
+          </TabsList> */}
 
-          <TabsContent value="activities">
+          {/* <TabsContent value="activities">
             <Card className="bg-white/80 backdrop-blur-sm border-blue-100">
               <CardHeader>
                 <CardTitle>Recent Activities</CardTitle>
@@ -530,9 +532,9 @@ export default function UserAIProfile() {
                 </div>
               </CardContent>
             </Card>
-          </TabsContent>
+          </TabsContent> */}
 
-          <TabsContent value="interactions">
+          {/* <TabsContent value="interactions">
             <Card className="bg-white/80 backdrop-blur-sm border-blue-100">
               <CardHeader>
                 <CardTitle>User Interactions</CardTitle>
@@ -546,9 +548,9 @@ export default function UserAIProfile() {
                 </div>
               </CardContent>
             </Card>
-          </TabsContent>
+          </TabsContent> */}
 
-          <TabsContent value="achievements">
+          {/* <TabsContent value="achievements">
             <Card className="bg-white/80 backdrop-blur-sm border-blue-100">
               <CardHeader>
                 <CardTitle>Achievements & Milestones</CardTitle>
@@ -562,8 +564,9 @@ export default function UserAIProfile() {
                 </div>
               </CardContent>
             </Card>
-          </TabsContent>
+          </TabsContent> */}
         </Tabs>
+
       </div>
     </div>
   )
