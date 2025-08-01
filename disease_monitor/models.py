@@ -1,5 +1,6 @@
 from django.db import models
 import json
+import re
 
 # Create your models here.
 
@@ -172,6 +173,13 @@ class HospitalHealthData(models.Model):
     pregnant_patient = models.BooleanField()
     nhia_patient = models.BooleanField()
     month = models.DateField() 
+    
+    # New fields added for merged data
+    data_source = models.CharField(max_length=20, default='legacy', blank=True, null=True)
+    medicine_prescribed = models.TextField(blank=True, null=True)
+    cost_of_treatment = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
+    schedule_date = models.DateField(blank=True, null=True)
+    locality_encoded = models.IntegerField(blank=True, null=True)
 
 
     class Meta:
@@ -204,3 +212,111 @@ class PredictionLog(models.Model):
 
     def __str__(self):
         return f"{self.orgname} | {self.disease_type} | {self.prediction} | {self.timestamp}"
+
+class HospitalLocalities(models.Model):
+    """
+    Model to store hospital-locality combinations for filtering
+    """
+    id = models.AutoField(primary_key=True)
+    locality = models.CharField(max_length=255, help_text="Patient's residential area")
+    orgname = models.CharField(max_length=255, help_text="Healthcare facility name")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        db_table = 'hospital_localities'
+        verbose_name = 'Hospital Locality'
+        verbose_name_plural = 'Hospital Localities'
+        unique_together = ['locality', 'orgname']
+        ordering = ['locality', 'orgname']
+        indexes = [
+            models.Index(fields=['locality']),
+            models.Index(fields=['orgname']),
+            models.Index(fields=['locality', 'orgname']),
+        ]
+    
+    def __str__(self):
+        return f"{self.locality} - {self.orgname}"
+    
+    @classmethod
+    def get_localities_for_hospital(cls, orgname):
+        """Get all localities for a specific hospital"""
+        return cls.objects.filter(orgname__icontains=orgname).values_list('locality', flat=True).distinct()
+    
+    @classmethod
+    def get_hospitals_for_locality(cls, locality):
+        """Get all hospitals for a specific locality"""
+        return cls.objects.filter(locality__icontains=locality).values_list('orgname', flat=True).distinct()
+    
+    @classmethod
+    def get_all_localities(cls):
+        """Get all unique localities"""
+        return cls.objects.values_list('locality', flat=True).distinct().order_by('locality')
+    
+    @classmethod
+    def get_all_hospitals(cls):
+        """Get all unique hospitals"""
+        return cls.objects.values_list('orgname', flat=True).distinct().order_by('orgname')
+    
+    @classmethod
+    def search_localities(cls, query):
+        """Search localities by partial match"""
+        return cls.objects.filter(locality__icontains=query).values_list('locality', flat=True).distinct()
+    
+    @classmethod
+    def search_hospitals(cls, query):
+        """Search hospitals by partial match"""
+        return cls.objects.filter(orgname__icontains=query).values_list('orgname', flat=True).distinct()
+
+class Hospital(models.Model):
+    """
+    Model to store hospitals in the system
+    """
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=255, unique=True, help_text="Hospital name")
+    slug = models.CharField(max_length=255, unique=True, help_text="URL-friendly identifier")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table = 'hospitals'
+        verbose_name = 'Hospital'
+        verbose_name_plural = 'Hospitals'
+        ordering = ['name']
+        indexes = [
+            models.Index(fields=['name']),
+            models.Index(fields=['slug']),
+        ]
+
+    def __str__(self):
+        return self.name
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = self._generate_slug()
+        super().save(*args, **kwargs)
+
+    def _generate_slug(self):
+        """Generate a URL-friendly slug from the hospital name"""
+        # Convert to lowercase and replace spaces with hyphens
+        slug = re.sub(r'[^\w\s-]', '', self.name.lower())
+        slug = re.sub(r'[-\s]+', '-', slug).strip('-')
+        return slug
+
+    @classmethod
+    def get_by_slug(cls, slug):
+        """Get hospital by slug"""
+        try:
+            return cls.objects.get(slug=slug)
+        except cls.DoesNotExist:
+            return None
+
+    @classmethod
+    def search_by_name(cls, query):
+        """Search hospitals by name"""
+        return cls.objects.filter(name__icontains=query)
+
+    @classmethod
+    def get_all_hospitals(cls):
+        """Get all hospitals ordered by name"""
+        return cls.objects.all().order_by('name')

@@ -1,0 +1,1025 @@
+Sr.No.,Address (Locality),Age,Sex,Provisional Diagnosis,Type Of Test(s) Requested,Test Result(s),Principal Diagnosis (New Case),Principal Diagnosis (Old Case),Principal Diagnosis (Recurring Case),Additional Diagnosis (New Case),Additional Diagnosis (Old Case),Additional Diagnosis (Recurring Case),Pregnant Patient,NHIA Patient
+64,MADINA-NEW RD,67 Year(s),Female,"NA, ",,,"E08.40 [Diabetes mellitus due to underlying condition with diabetic neuropathy, unspecified] ",,,"R73.9 [Hyperglycaemia, unspecified] ","L23.9 [Allergic contact dermatitis, unspecified cause] ",,No,Yes
+299,"GBAWE , TELECOM",67 Year(s),Female,"NA, ",,,MEDI02A [Diabetes - Simple >=12 Yrs] ,,,,,,No,Yes
+406,MALLAM,52 Year(s),Female," NEWLY DIAGNOSED HYPERGLYCAEMIA IN DM/DKA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,No
+523,awutu breku,44 Year(s),Female,"NA, ",,,"E08.40 [Diabetes mellitus due to underlying condition with diabetic neuropathy, unspecified] ",,,"L30.3 [Infective dermatitis] , N34.1 [Nonspecific urethritis] ",,,No,Yes
+665,BUBIASHIE-BEHIND ACADEMY,54 Year(s),Female,"NA, ",,,"E11.40 [Type 2 diabetes mellitus with diabetic neuropathy, unspecified] ",,,,,,No,Yes
+692,"OBLOGO, WAREHOUSE",59 Year(s),Male,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,Yes
+872,"NEW RUSSIA 
+DANSOMAN ",48 Year(s),Male,"NA, ",,,E13.621 [Other specified diabetes mellitus with foot ulcer] ,,,,,,No,Yes
+923,TETEGU,80 Year(s),Male,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,Yes
+964,MATAHEKO-KUCHACHA,44 Year(s),Female,"NA, ",,,"E08.40 [Diabetes mellitus due to underlying condition with diabetic neuropathy, unspecified] ",,,"L26. [Exfoliative dermatitis] , B36.0 [Pityriasis versicolor] ",,,No,No
+1147,"AGLO FARMS -
+TUBA ",45 Year(s),Female,"NA, "," BUE & Creatinine (KFT, RFT), Liver Function Test (LFT)",,"E08.3291 [Diabetes mellitus due to underlying condition with mild nonproliferative diabetic retinopathy without macular edema, right eye] ",,,,,,No,No
+1180,MATAHEKO-KUCHACHA,44 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,No
+1184,gbawe,70 Year(s),Female,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,Yes
+1774,"OBLOGO , TOP BASE",51 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,Yes
+1846,kasoa tuba,68 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+1848,"Anyaa 
+New market",45 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+1853,SANTA  MARIA,89 Year(s),Female,"NA, ",,,E13.621 [Other specified diabetes mellitus with foot ulcer] ,,,"I27.0 [Primary pulmonary hypertension] , Z87.11 [Personal history of peptic ulcer disease] ",,,No,No
+1858,mccarthy,70 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+1909,ablekuman,39 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,Yes
+1918,"Weija 
+Oblogo",70 Year(s),Female,"NA, ",,,"E08.40 [Diabetes mellitus due to underlying condition with diabetic neuropathy, unspecified] ",,,I10. [Essential (primary) hypertension] ,,,No,Yes
+1923,new bortianor,66 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,"I10. [Essential (primary) hypertension] , G71.9 [Primary disorder of muscle, unspecified] ",,,No,Yes
+1958,"TABORA 
+ISRAEL",4 Year(s),Female,"NA, ",,,E13.620 [Other specified diabetes mellitus with diabetic dermatitis] ,,,,,,No,Yes
+1999,MALLAM ,47 Year(s),Male,"NA, ",,,E08.21 [Diabetes mellitus due to underlying condition with diabetic nephropathy] ,,,,,,No,No
+2039,"Weija 
+Oblogo",70 Year(s),Female,"OCULAR HYPERTENSION, ",,,E11.36 [Type 2 diabetes mellitus with diabetic cataract] ,,,,,,No,Yes
+2041,upper weija,72 Year(s),Female,"NA, ",,,E11.622 [Type 2 diabetes mellitus with other skin ulcer] ,,,G89.11 [Acute pain due to trauma] ,,,No,Yes
+2138,TUBA ,66 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,Yes
+2146,DANSOMAN ,66 Year(s),Female,"NA, ",,,E08.21 [Diabetes mellitus due to underlying condition with diabetic nephropathy] ,,,"I10. [Essential (primary) hypertension] , N34.2 [Other urethritis] , B33.0 [Epidemic myalgia] ",,,No,Yes
+2164,kasoa,55 Year(s),Female,"NA, ",,,E10.9 [Insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,Yes
+2165,tetegu,59 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,"G71.9 [Primary disorder of muscle, unspecified] ",,,No,Yes
+2172,mallam ,54 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,Yes
+2177,apleku,58 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,"E08.40 [Diabetes mellitus due to underlying condition with diabetic neuropathy, unspecified] ",,,No,Yes
+2187,awoshie,50 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,"J20.9 [Acute bronchitis, unspecified] , E11.622 [Type 2 diabetes mellitus with other skin ulcer] ",,,No,Yes
+2189,kasoa,63 Year(s),Male,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+2194,kasoa,72 Year(s),Female,"NA, ",,,"E08.40 [Diabetes mellitus due to underlying condition with diabetic neuropathy, unspecified] ",,,I10. [Essential (primary) hypertension] ,,,No,Yes
+2209,dansoman,65 Year(s),Male,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,Yes
+2216,new bortianor red top,59 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,"I10. [Essential (primary) hypertension] , K20. [Oesophagitis] ",,,No,Yes
+2237,ablekuman,65 Year(s),Female,"NA, ",,,"E08.40 [Diabetes mellitus due to underlying condition with diabetic neuropathy, unspecified] ",,,"I10. [Essential (primary) hypertension] , N34.1 [Nonspecific urethritis] ",,,No,Yes
+2248,korkorbitey,64 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+2253,mccarthy,65 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,"I10. [Essential (primary) hypertension] , G71.8 [Other primary disorders of muscles] ",,,No,Yes
+2283,ABLEKUMAH-AGAPE,53 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+2327,odorkor,55 Year(s),Female,"NA, ",,,E10.9 [Insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+2429,AKWELEY NEW TOWN,49 Year(s),Male,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+2446,weija,62 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+2465,ablekuman,65 Year(s),Female,"NA, ",,,MEDI02A [Diabetes - Simple >=12 Yrs] ,,,,,,No,Yes
+2509,oblogo school,79 Year(s),Male,"NA, ",,,E10.7 [Insulin-dependent diabetes mellitus: With multiple complications] ,,,"I10 [Essential (primary) hypertension] , G71.9 [Primary disorder of muscle, unspecified] ",,,No,Yes
+2539,KASOA-OCOLOMBA,52 Year(s),Female,"NA, ",,,E08628 [Diabetes mellitus due to underlying condition with other skin complications] ,,,I27.0 [Primary pulmonary hypertension] ,,,No,Yes
+2569,weija,58 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10 [Essential (primary) hypertension] ,,,No,Yes
+2600,awoshie,82 Year(s),Female,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), Typhoid Antibody Test",,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10 [Essential (primary) hypertension] ,,,No,Yes
+2663,KWASHIMAN,35 Year(s),Female,"NA, ",,,"O24415 [Gestational diabetes mellitus in pregnancy, controlled by oral hypoglycemic drugs] ",,,,,,No,Yes
+2762,GBAWE,32 Year(s),Female,"NA, ",,,"O24415 [Gestational diabetes mellitus in pregnancy, controlled by oral hypoglycemic drugs] ",,,,,,No,Yes
+2792,gbawe cp,61 Year(s),Female,"NA, ",,,E1165 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+2802,gbawe,62 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10 [Essential (primary) hypertension] ,,,No,Yes
+2811,"gbawe
+",67 Year(s),Female,"NA, ",,,E10.9 [Insulin-dependent diabetes mellitus: Without complications] ,,,I10 [Essential (primary) hypertension] ,,,No,Yes
+2922,SANTA MARIA,65 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,"I10 [Essential (primary) hypertension] , L03032 [Cellulitis of left toe] , E0840 [Diabetes mellitus due to underlying condition with diabetic neuropathy, unspecified] ",,,No,Yes
+2938,AMANFRO-RIVER SIDE,63 Year(s),Female,"NA, ",,,E08621 [Diabetes mellitus due to underlying condition with foot ulcer] ,,,I10 [Essential (primary) hypertension] ,,,No,Yes
+2972,weija,59 Year(s),Male,"NA, ",,,E10.9 [Insulin-dependent diabetes mellitus: Without complications] ,,,I10 [Essential (primary) hypertension] ,,,No,Yes
+2978,mallam,56 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,"I10 [Essential (primary) hypertension] , E0840 [Diabetes mellitus due to underlying condition with diabetic neuropathy, unspecified] ",,,No,Yes
+2987,oblogo,68 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,"I10 [Essential (primary) hypertension] , E0840 [Diabetes mellitus due to underlying condition with diabetic neuropathy, unspecified] ",,,No,Yes
+2994,mallam,66 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10 [Essential (primary) hypertension] ,,,No,Yes
+3005,kasoa,63 Year(s),Male,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10 [Essential (primary) hypertension] ,,,No,Yes
+3013,upper weija,49 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,"G71.9 [Primary disorder of muscle, unspecified] ",,,No,Yes
+3084,NSAKINA,48 Year(s),Female,"NA, ",,,E0800 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,"H40051 [Ocular hypertension, right eye] ",,,No,Yes
+3117,WEIJA. WHITE CROSS,55 Year(s),Female,"NA, ",,,E0822 [Diabetes mellitus due to underlying condition with diabetic chronic kidney disease] ,,,"H40051 [Ocular hypertension, right eye] , K27.3 [Peptic ulcer, site unspecified: Acute without haemorrhage or perforation] , M1610 [Unilateral primary osteoarthritis, unspecified hip] ",,,No,Yes
+3138,anyaa,51 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,"I10 [Essential (primary) hypertension] , G71.9 [Primary disorder of muscle, unspecified] ",,,No,Yes
+3307,KASOA-OCOLOMBA,52 Year(s),Female,"NA, ",,,E13622 [Other specified diabetes mellitus with other skin ulcer] ,,,,,,No,Yes
+3323,dankuman,69 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,"M10.9 [Gout, unspecified] ",,,No,Yes
+3329,gbawe top base,59 Year(s),Female,"NA, ",,,E10.9 [Insulin-dependent diabetes mellitus: Without complications] ,,,I10 [Essential (primary) hypertension] ,,,No,Yes
+3334,tetegu,41 Year(s),Male,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,Yes
+3396,ANYAA,36 Year(s),Female,"NA, ",,,MEDI02A [Diabetes - Simple >=12 Yrs] ,,,,,,No,Yes
+3465,"FAN MILK 
+ABLEKUMA",75 Year(s),Female,"NA, ",,,E0800 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,"K27.3 [Peptic ulcer, site unspecified: Acute without haemorrhage or perforation] , E16.8 [Other specified disorders of pancreatic internal secretion] , M1710 [Unilateral primary osteoarthritis, unspecified knee] ",,,No,No
+3489,upper weija,74 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10 [Essential (primary) hypertension] ,,,No,Yes
+3491,new bortiano,26 Year(s),Male,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,"I10 [Essential (primary) hypertension] , E78.5 [Hyperlipidaemia, unspecified] ",,,No,Yes
+3495,ablekuman,63 Year(s),Male,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10 [Essential (primary) hypertension] ,,,No,Yes
+3499,gbawe,54 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,Yes
+3754,kasoa-peace town,90 Year(s),Male,"NA, ",,,E0800 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,"I10 [Essential (primary) hypertension] , E0821 [Diabetes mellitus due to underlying condition with diabetic nephropathy] ",,,No,Yes
+3769,"GBAWE , TELECOM",67 Year(s),Female,"NA, ",,,E1165 [Type 2 diabetes mellitus with hyperglycemia] ,,,I10 [Essential (primary) hypertension] ,,,No,Yes
+3790,"KASOA , TOP HILL ",73 Year(s),Female,"NA, ",,,E13621 [Other specified diabetes mellitus with foot ulcer] ,,,"I10 [Essential (primary) hypertension] , G4700 [Insomnia, unspecified] ",,,No,Yes
+3821,Ablekuma ,45 Year(s),Female,"NA, ",,,E1165 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+3953,"BORTIANOR
+BROADCASTING",45 Year(s),Female,"NA, ",,,"E083399 [Diabetes mellitus due to underlying condition with moderate nonproliferative diabetic retinopathy without macular edema, unspecified eye] ",,,"H40051 [Ocular hypertension, right eye] ",,,No,Yes
+3989,BORTIANOR HILLS,43 Year(s),Male,"NA, ",,,E13621 [Other specified diabetes mellitus with foot ulcer] ,,,,,,No,Yes
+4104,upper weija,52 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,"I10 [Essential (primary) hypertension] , E78.5 [Hyperlipidaemia, unspecified] ",,,No,Yes
+4120,"SCC, BROADCASTING",50 Year(s),Female,"NA, ",,,E13621 [Other specified diabetes mellitus with foot ulcer] ,,,,,,No,Yes
+4131,"ALIU MAHAMA ROAD
+DANSOMAN ",70 Year(s),Female,"NA, ",,,E1165 [Type 2 diabetes mellitus with hyperglycemia] ,,,,I10 [Essential (primary) hypertension] ,,No,Yes
+4292,malla cp,58 Year(s),Female,"1, INFECTED RT BIG TOE WOUND
+2. DIABETES MELLITUS , ",,,E0800 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,,,,No,Yes
+4442,kasoa galelia,50 Year(s),Female,"NA, ",,,E0800 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,"I10 [Essential (primary) hypertension] , R00.0 [Tachycardia, unspecified] ",,,No,No
+4527,MALLAM,52 Year(s),Female,"NA, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,"I15.9 [Secondary hypertension, unspecified] ",,,No,Yes
+4546,kasoa-peace town,90 Year(s),Male,"NA, ",,,E08621 [Diabetes mellitus due to underlying condition with foot ulcer] ,,,,,,No,Yes
+4689,OFORIKROM ,67 Year(s),Female,"NA, ",,,E0800 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,G63.6* [Polyneuropathy in other musculoskeletal disorders] ,,,No,Yes
+4746,kasoa,50 Year(s),Female,"URETHRITIS, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,"I15.9 [Secondary hypertension, unspecified] ",,,No,Yes
+4874,kasoa,49 Year(s),Male,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10 [Essential (primary) hypertension] ,,,No,Yes
+4902,KASOA DOMEABRA,57 Year(s),Male,"NA, ",,,E1110 [Type 2 diabetes mellitus with ketoacidosis without coma] ,,,I10 [Essential (primary) hypertension] ,,,No,No
+4903,ablekuman,49 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,"I10 [Essential (primary) hypertension] , B33.0 [Epidemic myalgia] ",,,No,Yes
+4904,"NYAMESTE 
+LAPAZ",30 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,Yes
+4927,kasoa,62 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,"I10 [Essential (primary) hypertension] , E78.5 [Hyperlipidaemia, unspecified] ",,,No,Yes
+5024,"AWOSHIE, A LANG",72 Year(s),Male,"NA, ",,,"E1140 [Type 2 diabetes mellitus with diabetic neuropathy, unspecified] ",,,,,,No,Yes
+5045,tabola,75 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,B33.0 [Epidemic myalgia] ,,,No,Yes
+5072,"GBAWE 
+NEAR TIM SPOT ",55 Year(s),Male,"NA, ",,,E1142 [Type 2 diabetes mellitus with diabetic polyneuropathy] ,,,,,,No,Yes
+5157,Kasoa choice ,67 Year(s),Male,"NA, ",,,E0821 [Diabetes mellitus due to underlying condition with diabetic nephropathy] ,,,,,,No,Yes
+5229,papase,71 Year(s),Female,"NA, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,"I15.9 [Secondary hypertension, unspecified] ",,,No,Yes
+5258,kasoa new twon,61 Year(s),Male,"NA, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,"I15.9 [Secondary hypertension, unspecified] ",,,No,Yes
+5268,apleku,67 Year(s),Female,"NA, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,"I15.9 [Secondary hypertension, unspecified] ",,,No,Yes
+5292,weija,56 Year(s),Female,"NA, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,"I15.9 [Secondary hypertension, unspecified] ",,,No,Yes
+5404,tuba,67 Year(s),Female,"NA, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,,,,No,Yes
+5592,KASOA  IRON  CITY,50 Year(s),Male,"NA, ",,,E0843 [Diabetes mellitus due to underlying condition with diabetic autonomic (poly)neuropathy] ,,,,,,No,No
+5755,odorkor,63 Year(s),Female,"NA, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,"I15.9 [Secondary hypertension, unspecified] , E0840 [Diabetes mellitus due to underlying condition with diabetic neuropathy, unspecified] ",,,No,Yes
+5760,kasoa tuba,68 Year(s),Female,"NA, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,"I15.9 [Secondary hypertension, unspecified] ",,,No,Yes
+5768,ODORKOR  OFFICIAL TOWN,60 Year(s),Female,"NA, ",,,E08319 [Diabetes mellitus due to underlying condition with unspecified diabetic retinopathy without macular edema] ,,,I10 [Essential (primary) hypertension] ,,,No,Yes
+5782,MALLAM ,47 Year(s),Male,"NA, ",,,E0821 [Diabetes mellitus due to underlying condition with diabetic nephropathy] ,,,,,,No,No
+5784,GBAWE,65 Year(s),Female,"NA, ",,,E13621 [Other specified diabetes mellitus with foot ulcer] ,,,,,,No,Yes
+5821,MCCARTHY ,80 Year(s),Female,"NA, ",,,E0800 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,"Z8711 [Personal history of peptic ulcer disease] , E78.5 [Hyperlipidaemia, unspecified] ",,,No,Yes
+5826,kwashieman,80 Year(s),Female,"NA, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,"I15.9 [Secondary hypertension, unspecified] , J4521 [Mild intermittent asthma with (acute) exacerbation] ",,,No,Yes
+5918,"APLAKU , PALM BRFOS",58 Year(s),Female,"NA, ",,,E0800 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,"I15.9 [Secondary hypertension, unspecified] ",,,No,Yes
+5965,"KWASHIEMAN , HAPPY KIDS ",37 Year(s),Female,"NA, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,"I15.9 [Secondary hypertension, unspecified] ",,,No,Yes
+5975,bubueshie,52 Year(s),Male,"NA, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,,,,No,Yes
+5980,tetegu,44 Year(s),Female,"NA, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,"H40052 [Ocular hypertension, left eye] ",,,No,Yes
+5984,weija sch jut,63 Year(s),Female,"NA, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,"I15.9 [Secondary hypertension, unspecified] ",,,No,Yes
+6003,SOWUTUOM  ROMAN HILL,60,Female,"NA, ",,,E089 [Diabetes mellitus due to underlying condition without complications] ,,,"G8921 [Chronic pain due to trauma] , G58.9 [Mononeuropathy, unspecified] ",I10 [Essential (primary) hypertension] ,,No,No
+6012,weija,65 Year(s),Female,"MYALGIA, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,"I15.9 [Secondary hypertension, unspecified] ",,,No,Yes
+6017,mallam jut,48 Year(s),Female,"NA, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,"I15.9 [Secondary hypertension, unspecified] ",,,No,Yes
+6020,mallam,63 Year(s),Female,"URETHRITIS, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,,,,No,Yes
+6028,dansoman,53 Year(s),Female,"PERIPHERAL NEUROPATHY, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,,,,No,Yes
+6036,apam,66 Year(s),Female,"NA, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,"I15.9 [Secondary hypertension, unspecified] ",,,No,Yes
+6093,new bortianor,71 Year(s),Female,"NA, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,"I15.9 [Secondary hypertension, unspecified] ",,,No,Yes
+6096,anyaa nic,38 Year(s),Female,"CORYZA, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,,,,No,Yes
+6124,ABLEKUMAH-ODUMA,47 Year(s),Female,"NA, ",,,"E0840 [Diabetes mellitus due to underlying condition with diabetic neuropathy, unspecified] ",,,"I15.9 [Secondary hypertension, unspecified] , B20.3 [HIV disease resulting in other viral infections] ","B0222 [Postherpetic trigeminal neuralgia] , L30.3 [Infective dermatitis] ",,No,No
+6179,awoshie fan milk,58 Year(s),Male,"NA, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,"I15.9 [Secondary hypertension, unspecified] ",,,No,Yes
+6282,kasoa,29 Year(s),Male,"NA, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,,,,No,Yes
+6321,mallam bola raod,78 Year(s),Female,"NA, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,"I15.9 [Secondary hypertension, unspecified] ",,,No,Yes
+6371,weija,59 Year(s),Male,"NA, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,"I15.9 [Secondary hypertension, unspecified] ",,,No,Yes
+6399,GBAWE,59 Year(s),Female,"NA, ",,,E0800 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,"I10 [Essential (primary) hypertension] , Z8711 [Personal history of peptic ulcer disease] , B54 [Unspecified malaria] ",,,No,Yes
+6400,TANTRA HILL,72 Year(s),Male,"NA, ",,,"E0840 [Diabetes mellitus due to underlying condition with diabetic neuropathy, unspecified] ",,,"B00.9 [Herpesviral infection, unspecified] , B0222 [Postherpetic trigeminal neuralgia] ",,,No,No
+6482,"MALLAM-STATION
+50652/17
+MR-12A-B7-89",32 Year(s),Female,"IMPAIRED GLUCOSE TOLERANCE, ",,,MEDI02A [Diabetes - Simple >=12 Yrs] ,,,,,,No,Yes
+6484,weija,43 Year(s),Female,"NA, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,"I15.9 [Secondary hypertension, unspecified] ",,,No,Yes
+6488,mataheko ,92 Year(s),Female,"NA, ",,,E0800 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,Z86718 [Personal history of other venous thrombosis and embolism] ,"I10 [Essential (primary) hypertension] , I69.4 [Sequelae of stroke, not specified as haemorrhage or infarction] ",,No,Yes
+6513,awoshie,56,Female,"NA, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,"I15.9 [Secondary hypertension, unspecified] ",,,No,No
+6561,weija,59 Year(s),Male,"NA, ",,,MEDI02A [Diabetes - Simple >=12 Yrs] ,,,MEDI32A [Hypertension >=12 Yrs] ,,,No,Yes
+6676,gbawe,61 Year(s),Male,"NA, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,,,,No,Yes
+6680,anyaa market,83 Year(s),Female,"NA, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,,,,No,Yes
+6688,accra central police station,45 Year(s),Female,"HYPERTENSION
+DIABETES, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,I15.8 [Other secondary hypertension] ,,,No,Yes
+6706,bubiashie,53 Year(s),Female,"NA, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,,,,No,Yes
+6744,mallam station,56 Year(s),Male,"NA, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,"I15.9 [Secondary hypertension, unspecified] , S0100XA [Unspecified open wound of scalp, initial encounter] ",,,No,Yes
+6754,ablekuma pentecost junction,52 Year(s),Female,"NA, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,"I15.9 [Secondary hypertension, unspecified] ",,,No,Yes
+6772,kasoa block factory,45 Year(s),Female,"HYPERTENSIVE URGENCY
+HYPERGLYCAEMIA IN KNOWN DM, ",,,"E083212 [Diabetes mellitus due to underlying condition with mild nonproliferative diabetic retinopathy with macular edema, left eye] ",,,"I15.9 [Secondary hypertension, unspecified] ",,,No,Yes
+6781,mc catrthy ,74 Year(s),Female,"HICCUPS, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,"I15.9 [Secondary hypertension, unspecified] ",,,No,Yes
+6785,scc,48 Year(s),Female,"NA, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,"I15.9 [Secondary hypertension, unspecified] ",,,No,Yes
+6803,anyaa nic,60 Year(s),Female,"NA, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,"I15.9 [Secondary hypertension, unspecified] ",,,No,Yes
+6821,liberia camp kasoa,54 Year(s),Male,"NA, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,,,,No,Yes
+6878,"WEIJA, DJAMAN",56 Year(s),Male,"NA, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,,,,No,Yes
+6885,WEIJA OLD BARRIER NEAR KINGS UNIVERSITY ,67 Year(s),Male,"NA, ",,,E1165 [Type 2 diabetes mellitus with hyperglycemia] ,,,"N39.0 [Urinary tract infection, site not specified] ",,,No,Yes
+6892,"AMANFROM
+ZONGO",51 Year(s),Female,"NA, ",,,E0800 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,,,,No,Yes
+6905,"KASOA , NYANYANO ",80 Year(s),Female,"NA, ",,,E0821 [Diabetes mellitus due to underlying condition with diabetic nephropathy] ,,,"M47.9 [Spondylosis, unspecified] ",,,No,Yes
+6911,TETEGU-NEW SITE,51 Year(s),Female,"NA, ",,,"E0840 [Diabetes mellitus due to underlying condition with diabetic neuropathy, unspecified] ",,,Z8711 [Personal history of peptic ulcer disease] ,,,No,Yes
+6930,"upper weija
+station",80 Year(s),Female,"NA, ",,,E0842 [Diabetes mellitus due to underlying condition with diabetic polyneuropathy] ,,,I10 [Essential (primary) hypertension] ,,,No,Yes
+6949,barrier old,62 Year(s),Male,"NA, ",,,E08618 [Diabetes mellitus due to underlying condition with other diabetic arthropathy] ,,,,,,No,Yes
+6979,ABLEKUMA,56 Year(s),Female,"NA, ",,,E0865 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,Yes
+7083,"AWOSHIE, NIC",49 Year(s),Female,"NA, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,"I10 [Essential (primary) hypertension] , G4485 [Primary stabbing headache] , N34.1 [Nonspecific urethritis] , B18.1 [Chronic viral hepatitis B without delta-agent] ",,,No,Yes
+7180,MALLAM ,51 Year(s),Female,"NA, ",,,"MEDI35A [Ulcer of Skin >=12 Yrs] , E10622 [Type 1 diabetes mellitus with other skin ulcer] ",,,,,,No,Yes
+7320,"BORTIANOR-NEW APLAKU
+172/22",78 Year(s),Female,"NA, ",,,E0800 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,"I10 [Essential (primary) hypertension] , M1710 [Unilateral primary osteoarthritis, unspecified knee] , K27.7 [Peptic ulcer, site unspecified: Chronic without haemorrhage or perforation] ",,,No,Yes
+7364,ABLKEUMA ,35 Year(s),Female,"NA, ",,,E0800 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,,,,No,Yes
+7390,gbawe top base,64 Year(s),Female,"NA, ",,,E0969 [Drug or chemical induced diabetes mellitus with other specified complication] ,,,,,,No,Yes
+7404,AWOSHIE,63 Year(s),Female,"NA, ",,,E0800 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,"I10 [Essential (primary) hypertension] , M1711 [Unilateral primary osteoarthritis, right knee] ",,,No,Yes
+7411,OTEBU,70 Year(s),Female,"NA, ",,,"E0840 [Diabetes mellitus due to underlying condition with diabetic neuropathy, unspecified] ",,,"M35.3 [Polymyalgia rheumatica] , I10 [Essential (primary) hypertension] , B54 [Unspecified malaria] ",,,No,Yes
+7430,"WEIJA 
+SCHOOL JUNCTION ",65 Year(s),Female,"NA, ",,,E0841 [Diabetes mellitus due to underlying condition with diabetic mononeuropathy] ,,,,,,No,Yes
+7440,OLD BARRIER ,46 Year(s),Female,"NA, ",,,E11621 [Type 2 diabetes mellitus with foot ulcer] ,,,,,,No,No
+7609,ABLEKUMAH-PENTECOST PRAYER CAMP,67 Year(s),Female,"NA, ",,,E0800 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,D6869 [Other thrombophilia] ,,,No,Yes
+7625,ABLEKUMA,34 Year(s),Female,"NA, ",,,E08311 [Diabetes mellitus due to underlying condition with unspecified diabetic retinopathy with macular edema] ,,,,,,No,Yes
+7628,KWASHIEMAN,85 Year(s),Male,"NA, ",,,"E0840 [Diabetes mellitus due to underlying condition with diabetic neuropathy, unspecified] ",,,"I15.9 [Secondary hypertension, unspecified] , G8911 [Acute pain due to trauma] , N34.1 [Nonspecific urethritis] ",,,No,No
+7691,NIC-AWOSHIE,60 Year(s),Female,"NA, ",,,E08621 [Diabetes mellitus due to underlying condition with foot ulcer] ,,,"N34.1 [Nonspecific urethritis] , I10 [Essential (primary) hypertension] ",,,No,Yes
+7819,WEIJAA,64 Year(s),Female,"NA, ",,,MEDI02A [Diabetes - Simple >=12 Yrs] ,,,"I11.9 [Hypertensive heart disease without (congestive) heart failure] , A0100 [Typhoid fever, unspecified] ",,,No,No
+7896,WEIJA,40 Year(s),Female,"NA, ",,,E1101 [Type 2 diabetes mellitus with hyperosmolarity with coma] ,,,,,,No,Yes
+7954,KWASHIEMAN,74 Year(s),Female,"NA, ",,,E0810 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,I10 [Essential (primary) hypertension] ,,,No,Yes
+299,ABURA,59 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"N34.2 [Other urethritis] , M35.3 [Polymyalgia rheumatica] ",,,No,Yes
+478,BORTIANOR-ASH BREAD,63 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+494,AMANFRO ,51 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,Yes
+622,MALLAM-MASALACHI,61 Year(s),Male,"NA, ",,,E13.621 [Other specified diabetes mellitus with foot ulcer] ,,,,,,No,Yes
+971,BORTIANOR,55 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"I10. [Essential (primary) hypertension] , K27.3 [Peptic ulcer, site unspecified: Acute without haemorrhage or perforation] ",,,No,Yes
+1010,AGAPE,52 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,Yes
+1079,BORTIANOR,82 Year(s),Male,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"K27.3 [Peptic ulcer, site unspecified: Acute without haemorrhage or perforation] ",,,No,Yes
+1305,WEIJA ,68 Year(s),Female,"NA, ",,,E08.21 [Diabetes mellitus due to underlying condition with diabetic nephropathy] ,,,,,,No,Yes
+1417,GBAWE-IKE QUAREEY,59 Year(s),Female,"NA, ",,,"E08.40 [Diabetes mellitus due to underlying condition with diabetic neuropathy, unspecified] ",,,"K29.1 [Other acute gastritis] , I10. [Essential (primary) hypertension] ",,,No,Yes
+1420,BREGADE,57 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"K27.3 [Peptic ulcer, site unspecified: Acute without haemorrhage or perforation] , I10. [Essential (primary) hypertension] ",,,No,Yes
+1507,"NEW BORTIAN
+GOLDEN VALLEYOR",50 Year(s),Female,"NA, ",,,E08.319 [Diabetes mellitus due to underlying condition with unspecified diabetic retinopathy without macular edema] ,,,"I10. [Essential (primary) hypertension] , E11.610 [Type 2 diabetes mellitus with diabetic neuropathic arthropathy] ",,,No,Yes
+1821,GBAWE-TOP BASE,62 Year(s),Female,"NA, ",,,E10.9 [Insulin-dependent diabetes mellitus: Without complications] ,,,"T80.29XA [Infection following other infusion, transfusion and therapeutic injection, initial encounter] ",,,No,Yes
+1937,WEIJA,24,Male,"NA, ",,,E10.65 [Type 1 diabetes mellitus with hyperglycemia] ,,,"N39.0 [Urinary tract infection, site not specified] , E10.22 [Type 1 diabetes mellitus with diabetic chronic kidney disease] ",,,No,No
+2139,GBAWE TELECOM,47 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,A02.25 [Salmonella pyelonephritis] ,I10. [Essential (primary) hypertension] ,,No,Yes
+2344,"GBAWE , BULEMIN ",72 Year(s),Male,"NA, ",,,E10.65 [Type 1 diabetes mellitus with hyperglycemia] ,,,,,,No,No
+2418,WEIJA ,68 Year(s),Female,"NA, ",,,E08.29 [Diabetes mellitus due to underlying condition with other diabetic kidney complication] ,,,,,,No,Yes
+2445,ABLEKUMA,41 Year(s),Female,"NA, ",,,"O24.410 [Gestational diabetes mellitus in pregnancy, diet controlled] ",,,,,,No,Yes
+2608,WEIJA,80 Year(s),Male,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"I10. [Essential (primary) hypertension] , I64. [Stroke, not specified as haemorrhage or infarction] ",,,No,Yes
+2642,MAMPONTENG,50 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,I11.0 [Hypertensive heart disease with (congestive) heart failure] ,,,No,Yes
+2761,AWOSHIE ,37 Year(s),Male,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,Yes
+3258,dansoman,53 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,Yes
+3286,WHITE CROSS,78 Year(s),Female,"NA, ",,,"E08.40 [Diabetes mellitus due to underlying condition with diabetic neuropathy, unspecified] ",,,B35.6 [Tinea cruris] ,,,No,Yes
+3321,NEW WEIJA-CHOICE,48 Year(s),Male,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,M35.3 [Polymyalgia rheumatica] ,,,No,Yes
+3752,mantaheko,51 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+3919,Gbawe,56 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"I10. [Essential (primary) hypertension] , I30.9 [Acute pericarditis, unspecified] ",,,No,Yes
+4090,WEIJA,50 Year(s),Male,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,N34.1 [Nonspecific urethritis] ,,,No,No
+4453,PALAS TOWN,82 Year(s),Female,"NA, ",,,E10.65 [Type 1 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+4481,TOP BASE,66 Year(s),Female,"NA, ",,,E10.65 [Type 1 diabetes mellitus with hyperglycemia] ,,,,,,No,No
+4627,KWASHIEMAN ,34 Year(s),Female,"NA, ",,,"E08.40 [Diabetes mellitus due to underlying condition with diabetic neuropathy, unspecified] ",,,,L02.423 [Furuncle of right upper limb] ,,No,No
+4660,MCCARTHY DOWN,81,Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,I10. [Essential (primary) hypertension] ,,,No,No
+4693,sowutuom,43 Year(s),Female,"NA, ",,,E13.621 [Other specified diabetes mellitus with foot ulcer] ,,,,I10. [Essential (primary) hypertension] ,,No,Yes
+4731,KASOA-AMANFROM,59 Year(s),Female,"NA, ",,,E13.65 [Other specified diabetes mellitus with hyperglycemia] ,,,,,,No,No
+4779,"WEIJA
+WATER WORKS",58 Year(s),Female,"NA, ",,,"E08.3291 [Diabetes mellitus due to underlying condition with mild nonproliferative diabetic retinopathy without macular edema, right eye] ",,,,,,No,Yes
+4902,"CHOICE 
+SCC",77 Year(s),Male,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,No
+5352,,66 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"A01.4 [Paratyphoid fever, unspecified] , K85.01 [Idiopathic acute pancreatitis with uninfected necrosis] , K29.1 [Other acute gastritis] , M10.9 [Gout, unspecified] , I82.499 [Acute embolism and thrombosis of other specified deep vein of unspecified lower extremity] ",,,No,Yes
+5668,santa maria-drug store,52 Year(s),Female,"NA, ",,,E08.21 [Diabetes mellitus due to underlying condition with diabetic nephropathy] ,,,O89.4 [Spinal and epidural anaesthesia-induced headache during the puerperium] ,,,No,Yes
+5675,WEIJA ,68 Year(s),Female,"NA, ",,,E13.22 [Other specified diabetes mellitus with diabetic chronic kidney disease] ,,,,,,No,Yes
+6102,KOKROBITE,75 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+6120,AMASAMAN-BUS,54 Year(s),Female,"NA, ",,,"E08.40 [Diabetes mellitus due to underlying condition with diabetic neuropathy, unspecified] ",,,B35.4 [Tinea corporis] ,,,No,Yes
+6121,WEIJA,63 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"F51.01 [Primary insomnia] , G58.9 [Mononeuropathy, unspecified] ",,,No,Yes
+6373,GBAWE CEMETRY,60 Year(s),Female,"NA, ",,,"E08.40 [Diabetes mellitus due to underlying condition with diabetic neuropathy, unspecified] ",,,"K21.9 [Gastro-oesophageal reflux disease without oesophagitis] , I10. [Essential (primary) hypertension] ",,,No,Yes
+6429,TETEGU-JUNCTN NEW SITE,66 Year(s),Female,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,L02.426 [Furuncle of left lower limb] ,,,No,Yes
+6533,Scc,70 Year(s),Male,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,I16.0 [Hypertensive urgency] ,,,No,No
+6559,"MCCARTHY HILL , ",68 Year(s),Female,"NA, ",,,E13.65 [Other specified diabetes mellitus with hyperglycemia] ,,,,,,No,No
+6572,AWOSHIE,76 Year(s),Male,"NA, ",,,E08.10 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,,,,No,Yes
+6676,BORTIANOR,46 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+6768,ODORKOR,37 Year(s),Male,"NA, ",,,E13.65 [Other specified diabetes mellitus with hyperglycemia] ,,,,,,No,No
+6813,KASOA-DOMIBRAH,40 Year(s),Female,"NA, ",,,"E08.40 [Diabetes mellitus due to underlying condition with diabetic neuropathy, unspecified] ",,,L26. [Exfoliative dermatitis] ,,,No,No
+6830,SCC,68 Year(s),Female,"NA, ",,,"E08.40 [Diabetes mellitus due to underlying condition with diabetic neuropathy, unspecified] ",,,F51.01 [Primary insomnia] ,,,No,Yes
+6949,ABLEKUMAH NSAKINA,33 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,B37.3 [Candidiasis of vulva and vagina] ,,,No,Yes
+7081,GBAWE CEMETRY,60 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,Yes
+7082,kasao,58 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,Yes
+7092,kasoa cp,56 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,I10. [Essential (primary) hypertension] ,,No,Yes
+7154,mallam,66 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+7157,kasoa kalabule junction,54 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,I10. [Essential (primary) hypertension] ,,No,Yes
+7207,"SOWUTUOM 
+CHOP BAR",70 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+7209,ANYAA PALAS TOWN,60 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"I10. [Essential (primary) hypertension] , I64. [Stroke, not specified as haemorrhage or infarction] ",,,No,Yes
+7280,oblogo,69 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+7314,ODORKOR-4 N 5,45 Year(s),Female,"NA, ",,,E08.10 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,,,,No,Yes
+7341,"ADUMASE
+AMANFRO
+",52 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"L03.90 [Cellulitis, unspecified] ",,,No,Yes
+7359,AGBOGBA,46 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,No
+7372,new gbawe,79 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,J15.8 [Other bacterial pneumonia] ,I10. [Essential (primary) hypertension] ,,No,Yes
+7405,KASOA IRON CITY,59 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"E78.2 [Mixed hyperlipidaemia] , I10. [Essential (primary) hypertension] ",M35.3 [Polymyalgia rheumatica] ,,No,Yes
+7432,odorkor,55 Year(s),Male,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,Yes
+7503,"DANSOMAN
+AGEGE LAST STOP",64 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"I10. [Essential (primary) hypertension] , N34.1 [Nonspecific urethritis] , D50.9 [Iron deficiency anaemia, unspecified] , E78.2 [Mixed hyperlipidaemia] ",,,No,No
+7619,NIC-AWOSHIE,61 Year(s),Female,"NA, ",,,E10.65 [Type 1 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+7657,kasoa,50 Year(s),Female,"NA, ",,,"E08.40 [Diabetes mellitus due to underlying condition with diabetic neuropathy, unspecified] ",,,,,,No,No
+7910,ODORKOR,66 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,Yes
+7992,MALLAM-JUNCTION,51 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,No
+7997,NIC-AWOSHIE,61 Year(s),Female,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,Yes
+8023,awoshie,66 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,Yes
+8043,KORMANTSE,71 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+8057,"NYAMESTE 
+LAPAZ",30 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,Yes
+8146,TETEGU-NEAR HOLY CROSS SCH,57 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+8263,new bortianor,72 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,I10. [Essential (primary) hypertension] ,,No,Yes
+8278,malla,57 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,Yes
+8279,CAMP,31 Year(s),Female,"NA, ",,,"O24.419 [Gestational diabetes mellitus in pregnancy, unspecified control] ",,,,,,No,Yes
+8335,juwulu,50 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+8376,KASOA TUBA,52 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,L03.39 [Cellulitis of unspecified toe] ,,,No,Yes
+8531,kasoa ,49 Year(s),Female,"NA, ",,,"MEDI02A [Diabetes - Simple >=12 Yrs] , I10. [Essential (primary) hypertension] ",,,,,,No,Yes
+8532,papase,72 Year(s),Female,"NA, ",,,"PAED40C [Hypertension <12 Yrs] , E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ",,,,,,No,Yes
+8533,apleku,67 Year(s),Female,"NA, ",,,"PAED40C [Hypertension <12 Yrs] , E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ",,,,,,No,Yes
+8534,ablekuman agape,52 Year(s),Female,"NA, ",,,"PAED40C [Hypertension <12 Yrs] , E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ",,,,,,No,Yes
+8537,ODORKOR  BUSIA,67 Year(s),Female,"NA, ",,,"PAED40C [Hypertension <12 Yrs] , E08.21 [Diabetes mellitus due to underlying condition with diabetic nephropathy] ",,,,,,No,Yes
+8566,KASOA  ADADE,56 Year(s),Male,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"M35.3 [Polymyalgia rheumatica] , D50.8 [Other iron deficiency anaemias] ",,,No,Yes
+8592,SANTA  MARIA,52 Year(s),Male,"NA, ",,,E08.21 [Diabetes mellitus due to underlying condition with diabetic nephropathy] ,,,,,,No,Yes
+8644,odorkor,75 Year(s),Male,"NA, ",,,"PAED40C [Hypertension <12 Yrs] , E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ",,,,,,No,Yes
+8685,liberia camp kasoa,54 Year(s),Male,"NA, ",,,MEDI03A [Diabetes - Complicated >=12 Yrs] ,,,,,,No,Yes
+8800,old barrier,56 Year(s),Female,"NA, ",,,"PAED40C [Hypertension <12 Yrs] , E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ",,,,,,No,Yes
+8833,kasoa,72 Year(s),Female,"NA, ",,,MEDI03A [Diabetes - Complicated >=12 Yrs] ,I10. [Essential (primary) hypertension] ,,,,,No,Yes
+8856,SANTA MARIA,65 Year(s),Female,"NA, ",,,"MEDI02A [Diabetes - Simple >=12 Yrs] , I10. [Essential (primary) hypertension] ",,,,,,No,Yes
+8924,LAPAZ-NYAMKYE,52 Year(s),Female,"NA, ",,,"PAED40C [Hypertension <12 Yrs] , E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ",,,,,,No,No
+9105,odorkor,75 Year(s),Male,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+9182,GBAWE,62 Year(s),Female,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,No
+9272,ABLEKUMA  FAN  MILK,56 Year(s),Female,"NA, ",,,E08.649 [Diabetes mellitus due to underlying condition with hypoglycemia without coma] ,,,,,,No,Yes
+9394,"GBAWE
+BULEMIN",26 Year(s),Male,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,No
+9445,behind westhills mall,60 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"I10. [Essential (primary) hypertension] , M65.222 [Calcific tendinitis, left upper arm] ",,,No,Yes
+9534,"SANTA MARIA
+BLUE KIOSK",24,Male,"NA, ",,,E08.10 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,"K27.3 [Peptic ulcer, site unspecified: Acute without haemorrhage or perforation] ",,,No,No
+9615,bubueshie,52 Year(s),Male,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,Yes
+9621,gbawe zero,69 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+9821,new bortianor,67 Year(s),Male,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,Yes
+9917,"DARKUMA , KOKOMPE ",59 Year(s),Male,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"I10. [Essential (primary) hypertension] , G46.04 [Cerebellar stroke syndrome] ",,,No,No
+9918,kasoa,40 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+10144,UPPER   WEIJA,69 Year(s),Female,"NA, ",,,E13.36 [Other specified diabetes mellitus with diabetic cataract] ,,,,,,No,Yes
+10153,GBAWE,45 Year(s),Male,"NA, ",,,E13.621 [Other specified diabetes mellitus with foot ulcer] ,,,,,,No,Yes
+10480,ABLEKUMA   AGAPE,72 Year(s),Male,"NA, ",,,E13.621 [Other specified diabetes mellitus with foot ulcer] ,,,,,,No,Yes
+10514,GBAWE,45 Year(s),Male,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,E11.621 [Type 2 diabetes mellitus with foot ulcer] ,,,No,Yes
+10606,ODORKOR,66 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+386,MALLAM,83 Year(s),Female,"NA, ",,,E08.10 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,"I15.9 [Secondary hypertension, unspecified] ",,,No,Yes
+404,AWOSHIE,56 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+424,"AWOSHIE 
+STATION",71 Year(s),Female,"NA, ",,,E08.10 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,,,,No,Yes
+462,NEW BOTIANOR,36 Year(s),Male,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,E08.51 [Diabetes mellitus due to underlying condition with diabetic peripheral angiopathy without gangrene] ,,,No,Yes
+470,WEIJA ZONGO,58 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,Yes
+605,WEIJA PENTECOST,57 Year(s),Male,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+658,"AWOSHIE
+MANGOEASE",49 Year(s),Male,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,No
+781,"WEIJA ,OLD BARRIER",32 Year(s),Female,"NA, ",,,E10.9 [Insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,No
+805,BLOCKFACTORY,16 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,Yes
+969,"SANTA MARIA , AROUND ABU YAA",45 Year(s),Male,"NA, ","Full Blood Count (FBC), HIV Test (Retroviral Screening), Blood Film for Mps (BF), Routine Urine Exams (Urine/RE), Typhoid Antibody Test, Glycated Heamoglobin (HBA1C), Liver Function Test (LFT),  BUE & Creatinine (KFT, RFT)",,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,No
+1015,"SANTA MARIA , AROUND ABU YAA",45 Year(s),Male,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,"A41.9 [Sepsis, unspecified] ",,,No,No
+1019,amanfo,30 Year(s),Male,"NA, ",,,E08.9 [Diabetes mellitus due to underlying condition without complications] ,,,,,,No,Yes
+1029,ABLEKUMAH-NIC,48 Year(s),Male,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,No
+1074,LAPAZ ,36 Year(s),Male,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,No
+1209,AYIGBE TOWN,32 Year(s),Female,"NA, ",,,E08.21 [Diabetes mellitus due to underlying condition with diabetic nephropathy] ,,,,,,No,No
+1211,ablekuman,59 Year(s),Female,"NA, ",,,E08.9 [Diabetes mellitus due to underlying condition without complications] ,,,,I10. [Essential (primary) hypertension] ,,No,Yes
+1217,AGAPE 2ND CONTAINER,59 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,No
+1252,DANKUMAN,76 Year(s),Female,"NA, ",,,E08.9 [Diabetes mellitus due to underlying condition without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+1747,GBAWE TOP BASE,61 Year(s),Female,"NA, "," BUE & Creatinine (KFT, RFT), Full Blood Count (FBC), Routine Urine Exams (Urine/RE), Glycated Heamoglobin (HBA1C), Lipid Profile",,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,No
+2009,"ANYAA , LAST STOP ",57 Year(s),Male,"NA, ",,,E08.641 [Diabetes mellitus due to underlying condition with hypoglycemia with coma] ,,,,,,No,No
+2393,KASOA OTAMENS,64 Year(s),Male,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+2528,TETEGU,49 Year(s),Female,"NA, ","Routine Urine Exams (Urine/RE), Blood Film for Mps (BF)",,E13.65 [Other specified diabetes mellitus with hyperglycemia] ,,,,N34.1 [Nonspecific urethritis] ,,No,Yes
+2722,"SCC
+DVLA",84 Year(s),Female,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF)",,E10.65 [Type 1 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+2779,"MCCARTHY HILL , ",68 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,Yes
+2801,GBAWE,65 Year(s),Female,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), Routine Urine Exams (Urine/RE), Glycated Heamoglobin (HBA1C)",,E13.65 [Other specified diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+2822,ODORKOR,62 Year(s),Male,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,Yes
+2855,ODORKOR,62 Year(s),Male,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+3082,KOKROBITE ,48 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,I10. [Essential (primary) hypertension] ,,,No,No
+3299,mccarthy down,81 Year(s),Female,"NA, ",,,E10.9 [Insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+3308,ODORKOR ,55 Year(s),Female,"NA, ",,,E08.9 [Diabetes mellitus due to underlying condition without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,No
+3383,ANYAA-BERSATHDA,65 Year(s),Female,"NA, "," BUE & Creatinine (KFT, RFT), Full Blood Count (FBC), Routine Urine Exams (Urine/RE), Lipid Profile",,E08.41 [Diabetes mellitus due to underlying condition with diabetic mononeuropathy] ,,,D64.89 [Other specified anemias] ,,,No,Yes
+3423,SOWUTUOM STATION,65 Year(s),Female,"NA, ","Glycated Heamoglobin (HBA1C), Routine Urine Exams (Urine/RE), Full Blood Count (FBC), Glycated Heamoglobin (HBA1C), Routine Urine Exams (Urine/RE), Full Blood Count (FBC)",,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"I10. [Essential (primary) hypertension] , N34.1 [Nonspecific urethritis] ",,,No,Yes
+3451,WEIJA,56 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,"E10.8 [Insulin-dependent diabetes mellitus: With unspecified complications] , K27.3 [Peptic ulcer, site unspecified: Acute without haemorrhage or perforation] ",,,No,Yes
+3497,AGAPE 2ND CONTAINER,59 Year(s),Female,"NA, ",Glycated Heamoglobin (HBA1C),,E08.51 [Diabetes mellitus due to underlying condition with diabetic peripheral angiopathy without gangrene] ,,,,,,No,No
+3581,DARKUMAN,56 Year(s),Female,"NA, ","Full Blood Count (FBC), Routine Urine Exams (Urine/RE)",,E13.65 [Other specified diabetes mellitus with hyperglycemia] ,,,,,,No,No
+3606,NEW BORTIANOR-SHOP RITE,60 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+3637,ABLEKUMA GALILEA,72 Year(s),Male,"NA, ","Full Blood Count (FBC), Routine Urine Exams (Urine/RE), Typhoid Antibody Test, HIV Test (Retroviral Screening)",,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,Yes
+3751,GBAWE ZERO,64 Year(s),Female,"NA, ",Routine Urine Exams (Urine/RE),,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,No
+3755,KASOA-KAKRABA,68,Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,"L29.9 [Pruritus, unspecified] ",,,No,No
+3766,GBAWE ,69 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,No
+3799,NEW BORTIANOR,61 Year(s),Female,"NA, ","Fasting Blood Glucose (FBS), Routine Urine Exams (Urine/RE)",,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,L29.8 [Other pruritus] ,,,No,Yes
+3819,AWOSHIE MANGOASE,62 Year(s),Male,"NA, ",Full Blood Count (FBC),,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,No
+3837,NEW WEIJA,62 Year(s),Male,"NA, ",,,E08.21 [Diabetes mellitus due to underlying condition with diabetic nephropathy] ,,,"D50.9 [Iron deficiency anaemia, unspecified] ",,,No,No
+3867,KASOA-PINK FM,32 Year(s),Male,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,A56.01 [Chlamydial cystitis and urethritis] ,,,No,Yes
+3981,NEW BORTIANOR-BROADCASTLING,37 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"A01.4 [Paratyphoid fever, unspecified] , N34.1 [Nonspecific urethritis] ",,,No,Yes
+3982,KASOA BRAODCASTING,61 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,Yes
+4142,KASOA BRAODCASTING,61 Year(s),Female,"NA, ",,,E08.36 [Diabetes mellitus due to underlying condition with diabetic cataract] ,,,H52.6 [Other disorders of refraction] ,,,No,Yes
+4147,KASOA ,32 Year(s),Female,"NA, ",,,"O24.419 [Gestational diabetes mellitus in pregnancy, unspecified control] ",,,,,,Yes,Yes
+4302,KWASHIEBU-DORDOR,75 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"I10. [Essential (primary) hypertension] , M16.10 [Unilateral primary osteoarthritis, unspecified hip] ",,,No,Yes
+4310,odorkor ,23 Year(s),Female,"NA, ",,,"O24.419 [Gestational diabetes mellitus in pregnancy, unspecified control] ",,,,,,No,Yes
+4328,"ABLEKUMA, AGAPE",59 Year(s),Male,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,No
+4458,"AWOSHIE 
+STATION",71 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"L23.9 [Allergic contact dermatitis, unspecified cause] ",,,No,Yes
+4485,SCC,46 Year(s),Female,"NA, ",,,E13.36 [Other specified diabetes mellitus with diabetic cataract] ,,,,,,No,Yes
+4561,KASOA BRAODCASTING,61 Year(s),Female,"NA, ",,,E08.10 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,,,,No,Yes
+4808,ABLEKUMA ,50 Year(s),Female,"NA, ",,,E13.65 [Other specified diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+4964,SOUTH MCCATHY ,62,Male,"NA, ",,,E08.9 [Diabetes mellitus due to underlying condition without complications] ,,,,,,No,No
+4968,"ODORKOR
+OFFTOWN ",61 Year(s),Male,"NA, ",,,E13.65 [Other specified diabetes mellitus with hyperglycemia] ,,,,,,No,No
+4977,KASOA KAKRABA,59 Year(s),Male,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,N34.1 [Nonspecific urethritis] ,,,No,Yes
+5493,WEIJA,48 Year(s),Male,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,"K27.3 [Peptic ulcer, site unspecified: Acute without haemorrhage or perforation] , A75.9 [Typhus fever, unspecified] ",,,No,Yes
+5512,ABLEKUMAH,42 Year(s),Female,"NA, ",,,E10.9 [Insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,Yes
+5525,WEIJA,64 Year(s),Female,"NA, ",,,E08.622 [Diabetes mellitus due to underlying condition with other skin ulcer] ,,,B37.3 [Candidiasis of vulva and vagina] ,,,No,Yes
+5621,"ABLEKUMA , OLEBU - ESTATE",78 Year(s),Male,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,No
+5800,ABLEKUMAH JOMA,73 Year(s),Male,"NA, ",,,E13.649 [Other specified diabetes mellitus with hypoglycemia without coma] ,,,,,,No,No
+5873,GBAWE,56 Year(s),Male,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,M35.3 [Polymyalgia rheumatica] ,,,No,Yes
+5900,"Weija 
+Oblogo",71 Year(s),Female,"NA, ",,,E08.9 [Diabetes mellitus due to underlying condition without complications] ,,,,,,No,Yes
+6010,"APLAKU
+OPPSITE KINGS UNIVERSITY",71 Year(s),Male,"NA, ",,,E11.621 [Type 2 diabetes mellitus with foot ulcer] ,,,,,,No,No
+6069,KWASHIEMAN,54 Year(s),Male,"NA, ",,,E08.9 [Diabetes mellitus due to underlying condition without complications] ,,,,,,No,Yes
+6157,"GBAWE , ",70 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,No
+6220,WEIJA JUNCTION MANCHESTER,63 Year(s),Male,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,No
+6266,ODOKOR,55 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,No
+6413,gbawe,34 Year(s),Male,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,Yes
+6514,AWOSHIE ONYINASE,55 Year(s),Female,"NA, ",,,E11.621 [Type 2 diabetes mellitus with foot ulcer] ,,,,,,No,Yes
+6619,BROADCASTING,51,Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"I20.9 [Angina pectoris, unspecified] , E78.5 [Hyperlipidaemia, unspecified] , I10. [Essential (primary) hypertension] ",,,No,No
+6753,KASOA-GALILEA,48 Year(s),Male,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,No
+7224,MALLAM ,46 Year(s),Male,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,I10. [Essential (primary) hypertension] ,,,No,No
+7284,dansoman Ebeneezer down,39 Year(s),Female,"NA, ",Routine Urine Exams (Urine/RE),,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,B37.3 [Candidiasis of vulva and vagina] ,I10. [Essential (primary) hypertension] ,,No,Yes
+7454,ABLEKUMA,35 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,N34.1 [Nonspecific urethritis] ,,,No,Yes
+7498,GALELIA,58 Year(s),Male,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,Yes
+7533,KASOA-GALILEA,48 Year(s),Male,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,No
+7555,EAST CATOMENT,69 Year(s),Female,"NA, ",,,E13.36 [Other specified diabetes mellitus with diabetic cataract] ,,,,,,No,Yes
+7756,TUBA ADOM MOSQUE,82,Male,"NA, ",,,E08.649 [Diabetes mellitus due to underlying condition with hypoglycemia without coma] ,,,"B50.9 [Plasmodium falciparum malaria, unspecified] , I10. [Essential (primary) hypertension] , N40.01 [Benign prostatic hyperplasia with lower urinary tract symptoms] ",,,No,No
+7880,MCCARTHY ,28 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"A01.4 [Paratyphoid fever, unspecified] , N34.1 [Nonspecific urethritis] ",,,No,Yes
+7885,KASOA ,56 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"K27.3 [Peptic ulcer, site unspecified: Acute without haemorrhage or perforation] , A01.09 [Typhoid fever with other complications] ",,,No,No
+7972,AWOSHIE ONYINASE,55 Year(s),Female,"NA, ",,,"E10.40 [Type 1 diabetes mellitus with diabetic neuropathy, unspecified] ",,,,,,No,Yes
+7997,kasoa,72 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,N34.1 [Nonspecific urethritis] ,,,No,Yes
+8019,gbawe palace,59 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+8096,MCCARHTY HILL DOWN,62 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,B37.3 [Candidiasis of vulva and vagina] ,,,No,Yes
+8107,LAPAZ-FISH POND,74 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,N34.2 [Other urethritis] ,,,No,Yes
+8108,KASOA-PAPAASE NO CLOSE TO JUSTAB,50 Year(s),Female,"NA, ",,,E13.65 [Other specified diabetes mellitus with hyperglycemia] ,,,,,,No,No
+8141,GALILEA  AMANFRO,58 Year(s),Male,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+8281,KWASHIEBU,43 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,No
+8292,oblogo school,80 Year(s),Male,"NA, ",,,E10.9 [Insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+8293,MALLAM,52 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+8302,new bortianor red top,60 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,"I10. [Essential (primary) hypertension] , F51.01 [Primary insomnia] ",,,No,Yes
+8303,TETEGU,81 Year(s),Male,"NA, ",,,E08.9 [Diabetes mellitus due to underlying condition without complications] ,,,"I10. [Essential (primary) hypertension] , E78.5 [Hyperlipidaemia, unspecified] ",,,No,Yes
+8304,kasoa galeliya,60 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,Yes
+8372,KASOA,72 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,Z86.718 [Personal history of other venous thrombosis and embolism] ,I10. [Essential (primary) hypertension] ,,No,No
+8391,mallam,60 Year(s),Male,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,"I10. [Essential (primary) hypertension] , B33.0 [Epidemic myalgia] ",,,No,Yes
+8393,weija ,54 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+8488,tetegu,48 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,Yes
+8535,NEW BORTIANORBROADCASTING,35 Year(s),Female,"NA, ",,,"O24.419 [Gestational diabetes mellitus in pregnancy, unspecified control] ",,,,,,No,Yes
+8616,LAPAZ ,36 Year(s),Male,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,No
+235,,59 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,No
+469,OBLOGO,45,Male,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,A02.0 [Salmonella enteritis] ,,,No,No
+667,WEIJA,56 Year(s),Female,"NA, ","Full Blood Count (FBC), HIV Test (Retroviral Screening), Sickling test",,E08.52 [Diabetes mellitus due to underlying condition with diabetic peripheral angiopathy with gangrene] ,,,,,,No,Yes
+677,KASOA,38 Year(s),Male,"NA, ","Full Blood Count (FBC), Random Blood Glucose (RBS), HIV Test (Retroviral Screening), Routine Urine Exams (Urine/RE)",,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,No
+845,KASOA,38 Year(s),Male,"NA, ",,,E08.21 [Diabetes mellitus due to underlying condition with diabetic nephropathy] ,,,,,,No,No
+874,"NORTH KANESHIE
+DEMOND",50 Year(s),Male,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), Routine Urine Exams (Urine/RE), Typhoid Antibody Test",,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,"B50.9 [Plasmodium falciparum malaria, unspecified] ",,,No,No
+877,AWOSHIE WATER WORKS DOWN,75 Year(s),Female,"NA, ","Full Blood Count (FBC),  BUE & Creatinine (KFT, RFT), Glycated Heamoglobin (HBA1C), Liver Function Test (LFT), Lipid Profile",,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+887,gbawe,45 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10 [Essential (primary) hypertension] ,,,No,Yes
+1020,SCC,45 Year(s),Female,"NA, ",,,E10.22 [Type 1 diabetes mellitus with diabetic chronic kidney disease] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+1044,WEIJA,46 Year(s),Male,"NA, ","Full Blood Count (FBC), Routine Urine Exams (Urine/RE), Liver Function Test (LFT), Lipid Profile, Glycated Heamoglobin (HBA1C)",,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,"I10. [Essential (primary) hypertension] , N34.2 [Other urethritis] ",,,No,No
+1049,awoshie,60 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,I10. [Essential (primary) hypertension] ,,No,Yes
+1062,tabora,31 Year(s),Female,"NA, ",,,"O24.419 [Gestational diabetes mellitus in pregnancy, unspecified control] ",,,,,,No,Yes
+1246,tetegu,42 Year(s),Male,"NA, ",,,E08.621 [Diabetes mellitus due to underlying condition with foot ulcer] ,,,,,,No,Yes
+1262,"OLEBU
+VICOLIS",52 Year(s),Male,"NA, ",,,E08.621 [Diabetes mellitus due to underlying condition with foot ulcer] ,,,,,,No,No
+1537,SANTA MARIA DRUG STORE,62 Year(s),Female,"NA, ",,,E08.9 [Diabetes mellitus due to underlying condition without complications] ,,,"N39.0 [Urinary tract infection, site not specified] ",,,No,Yes
+1719,AYIGBE TOWN,32 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,No
+1732,ANYAA-ACADEMY,43 Year(s),Male,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF),  BUE & Creatinine (KFT, RFT), Lipid Profile, Liver Function Test (LFT), Glycated Heamoglobin (HBA1C)",,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+1805,AMANFROM-TOP TOWN,44 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,No
+1902,"GBAWE , TOP BASE",43 Year(s),Female,"NA, ",,,E10.65 [Type 1 diabetes mellitus with hyperglycemia] ,,,"E08.40 [Diabetes mellitus due to underlying condition with diabetic neuropathy, unspecified] ",,,No,No
+2030,SANTA MARIA ,65 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,I10. [Essential (primary) hypertension] ,,No,Yes
+2156,OLEBU  ABLEKUMA,58 Year(s),Male,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,Yes
+2226,KASOA,56 Year(s),Female,"NA, ",,,E11.319 [Type 2 diabetes mellitus with unspecified diabetic retinopathy without macular edema] ,,,,,,No,Yes
+2815,AMANFRO-RIVER SIDE,64 Year(s),Female,"NA, ",,,E13.621 [Other specified diabetes mellitus with foot ulcer] ,,,I27.0 [Primary pulmonary hypertension] ,,,No,Yes
+2852,ABLEKUMA ABASE,43 Year(s),Male,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"I10. [Essential (primary) hypertension] , K27.3 [Peptic ulcer, site unspecified: Acute without haemorrhage or perforation] ",,,No,No
+3087,"OFANKOR
+ASOFAA",46 Year(s),Male,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,M79.7 [Fibromyalgia] ,,,No,No
+3125,kokorbitey,32 Year(s),Male,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,Yes
+3362,KOKROBITE ,48 Year(s),Female,"NA, ",,,E11.7 [Non-insulin-dependent diabetes mellitus: With multiple complications] ,,,,,,No,No
+3417,SANTA MARIA A LANG,71 Year(s),Male,"NA, ",,,"E11.40 [Type 2 diabetes mellitus with diabetic neuropathy, unspecified] ",,,"L29.9 [Pruritus, unspecified] ",,,No,No
+3981,"TUBA
+ISLAMIC SCHOOL",47,Male,"NA, ","Full Blood Count (FBC),  BUE & Creatinine (KFT, RFT), Glycated Heamoglobin (HBA1C), Routine Urine Exams (Urine/RE), HIV Test (Retroviral Screening)",,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,B20.4 [HIV disease resulting in candidiasis] ,,No,No
+3995,DANSOMAN,46 Year(s),Male,"NA, ",,,E08.311 [Diabetes mellitus due to underlying condition with unspecified diabetic retinopathy with macular edema] ,,,,,,No,Yes
+4011,MALLAM ,46 Year(s),Male,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,I10. [Essential (primary) hypertension] ,,No,No
+4015,"NEW GBAWE , TIME SPOT",50 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,Yes
+4018,KASOA AMANFROM ,62 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,I10. [Essential (primary) hypertension] ,,No,Yes
+4020,KASOA OTAMENS,65 Year(s),Male,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,I10. [Essential (primary) hypertension] ,,No,Yes
+4145,"SOWUTUOM
+CHOP BAR",47 Year(s),Male,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"I10. [Essential (primary) hypertension] , Z86.718 [Personal history of other venous thrombosis and embolism] , A02.25 [Salmonella pyelonephritis] ",,,No,Yes
+4149,ANYAA NIC,55 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,E08.621 [Diabetes mellitus due to underlying condition with foot ulcer] ,,,No,No
+4187,"TUBA , IIRGATION FARMS",52 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+4327,GBAWE-ZERO,40 Year(s),Male,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+4394,AWOSHIE,59 Year(s),Female,"NA, ","Full Blood Count (FBC),  BUE & Creatinine (KFT, RFT), Liver Function Test (LFT)",,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,Yes
+4545,"GBAWE
+BULEMIN",27 Year(s),Male,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,Yes
+4584,KWASHIEMAN,54 Year(s),Male,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+4589,ODORKOR ,55 Year(s),Female,"NA, ",,,E11.01 [Type 2 diabetes mellitus with hyperosmolarity with coma] ,,,,,,No,Yes
+4598,KASOA OFANKOR,57 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,L03.116 [Cellulitis of left lower limb] ,,,No,No
+4789,KASOA OFANKOR,57 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,L03.116 [Cellulitis of left lower limb] ,,,No,No
+4812,"KASOA , AMERICAN DOWN",72 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,Yes
+4839,NEW BORTIANOR,54 Year(s),Male,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"M47.20 [Other spondylosis with radiculopathy, site unspecified] , N40.01 [Benign prostatic hyperplasia with lower urinary tract symptoms] ",,,No,Yes
+4937,"GBAWE , CP",74 Year(s),Female,"NA, ",,,"E08.40 [Diabetes mellitus due to underlying condition with diabetic neuropathy, unspecified] ",,,,,,No,No
+4961,kasoa,65 Year(s),Female,"NA, ","Full Blood Count (FBC), Routine Urine Exams (Urine/RE), Blood Film for Mps (BF)",,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+5039,scc,60 Year(s),Male,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,Yes
+5109,AWOSHIE ,57 Year(s),Male,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,No
+5182,"CENTER MARIA 
+ANTIEKU",45 Year(s),Female,"NA, ",Glycated Heamoglobin (HBA1C),,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,Yes
+5334,JAMES TOWN CHOCO,62 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"G62.9 [Polyneuropathy, unspecified] ",,,No,Yes
+5360,KASOA TOPBASE,53,Female,"NA, ","Full Blood Count (FBC), Routine Urine Exams (Urine/RE), Blood Film for Mps (BF)",,E10.649 [Type 1 diabetes mellitus with hypoglycemia without coma] ,,,,,,No,No
+5391,kasoa,63 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+5395,dansoman,53 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,Yes
+5398,ABLEKUMAN,58 Year(s),Male,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+5404,KASOA,50 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+5482,awoshie,60 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+5655,AWOSHIE   BAAH  YARD,57 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+5658,KOKROBITE ,45,Male,"NA, ","Full Blood Count (FBC),  BUE & Creatinine (KFT, RFT), Glycated Heamoglobin (HBA1C), Routine Urine Exams (Urine/RE)",,E10.11 [Type 1 diabetes mellitus with ketoacidosis with coma] ,,,,,,No,No
+5726,anyaa,78 Year(s),Male,"NA, ","Full Blood Count (FBC), Routine Urine Exams (Urine/RE),  BUE & Creatinine (KFT, RFT)",,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,R52.0 [Acute pain] ,,,No,Yes
+5889,GBAWE,56 Year(s),Female,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), Routine Urine Exams (Urine/RE)",,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,"I10. [Essential (primary) hypertension] , N34.1 [Nonspecific urethritis] ",,,No,Yes
+6191,ABLEKUMA JOMA,47 Year(s),Female,"NA, ",Routine Urine Exams (Urine/RE),,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+6249,pokuase white house,70 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,Yes
+6251,MCCARTHY HILL,53 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+6252,"kasoa
+top hill",78 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+6253,ABLEKUIMA ,67 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+6255,kasoa,66 Year(s),Male,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+6290,AMNAFROM-GALILEA,56 Year(s),Female,"NA, ","Sickling test, Full Blood Count (FBC), Blood Film for Mps (BF), Routine Urine Exams (Urine/RE), HIV Test (Retroviral Screening), Veneral Disease Research Laboratory (VDRL), Hepatitis B virus test (HBsAg), Typhoid Antibody Test,  BUE & Creatinine (KFT, RFT), Liver Function Test (LFT), Lipid Profile, Uric Acid (UA), H. pylori Antibody Test (Blood)",,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"M19.079 [Primary osteoarthritis, unspecified ankle and foot] , Z86.718 [Personal history of other venous thrombosis and embolism] ",I10. [Essential (primary) hypertension] ,,No,No
+6295,awoshie,60 Year(s),Female,"NA, "," BUE & Creatinine (KFT, RFT), Liver Function Test (LFT), Lipid Profile, Glycated Heamoglobin (HBA1C)",,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+6447,dansoman,66 Year(s),Male,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), Routine Urine Exams (Urine/RE)",,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+6595,ABLEKUMA GALILEA,73 Year(s),Male,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+6623,KASOA DOMEABRA,68 Year(s),Female,"NA, ",Full Blood Count (FBC),,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+6665,gbawe  top base,74 Year(s),Female,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), Typhoid Antibody Test, Routine Urine Exams (Urine/RE)",,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+6668,mallam jut,49 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+6669,scc,49 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+6670,Mccarthy down,61 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,Yes
+6671,"AWOSHIE 
+STATION",71 Year(s),Female,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), Routine Urine Exams (Urine/RE)",,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,"I10. [Essential (primary) hypertension] , N34.1 [Nonspecific urethritis] ",,,No,Yes
+6739,"RED TOP 
+SCC",83 Year(s),Female,"NA, ","Full Blood Count (FBC), HIV Test (Retroviral Screening), Sickling test",,E08.621 [Diabetes mellitus due to underlying condition with foot ulcer] ,,,,,,No,Yes
+6780,WEIJA ,49 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,Yes
+6791,"Anyaa 
+New market",46 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,Yes
+6808,fertey ,45 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,Yes
+6867,"KASOA , DOMEABRA ",67 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"G62.9 [Polyneuropathy, unspecified] ",,,No,Yes
+6915,"new bortianor ,broadcasting",71 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,"I10. [Essential (primary) hypertension] , J39.9 [Disease of upper respiratory tract, unspecified] ",,,No,Yes
+7299,"WEIJA
+MANDELA",46 Year(s),Male,"NA, ",,,E08.9 [Diabetes mellitus due to underlying condition without complications] ,,,"I10. [Essential (primary) hypertension] , E10.8 [Insulin-dependent diabetes mellitus: With unspecified complications] ",,,No,Yes
+7316,mallam ,53 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+7408,mallam,74 Year(s),Male,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,"I10. [Essential (primary) hypertension] , E13.40 [Other specified diabetes mellitus with diabetic neuropathy, unspecified] , B33.0 [Epidemic myalgia] ",,,No,Yes
+7435,ABLEKUMA,29 Year(s),Female,"NA, ",,,"O24.410 [Gestational diabetes mellitus in pregnancy, diet controlled] ",,,,,,No,Yes
+7444,DANKUMAN,76 Year(s),Female,"NA, ",Full Blood Count (FBC),,E08.9 [Diabetes mellitus due to underlying condition without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+7546,GBAWE TOP BASE,59 Year(s),Female,"NA, "," BUE & Creatinine (KFT, RFT), Liver Function Test (LFT), Lipid Profile, Glycated Heamoglobin (HBA1C)",,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,I16.0 [Hypertensive urgency] ,,,No,Yes
+7593,SCC-UCOMS,50 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,Yes
+7611,GBAWE,66 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+7616,KWASHIEBU,83 Year(s),Male,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+7617,ODOKOR,55 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,No
+7618,AWOSHIE ONYINASE,55 Year(s),Female,"NA, ",,,E11.621 [Type 2 diabetes mellitus with foot ulcer] ,,,,,,No,Yes
+7621,McCarthy hill,63 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+7751,ODORKOR,50,Male,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,No
+7759,WEIJA ,49 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+7804,BULEMIN,73 Year(s),Male,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+7828,"ODORKOR
+OFFTOWN ",61 Year(s),Male,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,No
+7840,MALLAM MARKET,68 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+7902,KASOA ASH TOWN,80 Year(s),Male,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,"B33.0 [Epidemic myalgia] , L29.9 [Pruritus, unspecified] ",,,No,Yes
+7930,kasoa,55 Year(s),Female,"NA, ",,,E10.9 [Insulin-dependent diabetes mellitus: Without complications] ,,,"I10. [Essential (primary) hypertension] , E78.5 [Hyperlipidaemia, unspecified] ",,,No,Yes
+8143,"ablekuman
+fan milk",54 Year(s),Female,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), H. pylori Antibody Test (Blood), Typhoid Antibody Test, Routine Urine Exams (Urine/RE)",,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+8174,ABLEKUMA,58 Year(s),Female,"NA, ","H. pylori Antibody Test (Blood), Full Blood Count (FBC), Glycated Heamoglobin (HBA1C), H. pylori Antibody Test (Blood), Full Blood Count (FBC)",,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"I10. [Essential (primary) hypertension] , Z87.11 [Personal history of peptic ulcer disease] , F51.01 [Primary insomnia] ",,,No,Yes
+8226,MALLAM MASLACHI,31 Year(s),Female,"NA, ",,,"O24.419 [Gestational diabetes mellitus in pregnancy, unspecified control] ",,,,,,Yes,Yes
+8439,apleku,59 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,B37.3 [Candidiasis of vulva and vagina] ,,,No,Yes
+8444,ablekuman,49 Year(s),Female,"NA, ",,,E08.9 [Diabetes mellitus due to underlying condition without complications] ,,,I10. [Essential (primary) hypertension] ,B33.0 [Epidemic myalgia] ,,No,Yes
+8446,UPPER WEIJA ,52 Year(s),Male,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"I10. [Essential (primary) hypertension] , E78.5 [Hyperlipidaemia, unspecified] ",,,No,Yes
+8451,odorkor,65 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,"I10. [Essential (primary) hypertension] , J02.9 [Acute pharyngitis, unspecified] ",,,No,Yes
+8452,kasoa,80 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,"I10. [Essential (primary) hypertension] , B33.0 [Epidemic myalgia] ",,,No,Yes
+8455,mallam,73 Year(s),Female,"NA, ",,,E11.7 [Non-insulin-dependent diabetes mellitus: With multiple complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+8456,ODORKOR. GLORYLAND,48 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+8501,"NEW BORTIAN
+GOLDEN VALLEYOR",50 Year(s),Female,"NA, ",,,"E08.40 [Diabetes mellitus due to underlying condition with diabetic neuropathy, unspecified] ",,,,,,No,Yes
+8535,"KASOA , NYANYANO ",81 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,B33.0 [Epidemic myalgia] ,,,No,Yes
+8542,KASOA BLOCK FACTORY,50 Year(s),Female,"NA, ",,,"E08.40 [Diabetes mellitus due to underlying condition with diabetic neuropathy, unspecified] ",,,,,,No,Yes
+8543,scc red top ,51 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,"B50.9 [Plasmodium falciparum malaria, unspecified] ",,,No,Yes
+8731,aburi,53 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+8859,ablekuman nic,62 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,"I10. [Essential (primary) hypertension] , E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ",,,No,Yes
+8862,kasoa,58 Year(s),Male,"NA, "," BUE & Creatinine (KFT, RFT), Lipid Profile, Glycated Heamoglobin (HBA1C)",,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+8863,GBAWE DOWN,60 Year(s),Female,"NA, ",,,E08.9 [Diabetes mellitus due to underlying condition without complications] ,,,"I10. [Essential (primary) hypertension] , E78.5 [Hyperlipidaemia, unspecified] ",,,No,Yes
+8865,KASOA OFANKOR,47 Year(s),Male,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+8867,ABLEKUMA,60 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,"G62.9 [Polyneuropathy, unspecified] , E78.5 [Hyperlipidaemia, unspecified] ",,,No,Yes
+8868,KAS-PAPASEOA,67 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,"I10. [Essential (primary) hypertension] , B33.0 [Epidemic myalgia] ",,,No,Yes
+8869,"AWOSHIE 
+STATION",71 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,Yes
+9017,kawsibu,69 Year(s),Female,"NA, ",,,E10.9 [Insulin-dependent diabetes mellitus: Without complications] ,,,"I10. [Essential (primary) hypertension] , E11.40 [Type 2 diabetes mellitus with diabetic neuropathy, unspecified] ",,,No,Yes
+9029,mc catrthy ,74 Year(s),Female,"NA, ",,,E11.42 [Type 2 diabetes mellitus with diabetic polyneuropathy] ,,,,,,No,Yes
+9036,mccarthy,49 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,"I10. [Essential (primary) hypertension] , G44.209 [Tension-type headache, unspecified, not intractable] ",,,No,Yes
+9272,KASOA SEMEHYIA,59 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,Yes
+9293,WEIJA,57 Year(s),Female,"NA, ",,,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,"I10. [Essential (primary) hypertension] , E78.5 [Hyperlipidaemia, unspecified] ",,,No,Yes
+9294,"DANSOMAN , EXHIBITION ",36,Female,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), Routine Urine Exams (Urine/RE)",,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,No
+9380,,70 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+9400,KASOA ASH TOWN,80 Year(s),Male,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+186,AHYIA,48 Year(s),Male,"NA, ",,,E11.621 [Type 2 diabetes mellitus with foot ulcer] ,,,,,,No,Yes
+198,TATOP,58 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"M35.3 [Polymyalgia rheumatica] , G58.9 [Mononeuropathy, unspecified] ",,,No,Yes
+341,SANTA MARIA,36 Year(s),Female,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,"B33.3 [Retrovirus infections, not elsewhere classified] ",,,No,No
+368,ODORKOR ,55 Year(s),Male,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,No
+760,AMANFROM-TOP TOWN,39 Year(s),Male,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), Typhoid Antibody Test, Routine Urine Exams (Urine/RE)",,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,No
+780,KASOA-BAWJIASE,47 Year(s),Female,"NA, ","Full Blood Count (FBC), Typhoid Antibody Test, Routine Urine Exams (Urine/RE), HIV Test (Retroviral Screening), Hepatitis B virus test (HBsAg), Random Blood Glucose (RBS)",,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,R52.0 [Acute pain] ,,,No,Yes
+1081,AWOSHIE BAAH YARD,66 Year(s),Male,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,No
+1119,MACARTHEY HILL,54 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+1427,GBAWE CP,71 Year(s),Female,"NA, ",Glycated Heamoglobin (HBA1C),,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,J14. [Pneumonia due to Haemophilus influenzae] ,,,No,Yes
+1576,KWASHIMAN ,32 Year(s),Male,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,No
+1802,McCARTHY 20TH AVENUE ,63 Year(s),Female,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,Yes
+1888,upper weija,73 Year(s),Female,"NA, ","Full Blood Count (FBC), HIV Test (Retroviral Screening)",,E09.311 [Drug or chemical induced diabetes mellitus with unspecified diabetic retinopathy with macular edema] ,,,,,,No,Yes
+1896,GALILEA,49 Year(s),Male,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,E11.622 [Type 2 diabetes mellitus with other skin ulcer] ,,,No,No
+2025,,61 Year(s),Female,"NA, ",,,E13.65 [Other specified diabetes mellitus with hyperglycemia] ,,,G57.90 [Unspecified mononeuropathy of unspecified lower limb] ,,,No,Yes
+2145,ABLEKUMA OMANJOR,41 Year(s),Female,"NA, ",Glycated Heamoglobin (HBA1C),,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,No
+2511,POKUASE ADUMAN ,52 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,Yes
+2678,"WHITE CROSS
+SCC",40 Year(s),Male,"NA, ",,,E11.42 [Type 2 diabetes mellitus with diabetic polyneuropathy] ,,,,,,No,No
+2708,ANYAA,58 Year(s),Male,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,L03.116 [Cellulitis of left lower limb] ,,,No,No
+2963,ODORKOR,56 Year(s),Male,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,Yes
+2980,ATOD.S SHSE SANDEMA  ,32 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+3172,NYANYANO,50 Year(s),Male,"NA, ","Random Blood Glucose (RBS), Routine Urine Exams (Urine/RE), Full Blood Count (FBC), Typhoid Antibody Test",,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"Z87.11 [Personal history of peptic ulcer disease] , M79.2 [Neuralgia and neuritis, unspecified] ",,,No,Yes
+3365,kasoa officia twon,63 Year(s),Female,"TROPHIC ULCER, ",,,E10.622 [Type 1 diabetes mellitus with other skin ulcer] ,,,,,,No,Yes
+3407,KASOA-LAMPTEY MILLS,57 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+3578,"ODOKOR MAKRT
+",31 Year(s),Female,"NA, ",ANC FULL BLOOD COUNT,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,"Z36.9 [Antenatal screening, unspecified] ",,No,Yes
+3840,"MCCARTH HILL
+8TH AVENUE",68 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"N39.0 [Urinary tract infection, site not specified] ",,,No,Yes
+3902,pokuase white house,70 Year(s),Female,"NA, ",,,E13.622 [Other specified diabetes mellitus with other skin ulcer] ,,,,,,No,Yes
+3922,KASOA OBOM ROAD,54 Year(s),Female,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,"A53.9 [Syphilis, unspecified] ",,,No,No
+3955,KASOA-LAMPTEY MILLS,57 Year(s),Female,"NA, ",,,E08.311 [Diabetes mellitus due to underlying condition with unspecified diabetic retinopathy with macular edema] ,,,"H11.53 [Peripheral pterygium, progressive, bilateral] , H25.9 [Senile cataract, unspecified] ",,,No,Yes
+3970,ABLEKUMA ,43 Year(s),Male,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+4161,ASSIN SOM NYAMEKODU,57 Year(s),Female,"NA, ",,,E08.319 [Diabetes mellitus due to underlying condition with unspecified diabetic retinopathy without macular edema] ,,,,,,No,Yes
+4261,ASSIN SOM NYAMEKODU,57 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,Yes
+4276,DANSOMAN-BEACH,60 Year(s),Female,"NA, ","Full Blood Count (FBC),  BUE & Creatinine (KFT, RFT), Liver Function Test (LFT), Lipid Profile",,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,Yes
+4730,GBAWE  -GONSE,66 Year(s),Female,"NA, ","Full Blood Count (FBC),  BUE & Creatinine (KFT, RFT), Liver Function Test (LFT), Lipid Profile, Routine Urine Exams (Urine/RE)",,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,No
+4735,KASOA  -AMANFROM,35 Year(s),Female,"NA, ",,,E09.42 [Drug or chemical induced diabetes mellitus with neurological complications with diabetic polyneuropathy] ,,,,,,No,No
+4809,TUBA-TOLL BOTH,59 Year(s),Female,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), Typhoid Antibody Test",,"E08.40 [Diabetes mellitus due to underlying condition with diabetic neuropathy, unspecified] ",,,,,,No,Yes
+4922,GBAWE TOPBASE,64 Year(s),Male,"NA, ","Glycated Heamoglobin (HBA1C), Routine Urine Exams (Urine/RE), Random Blood Glucose (RBS), Typhoid Antibody Test",,E10.65 [Type 1 diabetes mellitus with hyperglycemia] ,,,,,,No,No
+5065,KASOA,50 Year(s),Male,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"L29.9 [Pruritus, unspecified] ",,,No,No
+5123,Ablekuma,24 Year(s),Female,"NA, ",,,E10.65 [Type 1 diabetes mellitus with hyperglycemia] ,,,"Z36.9 [Antenatal screening, unspecified] ",,,Yes,Yes
+5147,KINTAMPO,79 Year(s),Male,"NA, ",,,E08.44 [Diabetes mellitus due to underlying condition with diabetic amyotrophy] ,,,,,,No,Yes
+5612,OLD BORTIANOR OMEGA,53 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,No
+5663,SOWUTUOM,36 Year(s),Male,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,No
+5743,"LAPAZ
+TIE TOP",23 Year(s),Female,"NA, ",Glycated Heamoglobin (HBA1C),,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"N39.0 [Urinary tract infection, site not specified] ",,,No,Yes
+5766,"TUBA
+MOUNTAIN VIEW",38 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,Yes
+5976,KOKROBITE,44 Year(s),Male,"NA, ",,,E08.641 [Diabetes mellitus due to underlying condition with hypoglycemia with coma] ,,,,,,No,Yes
+6101,KASOA,84 Year(s),Female,"NA, ",,,E08.641 [Diabetes mellitus due to underlying condition with hypoglycemia with coma] ,,,,,,No,No
+6136,OMANJOR,53 Year(s),Female,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF),  BUE & Creatinine (KFT, RFT), Liver Function Test (LFT)",,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,Yes
+6324,Aplaku,26 Year(s),Female,"NA, ",,,"O24.419 [Gestational diabetes mellitus in pregnancy, unspecified control] ",,,,,,No,Yes
+6358,"AGAPE
+DOWN",53 Year(s),Female,"NA, ",Full Blood Count (FBC),,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"J21.9 [Acute bronchiolitis, unspecified] , N39.0 [Urinary tract infection, site not specified] ",,,No,Yes
+6539,GALELIA,38 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"A88.1 [Epidemic vertigo] , G62.9 [Polyneuropathy, unspecified] ",,,No,Yes
+6727,antie aku,45 Year(s),Female,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), H. pylori Antibody Test (Blood)",,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,Yes
+7087,SANTA MARIA,53 Year(s),Male,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,N34.1 [Nonspecific urethritis] ,,,No,Yes
+7370,gbawe,64 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,Yes
+7916,AGAPE 2ND CONTAINER,59 Year(s),Female,"NA, ",,,E08.41 [Diabetes mellitus due to underlying condition with diabetic mononeuropathy] ,,,,,,No,Yes
+7974,KWASHIMAN,40 Year(s),Female,"NA, ",,,E09.622 [Drug or chemical induced diabetes mellitus with other skin ulcer] ,,,,,,No,Yes
+8245,"KASOA , BRIGADE ",50 Year(s),Female,"NA, ",,,E13.65 [Other specified diabetes mellitus with hyperglycemia] ,,,"N39.0 [Urinary tract infection, site not specified] ",,,No,No
+8553,mangoase,31 Year(s),Female,"NA, ",,,"O24.415 [Gestational diabetes mellitus in pregnancy, controlled by oral hypoglycemic drugs] ",,,,,,No,Yes
+8689,ODORKOR OFFICIAL TOWN,56 Year(s),Male,"NA, ",,,"E11.40 [Type 2 diabetes mellitus with diabetic neuropathy, unspecified] ",,,M79.601 [Pain in right arm] ,,,No,Yes
+9019,"NEW WEIJA
+UPWARD KINGDOM CHURCH",69 Year(s),Female,"NA, ","Full Blood Count (FBC),  BUE & Creatinine (KFT, RFT), Routine Urine Exams (Urine/RE)",,E13.65 [Other specified diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+9380,OBOLOGO,41 Year(s),Male,"NA, "," BUE & Creatinine (KFT, RFT), Full Blood Count (FBC), Routine Urine Exams (Urine/RE)",,E13.65 [Other specified diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+9422,"WEIJA , SAMPA VALLEY ",76 Year(s),Female,"NA, ","Full Blood Count (FBC),  BUE & Creatinine (KFT, RFT), Liver Function Test (LFT), Routine Urine Exams (Urine/RE), Blood Film for Mps (BF)",,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,Yes
+145,KASOA,68 Year(s),Female,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,MEDI02A [Diabetes - Simple >=12 Yrs] ,,,,,No,Yes
+330,"GALILEA
+WEST END SCHOOL",34 Year(s),Female,"NA, ","Blood Film for Mps (BF),  BUE & Creatinine (KFT, RFT), Glycated Heamoglobin (HBA1C), Liver Function Test (LFT), Routine Urine Exams (Urine/RE), Full Blood Count (FBC)",,E13.65 [Other specified diabetes mellitus with hyperglycemia] ,,,,,,No,No
+423,AWOSHIE,57 Year(s),Female,"NA, ",Full Blood Count (FBC),,E08.9 [Diabetes mellitus due to underlying condition without complications] ,,,"N39.0 [Urinary tract infection, site not specified] ",,,No,No
+488,"MILE 11 , FINNEY HOSPITAL - WEIJA",62 Year(s),Male,"NA, "," BUE & Creatinine (KFT, RFT)",,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,,,,No,Yes
+819,MALLAM,53 Year(s),Male,"NA, "," BUE & Creatinine (KFT, RFT), Liver Function Test (LFT), Routine Urine Exams (Urine/RE)",,E13.65 [Other specified diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+976,TUBA SCHOOL JUNCION,49 Year(s),Male,"NA, ","Full Blood Count (FBC),  BUE & Creatinine (KFT, RFT), Liver Function Test (LFT), Routine Urine Exams (Urine/RE)",,"E08.3219 [Diabetes mellitus due to underlying condition with mild nonproliferative diabetic retinopathy with macular edema, unspecified eye] ",,,I10.00 [Essential (primary) hypertension] ,,,No,No
+1136,BODOMASI,44 Year(s),Female,"NA, ",,,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,,,,No,Yes
+1250,Ofankor,50 Year(s),Male,"NA, ",,,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,,,,No,Yes
+1418,"McCARTHY HILL, 4, 9TH AVENUE",63 Year(s),Female,"NA, ",,,E08.21 [Diabetes mellitus due to underlying condition with diabetic nephropathy] ,,,,,,No,No
+1427,BORTIANO,55 Year(s),Female,"NA, ",,,E08.22 [Diabetes mellitus due to underlying condition with diabetic chronic kidney disease] ,,,,,,No,Yes
+1701,NYAMEKYE NEAR MAB HOSPITAL,62 Year(s),Male,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+1713,NYAMEKYE NEAR MAB HOSPITAL,64 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+1809,MALLAM,27 Year(s),Male,"NA, ",Full Blood Count (FBC),,E13.649 [Other specified diabetes mellitus with hypoglycemia without coma] ,,,,,,No,No
+1836,ODORKOR,61 Year(s),Female,"NA, ",,,E08.311 [Diabetes mellitus due to underlying condition with unspecified diabetic retinopathy with macular edema] ,,,,,,No,Yes
+1970,MALLAM-JUNCTION,66 Year(s),Male,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), Typhoid Antibody Test,  BUE & Creatinine (KFT, RFT), Liver Function Test (LFT), Lipid Profile, Routine Urine Exams (Urine/RE)",,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,"I15.8 [Other secondary hypertension] , B50.8 [Other severe and complicated Plasmodium falciparum malaria] , A02.0 [Salmonella enteritis] ",,,No,No
+2234,ODORKOR NEAR THE POST OFFICE ,27 Year(s),Female,"NA, ","Routine Urine Exams (Urine/RE), Typhoid Antibody Test, Blood Film for Mps (BF)",,E10.1 [Insulin-dependent diabetes mellitus: With ketoacidosis] ,,,,,,Yes,Yes
+2239,ABLEKUMA-CP,30 Year(s),Female,"NA, ",,,E11.10 [Type 2 diabetes mellitus with ketoacidosis without coma] ,,,,,,No,No
+2393,GBAWE ZERO,55 Year(s),Female,"NA, "," BUE & Creatinine (KFT, RFT)",,E11.9 [Type 2 diabetes mellitus without complications] ,,,I10.00 [Essential (primary) hypertension] ,,,No,No
+2476,KALABULE ,61 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+2939,ODORKOR,59 Year(s),Female,"NA, ",,,E08.29 [Diabetes mellitus due to underlying condition with other diabetic kidney complication] ,,,,,,No,Yes
+3015,ABLEKUMA,75 Year(s),Male,"NA, ",,,E08.10 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,"J15.9 [Bacterial pneumonia, unspecified] ",,,No,No
+3086,AWOSHIE ,47 Year(s),Female,"NA, ",Full Blood Count (FBC),,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,"B50.9 [Plasmodium falciparum malaria, unspecified] , M43.0 [Spondylolysis] ",,,No,Yes
+3446,GBAWE,66 Year(s),Female,"NA, ",,,E11.8 [Type 2 diabetes mellitus with unspecified complications] ,,,,,,No,Yes
+3573,SANTA MARIA,63 Year(s),Female,"NA, ",,,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,,,,No,Yes
+3750,"SANTA MARIA
+DRUG STORE",68 Year(s),Male,"NA, ",,,PAED02C [Diabetes - Simple <12 Yrs] ,,,,,,No,Yes
+3971,"AMANFRO
+GALILEA",55 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,B37.3 [Candidiasis of vulva and vagina] ,,,No,No
+3997,"ODUMAN NEAR CHURCH OFCHRIST
+ABLEKUMA",53 Year(s),Male,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF)",,E08.622 [Diabetes mellitus due to underlying condition with other skin ulcer] ,,,"R73.9 [Hyperglycaemia, unspecified] ",,,No,Yes
+4320,KWASHIEMAN ZONGO,64 Year(s),Male,"NA, ",,,E11.69 [Type 2 diabetes mellitus with other specified complication] ,,,,,,No,Yes
+4698,BORTIANOR,50 Year(s),Male,"NA, ",,,E11.9 [Type 2 diabetes mellitus without complications] ,,,,,,No,Yes
+5482,ANYAA NIC,55 Year(s),Female,"NA, ","Glycated Heamoglobin (HBA1C), Lipid Profile,  BUE & Creatinine (KFT, RFT), Liver Function Test (LFT), Full Blood Count (FBC)",,E11.621 [Type 2 diabetes mellitus with foot ulcer] ,,,,,,No,Yes
+5585,ABLEKUMA-AGAPE,69 Year(s),Female,"NA, ",,,E11.621 [Type 2 diabetes mellitus with foot ulcer] ,,,"E11.65 [Type 2 diabetes mellitus with hyperglycemia] , I10.00 [Essential (primary) hypertension] ",,,No,Yes
+5808,KWABENYA,42 Year(s),Female,"NA, ",,,E08.319 [Diabetes mellitus due to underlying condition with unspecified diabetic retinopathy without macular edema] ,,,,,,No,Yes
+5830,FANMILK,28 Year(s),Female,"NA, ",,,"O24.419 [Gestational diabetes mellitus in pregnancy, unspecified control] ",,,,,,Yes,Yes
+5966,GBAWE CP,69 Year(s),Male,"NA, "," BUE & Creatinine (KFT, RFT), Liver Function Test (LFT), Full Blood Count (FBC), Glycated Heamoglobin (HBA1C)",,E08.621 [Diabetes mellitus due to underlying condition with foot ulcer] ,,,,,,No,Yes
+6138,GBAWE BULEMI JUNCTION,64 Year(s),Male,"NA, ",,,E11.9 [Type 2 diabetes mellitus without complications] ,,,,,,No,Yes
+6482,KASOA ,74 Year(s),Female,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), Typhoid Antibody Test",,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,"N39.0 [Urinary tract infection, site not specified] , M79.1 [Myalgia] ",,,No,Yes
+6639,FIJAI,68 Year(s),Female,"NA, ",,,E08.9 [Diabetes mellitus due to underlying condition without complications] ,,,,,,No,Yes
+6881,DODI MEMPEASEM AT YAO  HOUSE,76 Year(s),Female,"NA, ","Blood Film for Mps (BF), Full Blood Count (FBC), Glycated Heamoglobin (HBA1C)",,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,N34.1 [Nonspecific urethritis] ,,,No,Yes
+7075,"SANTA MARIA
+DRUG STORE",68 Year(s),Male,"NA, ",,,E11.9 [Type 2 diabetes mellitus without complications] ,,,,,,No,Yes
+7109,"TATOP
+ICGC CHURCH",46 Year(s),Male,"NA, ","Hepatitis B virus test (HBsAg), Hepatitis C virus test (HCV), Liver Function Test (LFT)",,E11.69 [Type 2 diabetes mellitus with other specified complication] ,,,M79.1 [Myalgia] ,,,No,No
+7560,"ABLEKUMA
+JOMA",51 Year(s),Female,"NA, ",,,E11.42 [Type 2 diabetes mellitus with diabetic polyneuropathy] ,,,,,,No,No
+7617,ABLEKUMA-MANHIA,46 Year(s),Male,"NA, ",,,E11.9 [Type 2 diabetes mellitus without complications] ,,,,,,No,Yes
+7724,ABLEKUMA-MANHIA,46 Year(s),Male,"NA, ",,,E11.9 [Type 2 diabetes mellitus without complications] ,,,,,,No,Yes
+7747,GALELIA MARKET,26 Year(s),Male,"NA, ",,,"E08.3299 [Diabetes mellitus due to underlying condition with mild nonproliferative diabetic retinopathy without macular edema, unspecified eye] ",,,,,,No,Yes
+8029,awoshie A LANE,55 Year(s),Female,"NA, ",,,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,,,,No,No
+8391,"MALLAM
+KOKROKO",23 Year(s),Male,"NA, ",,,E13.1 [Other specified diabetes mellitus: With ketoacidosis] ,,,,,,No,Yes
+8694,MACARTHEY HILL,54 Year(s),Female,"NA, ",,,MEDI02A [Diabetes - Simple >=12 Yrs] ,,,,,,No,Yes
+8801,"KASOA
+NEW TOWN",69 Year(s),Male,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), Glycated Heamoglobin (HBA1C)",,E13.43 [Other specified diabetes mellitus with diabetic autonomic (poly)neuropathy] ,,,,,,No,Yes
+316,ADABRAKA,15 Year(s),Female,"NA, ",,,E10.65 [Type 1 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+349,"MALLAM
+KOKROKO",23 Year(s),Male,"NA, ",,,E13.65 [Other specified diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+400,AYIWURI'S  HSE  FUMBISI  LOGMIISA,49 Year(s),Female,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,No
+591,SANTA MARIA,66 Year(s),Female,"NA, "," BUE & Creatinine (KFT, RFT), Full Blood Count (FBC)",,E13.65 [Other specified diabetes mellitus with hyperglycemia] ,,,,,,No,No
+605,MALLAM,21 Year(s),Female,"NA, ",,,E13.621 [Other specified diabetes mellitus with foot ulcer] ,,,,,,No,No
+679,"NEW WEIJA , CHOICE",47 Year(s),Female,"NA, ",Full Blood Count (FBC),,"L03.9 [Cellulitis, unspecified] , E11.65 [Type 2 diabetes mellitus with hyperglycemia] ",,,"E11.65 [Type 2 diabetes mellitus with hyperglycemia] , L03.8 [Cellulitis of other sites] ",,,No,No
+905,GBAWE,67 Year(s),Female,"NA, ",,,E08.319 [Diabetes mellitus due to underlying condition with unspecified diabetic retinopathy without macular edema] ,,,I10.00 [Essential (primary) hypertension] ,,,No,Yes
+998,"ABLEKUMA
+MANHEAN",49 Year(s),Female,"NA, ",,,MEDI02A [Diabetes - Simple >=12 Yrs] ,,,,,,No,Yes
+1267,ABLEKUMA,63 Year(s),Male,"NA, ","Glycated Heamoglobin (HBA1C), Full Blood Count (FBC), PSA",,E11.9 [Type 2 diabetes mellitus without complications] ,,,,,,No,No
+1475,AMANFROM ,51 Year(s),Female,"NA, ",,,MEDI02A [Diabetes - Simple >=12 Yrs] ,,,,,,No,Yes
+1624,SANTA MARIA DRUG STORE,62 Year(s),Male,"NA, ",,,E11.69 [Type 2 diabetes mellitus with other specified complication] ,,,,,,No,Yes
+1677,WEIJA,66 Year(s),Female,"NA, ",,,E08.22 [Diabetes mellitus due to underlying condition with diabetic chronic kidney disease] ,,,,,,No,Yes
+1719,CHOICE,67 Year(s),Female,"NA, ",,,"E08.40 [Diabetes mellitus due to underlying condition with diabetic neuropathy, unspecified] ",,,,,,No,Yes
+2198,GBAWE,75 Year(s),Female,"NA, ",,,E11.621 [Type 2 diabetes mellitus with foot ulcer] ,,,,,,No,Yes
+2228,KASOA WALATU,39 Year(s),Male,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,R30.0 [Dysuria] ,,,No,Yes
+2630,WEIJA,62,Male,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF),  BUE & Creatinine (KFT, RFT), Routine Urine Exams (Urine/RE)",,E13.65 [Other specified diabetes mellitus with hyperglycemia] ,,,G40.89 [Other seizures] ,,,No,No
+2641,AWOSHIE,50 Year(s),Female,"NA, ","Routine Urine Exams (Urine/RE), Full Blood Count (FBC), Typhoid Antibody Test,  BUE & Creatinine (KFT, RFT)",,E08.9 [Diabetes mellitus due to underlying condition without complications] ,,,"D50.9 [Iron deficiency anaemia, unspecified] ",,,No,Yes
+2696,GBAWE,75 Year(s),Female,"NA, ","Full Blood Count (FBC),  BUE & Creatinine (KFT, RFT)",,E11.621 [Type 2 diabetes mellitus with foot ulcer] ,,,,,,No,Yes
+2711,SANTA MARIA,55 Year(s),Male,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,No
+2713,WEIJA,50 Year(s),Female,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,No
+2718,new bortianor,61 Year(s),Female,"NA, ",,,E08.311 [Diabetes mellitus due to underlying condition with unspecified diabetic retinopathy with macular edema] ,,,,,,No,Yes
+2746,"SCC, BROADCASTING",49 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,No
+3121,UPPER WEIJA,64 Year(s),Female,"NA, ",,,MEDI02A [Diabetes - Simple >=12 Yrs] ,,,,,,No,Yes
+3221,ABLEKUMAH,43 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+3540,AMASAMAN,49 Year(s),Male,"NA, ",,,"E08.3211 [Diabetes mellitus due to underlying condition with mild nonproliferative diabetic retinopathy with macular edema, right eye] ",,,,,,No,Yes
+3677,MCCARTHY,74 Year(s),Male,"NA, ",,,MEDI02A [Diabetes - Simple >=12 Yrs] ,,,,,,No,Yes
+3862,NEW BORTIANOR,32 Year(s),Female,"NA, ",,,E08.21 [Diabetes mellitus due to underlying condition with diabetic nephropathy] ,,,,,,No,Yes
+4096,MAMPONG,69 Year(s),Female,"NA, ","Full Blood Count (FBC), Glycated Heamoglobin (HBA1C), Routine Urine Exams (Urine/RE)",,E11.649 [Type 2 diabetes mellitus with hypoglycemia without coma] ,,,,,,No,Yes
+4185,WEIJA-NEW TOWN,50 Year(s),Male,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,No
+5159,ODORKOR TWIMAAMI ,80 Year(s),Female,"NA, ",,,E08.01 [Diabetes mellitus due to underlying condition with hyperosmolarity with coma] ,,,"A41.9 [Sepsis, unspecified] , M79.1 [Myalgia] , N34.1 [Nonspecific urethritis] ",,,No,Yes
+5222,KALABULA,52 Year(s),Female,"NA, ",,,E11.9 [Type 2 diabetes mellitus without complications] ,,,I10.00 [Essential (primary) hypertension] ,,,No,Yes
+6100,SOWUTUOM,60 Year(s),Female,"NA, ",,,E11.9 [Type 2 diabetes mellitus without complications] ,,,,,,No,No
+6116,OPEIKUMAH,49 Year(s),Female,"NA, ","Routine Urine Exams (Urine/RE), Lipid Profile, Blood Film for Mps (BF), HIV Test (Retroviral Screening),  BUE & Creatinine (KFT, RFT), Higher Vaginal Swab (HVS)",,E09.08 [Drug or chemical induced diabetes mellitus with unspecified complications] ,,,,,,No,Yes
+6239,KASOA WALATU,39 Year(s),Male,"NA, ",Full Blood Count (FBC),,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,Yes
+6615,"DARKUMAN
+MASALAKYI",58 Year(s),Female,"NA, ",,,E08.9 [Diabetes mellitus due to underlying condition without complications] ,,,K29.1 [Other acute gastritis] ,,,No,Yes
+6619,SCC UCOMS,88 Year(s),Female,"NA, ",,,E08.621 [Diabetes mellitus due to underlying condition with foot ulcer] ,,,I10.00 [Essential (primary) hypertension] ,,,No,Yes
+6633,ACHIMOTA,51 Year(s),Female,"NA, ",,,E08.319 [Diabetes mellitus due to underlying condition with unspecified diabetic retinopathy without macular edema] ,,,,,,No,Yes
+6695,AMANFROM ,51 Year(s),Female,"NA, "," BUE & Creatinine (KFT, RFT)",,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,,,,No,Yes
+6791,kasoa,63 Year(s),Male,"NA, ",Routine Urine Exams (Urine/RE),,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+6849,NII BOI TOWN,41 Year(s),Male,"NA, ",Full Blood Count (FBC),,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,No
+6872,DANSOMAN CONTROL ,47 Year(s),Male,"NA, ",,,"E08.3291 [Diabetes mellitus due to underlying condition with mild nonproliferative diabetic retinopathy without macular edema, right eye] ",,,,,,No,No
+6915,WEIJA REDTOP,82 Year(s),Male,"NA, ","Blood Film for Mps (BF), Typhoid Antibody Test, Routine Urine Exams (Urine/RE)",,E08.10 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,,,,No,Yes
+7356,"TOPBASE
+GBAWE",64 Year(s),Female,"NA, ",Full Blood Count (FBC),,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,"E61.1 [Iron deficiency] , A01.0 [Typhoid fever] ",,,No,Yes
+7590,Kasoa- new market,49 Year(s),Female,"NA, ",,,E11.8 [Type 2 diabetes mellitus with unspecified complications] ,,,"G59.0* [Diabetic mononeuropathy] , N39.0 [Urinary tract infection, site not specified] ",,,No,Yes
+7791,"WEIJA
+MANDELA",47 Year(s),Male,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+7799,KASOA-TOP TOWN,52 Year(s),Male,"NA, ",,,E08.29 [Diabetes mellitus due to underlying condition with other diabetic kidney complication] ,,,,,,No,No
+7854,MCCARTHY,74 Year(s),Male,"NA, ",,,E08.21 [Diabetes mellitus due to underlying condition with diabetic nephropathy] ,,,,"M17.10 [Unilateral primary osteoarthritis, unspecified knee] ",,No,Yes
+8002,AMANFROM ,51 Year(s),Female,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,Yes
+8219,ADJEIKOTOKU NSAWAM ROAD,45 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,B37.3 [Candidiasis of vulva and vagina] ,,,No,Yes
+8260,ABLEKUMA JOMA,50 Year(s),Female,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), Typhoid Antibody Test, Glycated Heamoglobin (HBA1C)",,E11.9 [Type 2 diabetes mellitus without complications] ,,,,I10.00 [Essential (primary) hypertension] ,L29.8 [Other pruritus] ,No,Yes
+8308,MCCARTHY,75 Year(s),Female,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), Routine Urine Exams (Urine/RE)",,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,No
+8316,AMANFROM TOP TOWN,70 Year(s),Female,"NA, ",,,E11.621 [Type 2 diabetes mellitus with foot ulcer] ,,,,,,No,Yes
+20,"KWASHIEMAN
+ADE JUNCTION",61 Year(s),Female,"NA, ",,,MEDI02A [Diabetes - Simple >=12 Yrs] ,,,,,,No,Yes
+75,KASOA NEW TOWN,53 Year(s),Female,"NA, ",,,E11.9 [Type 2 diabetes mellitus without complications] ,,,"I10.00 [Essential (primary) hypertension] , B35.4 [Tinea corporis] ",,,No,No
+316,OLD BARRIER NEAR MODEST,79 Year(s),Female,"NA, ","Full Blood Count (FBC), Routine Urine Exams (Urine/RE)",,E09.649 [Drug or chemical induced diabetes mellitus with hypoglycemia without coma] ,,,,,,No,Yes
+318,GBAWE TOPBASE,64 Year(s),Female,"NA, ","Full Blood Count (FBC), Glycated Heamoglobin (HBA1C)",,E08.622 [Diabetes mellitus due to underlying condition with other skin ulcer] ,,,,,,No,No
+322,AWOSHIE  BAAH  YARD,25 Year(s),Male,"NA, ",,,E10.621 [Type 1 diabetes mellitus with foot ulcer] ,,,,,,No,No
+332,"WEIJA
+NEW TOWN",38 Year(s),Male,"NA, ","Routine Urine Exams (Urine/RE), Full Blood Count (FBC)",,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,,,,No,No
+419,NEW BORTIANO,56 Year(s),Male,"NA, ",,,"E08.3521 [Diabetes mellitus due to underlying condition with proliferative diabetic retinopathy with traction retinal detachment involving the macula, right eye] ",,,,,,No,Yes
+422,KASOA,29 Year(s),Female,"NA, ",,,E08.10 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,,,,No,Yes
+443,BENJYS LODGE,75 Year(s),Female,"NA, ",Routine Urine Exams (Urine/RE),,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,I16.0 [Hypertensive urgency] ,I10.00 [Essential (primary) hypertension] ,,No,Yes
+516,Kwabenya ,69 Year(s),Male,"NA, ",,,E08.21 [Diabetes mellitus due to underlying condition with diabetic nephropathy] ,,,,,,No,Yes
+747,KASOA,68 Year(s),Male,"NA, ",,,E13.621 [Other specified diabetes mellitus with foot ulcer] ,,,,,,No,Yes
+815,Kwabenya ,69 Year(s),Male,"NA, ","Blood Film for Mps (BF), Full Blood Count (FBC), Routine Urine Exams (Urine/RE), Typhoid Antibody Test",,E08.10 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,,,,No,Yes
+844,"ANYAA
+PALAS TOWN",57 Year(s),Male,"NA, ",,,E13.622 [Other specified diabetes mellitus with other skin ulcer] ,,,,,,No,No
+874,KASOA -AKWELEY,50 Year(s),Female,"NA, ",Full Blood Count (FBC),,E08.621 [Diabetes mellitus due to underlying condition with foot ulcer] ,,,,,,No,No
+891,SCC AZUMAH,34 Year(s),Female,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), HIV Test (Retroviral Screening)",,E11.649 [Type 2 diabetes mellitus with hypoglycemia without coma] ,,,,,,No,No
+928,KASOA-LAMPTEY MILLS,58 Year(s),Female,"NA, ",,,E11.9 [Type 2 diabetes mellitus without complications] ,,,I10.00 [Essential (primary) hypertension] ,,,No,Yes
+1053,ADABRAKA,15 Year(s),Female,"NA, ",,,E08.8 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,Yes
+1195,MALLAM-NEW GBAWE,40 Year(s),Male,"NA, ",,,E10.1 [Insulin-dependent diabetes mellitus: With ketoacidosis] ,,,,,,No,Yes
+1218,MCCARTHY,74 Year(s),Male,"NA, ",,,E08.42 [Diabetes mellitus due to underlying condition with diabetic polyneuropathy] ,,,,,,No,Yes
+1472,"NEW GBAWOE, MALLAM",57 Year(s),Female,"NA, ",,,E08.8 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,I10.00 [Essential (primary) hypertension] ,,,No,Yes
+1565,WEIJA,63 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,No
+1654,NEW GBAWE-AGGREY MO,46 Year(s),Female,"NA, ","Glycated Heamoglobin (HBA1C), Routine Urine Exams (Urine/RE), Full Blood Count (FBC)",,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,Yes
+1883,OBLOGO-SCHOOL,50 Year(s),Male,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), Routine Urine Exams (Urine/RE),  BUE & Creatinine (KFT, RFT), Liver Function Test (LFT), HIV Test (Retroviral Screening)",,E08.8 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,E13.65 [Other specified diabetes mellitus with hyperglycemia] ,,No,No
+2130,ACCRA,50 Year(s),Male,"NA, ",,,E11.9 [Type 2 diabetes mellitus without complications] ,,,,,,No,Yes
+2256,TUBA,44 Year(s),Female,"NA, ","Full Blood Count (FBC), Random Blood Glucose (RBS), Blood Film for Mps (BF), Typhoid Antibody Test, Routine Urine Exams (Urine/RE)",,E13.65 [Other specified diabetes mellitus with hyperglycemia] ,,,"A01.0 [Typhoid fever] , N39.0 [Urinary tract infection, site not specified] , B50.9 [Plasmodium falciparum malaria, unspecified] ",,,No,Yes
+2334,gbawe top base,61 Year(s),Female,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), Routine Urine Exams (Urine/RE)",,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,Yes
+2507,"SUKURA ,TAXI RANK ",64 Year(s),Female,"NA, ",,,E08.8 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"I10.00 [Essential (primary) hypertension] , L02.0 [Cutaneous abscess, furuncle and carbuncle of face] ",,,No,Yes
+2682,ABLEKUMA -OLEBU,61 Year(s),Female,"NA, ","Full Blood Count (FBC), Glycated Heamoglobin (HBA1C), Routine Urine Exams (Urine/RE)",,E08.621 [Diabetes mellitus due to underlying condition with foot ulcer] ,,,,,,No,No
+2826,AWOSHIE,50 Year(s),Female,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), Routine Urine Exams (Urine/RE)",,E13.65 [Other specified diabetes mellitus with hyperglycemia] ,,,,,,No,No
+3093,"KASOA 
+OFANJKOR",54 Year(s),Female,"NA, ",,,E08.8 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"G62.9 [Polyneuropathy, unspecified] ",,,No,Yes
+3136,KASOA AKWELEY,39 Year(s),Female,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,Yes
+3214,ODORKOR-TECNO,61 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,I10. [Essential (primary) hypertension] ,,No,Yes
+3802,ANYAA MARKET,54 Year(s),Male,"NA, ",,,E08.10 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,,,,No,No
+3900,BLOCKFACTORY WEIJA,46 Year(s),Female,"NA, ","Glycated Heamoglobin (HBA1C), Routine Urine Exams (Urine/RE), Lipid Profile,  BUE & Creatinine (KFT, RFT)",,E08.21 [Diabetes mellitus due to underlying condition with diabetic nephropathy] ,,,,,,No,No
+4192,kwashieman,48 Year(s),Female,"NA, ","Random Blood Glucose (RBS), Routine Urine Exams (Urine/RE)",,E11.9 [Non-insulin-dependent diabetes mellitus: Without complications] ,,,,,,No,Yes
+4782,SCC AZUMAH,34 Year(s),Female,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,No
+4867,Kasoa Lamptey mills,28 Year(s),Female,"NA, ",,,MEDI02A [Diabetes - Simple >=12 Yrs] ,,,,,,No,Yes
+5039,GBAWE ZERO,72 Year(s),Female,"NA, ",,,E13.65 [Other specified diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+5083,KASOA WALATU,40 Year(s),Male,"NA, ",,,MEDI02A [Diabetes - Simple >=12 Yrs] ,,,,,,No,Yes
+5108,gbawe,35 Year(s),Male,"NA, ","Fasting Blood Glucose (FBS), Full Blood Count (FBC), Routine Urine Exams (Urine/RE), PSA",,E23.2 [Diabetes insipidus] ,,,,,,No,No
+5303,ABLEKUMA,63 Year(s),Male,"NA, ",,,MEDI02A [Diabetes - Simple >=12 Yrs] ,,,,,,No,No
+5371,"SANTA MARIA , A-LANG ",55 Year(s),Male,"NA, ",,,E08.8 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,Yes
+5401,NEW BORTIANOR ,45 Year(s),Female,"NA, "," BUE & Creatinine (KFT, RFT)",,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+5823,mile 11 near finny hospital,51 Year(s),Male,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,I10.00 [Essential (primary) hypertension] ,,,No,Yes
+5867,NUNGUA ,68 Year(s),Male,"NA, ",,,E11.9 [Type 2 diabetes mellitus without complications] ,,,,,,No,Yes
+5967,GBAWE  -GONSE,66 Year(s),Female,"NA, "," BUE & Creatinine (KFT, RFT), Liver Function Test (LFT), Routine Urine Exams (Urine/RE), Full Blood Count (FBC), Glycated Heamoglobin (HBA1C)",,E08.621 [Diabetes mellitus due to underlying condition with foot ulcer] ,,,,I10.00 [Essential (primary) hypertension] ,,No,Yes
+6487,"SANTA MARIA , A-LANG ",55 Year(s),Male,"NA, "," BUE & Creatinine (KFT, RFT), Lipid Profile, Routine Urine Exams (Urine/RE)",,E08.10 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,,,,No,Yes
+6501,new bortianor,48 Year(s),Male,"NA, ",,,MEDI02A [Diabetes - Simple >=12 Yrs] ,,,,,,No,Yes
+6674,SCC AZUMAH,34 Year(s),Female,"NA, ","Blood Film for Mps (BF),  BUE & Creatinine (KFT, RFT), Routine Urine Exams (Urine/RE), Sputum Gene-Expert",,E10.65 [Type 1 diabetes mellitus with hyperglycemia] ,,,"A15.3 [Tuberculosis of lung, confirmed by unspecified means] , I10.00 [Essential (primary) hypertension] ",,,No,No
+6727,"NEW WEIJA , CHOICE",47 Year(s),Female,"NA, ","Blood Film for Mps (BF), Routine Urine Exams (Urine/RE)",,E10.65 [Type 1 diabetes mellitus with hyperglycemia] ,,,A40.8 [Other streptococcal sepsis] ,,,No,No
+6791,SANTA MARIA,70 Year(s),Male,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), Routine Urine Exams (Urine/RE)",,E10.65 [Type 1 diabetes mellitus with hyperglycemia] ,,,,,,No,No
+7160,MALLAM ,71 Year(s),Female,"NA, ",,,E08.21 [Diabetes mellitus due to underlying condition with diabetic nephropathy] ,,,"I10.00 [Essential (primary) hypertension] , M95.9 [Acquired deformity of musculoskeletal system, unspecified] ",,,No,Yes
+7210,gbawe,65 Year(s),Female,"NA, ",,,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,,,,No,Yes
+7215,"TRANFORMER , KASOA",72 Year(s),Female,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), Routine Urine Exams (Urine/RE),  BUE & Creatinine (KFT, RFT), Liver Function Test (LFT), Lipid Profile",,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,"E11.621 [Type 2 diabetes mellitus with foot ulcer] , L03.115 [Cellulitis of right lower limb] ",,,No,Yes
+7221,mallam  government school,66 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,Yes
+7222,kasoa,64 Year(s),Female,"NA, ",,,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,,,,No,Yes
+7267,ABLEKUMAH-AGAPE,54 Year(s),Female,"NA, ",,,E08.8 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,Yes
+7292,ADABRAKA,15 Year(s),Female,"NA, ",,,E08.8 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,B37.3 [Candidiasis of vulva and vagina] ,,,No,Yes
+7446,"SANTA MARIA , A-LANG ",55 Year(s),Male,"NA, ","Glycated Heamoglobin (HBA1C), Full Blood Count (FBC)",,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,,,,No,Yes
+7512,WEIJA,44 Year(s),Female,"NA, ",,,MEDI02A [Diabetes - Simple >=12 Yrs] ,,,,,,No,Yes
+7571,weija,73 Year(s),Female,"NA, ",,,MEDI02A [Diabetes - Simple >=12 Yrs] ,,,,,,No,Yes
+7638,KWAHU MPREASO - NEAR STADIUM,68 Year(s),Female,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), Typhoid Antibody Test",,E08.21 [Diabetes mellitus due to underlying condition with diabetic nephropathy] ,,,I10.00 [Essential (primary) hypertension] ,,,No,Yes
+7682,"ABLEKUMA , AGAPE - MASALACHI ",53 Year(s),Female,"NA, ","Routine Urine Exams (Urine/RE), Full Blood Count (FBC), H. pylori Antigen test (stool), Blood Film for Mps (BF),  BUE & Creatinine (KFT, RFT), Liver Function Test (LFT), Lipid Profile",,E11.9 [Type 2 diabetes mellitus without complications] ,,,I10.00 [Essential (primary) hypertension] ,,,No,Yes
+7790,Kasoa- new market,49 Year(s),Female,"NA, ",,,"E10.40 [Type 1 diabetes mellitus with diabetic neuropathy, unspecified] ",,,,,,No,Yes
+8423,"SCC, BROADCASTING",49 Year(s),Female,"
+, ",,,MEDI02A [Diabetes - Simple >=12 Yrs] ,,,,,,No,Yes
+8545,GBAWE ZERO -HILLTOP-PRESBY CHURCH,53 Year(s),Female,"NA, ",,,"E08.3551 [Diabetes mellitus due to underlying condition with stable proliferative diabetic retinopathy, right eye] ",,,,,,No,Yes
+8813,KASOA ,34 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,"N39.0 [Urinary tract infection, site not specified] ",,,Yes,No
+91,"WEIJA,ICE BREAD",50 Year(s),Female,"NA, ","Blood Film for Mps (BF), Typhoid Antibody Test, Full Blood Count (FBC), Routine Urine Exams (Urine/RE), Glycated Heamoglobin (HBA1C), Blood Film for Mps (BF), Typhoid Antibody Test, Full Blood Count (FBC), Routine Urine Exams (Urine/RE), Glycated Heamoglobin (HBA1C)",,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,"N34.2 [Other urethritis] , A01.0 [Typhoid fever] ",,,No,Yes
+123,antie aku,46 Year(s),Female,"NA, ",,,E13.65 [Other specified diabetes mellitus with hyperglycemia] ,,,"I10.00 [Essential (primary) hypertension] , R52.0 [Acute pain] ",,,No,No
+661,GBAWE TOP BASE,71 Year(s),Female,"NA, ",,,E10.43 [Type 1 diabetes mellitus with diabetic autonomic (poly)neuropathy] ,,,,,,No,Yes
+898,TESHIE LASCARA,65 Year(s),Female,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), Typhoid Antibody Test, Routine Urine Exams (Urine/RE)",,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,"I10.00 [Essential (primary) hypertension] , N34.2 [Other urethritis] , G63.00 [Polyneuropathy in diseases classified elsewhere] ",,,No,Yes
+1078,mccarthy Assembles of God Church,55 Year(s),Male,"NA, ",,,E11.42 [Type 2 diabetes mellitus with diabetic polyneuropathy] ,,,I10.00 [Essential (primary) hypertension] ,,,No,Yes
+1136,WEIJA CATERPILLAR ROAD,51 Year(s),Female,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,H52.4 [Presbyopia] ,,No,Yes
+1396,KASOA NURSE QUATERS,62 Year(s),Female,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,"N39.0 [Urinary tract infection, site not specified] , A01.0 [Typhoid fever] ",,,No,Yes
+1459,Gbawe Clinic,31 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,"N39.0 [Urinary tract infection, site not specified] ",,,No,Yes
+1523,SCC,64 Year(s),Female,"NA, ",,,"E08.3211 [Diabetes mellitus due to underlying condition with mild nonproliferative diabetic retinopathy with macular edema, right eye] ",,,"E08.3292 [Diabetes mellitus due to underlying condition with mild nonproliferative diabetic retinopathy without macular edema, left eye] ","H25.13 [Cortical age-related cataract, bilateral] ",,No,Yes
+1985,AWOSHIE ADAMAAMI,57 Year(s),Female,"NA, ",Glycated Heamoglobin (HBA1C),,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,,,,No,Yes
+2008,"GBAWE , ZERO ",66 Year(s),Male,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), Routine Urine Exams (Urine/RE),  BUE & Creatinine (KFT, RFT), HIV Test (Retroviral Screening)",,E08.649 [Diabetes mellitus due to underlying condition with hypoglycemia without coma] ,,,,,,No,Yes
+2059,BORTIANOR BROADCASTING,57 Year(s),Female,"NA, ","Full Blood Count (FBC),  BUE & Creatinine (KFT, RFT), Liver Function Test (LFT), Lipid Profile",,E11.9 [Type 2 diabetes mellitus without complications] ,,,"I16.0 [Hypertensive urgency] , A01.0 [Typhoid fever] ",,,No,Yes
+2103,BORTIANOR,55 Year(s),Male,"NA, ",Full Blood Count (FBC),,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,,,,No,Yes
+2201,WEIJA WHITECROSS,60 Year(s),Male,"NA, ","Glycated Heamoglobin (HBA1C), Random Blood Glucose (RBS), Routine Urine Exams (Urine/RE), Full Blood Count (FBC), PSA",,E08.9 [Diabetes mellitus due to underlying condition without complications] ,,,"N34.1 [Nonspecific urethritis] , M79.1 [Myalgia] ",,,No,No
+2441,"BLOCKFACTORY
+SCC",38 Year(s),Female,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), Typhoid Antibody Test, Routine Urine Exams (Urine/RE), Glycated Heamoglobin (HBA1C), Liver Function Test (LFT),  BUE & Creatinine (KFT, RFT)",,E08.10 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,"A41.9 [Sepsis, unspecified] ",,,No,No
+2515,kasoa,81 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,I10. [Essential (primary) hypertension] ,,,No,Yes
+2808,Gbawe Clinic,31 Year(s),Female,"NA, ",,,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,"J34.0 [Abscess, furuncle and carbuncle of nose] ",,,No,Yes
+2819,"OLD BARRIER
+SCC",63 Year(s),Female,"NA, ",,,E11.10 [Type 2 diabetes mellitus with ketoacidosis without coma] ,,,,,,No,No
+2852,KASOA,53 Year(s),Female,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,Yes
+2939,DANSOMAN,32 Year(s),Male,"NA, ",,,E08.8 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,Yes
+3192,DJANMAN ,61 Year(s),Female,"NA, ",,,E11.01 [Type 2 diabetes mellitus with hyperosmolarity with coma] ,,,,,,No,Yes
+3245,mallam bola road,66 Year(s),Female,"NA, ",,,E08.69 [Diabetes mellitus due to underlying condition with other specified complication] ,,,,,,No,Yes
+3247,"AMANFRO , TOP TOWN ",56 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,I10.00 [Essential (primary) hypertension] ,,,No,Yes
+3603,MALLAM,63 Year(s),Female,"NA, ",,,E08.8 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"I15.9 [Secondary hypertension, unspecified] ",,,No,Yes
+3607,"MALLAM
+BORLA TOP",58 Year(s),Male,"NA, ",,,E08.8 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"I15.9 [Secondary hypertension, unspecified] ",,,No,Yes
+3628,gbawe,64 Year(s),Female,"NA, ",,,E08.10 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,,,,No,Yes
+3755,"ABLEKUMA , CURVE ",43 Year(s),Female,"NA, ","Full Blood Count (FBC),  BUE & Creatinine (KFT, RFT), Lipid Profile, Glycated Heamoglobin (HBA1C), Liver Function Test (LFT), Routine Urine Exams (Urine/RE)",,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,,,,No,No
+3938,TETEGU,47 Year(s),Male,"NA, ",,,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,"I16.0 [Hypertensive urgency] , R51.00 [Headache] ",,,No,Yes
+4379,ANYAA-PALAS TOWN,63 Year(s),Male,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,Yes
+4441,GBAWE,60 Year(s),Female,"NA, ","Full Blood Count (FBC), Routine Urine Exams (Urine/RE),  BUE & Creatinine (KFT, RFT)",,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,"I10.00 [Essential (primary) hypertension] , M47.8 [Other spondylosis] ",,,No,Yes
+4784,choice,49 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,"R52.0 [Acute pain] , I10.00 [Essential (primary) hypertension] ",,,No,Yes
+4896,SCC,43 Year(s),Male,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,Yes
+4933,KASOA ,73 Year(s),Female,"NA, ","Full Blood Count (FBC), Routine Urine Exams (Urine/RE),  BUE & Creatinine (KFT, RFT), Liver Function Test (LFT), Lipid Profile",,E11.9 [Type 2 diabetes mellitus without complications] ,,,I10.00 [Essential (primary) hypertension] ,,,No,Yes
+5456,"KASOA
+PAPASE",41 Year(s),Female,"NA, ","Full Blood Count (FBC), Routine Urine Exams (Urine/RE), Blood Film for Mps (BF), Typhoid Antibody Test",,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,I10.00 [Essential (primary) hypertension] ,,,No,Yes
+6043,WEIJA,38 Year(s),Female,"NA, ","Full Blood Count (FBC), Routine Urine Exams (Urine/RE)",,E08.649 [Diabetes mellitus due to underlying condition with hypoglycemia without coma] ,,,,,,No,No
+6134,"TUBA , ADDO MOSQUE ",59 Year(s),Male,"NA, ",,,E08.621 [Diabetes mellitus due to underlying condition with foot ulcer] ,,,,,,No,No
+6146,"TETEGU , HOLY CROSS ",62 Year(s),Male,"NA, ","Full Blood Count (FBC), Routine Urine Exams (Urine/RE), Random Blood Glucose (RBS), Liver Function Test (LFT), Lipid Profile,  BUE & Creatinine (KFT, RFT)",,E11.621 [Type 2 diabetes mellitus with foot ulcer] ,,,,,,No,Yes
+6157,GBAWE,71 Year(s),Male,"NA, ","Full Blood Count (FBC), Glycated Heamoglobin (HBA1C)",,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,,,,No,No
+6177,TETEGU-2ND TRANSFORMAER,54 Year(s),Female,"NA, ",,,E08.21 [Diabetes mellitus due to underlying condition with diabetic nephropathy] ,,,I10.00 [Essential (primary) hypertension] ,,,No,Yes
+6357,ODORKOR,53 Year(s),Female,"NA, ",,,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,,,,No,Yes
+6539,ABLEKUMA MANHEAN,41 Year(s),Male,"NA, ","Full Blood Count (FBC), Routine Urine Exams (Urine/RE), HIV Test (Retroviral Screening)",,E08.8 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,F51.01 [Primary insomnia] ,,,No,No
+6651,BORTIANOR,43 Year(s),Female,"NA, ",,,"O24.414 [Gestational diabetes mellitus in pregnancy, insulin controlled] ",,,,"Z36.9 [Antenatal screening, unspecified] ",,No,Yes
+6983,KASOA,78 Year(s),Female,"NA, ",,,E08.22 [Diabetes mellitus due to underlying condition with diabetic chronic kidney disease] ,,,,,,No,Yes
+7126,WEIJA,64 Year(s),Female,"NA, ",,,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,I10.00 [Essential (primary) hypertension] ,,,No,Yes
+7177,NEW GBAWE WEMBLEY,69 Year(s),Female,"NA, ","Glycated Heamoglobin (HBA1C), Routine Urine Exams (Urine/RE), Blood Film for Mps (BF), Full Blood Count (FBC)",,E11.9 [Type 2 diabetes mellitus without complications] ,,,"I10.00 [Essential (primary) hypertension] , M79.1 [Myalgia] ",,,No,Yes
+7229,MALLAM JULIKART,47 Year(s),Female,"NA, ",,,E08.08 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,I10.00 [Essential (primary) hypertension] ,,No,Yes
+7265,KRODUA ANOMOBE,33 Year(s),Female,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,I10.00 [Essential (primary) hypertension] ,,,No,Yes
+7369,"SAKAMAN
+MALLAM MARKET",59 Year(s),Female,"NA, ","Full Blood Count (FBC), Random Blood Glucose (RBS), Glycated Heamoglobin (HBA1C), H. pylori Antibody Test (Blood)",,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,"K27.3 [Peptic ulcer, site unspecified: Acute without haemorrhage or perforation] ",,,No,No
+7927,TEMA,46 Year(s),Female,"NA, "," BUE & Creatinine (KFT, RFT), Liver Function Test (LFT), Lipid Profile, Glycated Heamoglobin (HBA1C)",,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,,,,No,No
+8002,SOWUTUOM,68 Year(s),Female,"NA, ",,,E11.36 [Type 2 diabetes mellitus with diabetic cataract] ,,,,,,No,No
+8079,GBAWE-ZERO,36 Year(s),Male,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,No
+8130,KRODUA ANOMOBE,33 Year(s),Female,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), Routine Urine Exams (Urine/RE), Blood Pregnancy Test (BTP)",,E08.9 [Diabetes mellitus due to underlying condition without complications] ,,,A09.9 [Gastroenteritis and colitis of unspecified origin] ,,,No,Yes
+8393,KASOA-OBOOM RD,75 Year(s),Female,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), Routine Urine Exams (Urine/RE)",,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,"N39.0 [Urinary tract infection, site not specified] , D50.9 [Iron deficiency anaemia, unspecified] ",I10.00 [Essential (primary) hypertension] ,,No,Yes
+8396,ABLEKUMA,58 Year(s),Male,"NA, ","Glycated Heamoglobin (HBA1C), Routine Urine Exams (Urine/RE), Full Blood Count (FBC)",,E08.01 [Diabetes mellitus due to underlying condition with hyperosmolarity with coma] ,,,,,,No,Yes
+542,NYENYANYO,61 Year(s),Male,"NA, ","Full Blood Count (FBC),  BUE & Creatinine (KFT, RFT), Routine Urine Exams (Urine/RE), Liver Function Test (LFT), Lipid Profile",,E08.9 [Diabetes mellitus due to underlying condition without complications] ,,,,,,No,Yes
+567,south mc carthy,55 Year(s),Female,"NA, ",,,E11.41 [Type 2 diabetes mellitus with diabetic mononeuropathy] ,,,,I10.00 [Essential (primary) hypertension] ,,No,Yes
+660,DANSOMAN,62 Year(s),Female,"NA, ",Routine Urine Exams (Urine/RE),,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,N34.2 [Other urethritis] ,,,No,Yes
+978,ANYAA,74 Year(s),Male,"NA, ",,,E11.9 [Type 2 diabetes mellitus without complications] ,,,"I10.00 [Essential (primary) hypertension] , K42.9 [Umbilical hernia without obstruction or gangrene] ",,,No,Yes
+1124,NYENYANYO,61 Year(s),Male,"NA, ",,,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,,,,No,Yes
+1430,GBAWE - ,50 Year(s),Female,"NA, ",,,E08.9 [Diabetes mellitus due to underlying condition without complications] ,,,,,,No,No
+1528,Mile 11,51 Year(s),Female,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,Yes
+1611,"KASOA
+TIPPER",68 Year(s),Female,"? LEFT DM RETINOPATHY, NON PROLIFERATIVE, ",,,"E08.3292 [Diabetes mellitus due to underlying condition with mild nonproliferative diabetic retinopathy without macular edema, left eye] ",,,,"Z96.1 [Presence of intraocular lens] , H25.10 [Age-related nuclear cataract, unspecified eye] ",,No,Yes
+1683,"AGONA SWEDRU, MAHONDWE",57 Year(s),Female,"NA, ",,,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,"A54.01 [Gonococcal cystitis and urethritis, unspecified] ",,,No,Yes
+1693,GBAWE - ,50 Year(s),Female,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,No
+1743,MALLAM,64 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,D50.8 [Other iron deficiency anaemias] ,,,No,No
+2531,ODUMANSE,31 Year(s),Female,"NA, ",,,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,"A40.0 [Sepsis due to streptococcus, group A] ",,,No,No
+2844,KASOA NEW MARKET,34 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,"N61.01 [Abscess of the breast and nipple] , N39.0 [Urinary tract infection, site not specified] ",,,No,Yes
+2855,LAPAZ,33 Year(s),Female,"NA, ",,,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,N34.2 [Other urethritis] ,,,No,Yes
+3001,LAPAZ,33 Year(s),Female,"NA, ",,,E08.9 [Diabetes mellitus due to underlying condition without complications] ,,,,,,No,Yes
+3115,GBAWE,68 Year(s),Male,"NA, ",,,E08.9 [Diabetes mellitus due to underlying condition without complications] ,,,"I10.00 [Essential (primary) hypertension] , I64.00 [Stroke, not specified as haemorrhage or infarction] ",,,No,Yes
+3361,KASOA,39 Year(s),Male,"NA, ",,,E11.36 [Type 2 diabetes mellitus with diabetic cataract] ,,,,,,No,Yes
+3522,KASOA,58 Year(s),Male,"NA, ",,,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,,,,No,No
+3626,"AWOSHIE
+ONYINASE",54 Year(s),Male,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,I10.00 [Essential (primary) hypertension] ,,,No,No
+4234,WEIJA,29 Year(s),Female,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,Yes,Yes
+4253,GBAWE DJAMAN,62 Year(s),Female,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,I10.00 [Essential (primary) hypertension] ,,,No,No
+4404,KASOA TUBA,50 Year(s),Male,"NA, ",,,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,,,,No,No
+4675,"SOWUTUOM
+VRA",50 Year(s),Male,"NA, ","Random Blood Glucose (RBS), Routine Urine Exams (Urine/RE)",,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,"N18.9 [Chronic kidney disease, unspecified] , R57.2 [Septic shock] ",,,No,No
+4778,"GBAWE
+CP",67 Year(s),Female,"NA, ",,,E08.641 [Diabetes mellitus due to underlying condition with hypoglycemia with coma] ,,,,,,No,Yes
+4957,ABLEKUMA JOMA,36 Year(s),Female,"NA, ",,,E13.649 [Other specified diabetes mellitus with hypoglycemia without coma] ,,,,,,No,No
+5000,SCC,45 Year(s),Female,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF)",,E10.65 [Type 1 diabetes mellitus with hyperglycemia] ,,,,,,No,No
+5183,"UPPER WEIJA , STSTION ",49 Year(s),Female,"NA, ",,,E08.9 [Diabetes mellitus due to underlying condition without complications] ,,,,,,No,Yes
+5528,BROADCASTING,55 Year(s),Male,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,I16.01 [Hypertensive emergency] ,,No,No
+5541,KASOA TUBA,39 Year(s),Female,"NA, ","Full Blood Count (FBC), Typhoid Antibody Test, Blood Film for Mps (BF), Routine Urine Exams (Urine/RE)",,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,Yes
+5978,Awoshie ,36 Year(s),Female,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,Yes,No
+6625,MATAHEKO-RUSSIA,44 Year(s),Male,"NA, ",,,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,I10.00 [Essential (primary) hypertension] ,,,No,No
+6711,ABLEKUMA -ODUMA,64 Year(s),Female,"NA, ",,,E11.52 [Type 2 diabetes mellitus with diabetic peripheral angiopathy with gangrene] ,,,,,,No,Yes
+6782,KASOA ROAD BROADCASTING,51 Year(s),Male,"NA, ",,,E08.41 [Diabetes mellitus due to underlying condition with diabetic mononeuropathy] ,,,"N39.0 [Urinary tract infection, site not specified] ",,,No,Yes
+7478,JEI RIVER,44 Year(s),Female,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), Routine Urine Exams (Urine/RE)",,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+7996,Ablekuman,43 Year(s),Female,"NA, ",,,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,,,,No,No
+8047,KASOA AMAMFROM,57 Year(s),Female,"NA, ","Glycated Heamoglobin (HBA1C), Full Blood Count (FBC), Routine Urine Exams (Urine/RE)",,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,N34.1 [Nonspecific urethritis] ,,,No,No
+8378,"GBAWE, ZERO",60 Year(s),Male,"NA, ",,,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,"A41.9 [Sepsis, unspecified] ",,,No,Yes
+8407,AMAFROM - KASOA,60 Year(s),Female,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), Glycated Heamoglobin (HBA1C), Routine Urine Exams (Urine/RE)",,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,"N34.1 [Nonspecific urethritis] , M79.1 [Myalgia] ",,,No,Yes
+8855,WEIJA ITS,54 Year(s),Female,"NA, ",,,"E08.3211 [Diabetes mellitus due to underlying condition with mild nonproliferative diabetic retinopathy with macular edema, right eye] ",,,"E08.3292 [Diabetes mellitus due to underlying condition with mild nonproliferative diabetic retinopathy without macular edema, left eye] , H25.19 [Cortical age-related cataract, unspecified eye] ",,,No,Yes
+8897,MALLAM-BOLA RD,44 Year(s),Female,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), Glycated Heamoglobin (HBA1C),  BUE & Creatinine (KFT, RFT), Routine Urine Exams (Urine/RE)",,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,Yes
+9024,KASOA AMANFROM PEACE TOWN,42 Year(s),Female,"NA, ","Full Blood Count (FBC), Sickling test, Routine Urine Exams (Urine/RE)",,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,,,,No,No
+9335,"ODORKOR , GLORY LAND",63 Year(s),Female,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), Routine Urine Exams (Urine/RE), Glycated Heamoglobin (HBA1C)",,E08.10 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,,,,No,Yes
+580,"KASOA
+DOMEABRA",57 Year(s),Male,"NA, ",,,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,A01.0 [Typhoid fever] ,,,No,Yes
+1296,OBLOGO,67 Year(s),Female,"NA, ",,,E13.65 [Other specified diabetes mellitus with hyperglycemia] ,,,,I16.0 [Hypertensive urgency] ,,No,Yes
+1661,SAMPA VALLEY WEIJA,67 Year(s),Male,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+1679,WEIJA KOKOBEN,56 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+1747,AWOSHIE,45 Year(s),Female,"NA, ",,,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,,,,No,No
+1824,AGAPE ,59 Year(s),Female,"NA, "," BUE & Creatinine (KFT, RFT)",,E11.9 [Type 2 diabetes mellitus without complications] ,,,,I10.00 [Essential (primary) hypertension] ,,No,Yes
+1859,CHINIS,46 Year(s),Female,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,Yes
+2404,KASOA OTA CITY,65 Year(s),Female,"NA, ",,,"E10.40 [Type 1 diabetes mellitus with diabetic neuropathy, unspecified] ",,,"N39.0 [Urinary tract infection, site not specified] ",,,No,Yes
+3101,SCC ADB BANK,48 Year(s),Female,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,No
+3399,NEW GBAWE,68 Year(s),Male,"NA, ",,,"E10.40 [Type 1 diabetes mellitus with diabetic neuropathy, unspecified] ",,,,,,No,Yes
+3569,"ABLEKUMA
+AGAPE DOWN",51 Year(s),Female,"NA, ","Full Blood Count (FBC), Routine Urine Exams (Urine/RE),  BUE & Creatinine (KFT, RFT)",,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+3935,"GBAWE
+AYI QUARTEY LANE",64 Year(s),Male,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,Yes
+4133,BODOMASI,45 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+4236,CHINIS,45 Year(s),Female,"NA, ","Full Blood Count (FBC), Routine Urine Exams (Urine/RE),  BUE & Creatinine (KFT, RFT)",,E08.21 [Diabetes mellitus due to underlying condition with diabetic nephropathy] ,,,,,,No,Yes
+4245,"WEIJA BEHIND
+SECONDARY SCH",48 Year(s),Male,"NA, ","Full Blood Count (FBC),  BUE & Creatinine (KFT, RFT), Routine Urine Exams (Urine/RE), Blood Film for Mps (BF), Lipid Profile, Glycated Heamoglobin (HBA1C)",,E08.621 [Diabetes mellitus due to underlying condition with foot ulcer] ,,,,,,No,Yes
+4288,UPPER WEIJA,49 Year(s),Male,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,No
+4472,ODORKOR STATION ,39 Year(s),Female,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,Yes
+4593,"NEW BORTIANOR , ",53 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,No
+4682,KASOA,61 Year(s),Female,"NA, ",,,E08.42 [Diabetes mellitus due to underlying condition with diabetic polyneuropathy] ,,,,,,No,Yes
+4689,"ABLEKUMA,AGAPE",43 Year(s),Female,"NA, ","Blood Film for Mps (BF), Routine Urine Exams (Urine/RE)",,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,O00.0 [Abdominal pregnancy] ,,,No,Yes
+4845,KASOA-NYANYANO,59 Year(s),Female,"NA, ","Full Blood Count (FBC), Routine Urine Exams (Urine/RE),  BUE & Creatinine (KFT, RFT), Liver Function Test (LFT), Lipid Profile",,E11.9 [Type 2 diabetes mellitus without complications] ,,,"N34.1 [Nonspecific urethritis] , I10.00 [Essential (primary) hypertension] , G58.9 [Mononeuropathy, unspecified] , D50.8 [Other iron deficiency anaemias] ",,,No,Yes
+4962,"M24, MFRANO SUHUM",70 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+5054,KASOA NEW MARKET ,51 Year(s),Female,"NA, ",,,"E08.3213 [Diabetes mellitus due to underlying condition with mild nonproliferative diabetic retinopathy with macular edema, bilateral] ",,,"I10.00 [Essential (primary) hypertension] , A02.0 [Salmonella enteritis] ",,,No,No
+5125,KOKRROBITE,35 Year(s),Female,"NA, ",,,"O24.410 [Gestational diabetes mellitus in pregnancy, diet controlled] ",,,,,,No,Yes
+5217,BORTIANOR,67 Year(s),Female,"NA, ","Routine Urine Exams (Urine/RE), Full Blood Count (FBC), HIV Test (Retroviral Screening)",,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,N21.8 [Other lower urinary tract calculus] ,,,No,No
+5455,kasoa,46 Year(s),Female,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,Yes
+5476,ABLEKUMA NIC ,57 Year(s),Female,"NA, ",,,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,B50.8 [Other severe and complicated Plasmodium falciparum malaria] ,,,No,No
+5578,"NEW GBAWE , AFTER CHURCH",48 Year(s),Female,"NA, ",,,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,,,,No,Yes
+5636,AWOSHIE,28 Year(s),Female,"NA, ",,,E13.65 [Other specified diabetes mellitus with hyperglycemia] ,,,,,,Yes,Yes
+5701,MALLAM KOKROKO,66 Year(s),Female,"NA, ",,,E08.311 [Diabetes mellitus due to underlying condition with unspecified diabetic retinopathy with macular edema] ,,,,,,No,Yes
+5716,MALLAM ABASE,51 Year(s),Female,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,No
+5776,MELENUM CITY SETER 4,71 Year(s),Male,"NA, ",Glycated Heamoglobin (HBA1C),,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,"H25.813 [Combined forms of age-related cataract, bilateral] , H40.0 [Glaucoma suspect] ",,,No,Yes
+5889,BORTIANOR,74 Year(s),Male,"NA, ",,,E11.622 [Type 2 diabetes mellitus with other skin ulcer] ,,,,,,No,Yes
+5976,KASOA-CP,63 Year(s),Female,"NA, ",,,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,,,,No,Yes
+6011,OTAMESS,53 Year(s),FEMALE,"NA, ",,,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,"A41.9 [Sepsis, unspecified] ",,,No,Yes
+6276,A LAND,49 Year(s),Male,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,No
+6294,SCC ADB BANK,48 Year(s),Female,"NA, "," BUE & Creatinine (KFT, RFT), Liver Function Test (LFT), H. pylori Antigen test (stool)",,E11.9 [Type 2 diabetes mellitus without complications] ,,,"N39.0 [Urinary tract infection, site not specified] ",,,No,No
+6423,ODORKOR ,51 Year(s),Female,"NA, ",,,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,,,,No,No
+6626,,68 Year(s),Male,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,I10.00 [Essential (primary) hypertension] ,,No,Yes
+6630,GBAWE  JULICART,52 Year(s),Male,"NA, ","Full Blood Count (FBC), Random Blood Glucose (RBS), Glycated Heamoglobin (HBA1C)",,E08.311 [Diabetes mellitus due to underlying condition with unspecified diabetic retinopathy with macular edema] ,,,G89.21 [Chronic pain due to trauma] ,,,No,No
+6836,KOKROBITE,44 Year(s),Female,"NA, ","Full Blood Count (FBC), Glycated Heamoglobin (HBA1C)",,"E08.40 [Diabetes mellitus due to underlying condition with diabetic neuropathy, unspecified] ",,,,,,No,Yes
+6944,AGAPE,84 Year(s),Female,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF),  BUE & Creatinine (KFT, RFT), Liver Function Test (LFT)",,E08.641 [Diabetes mellitus due to underlying condition with hypoglycemia with coma] ,,,,,,No,No
+7033,ABLEKUMA FANMILK,37 Year(s),Male,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), Typhoid Antibody Test, H. pylori Antigen test (stool)",,E08.10 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,,,,No,No
+7275,TETEGU  MIAMI,42 Year(s),Female,"NA, ",,,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,"K27.0 [Peptic ulcer, site unspecified: Acute with haemorrhage] ",,,No,Yes
+7627,AWOSHIE,61 Year(s),Male,"NA, ",,,"E10.40 [Type 1 diabetes mellitus with diabetic neuropathy, unspecified] ",,,G50.1 [Atypical facial pain] ,,,No,No
+8016,MALLAM ABASE,51 Year(s),Female,"NA, ",Routine Urine Exams (Urine/RE),,E08.21 [Diabetes mellitus due to underlying condition with diabetic nephropathy] ,,,,,,No,No
+8073,ODORKOR,39 Year(s),Female,"NA, ","Routine Urine Exams (Urine/RE), Full Blood Count (FBC)",,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,N21.8 [Other lower urinary tract calculus] ,,,No,No
+8584,WEIJA,50 Year(s),Male,"NA, ",,,E10.21 [Type 1 diabetes mellitus with diabetic nephropathy] ,,,,,,No,Yes
+8620,ODORKOR OFF TOWN,59 Year(s),Female,"NA, ","Glycated Heamoglobin (HBA1C), Full Blood Count (FBC), Routine Urine Exams (Urine/RE),  BUE & Creatinine (KFT, RFT), Lipid Profile, Liver Function Test (LFT)",,E08.8 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,Yes
+9407,KWASIBU,37 Year(s),Female,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), Routine Urine Exams (Urine/RE), Typhoid Antibody Test",,E10.65 [Type 1 diabetes mellitus with hyperglycemia] ,,,"N39.0 [Urinary tract infection, site not specified] ",,,No,No
+525,SOWUTUOM,47 Year(s),Male,"NA, ","Blood Film for Mps (BF), Glycated Heamoglobin (HBA1C), Routine Urine Exams (Urine/RE), H. pylori Antigen test (stool), Lipid Profile,  BUE & Creatinine (KFT, RFT)",,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+870,ANYAA ACADEMY ( APONKYE HOTEL ),20 Year(s),Male,"NA, ",,,E09.621 [Drug or chemical induced diabetes mellitus with foot ulcer] ,,,,,,No,Yes
+898,"BUDUBURAM
+AGYENKWA",70 Year(s),Male,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,I10.00 [Essential (primary) hypertension] ,,,No,Yes
+950,"AWOSHIE
+BAAHYARD",52 Year(s),Female,"NA, ",,,E08.621 [Diabetes mellitus due to underlying condition with foot ulcer] ,,,,,,No,Yes
+1066,KASOA NYAYANO,52 Year(s),Female,"NA, ",,,E11.9 [Type 2 diabetes mellitus without complications] ,,,,,,No,Yes
+1227,NEW BORTIANOR-AYIGBE TOWN,31 Year(s),Female,"NA, ",,,E10.621 [Type 1 diabetes mellitus with foot ulcer] ,,,,,,No,Yes
+1332,Awoshie ,52 Year(s),Female,"NA, ",,,E13.29 [Other specified diabetes mellitus with other diabetic kidney complication] ,,,,,,No,Yes
+1374,"KWASHIEMAN
+ADE JUNCTION",62 Year(s),Female,"NA, ",,,R73.03 [Prediabetes] ,,,,,,No,Yes
+1454,gbawe zero,74 Year(s),Female,"NA, ",,,"E08.40 [Diabetes mellitus due to underlying condition with diabetic neuropathy, unspecified] ",,,,I10.00 [Essential (primary) hypertension] ,,No,Yes
+1558,KOITA,52 Year(s),Male,"NA, ",,,E08.621 [Diabetes mellitus due to underlying condition with foot ulcer] ,,,,,,No,Yes
+1711,"GBAWE
+ZERO",49 Year(s),Male,"NA, ",,,E08.10 [Diabetes mellitus due to underlying condition with ketoacidosis without coma] ,,,,,,No,Yes
+1848,TETEGU,64 Year(s),Male,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,No
+2299,AUNTY AKU,51 Year(s),Male,"NA, ","Routine Urine Exams (Urine/RE), Glycated Heamoglobin (HBA1C)",,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,I16.0 [Hypertensive urgency] ,,,No,No
+2336,OBOM ROAD,45 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+2389,AWUTU BREKU,48 Year(s),Female,"NA, ",,,E11.620 [Type 2 diabetes mellitus with diabetic dermatitis] ,,,,,,No,Yes
+3201,KASOA BLOCK FACTORY,41 Year(s),Male,"NA, "," BUE & Creatinine (KFT, RFT), Liver Function Test (LFT), Glycated Heamoglobin (HBA1C), Routine Urine Exams (Urine/RE)",,E13.65 [Other specified diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+3478,Galelia,54 Year(s),MALE,"NA, ","Full Blood Count (FBC), Glycated Heamoglobin (HBA1C), Hepatitis B virus test (HBsAg), Routine Urine Exams (Urine/RE), Blood Film for Mps (BF), PSA",,E08.0 [Diabetes mellitus due to underlying condition with hyperosmolarity without nonketotic hyperglycemic-hyperosmolar coma (NKHHC)] ,,,B19.10 [Unspecified viral hepatitis B without hepatic coma] ,,,No,Yes
+3761,WEIJA-WINNERS,61 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+3972,AWOSHIE,42 Year(s),Male,"NA, ",,,"E08.40 [Diabetes mellitus due to underlying condition with diabetic neuropathy, unspecified] ",,,,,,No,Yes
+4484,ODORKOR OFF TOWN,59 Year(s),Female,"NA, ",,,"MEDI02A [Diabetes - Simple >=12 Yrs] , E11.65 [Type 2 diabetes mellitus with hyperglycemia] ",,,,,,No,Yes
+5204,"NEW BORTIANOE
+ROUNDABUT DOWN",67 Year(s),Male,"NA, ",,,E13.65 [Other specified diabetes mellitus with hyperglycemia] ,,,"I20.9 [Angina pectoris, unspecified] ",,,No,No
+5219,AGAPE ,55 Year(s),Female,"NA, ",Full Blood Count (FBC),,E08.9 [Diabetes mellitus due to underlying condition without complications] ,,,,,,No,Yes
+5343,AGAPE,48 Year(s),Female,"NA, ","Liver Function Test (LFT), Lipid Profile,  BUE & Creatinine (KFT, RFT)",,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,M79.1 [Myalgia] ,,,No,Yes
+5419,BORTIANO,50 Year(s),Female,"NA, ","Full Blood Count (FBC), Routine Urine Exams (Urine/RE),  BUE & Creatinine (KFT, RFT), Lipid Profile, Liver Function Test (LFT), Glycated Heamoglobin (HBA1C)",,E08.8 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,"I10.00 [Essential (primary) hypertension] , M79.1 [Myalgia] ",,,No,Yes
+5799,"OLD BARRIER , MODEX",69 Year(s),Female,"NA, ",,,E08.8 [Diabetes mellitus due to underlying condition with unspecified complications] ,,,,,,No,No
+6037,TETEGU,63 Year(s),Female,"NA, ",,,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,,,,No,No
+6187,WEIJA WHITE CROSS,46 Year(s),FEMALE,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,M79.1 [Myalgia] ,,,No,Yes
+6237,GBAWE CP ,41 Year(s),Female,"NA, ","Routine Urine Exams (Urine/RE), Glycated Heamoglobin (HBA1C), Full Blood Count (FBC),  BUE & Creatinine (KFT, RFT)",,E08.65 [Diabetes mellitus due to underlying condition with hyperglycemia] ,,,N34.2 [Other urethritis] ,,,No,Yes
+6903,DANSOMAN,53 Year(s),Female,"NA, ","H. pylori Antigen test (stool), Liver Function Test (LFT)",,E08.21 [Diabetes mellitus due to underlying condition with diabetic nephropathy] ,,,I16.0 [Hypertensive urgency] ,,,No,Yes
+7266,AGONA KOYAKO,51 Year(s),Female,"NA, ",,,E08.21 [Diabetes mellitus due to underlying condition with diabetic nephropathy] ,,,,M79.1 [Myalgia] ,,No,Yes
+7512,AWOSHIE A LANE,46 Year(s),Female,"NA, ","Full Blood Count (FBC), Routine Urine Exams (Urine/RE), Typhoid Antibody Test",,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,"N39.0 [Urinary tract infection, site not specified] ","I10.00 [Essential (primary) hypertension] , K29.1 [Other acute gastritis] ",,No,Yes
+7789,SANTA MARIE,52 Year(s),Female,"NA, ",Routine Urine Exams (Urine/RE),,E13.65 [Other specified diabetes mellitus with hyperglycemia] ,,,,,,No,Yes
+8174,ACCRA NEW TOWN,50 Year(s),Male,"NA, ",Full Blood Count (FBC),,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,I10.00 [Essential (primary) hypertension] ,,,No,No
+8213,KWASHIEMAN,69 Year(s),Female,"NA, ",,,E08.649 [Diabetes mellitus due to underlying condition with hypoglycemia without coma] ,,,,,,No,Yes
+8552,TUBA,70 Year(s),Female,"NA, ",,,"E08.3591 [Diabetes mellitus due to underlying condition with proliferative diabetic retinopathy without macular edema, right eye] ",,,"H25.0 [Senile incipient cataract] , E08.3292 [Diabetes mellitus due to underlying condition with mild nonproliferative diabetic retinopathy without macular edema, left eye] ",,,No,Yes
+8980,AMANFRO,57 Year(s),Male,"NA, ",,,"MEDI02A [Diabetes - Simple >=12 Yrs] , E11.65 [Type 2 diabetes mellitus with hyperglycemia] ",,,,,,No,Yes
+9045,ODORKOR OFF TOWN,59 Year(s),Female,"NA, ",,,E11.9 [Type 2 diabetes mellitus without complications] ,,,,,,No,Yes
+9482,KASOA,31 Year(s),Female,"NA, ",,,"O24.410 [Gestational diabetes mellitus in pregnancy, diet controlled] ",,,,"Z36.9 [Antenatal screening, unspecified] ",,No,Yes
+9605,OLEBU ABLEKUMAH,35 Year(s),Male,"NA, ",,,MEDI02A [Diabetes - Simple >=12 Yrs] ,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,,,No,No
+9771,MEDIE,55 Year(s),Female,"NA, ",,,E11.65 [Type 2 diabetes mellitus with hyperglycemia] ,,,I16.01 [Hypertensive emergency] ,,,No,No

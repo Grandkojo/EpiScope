@@ -1,0 +1,11 @@
+Sr.No.,Address (Locality),Age,Sex,Provisional Diagnosis,Type Of Test(s) Requested,Test Result(s),Principal Diagnosis (New Case),Principal Diagnosis (Old Case),Principal Diagnosis (Recurring Case),Additional Diagnosis (New Case),Additional Diagnosis (Old Case),Additional Diagnosis (Recurring Case),Pregnant Patient,NHIA Patient
+377.0,,18 Year(s),Male,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), Typhoid Antibody Test",,"A00.9 [Cholera, unspecified] ",,,,,,No,No
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+4861.0,TUBA,7 Year(s),Male,"NA, "," BUE & Creatinine (KFT, RFT), Full Blood Count (FBC)",,"A00.0 [Cholera due to Vibrio cholerae 01, biovar cholerae] ",,,,,,No,Yes
+8089.0,MCCARTHY TOP,1 Year(s),Female,"NA, ","Full Blood Count (FBC), CRP, Routine Stool Exams (Stool/RE)",,"A00.1 [Cholera due to Vibrio cholerae 01, biovar eltor] ",,,,,,No,Yes
+9683.0,TANTRA HILL,37 Year(s),Female,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF), Routine Urine Exams (Urine/RE), Typhoid Antibody Test, Blood Pregnancy Test (BTP),  BUE & Creatinine (KFT, RFT)",,"A00.9 [Cholera, unspecified] ",,,"N39.0 [Urinary tract infection, site not specified] , A01.0 [Typhoid fever] ",,,No,No
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+1315.0,WEIJA,23 Year(s),Male,"NA, ","Full Blood Count (FBC), Blood Film for Mps (BF),  BUE & Creatinine (KFT, RFT), Routine Urine Exams (Urine/RE), Routine Stool Exams (Stool/RE)",,"A00.0 [Cholera due to Vibrio cholerae 01, biovar cholerae] ",,,"B50.9 [Plasmodium falciparum malaria, unspecified] ",,,No,No
+9797.0,"CHOICE, NEW WEIJA",52 Year(s),Female,"NA, ",,,"A00.9 [Cholera, unspecified] ",,,,,,No,Yes

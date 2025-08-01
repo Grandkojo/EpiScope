@@ -7,8 +7,16 @@ import json
 import requests
 from datetime import datetime
 
+# Import Vertex AI
+try:
+    import vertexai
+    from vertexai.generative_models import GenerativeModel
+    VERTEX_AI_AVAILABLE = True
+except ImportError:
+    VERTEX_AI_AVAILABLE = False
+
 class AIInsightsService:
-    """Service for AI-powered insights using Gemini"""
+    """Service for AI-powered insights using Google Cloud Vertex AI with Gemini"""
     
     def __init__(self):
         self.diabetes_data_path = os.path.join(settings.BASE_DIR, 'src', 'artifacts', 'csv', 'health_data_eams_diabetes.csv')
@@ -16,9 +24,22 @@ class AIInsightsService:
         self.diabetes_time_series_path = os.path.join(settings.BASE_DIR, 'src', 'artifacts', 'time_series', 'health_data_eams_diabetes_time_stamped.csv')
         self.malaria_time_series_path = os.path.join(settings.BASE_DIR, 'src', 'artifacts', 'time_series', 'health_data_eams_malaria_time_stamped.csv')
         
-        # Gemini API configuration (to be set in settings)
-        self.gemini_api_key = getattr(settings, 'GEMINI_API_KEY', None)
-        self.gemini_api_url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent"
+        # Vertex AI configuration
+        self.gcp_project_id = getattr(settings, 'GCP_PROJECT_ID', None)
+        self.gcp_location = getattr(settings, 'GCP_LOCATION', 'us-central1')
+        self.model_name = getattr(settings, 'GEMINI_MODEL_NAME', 'gemini-2.0-flash-001')
+        
+        # Initialize Vertex AI if available
+        if VERTEX_AI_AVAILABLE and self.gcp_project_id:
+            try:
+                vertexai.init(project=self.gcp_project_id, location=self.gcp_location)
+                self.model = GenerativeModel(self.model_name)
+                self.vertex_ai_initialized = True
+            except Exception as e:
+                print(f"Failed to initialize Vertex AI: {e}")
+                self.vertex_ai_initialized = False
+        else:
+            self.vertex_ai_initialized = False
     
     def get_ai_insights(self, disease: str = None, insight_type: str = 'general') -> Dict[str, Any]:
         """
@@ -73,10 +94,10 @@ class AIInsightsService:
             context: Optional context or specific data to focus on
         """
         try:
-            if not self.gemini_api_key:
+            if not self.vertex_ai_initialized:
                 return {
                     'success': False, 
-                    'error': 'Gemini API key not configured',
+                    'error': 'Vertex AI not configured',
                     'mock_response': self._generate_mock_qa_response(question)
                 }
             
@@ -89,8 +110,8 @@ class AIInsightsService:
             # Generate prompt for Gemini
             prompt = self._create_qa_prompt(question, context)
             
-            # Call Gemini API
-            response = self._call_gemini_api(prompt)
+            # Call Vertex AI
+            response = self._call_vertex_ai(prompt)
             
             return {
                 'success': True,
@@ -117,7 +138,7 @@ class AIInsightsService:
             anomalies = self._detect_statistical_anomalies(data_summary['data'])
             
             # Generate AI explanation for anomalies
-            if self.gemini_api_key:
+            if self.vertex_ai_initialized:
                 ai_explanation = self._generate_anomaly_explanation(anomalies, data_summary['data'])
             else:
                 ai_explanation = self._generate_mock_anomaly_explanation(anomalies)
@@ -136,6 +157,61 @@ class AIInsightsService:
             }
         except Exception as e:
             return {'success': False, 'error': str(e)}
+    
+    def get_structured_analytics_insights(self, analytics_data: Dict, date_range: str = None, year: str = None, disease: str = None, locality: str = None, hospital: str = None) -> Dict[str, Any]:
+        """
+        Get structured AI insights for analytics data with specific date/year focus
+        
+        Args:
+            analytics_data: The analytics data from your dashboard
+            date_range: Date range filter (e.g., '2022-03', '2022-Q1')
+            year: Specific year (e.g., '2022')
+            disease: Disease type ('diabetes', 'malaria', 'both')
+            locality: Specific locality filter
+            hospital: Specific hospital filter (orgname)
+        """
+        try:
+            if not self.vertex_ai_initialized:
+                return {
+                    'success': False,
+                    'error': 'Vertex AI not configured',
+                    'mock_response': self._generate_mock_structured_insights(analytics_data, date_range, year, disease, locality, hospital)
+                }
+            
+            # Create structured prompt
+            prompt = self._create_structured_analytics_prompt(analytics_data, date_range, year, disease, locality, hospital)
+            
+            # Call Vertex AI
+            response = self._call_vertex_ai(prompt)
+            
+            # Parse and validate response
+            parsed_response = self._parse_structured_response(response)
+            
+            return {
+                'success': True,
+                'data': {
+                    'insights': parsed_response,
+                    'metadata': {
+                        'date_range': date_range,
+                        'year': year,
+                        'disease': disease,
+                        'locality': locality,
+                        'hospital': hospital,
+                        'generated_at': datetime.now().isoformat(),
+                        'analytics_data_keys': list(analytics_data.keys()) if analytics_data else []
+                    }
+                }
+            }
+        except Exception as e:
+            return {'success': False, 'error': str(e)}
+    
+    def _call_vertex_ai(self, prompt: str) -> str:
+        """Call Vertex AI Gemini model"""
+        try:
+            response = self.model.generate_content(prompt)
+            return response.text
+        except Exception as e:
+            return f"Error calling Vertex AI: {str(e)}"
     
     def _prepare_data_summary(self, disease: str = None) -> Dict[str, Any]:
         """Prepare comprehensive data summary for AI analysis"""
@@ -380,41 +456,9 @@ class AIInsightsService:
         Please provide a clear, informative answer based on the data provided. If the data doesn't contain enough information to answer the question, please state that clearly.
         """
     
-    def _call_gemini_api(self, prompt: str) -> str:
-        """Call Gemini API to get response"""
-        try:
-            headers = {
-                'Content-Type': 'application/json',
-            }
-            
-            data = {
-                'contents': [{
-                    'parts': [{
-                        'text': prompt
-                    }]
-                }]
-            }
-            
-            response = requests.post(
-                f"{self.gemini_api_url}?key={self.gemini_api_key}",
-                headers=headers,
-                json=data
-            )
-            
-            if response.status_code == 200:
-                result = response.json()
-                if 'candidates' in result and len(result['candidates']) > 0:
-                    return result['candidates'][0]['content']['parts'][0]['text']
-                else:
-                    return "Unable to generate response from AI model."
-            else:
-                return f"API call failed with status code: {response.status_code}"
-        except Exception as e:
-            return f"Error calling Gemini API: {str(e)}"
-    
     def _generate_mock_qa_response(self, question: str) -> str:
-        """Generate a mock response when Gemini API is not available"""
-        return f"This is a mock AI response to: '{question}'. In a production environment, this would be generated by the Gemini AI model based on the actual health data analysis."
+        """Generate a mock response when Vertex AI is not available"""
+        return f"This is a mock AI response to: '{question}'. In a production environment, this would be generated by the Vertex AI Gemini model based on the actual health data analysis."
     
     def _generate_anomaly_explanation(self, anomalies: List[Dict], data_summary: Dict) -> str:
         """Generate AI explanation for detected anomalies"""
@@ -430,7 +474,7 @@ class AIInsightsService:
         Please provide a brief explanation of what these anomalies might indicate and any recommended actions.
         """
         
-        return self._call_gemini_api(prompt)
+        return self._call_vertex_ai(prompt)
     
     def _generate_mock_anomaly_explanation(self, anomalies: List[Dict]) -> str:
         """Generate mock anomaly explanation"""
@@ -438,6 +482,320 @@ class AIInsightsService:
             return "No significant anomalies detected in the current dataset."
         
         return f"Mock AI analysis detected {len(anomalies)} anomalies that may require attention. In production, this would include detailed AI-powered explanations and recommendations."
+
+    def _create_structured_analytics_prompt(self, analytics_data: Dict, date_range: str = None, year: str = None, disease: str = None, locality: str = None, hospital: str = None) -> str:
+        """
+        Create a structured prompt for analytics insights
+        """
+        prompt = f"""
+You are a healthcare data analyst specializing in epidemiological insights. Analyze the following health data and provide structured insights.
+
+CONTEXT:
+- Data Source: EAMS (Electronic Health Management System) from Weija Health Facility
+- Data Type: Patient health records with demographic and diagnostic information
+- Time Period: {date_range if date_range else 'All available data'}
+- Year Focus: {year if year else 'All years'}
+- Disease Focus: {disease.upper() if disease else 'All diseases'}
+- Geographic Focus: {locality if locality else 'All localities'}
+- Hospital Focus: {hospital if hospital else 'All hospitals'}
+
+DATA STRUCTURE:
+The data contains the following fields:
+- Address (Locality): Patient's residential area
+- Age: Patient age in years
+- Sex: 0=Female, 1=Male
+- Principal Diagnosis: Primary ICD-10 diagnosis code and description
+- Additional Diagnosis: Secondary/comorbid conditions
+- Pregnant Patient: 0=No, 1=Yes
+- NHIA Patient: 0=Uninsured, 1=Insured
+- Month: YYYY-MM format
+- orgname: Healthcare facility name
+
+ANALYTICS DATA PROVIDED:
+{json.dumps(analytics_data, indent=2)}
+
+TASK:
+Provide a comprehensive analysis in the following structured JSON format. Focus on actionable insights, patterns, and public health implications.
+
+REQUIRED RESPONSE STRUCTURE:
+{{
+    "executive_summary": {{
+        "key_findings": ["finding1", "finding2", "finding3"],
+        "public_health_implications": ["implication1", "implication2"],
+        "priority_actions": ["action1", "action2", "action3"]
+    }},
+    "demographic_analysis": {{
+        "age_distribution": {{
+            "high_risk_groups": ["group1", "group2"],
+            "age_patterns": "description of age-related patterns",
+            "recommendations": ["recommendation1", "recommendation2"]
+        }},
+        "gender_analysis": {{
+            "gender_patterns": "description of gender-related patterns",
+            "risk_factors": ["factor1", "factor2"]
+        }},
+        "geographic_analysis": {{
+            "hotspots": ["locality1", "locality2"],
+            "geographic_patterns": "description of geographic distribution",
+            "environmental_factors": ["factor1", "factor2"],
+            "hospital_analysis": {{
+                "facility_utilization": "description of hospital usage patterns",
+                "capacity_insights": ["insight1", "insight2"],
+                "referral_patterns": "description of patient referral patterns"
+            }}
+        }}
+    }},
+    "clinical_insights": {{
+        "diagnosis_patterns": {{
+            "common_diagnoses": ["diagnosis1", "diagnosis2"],
+            "comorbidity_patterns": ["pattern1", "pattern2"],
+            "severity_indicators": ["indicator1", "indicator2"]
+        }},
+        "complications": {{
+            "frequent_complications": ["complication1", "complication2"],
+            "risk_factors": ["factor1", "factor2"],
+            "prevention_strategies": ["strategy1", "strategy2"]
+        }}
+    }},
+    "temporal_analysis": {{
+        "seasonal_patterns": {{
+            "peak_periods": ["period1", "period2"],
+            "seasonal_factors": ["factor1", "factor2"],
+            "forecasting_insights": "description of temporal trends"
+        }},
+        "trend_analysis": {{
+            "trend_direction": "increasing/decreasing/stable",
+            "trend_factors": ["factor1", "factor2"],
+            "future_projections": "description of expected trends"
+        }}
+    }},
+    "healthcare_access": {{
+        "insurance_coverage": {{
+            "coverage_patterns": "description of insurance patterns",
+            "access_barriers": ["barrier1", "barrier2"],
+            "improvement_suggestions": ["suggestion1", "suggestion2"]
+        }},
+        "facility_utilization": {{
+            "utilization_patterns": "description of facility usage",
+            "capacity_implications": ["implication1", "implication2"]
+        }}
+    }},
+    "public_health_recommendations": {{
+        "immediate_actions": [
+            {{
+                "action": "action description",
+                "priority": "high/medium/low",
+                "target_population": "specific group",
+                "expected_impact": "description of expected outcome"
+            }}
+        ],
+        "long_term_strategies": [
+            {{
+                "strategy": "strategy description",
+                "timeline": "expected timeline",
+                "resources_needed": ["resource1", "resource2"],
+                "success_metrics": ["metric1", "metric2"]
+            }}
+        ],
+        "policy_implications": [
+            {{
+                "policy_area": "area description",
+                "recommendation": "specific policy recommendation",
+                "stakeholders": ["stakeholder1", "stakeholder2"]
+            }}
+        ]
+    }},
+    "data_quality_assessment": {{
+        "completeness": "assessment of data completeness",
+        "accuracy": "assessment of data accuracy",
+        "limitations": ["limitation1", "limitation2"],
+        "improvement_suggestions": ["suggestion1", "suggestion2"]
+    }},
+    "comparative_analysis": {{
+        "benchmark_comparison": "comparison with expected patterns",
+        "regional_variations": "description of regional differences",
+        "international_context": "comparison with global patterns"
+    }}
+}}
+
+INSTRUCTIONS:
+1. Analyze the provided analytics data thoroughly
+2. Focus on patterns, trends, and actionable insights
+3. Consider public health implications and policy recommendations
+4. Provide specific, evidence-based recommendations
+5. Consider the temporal and geographic context
+6. Address both immediate and long-term strategies
+7. Ensure all insights are grounded in the provided data
+8. Use clear, professional language suitable for healthcare professionals
+9. Prioritize insights that can inform public health interventions
+10. Consider the socioeconomic and environmental context of the data
+
+RESPONSE FORMAT:
+Return ONLY the JSON object as specified above. Do not include any additional text, explanations, or markdown formatting outside the JSON structure.
+"""
+        return prompt
+    
+    def _parse_structured_response(self, response: str) -> Dict[str, Any]:
+        """
+        Parse and validate the structured response from Gemini
+        """
+        try:
+            # Clean the response to extract JSON
+            response = response.strip()
+            
+            # Remove markdown code blocks if present
+            if response.startswith('```json'):
+                response = response[7:]
+            if response.startswith('```'):
+                response = response[3:]
+            if response.endswith('```'):
+                response = response[:-3]
+            
+            response = response.strip()
+            
+            # Parse JSON
+            parsed = json.loads(response)
+            
+            # Validate required structure
+            required_sections = [
+                'executive_summary', 'demographic_analysis', 'clinical_insights',
+                'temporal_analysis', 'healthcare_access', 'public_health_recommendations',
+                'data_quality_assessment', 'comparative_analysis'
+            ]
+            
+            for section in required_sections:
+                if section not in parsed:
+                    parsed[section] = {"error": f"Missing {section} section"}
+            
+            return parsed
+            
+        except json.JSONDecodeError as e:
+            return {
+                "error": "Failed to parse structured response",
+                "raw_response": response,
+                "parse_error": str(e)
+            }
+        except Exception as e:
+            return {
+                "error": "Error processing structured response",
+                "raw_response": response,
+                "error_details": str(e)
+            }
+    
+    def _generate_mock_structured_insights(self, analytics_data: Dict, date_range: str = None, year: str = None, disease: str = None, locality: str = None, hospital: str = None) -> Dict[str, Any]:
+        """
+        Generate mock structured insights when Vertex AI is not available
+        """
+        return {
+            "executive_summary": {
+                "key_findings": [
+                    f"Analysis of {disease or 'health'} data for {date_range or 'all periods'}",
+                    "Data shows significant patterns in patient demographics and diagnoses",
+                    "Geographic clustering observed in certain localities"
+                ],
+                "public_health_implications": [
+                    "Need for targeted interventions in high-risk areas",
+                    "Improved healthcare access required for underserved populations"
+                ],
+                "priority_actions": [
+                    "Implement community health programs in identified hotspots",
+                    "Enhance diagnostic capabilities for early detection",
+                    "Strengthen health insurance coverage programs"
+                ]
+            },
+            "demographic_analysis": {
+                "age_distribution": {
+                    "high_risk_groups": ["Elderly population (65+)", "Children under 5"],
+                    "age_patterns": "Higher prevalence observed in middle-aged and elderly populations",
+                    "recommendations": ["Age-specific screening programs", "Targeted health education"]
+                },
+                "gender_analysis": {
+                    "gender_patterns": "Slight gender differences observed in disease patterns",
+                    "risk_factors": ["Biological factors", "Socioeconomic factors"]
+                },
+                "geographic_analysis": {
+                    "hotspots": ["Kasoa", "Weija", "Mallam"],
+                    "geographic_patterns": "Concentration in urban and peri-urban areas",
+                    "environmental_factors": ["Population density", "Healthcare access"],
+                    "hospital_analysis": {
+                        "facility_utilization": "High utilization in urban centers",
+                        "capacity_insights": ["Need for capacity expansion", "Resource optimization"],
+                        "referral_patterns": "High patient referral rates observed"
+                    }
+                }
+            },
+            "clinical_insights": {
+                "diagnosis_patterns": {
+                    "common_diagnoses": ["Primary disease patterns", "Comorbid conditions"],
+                    "comorbidity_patterns": ["Hypertension", "Respiratory infections"],
+                    "severity_indicators": ["Complication rates", "Hospitalization patterns"]
+                },
+                "complications": {
+                    "frequent_complications": ["Neuropathy", "Retinopathy", "Nephropathy"],
+                    "risk_factors": ["Age", "Duration of disease", "Poor glycemic control"],
+                    "prevention_strategies": ["Regular screening", "Lifestyle modifications"]
+                }
+            },
+            "temporal_analysis": {
+                "seasonal_patterns": {
+                    "peak_periods": ["Rainy season", "Dry season"],
+                    "seasonal_factors": ["Environmental conditions", "Vector activity"],
+                    "forecasting_insights": "Expected seasonal variations in disease incidence"
+                },
+                "trend_analysis": {
+                    "trend_direction": "Stable with minor fluctuations",
+                    "trend_factors": ["Population growth", "Healthcare improvements"],
+                    "future_projections": "Gradual increase expected due to demographic changes"
+                }
+            },
+            "healthcare_access": {
+                "insurance_coverage": {
+                    "coverage_patterns": "Mixed insurance coverage across population",
+                    "access_barriers": ["Financial constraints", "Geographic barriers"],
+                    "improvement_suggestions": ["Expand NHIA coverage", "Mobile health services"]
+                },
+                "facility_utilization": {
+                    "utilization_patterns": "High utilization in urban centers",
+                    "capacity_implications": ["Need for capacity expansion", "Resource optimization"]
+                }
+            },
+            "public_health_recommendations": {
+                "immediate_actions": [
+                    {
+                        "action": "Implement community screening programs",
+                        "priority": "high",
+                        "target_population": "High-risk age groups",
+                        "expected_impact": "Early detection and intervention"
+                    }
+                ],
+                "long_term_strategies": [
+                    {
+                        "strategy": "Strengthen primary healthcare system",
+                        "timeline": "2-3 years",
+                        "resources_needed": ["Healthcare workers", "Infrastructure"],
+                        "success_metrics": ["Reduced incidence", "Improved outcomes"]
+                    }
+                ],
+                "policy_implications": [
+                    {
+                        "policy_area": "Healthcare financing",
+                        "recommendation": "Expand insurance coverage",
+                        "stakeholders": ["Ministry of Health", "NHIA"]
+                    }
+                ]
+            },
+            "data_quality_assessment": {
+                "completeness": "Good data completeness with some missing values",
+                "accuracy": "Generally accurate with standard coding practices",
+                "limitations": ["Limited follow-up data", "Self-reported information"],
+                "improvement_suggestions": ["Enhanced data validation", "Regular audits"]
+            },
+            "comparative_analysis": {
+                "benchmark_comparison": "Comparable to regional patterns",
+                "regional_variations": "Urban-rural differences observed",
+                "international_context": "Similar patterns to other developing countries"
+            }
+        }
 
 # Create singleton instance
 ai_insights_service = AIInsightsService() 

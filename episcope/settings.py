@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
     'channels',
+    'chat',
 ]
 
 AUTHENTICATION_BACKENDS = [
@@ -69,6 +70,20 @@ REST_FRAMEWORK = {
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+    # Rate limiting configuration
+    "DEFAULT_THROTTLE_CLASSES": [
+        "rest_framework.throttling.AnonRateThrottle",
+        "rest_framework.throttling.UserRateThrottle",
+        "rest_framework.throttling.ScopedRateThrottle",
+    ],
+    "DEFAULT_THROTTLE_RATES": {
+        "anon": "1100/hour",  # Increased from 100/hour
+        "user": "2000/hour",  # Increased from 1000/hour
+        "burst": "560/minute",  # Increased from 60/minute
+        "sustained": "2000/hour",  # Increased from 1000/hour
+        "api": "2000/hour",  # Increased from 1000/hour
+        "sensitive": "1010/minute",  # Increased from 10/minute
+    },
 }
 
 SPECTACULAR_SETTINGS = {"TITLE": "EPISCOPE"}
@@ -95,6 +110,9 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    # Custom rate limiting middleware
+    'api.middleware.IPWhitelistMiddleware',
+    'api.middleware.RateLimitMiddleware',
 ]
 
 ROOT_URLCONF = 'episcope.urls'
@@ -119,8 +137,13 @@ ASGI_APPLICATION = 'episcope.asgi.application'
 
 CHANNEL_LAYERS = {
     'default': {
-        'BACKEND': 'channels.layers.InMemoryChannelLayer',
-    },
+        'BACKEND': 'channels.layers.InMemoryChannelLayer'
+        # For production, use Redis:
+        # 'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        # 'CONFIG': {
+        #     "hosts": [('127.0.0.1', 6379)],
+        # },
+    }
 }
 
 # Database
@@ -130,10 +153,10 @@ if DEBUG:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PASSWORD'),
-        'HOST': os.getenv('DB_HOST'),
+            'NAME': os.getenv('DB_NAME'),
+            'USER': os.getenv('DB_USER'),
+            'PASSWORD': os.getenv('DB_PASSWORD'),
+            'HOST': os.getenv('DB_HOST'),
             'PORT': os.getenv('DB_PORT'),
         }
     }
@@ -148,7 +171,6 @@ else:
             'PORT': os.getenv('P_DB_PORT'),
         }
     }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -191,8 +213,42 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-GCP_PROJECT_ID = os.getenv('GCP_PROJECT_ID')
-GCP_LOCATION = os.getenv('GCP_LOCATION')
-# GCP_MODEL_NAME = os.getenv('GCP_MODEL_NAME')
-# GCP_MODEL_VERSION = os.getenv('GCP_MODEL_VERSION')
+# Vertex AI Configuration for Gemini
+GCP_PROJECT_ID = os.getenv('GCP_PROJECT_ID', 'your-project-id')
+GCP_LOCATION = os.getenv('GCP_LOCATION', 'us-central1')
+GEMINI_MODEL_NAME = os.getenv('GEMINI_MODEL_NAME', 'gemini-2.0-flash-001')
+
+# Legacy Gemini API (fallback)
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY', None)
+
+# Rate Limiting Configuration
+RATE_LIMITING_ENABLED = os.getenv('RATE_LIMITING_ENABLED', 'True') == 'True'  # Easy on/off switch
+
+RATE_LIMIT_WHITELIST = [
+    # Add IP addresses that should be exempt from rate limiting
+    # '127.0.0.1',  # Localhost
+    # '192.168.1.1',  # Example internal IP
+]
+
+# Cache configuration for rate limiting
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'unique-snowflake',
+    }
+}
+
+# Rate limiting settings
+RATE_LIMIT_SETTINGS = {
+    'DEFAULT_LIMIT': '1100/hour',  # Increased from 100/hour
+    'SENSITIVE_LIMIT': '1010/hour',  # Increased from 10/hour
+    'AI_LIMIT': '1030/hour',  # Increased from 30/hour
+    'BURST_LIMIT': '560/minute',  # Increased from 60/minute
+}
+
+# Vertex AI Configuration
+VERTEX_AI_PROJECT_ID = 'southern-branch-462915-g6'  # Your project ID
+VERTEX_AI_LOCATION = 'us-central1'
+VERTEX_AI_MODEL_NAME = 'gemini-2.0-flash-001'
+
 

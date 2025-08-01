@@ -31,3 +31,4 @@ tt.py
 *.pywz
 *.joblib
 MRCONSO.RRF
+src/vertex_ai.json

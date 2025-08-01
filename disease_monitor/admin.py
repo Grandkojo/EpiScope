@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.models import Group, Permission
 from django.contrib.contenttypes.models import ContentType
-from .models import DiabetesData, MeningitisData, CholeraData, NationalHotspots, Disease, DiseaseYear, RegionPopulation
+from .models import DiabetesData, MeningitisData, CholeraData, NationalHotspots, Disease, DiseaseYear, RegionPopulation, Hospital
 from api.models import User
 
 # Register your models here.
@@ -158,6 +158,23 @@ class UserAdmin(admin.ModelAdmin):
     
     def has_change_permission(self, request, obj=None):
         return request.user.is_superuser or (request.user.is_admin and obj and not obj.is_superuser)
+    
+    def has_delete_permission(self, request, obj=None):
+        return request.user.is_superuser
+
+@admin.register(Hospital)
+class HospitalAdmin(admin.ModelAdmin):
+    list_display = ('name', 'slug', 'created_at', 'updated_at')
+    list_filter = ('created_at', 'updated_at')
+    search_fields = ('name', 'slug')
+    readonly_fields = ('slug', 'created_at', 'updated_at')
+    ordering = ('name',)
+    
+    def has_add_permission(self, request):
+        return request.user.is_superuser or request.user.is_admin
+    
+    def has_change_permission(self, request, obj=None):
+        return request.user.is_superuser or request.user.is_admin
     
     def has_delete_permission(self, request, obj=None):
         return request.user.is_superuser

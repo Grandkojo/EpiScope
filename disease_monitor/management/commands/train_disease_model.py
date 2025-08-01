@@ -1,16 +1,51 @@
 from django.core.management.base import BaseCommand
-from disease_monitor.models import HospitalHealthData, CommonSymptom, Disease
+from disease_monitor.models import HospitalHealthData, Disease
 from src.models.disease_monitor import DiseaseMonitor
-from src.utils.data_preparation import combine_and_label_datasets
 import pandas as pd
 import logging
 import os
 import shap
+
 class Command(BaseCommand):
-    help = 'Train disease prediction models for all diseases in the Disease table.'
+    help = 'Train disease prediction models for all diseases in the Disease table using Vertex AI.'
+
+    def add_arguments(self, parser):
+        parser.add_argument(
+            '--project-id',
+            type=str,
+            required=True,
+            help='Google Cloud project ID for Vertex AI'
+        )
+        parser.add_argument(
+            '--location',
+            type=str,
+            default='us-central1',
+            help='Google Cloud location (default: us-central1)'
+        )
+        parser.add_argument(
+            '--model-name',
+            type=str,
+            default='gemini-2.0-flash-001',
+            help='Vertex AI model name (default: gemini-2.0-flash-001)'
+        )
 
     def handle(self, *args, **kwargs):
         logger = logging.getLogger(__name__)
+        
+        # Get Vertex AI configuration
+        project_id = kwargs['project_id']
+        location = kwargs['location']
+        model_name = kwargs['model_name']
+        
+        logger.info(f'Initializing DiseaseMonitor with Vertex AI (Project: {project_id}, Location: {location})')
+        
+        # Initialize DiseaseMonitor with Vertex AI
+        monitor = DiseaseMonitor(
+            project_id=project_id,
+            location=location,
+            model_name=model_name
+        )
+        
         logger.info('Loading HospitalHealthData...')
         qs = HospitalHealthData.objects.all()
         data = list(qs.values())
@@ -32,26 +67,15 @@ class Command(BaseCommand):
                 print(f"Skipping {disease_name}: no positive samples found.")
                 continue
 
-            # Sample negatives from patients who do NOT have this disease in their diagnosis
-            neg_df = df[~df['principal_diagnosis_new'].str.contains(disease_name, case=False, na=False)].copy()
-            if len(neg_df) == 0:
-                print(f"Skipping {disease_name}: no negative samples found.")
-                continue
-            neg_df = neg_df.sample(n=n_pos, replace=True, random_state=42)
+            print(f"{disease_name.title()} positive cases: {n_pos}")
 
-            # Use new utility to combine, label, and inject symptoms
-            full_df = combine_and_label_datasets(pos_df, neg_df, target_col='target', disease_type=disease_name)
-            full_df = full_df[full_df['target'].isin([0, 1])]
+            # Generate negative cases using the full dataset
+            neg_df = monitor.generate_negative_cases(df, disease_name, n_negative=n_pos)
+            n_neg = len(neg_df)
+            print(f"{disease_name.title()} negative cases: {n_neg}")
 
-            if full_df['target'].nunique() < 2:
-                print(f"Skipping {disease_name}: only one class present.")
-                continue
-
-            print(f"{disease_name.title()} class counts:\n", full_df['target'].value_counts())
-
-            # Train model with new pipeline
-            monitor = DiseaseMonitor()
-            model, splits = monitor.train_with_validation(pos_df, neg_df, disease_type=disease_name, threshold=0.5)
+            # Train model with both positive and negative cases
+            model, splits = monitor.train_with_validation(pos_df, neg_df, disease_type=disease_name, threshold=0.7)
 
             model_dir = os.path.join('models', disease_name)
             os.makedirs(model_dir, exist_ok=True)
@@ -59,7 +83,9 @@ class Command(BaseCommand):
 
             # Generate SHAP explanations
             try:
-                monitor.generate_shap_explanations(full_df, disease_name, path=model_dir)
+                # Use combined dataset for SHAP analysis
+                combined_df = pd.concat([pos_df, neg_df], ignore_index=True)
+                monitor.generate_shap_explanations(combined_df, disease_name, path=model_dir)
             except Exception as e:
                 print("DEBUG: About to call SHAP summary plot. SHAP version:", shap.__version__)
                 import traceback

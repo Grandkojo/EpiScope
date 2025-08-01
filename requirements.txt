@@ -15,7 +15,7 @@ PyJWT
 psycopg2-binary
 daphne
 channels
-google-cloud-aiplatform
+google-cloud-aiplatform>=1.38.0
 drf-spectacular
 djangorestframework
 djangorestframework_simplejwt
@@ -31,3 +31,5 @@ scipy
 nbformat
 requests
 shap
+django-ratelimit
+channels
