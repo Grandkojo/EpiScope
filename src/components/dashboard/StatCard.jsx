@@ -35,7 +35,7 @@ const StatCard = ({ title, value, value2, description, icon, isLoading, error })
   }
 
   return (
-    <Card>
+    <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
         <CardTitle className="text-sm font-medium">
           {isLoading ? "Loading..." : title}

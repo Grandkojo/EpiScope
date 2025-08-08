@@ -339,7 +339,7 @@ const UserDashboard = () => {
         </Card> */}
 
         {/* Disease Distribution */}
-        <Card>
+        <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
           <CardHeader>
             <CardTitle>Disease Distribution (Gender)</CardTitle>
           </CardHeader>
@@ -384,7 +384,7 @@ const UserDashboard = () => {
         </Card>
 
         {/* AI Insights */}
-        <Card>
+        <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
           <CardHeader>
             <CardTitle>AI Insights</CardTitle>
           </CardHeader>
@@ -400,7 +400,7 @@ const UserDashboard = () => {
       </div>
 
       {/* Hotspots */}
-      <Card>
+      <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
         <CardHeader>
           <CardTitle>Health Hotspots in {selectedRegion}</CardTitle>
         </CardHeader>
@@ -443,7 +443,7 @@ const UserDashboard = () => {
           <Card
             key={hotspot.id}
             onClick={() => setSelectedHotspot(hotspot)}
-            className={`transition-transform duration-300 cursor-pointer hover:scale-[1.02] hover:shadow-xl ${selectedHotspot?.id === hotspot.id
+            className={`bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300 transition-transform duration-300 cursor-pointer hover:scale-[1.02] hover:shadow-xl ${selectedHotspot?.id === hotspot.id
                 ? "ring-2 ring-purple-500/60"
                 : ""
               }`}
@@ -514,7 +514,7 @@ const UserDashboard = () => {
 
       {/* Selected Hotspot Details */}
       {selectedHotspot && (
-        <Card className="border border-purple-500/20 shadow-md rounded-xl">
+        <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300 ring-2 ring-purple-500/20">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-lg text-purple-600">
               <MapPin className="h-5 w-5" />
@@ -573,7 +573,7 @@ const UserDashboard = () => {
       
 
       {/* Health Tips */}
-      <Card>
+      <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
         <CardHeader>
           <CardTitle>Health Tips</CardTitle>
         </CardHeader>

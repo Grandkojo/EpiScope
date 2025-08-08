@@ -110,7 +110,7 @@ const Malaria = () => {
       {/* Charts Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Seasonal Patterns */}
-        <Card>
+        <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
           <CardHeader>
             <CardTitle className="flex items-center space-x-2">
               <Calendar className="h-5 w-5 text-health-400" />
@@ -146,7 +146,7 @@ const Malaria = () => {
         </Card>
 
         {/* Age Group Distribution */}
-        <Card>
+        <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
           <CardHeader>
             <CardTitle>Age Group Impact</CardTitle>
           </CardHeader>
@@ -180,7 +180,7 @@ const Malaria = () => {
       </div>
 
       {/* Prevention Methods */}
-      <Card>
+      <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
         <CardHeader>
           <CardTitle className="flex items-center space-x-2">
             <Shield className="h-5 w-5 text-health-400" />
@@ -228,7 +228,7 @@ const Malaria = () => {
       </Card>
 
       {/* Regional Malaria Rates */}
-      <Card>
+      <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
         <CardHeader>
           <CardTitle>Regional Malaria Burden</CardTitle>
         </CardHeader>
@@ -252,7 +252,7 @@ const Malaria = () => {
       </Card>
 
       {/* Mortality by Age Group */}
-      <Card>
+      <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
         <CardHeader>
           <CardTitle>Mortality Rates by Age Group</CardTitle>
         </CardHeader>

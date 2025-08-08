@@ -103,7 +103,7 @@ const Diabetes = () => {
       {/* Charts Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Disease Progression */}
-        <Card>
+        <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
           <CardHeader>
             <CardTitle className="flex items-center space-x-2">
               <TrendingUp className="h-5 w-5 text-health-400" />
@@ -131,7 +131,7 @@ const Diabetes = () => {
         </Card>
 
         {/* Age Group Distribution */}
-        <Card>
+        <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
           <CardHeader>
             <CardTitle>Age Group Distribution</CardTitle>
           </CardHeader>
@@ -156,7 +156,7 @@ const Diabetes = () => {
       </div>
 
       {/* Risk Factors Analysis */}
-      <Card>
+      <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
         <CardHeader>
           <CardTitle className="flex items-center space-x-2">
             <AlertCircle className="h-5 w-5 text-health-400" />
@@ -209,7 +209,7 @@ const Diabetes = () => {
       </Card>
 
       {/* Regional Breakdown */}
-      <Card>
+      <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
         <CardHeader>
           <CardTitle>Regional Diabetes Rates</CardTitle>
         </CardHeader>

@@ -371,7 +371,7 @@ export default function UserAIProfile() {
         </div>
         <EpiScopeHealthChatbot />
         {/* Profile Header */}
-        <Card className="bg-white/80 backdrop-blur-sm border-blue-100">
+        <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
           <CardContent className="p-6">
             <div className="flex flex-col lg:flex-row lg:items-center gap-6">
               <div className="flex items-center gap-6">
@@ -459,7 +459,7 @@ export default function UserAIProfile() {
               decimals: 1,
             },
           ].map((stat, index) => (
-            <Card key={index} className="bg-white/80 backdrop-blur-sm border-blue-100 hover:shadow-lg transition-all">
+            <Card key={index} className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
@@ -478,7 +478,7 @@ export default function UserAIProfile() {
         </div>
 
         {/* Performance Metrics */}
-        <Card className="bg-white/80 backdrop-blur-sm border-blue-100">
+        <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <BarChart3 className="h-5 w-5 text-blue-600" />

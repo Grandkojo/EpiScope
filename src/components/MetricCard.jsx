@@ -22,7 +22,7 @@ const MetricCard = ({ title, value, change, icon: Icon, trend, color = "health" 
   }
 
   return (
-    <Card className="transition-all duration-200 hover:shadow-lg hover:scale-105">
+    <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300 transition-all duration-200 hover:scale-105">
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
         <CardTitle className="text-sm font-medium text-gray-500">{title}</CardTitle>
         <div className={`p-2 rounded-lg ${getColorClasses()}`}>
