@@ -274,7 +274,7 @@ const Hotspots = () => {
       </div>
 
       {/* Map */}
-      <Card>
+      <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <MapPin className="h-5 w-5 text-purple-600" />
@@ -321,7 +321,7 @@ const Hotspots = () => {
           <Card
             key={hotspot.id}
             onClick={() => setSelectedHotspot(hotspot)}
-            className={`transition-transform duration-300 cursor-pointer hover:scale-[1.02] hover:shadow-xl ${
+            className={`bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300 transition-transform duration-300 cursor-pointer hover:scale-[1.02] hover:shadow-xl ${
               selectedHotspot?.id === hotspot.id
                 ? "ring-2 ring-purple-500/60"
                 : ""
@@ -393,7 +393,7 @@ const Hotspots = () => {
 
       {/* Selected Hotspot Details */}
       {selectedHotspot && (
-        <Card className="border border-purple-500/20 shadow-md rounded-xl">
+        <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-lg text-purple-600">
               <MapPin className="h-5 w-5" />

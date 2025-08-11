@@ -15,7 +15,7 @@ const UserSettings = () => {
     if (activeTab === "ai") {
       return (
         <div className="space-y-6">
-          <div className="flex items-center justify-between p-4 rounded-lg border border-border">
+          <div className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300 flex items-center justify-between p-4">
             <div>
               <h3 className="font-medium text-foreground">Enable AI Assistance</h3>
               <p className="text-sm text-muted-foreground">
@@ -69,7 +69,7 @@ const UserSettings = () => {
       {/* Settings Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         {/* Tabs */}
-        <Card className="lg:col-span-1">
+        <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300 lg:col-span-1">
           <CardHeader>
             <CardTitle className="text-lg">Settings</CardTitle>
           </CardHeader>
@@ -97,7 +97,7 @@ const UserSettings = () => {
         </Card>
 
         {/* Content */}
-        <Card className="lg:col-span-3">
+        <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300 lg:col-span-3">
           <CardHeader>
             <CardTitle className="capitalize">{activeTab} Settings</CardTitle>
           </CardHeader>

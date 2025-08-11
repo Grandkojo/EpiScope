@@ -318,7 +318,7 @@ const Dashboard = () => {
       {/* Charts Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Monthly Trends */}
-        <Card className="col-span-1">
+        <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300 col-span-1">
           <CardHeader>
             <CardTitle className="flex items-center space-x-2">
               <TrendingUp className="h-5 w-5 text-health-400" />
@@ -381,7 +381,7 @@ const Dashboard = () => {
           </CardContent>
         </Card> */}
 
-        <Card>
+        <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
           <CardHeader>
             <CardTitle>Disease Distribution (Gender)</CardTitle>
           </CardHeader>
@@ -428,86 +428,88 @@ const Dashboard = () => {
       </div>
 
       {/* Regional Comparison */}
-      <div className="space-y-4">
-        {/* Regional Comparison Header with Controls */}
-        <div className="flex items-center justify-between">
-          <div>
-            <h2 className="text-2xl font-bold text-gray-900">Regional Disease Rates</h2>
-            <p className="text-gray-500">Compare disease rates across different regions</p>
+      <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
+        <div className="space-y-4">
+          {/* Regional Comparison Header with Controls */}
+          <div className="flex items-center justify-between">
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900">Regional Disease Rates</h2>
+              <p className="text-gray-500">Compare disease rates across different regions</p>
+            </div>
+            
+            <div className="flex items-center space-x-4">
+              {/* Disease Selection for Regional Chart */}
+              <Select value={selectedDisease} onValueChange={handleDiseaseChange}>
+                <SelectTrigger className="w-[180px]">
+                  <SelectValue placeholder="Select Disease" />
+                </SelectTrigger>
+                <SelectContent>
+                  {isDiseasesLoading ? (
+                    <SelectItem value="loading" disabled>
+                      Loading diseases...
+                    </SelectItem>
+                  ) : (
+                    <>
+                      {diseases?.find(
+                        (disease) => disease.disease_name === "Diabetes"
+                      ) && <SelectItem value="Diabetes">Diabetes</SelectItem>}
+                      {Array.isArray(diseases) &&
+                        diseases
+                          .filter((disease) => disease.disease_name !== "Diabetes")
+                          .map((disease) => (
+                            <SelectItem
+                              key={disease.id}
+                              value={disease.disease_name}
+                            >
+                              {disease.disease_name}
+                            </SelectItem>
+                          ))}
+                    </>
+                  )}
+                </SelectContent>
+              </Select>
+              
+              {/* Year Selection for Regional Chart */}
+              <Select
+                value={selectedDiseaseYear}
+                onValueChange={handleDiseaseYearChange}
+              >
+                <SelectTrigger className="w-[150px]">
+                  <SelectValue placeholder="Select Year" />
+                </SelectTrigger>
+                <SelectContent>
+                  {isDiseaseYearsLoading ? (
+                    <SelectItem value="loading" disabled>
+                      Loading years...
+                    </SelectItem>
+                  ) : (
+                    <>
+                      <SelectItem value="all">All Years</SelectItem>
+                      {diseaseYears?.find(
+                        (disease) => disease.periodname === 2025
+                      ) && <SelectItem value="2025">2025</SelectItem>}
+                      {Array.isArray(diseaseYears) &&
+                        diseaseYears
+                          .filter((diseaseYear) => diseaseYear.periodname !== 2025)
+                          .map((diseaseYear) => (
+                            <SelectItem
+                              key={diseaseYear.id}
+                              value={diseaseYear.periodname}
+                            >
+                              {diseaseYear.periodname}
+                            </SelectItem>
+                          ))}
+                    </>
+                  )}
+                </SelectContent>
+              </Select>
+            </div>
           </div>
           
-          <div className="flex items-center space-x-4">
-            {/* Disease Selection for Regional Chart */}
-            <Select value={selectedDisease} onValueChange={handleDiseaseChange}>
-              <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Select Disease" />
-              </SelectTrigger>
-              <SelectContent>
-                {isDiseasesLoading ? (
-                  <SelectItem value="loading" disabled>
-                    Loading diseases...
-                  </SelectItem>
-                ) : (
-                  <>
-                    {diseases?.find(
-                      (disease) => disease.disease_name === "Diabetes"
-                    ) && <SelectItem value="Diabetes">Diabetes</SelectItem>}
-                    {Array.isArray(diseases) &&
-                      diseases
-                        .filter((disease) => disease.disease_name !== "Diabetes")
-                        .map((disease) => (
-                          <SelectItem
-                            key={disease.id}
-                            value={disease.disease_name}
-                          >
-                            {disease.disease_name}
-                          </SelectItem>
-                        ))}
-                  </>
-                )}
-              </SelectContent>
-            </Select>
-            
-            {/* Year Selection for Regional Chart */}
-            <Select
-              value={selectedDiseaseYear}
-              onValueChange={handleDiseaseYearChange}
-            >
-              <SelectTrigger className="w-[150px]">
-                <SelectValue placeholder="Select Year" />
-              </SelectTrigger>
-              <SelectContent>
-                {isDiseaseYearsLoading ? (
-                  <SelectItem value="loading" disabled>
-                    Loading years...
-                  </SelectItem>
-                ) : (
-                  <>
-                    <SelectItem value="all">All Years</SelectItem>
-                    {diseaseYears?.find(
-                      (disease) => disease.periodname === 2025
-                    ) && <SelectItem value="2025">2025</SelectItem>}
-                    {Array.isArray(diseaseYears) &&
-                      diseaseYears
-                        .filter((diseaseYear) => diseaseYear.periodname !== 2025)
-                        .map((diseaseYear) => (
-                          <SelectItem
-                            key={diseaseYear.id}
-                            value={diseaseYear.periodname}
-                          >
-                            {diseaseYear.periodname}
-                          </SelectItem>
-                        ))}
-                  </>
-                )}
-              </SelectContent>
-            </Select>
-          </div>
+          {/* Regional Chart */}
+          {selectedDisease && diseaseRates(selectedDisease)}
         </div>
-        
-        {/* Regional Chart */}
-        {selectedDisease && diseaseRates(selectedDisease)}
-      </div>
+      </Card>
       {/* <Card>
         <CardHeader>
           <CardTitle className="flex items-center space-x-2">

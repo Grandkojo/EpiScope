@@ -848,7 +848,7 @@ const Analytics = () => {
         </div>
 
         {/* Time Range Selector */}
-        <Card className="shadow-sm border-slate-200">
+        <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
           <CardContent className="p-6">
             <div className="flex flex-col lg:flex-row lg:items-center space-y-4 lg:space-y-0 lg:space-x-6">
               <div className="flex items-center space-x-3">
@@ -897,7 +897,7 @@ const Analytics = () => {
         </Card>
 
         {/* Disease Comparison Controls */}
-        <Card className="shadow-sm border-slate-200">
+        <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
           <CardContent className="p-6 space-y-6">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
               <div className="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">

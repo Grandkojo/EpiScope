@@ -94,7 +94,7 @@ const Trends = () => {
       </div>
 
       {/* Yearly Comparison */}
-      <Card>
+      <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
         <CardHeader>
           <CardTitle className="flex items-center space-x-2">
             <TrendingUp className="h-5 w-5 text-health-400" />
@@ -159,7 +159,7 @@ const Trends = () => {
 
       {/* Predictive Analysis */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card>
+        <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
           <CardHeader>
             <CardTitle className="flex items-center space-x-2">
               <Zap className="h-5 w-5 text-health-400" />
@@ -201,7 +201,7 @@ const Trends = () => {
         </Card>
 
         {/* Health Indicators Progress */}
-        <Card>
+        <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
           <CardHeader>
             <CardTitle className="flex items-center space-x-2">
               <Target className="h-5 w-5 text-health-400" />
@@ -234,7 +234,7 @@ const Trends = () => {
       </div>
 
       {/* Seasonal Correlation */}
-      <Card>
+      <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
         <CardHeader>
           <CardTitle className="flex items-center space-x-2">
             <BarChart3 className="h-5 w-5 text-health-400" />
@@ -278,7 +278,7 @@ const Trends = () => {
       </Card>
 
       {/* Health Indicators Detail */}
-      <Card>
+      <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
         <CardHeader>
           <CardTitle>Health System Performance Indicators</CardTitle>
         </CardHeader>

@@ -123,7 +123,7 @@ const Settings = () => {
         return (
           <div className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Card>
+              <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
                 <CardHeader>
                   <CardTitle className="flex items-center space-x-2">
                     <Upload className="h-5 w-5" />
@@ -146,7 +146,7 @@ const Settings = () => {
                 </CardContent>
               </Card>
 
-              <Card>
+              <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
                 <CardHeader>
                   <CardTitle className="flex items-center space-x-2">
                     <Download className="h-5 w-5" />
@@ -202,7 +202,7 @@ const Settings = () => {
       {/* Settings Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         {/* Settings Navigation */}
-        <Card className="lg:col-span-1">
+        <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300 lg:col-span-1">
           <CardHeader>
             <CardTitle className="text-lg">Settings</CardTitle>
           </CardHeader>
@@ -230,7 +230,7 @@ const Settings = () => {
         </Card>
 
         {/* Settings Content */}
-        <Card className="lg:col-span-3">
+        <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300 lg:col-span-3">
           <CardHeader>
             <CardTitle className="capitalize">{activeTab} Settings</CardTitle>
           </CardHeader>

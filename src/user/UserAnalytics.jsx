@@ -302,7 +302,7 @@ export default function UserAnalytics() {
 
                 {/* Stats Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-                    <Card>
+                    <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
                         <CardContent className="p-4">
                             <div className="flex items-center justify-between">
                                 <div>
@@ -326,7 +326,7 @@ export default function UserAnalytics() {
                         </CardContent>
                     </Card>
 
-                    <Card>
+                    <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
                         <CardContent className="p-4">
                             <div className="flex items-center justify-between">
                                 <div>
@@ -342,7 +342,7 @@ export default function UserAnalytics() {
                         </CardContent>
                     </Card>
 
-                    <Card>
+                    <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
                         <CardContent className="p-4">
                             <div className="flex items-center justify-between">
                                 <div>
@@ -360,7 +360,7 @@ export default function UserAnalytics() {
                         </CardContent>
                     </Card>
 
-                    <Card>
+                    <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
                         <CardContent className="p-4">
                             <div className="flex items-center justify-between">
                                 <div>
@@ -382,7 +382,7 @@ export default function UserAnalytics() {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                     {/* Map Section */}
                     <div className="lg:col-span-2">
-                        <Card>
+                        <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
                             <CardHeader>
                                 <div className="flex items-center justify-between">
                                     <CardTitle>Ghana Disease Hotspot Map</CardTitle>
@@ -515,7 +515,7 @@ export default function UserAnalytics() {
                     <div className="space-y-6">
                         {/* Selected Hotspot Details */}
                         {selectedHotspot ? (
-                            <Card>
+                            <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
                                 <CardHeader>
                                     <CardTitle className="flex items-center gap-2">
                                         <div className="w-4 h-4 rounded-full" style={{ backgroundColor: selectedHotspot.color }} />
@@ -563,7 +563,7 @@ export default function UserAnalytics() {
                                 </CardContent>
                             </Card>
                         ) : (
-                            <Card>
+                            <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
                                 <CardContent className="p-6 text-center">
                                     <MapPin className="w-12 h-12 text-gray-400 mx-auto mb-3" />
                                     <p className="text-gray-600">Click on a hotspot marker to view details</p>
@@ -572,7 +572,7 @@ export default function UserAnalytics() {
                         )}
 
                         {/* Disease List */}
-                        <Card>
+                        <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
                             <CardHeader>
                                 <CardTitle>Active Outbreaks</CardTitle>
                                 <CardDescription>Current disease cases by location</CardDescription>
@@ -625,7 +625,7 @@ export default function UserAnalytics() {
                         </Card>
 
                         {/* Quick Actions */}
-                        <Card>
+                        <Card className="bg-white/80 backdrop-blur-sm border-blue-100 rounded-lg hover:shadow-lg transition-all duration-300">
                             <CardHeader>
                                 <CardTitle>Quick Actions</CardTitle>
                             </CardHeader>

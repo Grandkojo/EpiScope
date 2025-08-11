@@ -701,11 +701,8 @@ const recentArticles = [
 const categories = [
   { name: "All", count: 156, active: true },
   { name: "Research", count: 34, active: false },
-  { name: "Mental Health", count: 28, active: false },
-  { name: "Nutrition", count: 22, active: false },
-  { name: "Cardiology", count: 19, active: false },
-  { name: "Infectious Disease", count: 25, active: false },
-  { name: "Sleep Medicine", count: 15, active: false },
+  { name: "Diabetes", count: 40, active: false },
+  { name: "Malaria", count: 35, active: false },
 ]
 
 const blogStats = [
@@ -916,7 +913,7 @@ export default function HealthBlog() {
                   <div>
                     <p className="text-sm font-medium text-gray-600 mb-1">{stat.title}</p>
                     <p className="text-2xl font-bold text-gray-900">
-                      <AnimatedCounter end={stat.value} />
+                    {stat.value.toLocaleString()}
                     </p>
                   </div>
                   <div className={`p-3 rounded-full ${stat.bgColor}`}>
