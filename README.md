@@ -7,6 +7,14 @@ EpiScope is an AI-driven web application designed to **monitor, predict, and pro
 
 ---
 
+## **📹 Demo**  
+
+> 🎥 **Screencast (No Sound)** – The current demo is a silent walkthrough of EpiScope’s interface and functionality.  
+A **full narrated demo** will be uploaded soon after deployment.  
+[![EpiScope Demo](https://img.youtube.com/vi/KRDk5LWtfSo/0.jpg)](https://youtu.be/KRDk5LWtfSo)
+
+---
+
 ## **🎯 Project Overview**  
 EpiScope enables hospitals and public health agencies to:  
 - **Predict** disease risk probabilities based on patient data.  
@@ -64,14 +72,6 @@ EpiScope enables hospitals and public health agencies to:
 4. **Explainability** – SHAP graphs show the most influential features for the prediction.  
 5. **User Feedback** – Clinician confirms, corrects, or rejects prediction.  
 6. **Model Retraining** – Feedback data is stored for future retraining to improve accuracy.  
-
----
-
-## **📹 Demo**  
-
-> 🎥 **Screencast (No Sound)** – The current demo is a silent walkthrough of EpiScope’s interface and functionality.  
-A **full narrated demo** will be uploaded soon after deployment.  
-[![EpiScope Demo](https://img.youtube.com/vi/KRDk5LWtfSo/0.jpg)](https://youtu.be/KRDk5LWtfSo)
 
 ---
 
