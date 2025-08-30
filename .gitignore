@@ -49,3 +49,5 @@ tt.txt
 # OS
 .DS_Store
 Thumbs.db
+
+deploy.sh

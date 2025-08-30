@@ -1,0 +1,31 @@
+# docker-compose.yml
+version: '3.8'
+services:
+  episcope:
+    build: .
+    image: episcope:latest
+    container_name: episcope-app
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=False
+      - DATABASE_URL=${SUPABASE_DATABASE_URL}
+      - SECRET_KEY=${SECRET_KEY}
+      - ALLOWED_HOSTS=${ALLOWED_HOSTS}
+    volumes:
+      - static_volume:/app/staticfiles
+    restart: unless-stopped
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - static_volume:/var/www/static
+    depends_on:
+      - episcope
+    restart: unless-stopped
+
+volumes:
+  static_volume:

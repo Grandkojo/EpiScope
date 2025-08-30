@@ -35,3 +35,4 @@ shap
 django-ratelimit
 channels
 tensorflow
+django-filter
