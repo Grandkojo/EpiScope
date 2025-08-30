@@ -601,12 +601,215 @@ class DiseaseMonitor:
         joblib.dump(self.scaler, f'{path}/scaler.joblib')
 
     def load_models(self, path='models'):
+        # Load v2 models (.pkl files)
         for fname in os.listdir(path):
-            if fname.endswith('_model.joblib'):
-                disease_name = fname.replace('_model.joblib', '')
-                self.models[disease_name] = joblib.load(os.path.join(path, fname))
-        self.label_encoders = joblib.load(f'{path}/label_encoders.joblib')
-        self.scaler = joblib.load(f'{path}/scaler.joblib')
+            if fname.endswith('_xgboost_model_v2.pkl'):
+                disease_name = fname.replace('_xgboost_model_v2.pkl', '')
+                import pickle
+                with open(os.path.join(path, fname), 'rb') as f:
+                    self.models[disease_name] = pickle.load(f)
+        
+        # For v2 models, we don't need label encoders or scalers as they use direct feature engineering
+        # Initialize empty encoders and scaler for compatibility
+        from sklearn.preprocessing import LabelEncoder, StandardScaler
+        self.label_encoders = {}
+        self.scaler = StandardScaler()
+
+    def predict_with_new_models(self, data, disease_name, symptoms_text=None, cost_optional=True):
+        """
+        Predict using v2 models with enhanced feature engineering.
+        
+        Args:
+            data: Patient demographic/clinical data (DataFrame)
+            disease_name: Name of the disease
+            symptoms_text: Optional symptoms text for Vertex AI analysis
+            cost_optional: Whether cost data is optional
+            
+        Returns:
+            List of prediction dictionaries with enhanced features
+        """
+        if disease_name not in self.models:
+            raise ValueError(f"Model for {disease_name} not found")
+        
+        # Prepare data using v2 feature engineering
+        df_processed = self._prepare_v2_features(data, disease_name, cost_optional)
+        
+        # Get model predictions
+        model = self.models[disease_name]
+        base_probabilities = model.predict_proba(df_processed)[:, 1]
+        
+        results = []
+        for i, base_prob in enumerate(base_probabilities):
+            result = {
+                "base_probability": float(base_prob),
+                "symptom_score": None,
+                "combined_probability": float(base_prob),
+                "prediction": int(base_prob >= 0.7),  # Default threshold for v2 models
+                "locality": data.iloc[i]['Locality'] if 'Locality' in data.columns else None,
+                "cost_included": cost_optional and 'Cost of Treatment (GHS )' in data.columns,
+                "features_used": list(df_processed.columns)
+            }
+            
+            # Add symptom analysis if provided
+            if symptoms_text and self.vertex_client:
+                symptom_score = self.analyze_symptoms_with_vertex_ai(symptoms_text, disease_name)
+                result["symptom_score"] = symptom_score
+                
+                # Enhanced weighting for v2 models
+                if symptom_score is not None:
+                    # Dynamic weighting based on symptom relevance
+                    base_pred = 1 if base_prob >= 0.7 else 0
+                    symptom_pred = 1 if symptom_score >= 0.5 else 0
+                    
+                    if base_pred != symptom_pred:
+                        # Contradiction - give more weight to symptoms
+                        symptom_weight = 0.7
+                        base_weight = 0.3
+                    else:
+                        # Agreement - balanced weights
+                        symptom_weight = 0.5
+                        base_weight = 0.5
+                    
+                    # Combine scores
+                    combined_prob = base_weight * base_prob + symptom_weight * symptom_score
+                    result["combined_probability"] = float(combined_prob)
+                    
+                    # Dynamic threshold
+                    if symptom_score < 0.3:
+                        dynamic_threshold = 0.8
+                    elif symptom_score < 0.5:
+                        dynamic_threshold = 0.75
+                    else:
+                        dynamic_threshold = 0.7
+                    
+                    result["prediction"] = int(combined_prob >= dynamic_threshold)
+                    result["dynamic_threshold"] = dynamic_threshold
+            
+            results.append(result)
+        
+        return results
+
+    def _prepare_v2_features(self, data, disease_type, cost_optional=True):
+        """
+        Prepare features for v2 models using the same feature engineering as training.
+        """
+        import re
+        from datetime import datetime
+        
+        # Define medication dictionaries (same as training)
+        DIABETES_MEDICATIONS = [
+            'metformin', 'insulin', 'glibenclamide', 'pioglitazone', 'glimeperide',
+            'gliclazide', 'sitagliptin', 'linagliptin', 'empagliflozin', 'dapagliflozin',
+            'canagliflozin', 'acarbose', 'miglitol', 'repaglinide', 'nateglinide'
+        ]
+        
+        MALARIA_MEDICATIONS = [
+            'artemether', 'lumefantrine', 'artesunate', 'coartem', 'lonart',
+            'artemether+lumefantrine', 'artemether+lumefan', 'artesunate injection',
+            'artemether injection', 'quinine', 'chloroquine', 'mefloquine',
+            'doxycycline', 'primaquine', 'atovaquone', 'proguanil'
+        ]
+        
+        def extract_age_numeric(age_input):
+            if pd.isna(age_input) or age_input == '':
+                return 30  # Default age
+            if isinstance(age_input, (int, float)):
+                return int(age_input)
+            age_str = str(age_input)
+            numbers = re.findall(r'\d+', age_str)
+            return int(numbers[0]) if numbers else 30
+        
+        def extract_temporal_features(date_str):
+            try:
+                date = pd.to_datetime(date_str)
+                return {
+                    'month': date.month,
+                    'year': date.year,
+                    'day_of_week': date.dayofweek,
+                    'season': (date.month % 12 + 3) // 3,
+                    'is_weekend': 1 if date.dayofweek >= 5 else 0
+                }
+            except:
+                return {'month': 1, 'year': 2022, 'day_of_week': 0, 'season': 1, 'is_weekend': 0}
+        
+        def check_medication_presence(medicine_str, medication_list):
+            if pd.isna(medicine_str) or medicine_str == '':
+                return 0
+            medicine_lower = medicine_str.lower()
+            for med in medication_list:
+                if med.lower() in medicine_lower:
+                    return 1
+            return 0
+        
+        def count_medications(medicine_str):
+            if pd.isna(medicine_str) or medicine_str == '':
+                return 0
+            medicine_count = len(re.findall(r'\[.*?\]', medicine_str))
+            return medicine_count
+        
+        # Create a copy of the data
+        df = data.copy()
+        
+        # Extract age features
+        df['age_numeric'] = df['Age'].apply(extract_age_numeric)
+        
+        # Extract temporal features
+        temporal_features = df['Schedule Date'].apply(extract_temporal_features)
+        df['month'] = temporal_features.apply(lambda x: x['month'])
+        df['year'] = temporal_features.apply(lambda x: x['year'])
+        df['day_of_week'] = temporal_features.apply(lambda x: x['day_of_week'])
+        df['season'] = temporal_features.apply(lambda x: x['season'])
+        df['is_weekend'] = temporal_features.apply(lambda x: x['is_weekend'])
+        
+        # Medication features
+        df['diabetes_medication_present'] = df['Medicine Prescribed'].apply(
+            lambda x: check_medication_presence(x, DIABETES_MEDICATIONS)
+        )
+        df['malaria_medication_present'] = df['Medicine Prescribed'].apply(
+            lambda x: check_medication_presence(x, MALARIA_MEDICATIONS)
+        )
+        
+        # General medication features
+        df['medication_count'] = df['Medicine Prescribed'].apply(count_medications)
+        df['has_medication'] = (df['medication_count'] > 0).astype(int)
+        
+        # Binary encoding for categorical variables
+        df['is_pregnant'] = (df['Pregnant Patient'].astype(str).str.lower() == 'yes').astype(int)
+        df['is_insured'] = (df['NHIA Patient'].astype(str).str.lower() == 'insured').astype(int)
+        df['is_male'] = (df['Gender'].astype(str).str.lower() == 'male').astype(int)
+        
+        # Locality features
+        df['locality_encoded'] = df['Locality'].astype(str).apply(lambda x: hash(x) % 100)
+        
+        # Cost features
+        if 'Cost of Treatment (GHS )' in df.columns and cost_optional:
+            df['Cost of Treatment (GHS )'] = pd.to_numeric(df['Cost of Treatment (GHS )'], errors='coerce')
+            df['has_cost'] = (df['Cost of Treatment (GHS )'] > 0).astype(int)
+            df['cost_category'] = pd.cut(
+                df['Cost of Treatment (GHS )'], 
+                bins=[0, 10, 50, 100, float('inf')], 
+                labels=[0, 1, 2, 3]
+            ).fillna(0).astype(int)
+        else:
+            df['has_cost'] = 0
+            df['cost_category'] = 0
+        
+        # Select features for the model (same as training)
+        feature_columns = [
+            'age_numeric', 'is_male', 'is_pregnant', 'is_insured',
+            'month', 'year', 'day_of_week', 'season', 'is_weekend',
+            'medication_count', 'has_medication',
+            'locality_encoded',
+            f'{disease_type}_medication_present',
+            'has_cost', 'cost_category'
+        ]
+        
+        # Ensure all required features exist
+        for col in feature_columns:
+            if col not in df.columns:
+                df[col] = 0
+        
+        return df[feature_columns]
 
     def analyze_chat_message(self, user_message):
         """

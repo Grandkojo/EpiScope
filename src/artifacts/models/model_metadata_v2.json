@@ -20,55 +20,55 @@
     "feature_importance": [
       {
         "feature": "diabetes_medication_present",
-        "importance": 0.8436675667762756
+        "importance": 0.8251041173934937
       },
       {
         "feature": "age_numeric",
-        "importance": 0.04547683894634247
+        "importance": 0.06129595264792442
       },
       {
         "feature": "medication_count",
-        "importance": 0.03325522691011429
+        "importance": 0.03797535225749016
       },
       {
         "feature": "is_insured",
-        "importance": 0.019168391823768616
+        "importance": 0.013655202463269234
       },
       {
         "feature": "year",
-        "importance": 0.010143199935555458
-      },
-      {
-        "feature": "season",
-        "importance": 0.008590823039412498
+        "importance": 0.012411614879965782
       },
       {
         "feature": "day_of_week",
-        "importance": 0.008265837095677853
+        "importance": 0.008718413300812244
       },
       {
-        "feature": "cost_category",
-        "importance": 0.007382931653410196
+        "feature": "season",
+        "importance": 0.007905643433332443
       },
       {
         "feature": "month",
-        "importance": 0.006570292636752129
+        "importance": 0.007398148532956839
+      },
+      {
+        "feature": "cost_category",
+        "importance": 0.007332654669880867
       },
       {
         "feature": "has_cost",
-        "importance": 0.005463662091642618
+        "importance": 0.005218246020376682
       },
       {
         "feature": "is_male",
-        "importance": 0.004718306474387646
+        "importance": 0.005099724046885967
       },
       {
         "feature": "locality_encoded",
-        "importance": 0.004382112994790077
+        "importance": 0.004911043681204319
       },
       {
         "feature": "is_pregnant",
-        "importance": 0.002914812881499529
+        "importance": 0.002973887836560607
       },
       {
         "feature": "has_medication",
@@ -81,8 +81,8 @@
     ],
     "model_path": "src/artifacts/models/diabetes_xgboost_model_v2.pkl",
     "performance": {
-      "accuracy": 0.9488109633212415,
-      "auc": 0.9864676173499703
+      "accuracy": 0.9537595496582227,
+      "auc": 0.9887114173830075
     }
   },
   "malaria": {
@@ -106,55 +106,55 @@
     "feature_importance": [
       {
         "feature": "malaria_medication_present",
-        "importance": 0.6020553112030029
+        "importance": 0.6315130591392517
       },
       {
         "feature": "age_numeric",
-        "importance": 0.18604013323783875
+        "importance": 0.1719057410955429
       },
       {
         "feature": "is_insured",
-        "importance": 0.03916191682219505
+        "importance": 0.04091060534119606
       },
       {
         "feature": "year",
-        "importance": 0.025431448593735695
+        "importance": 0.02324076183140278
       },
       {
         "feature": "day_of_week",
-        "importance": 0.023647742345929146
+        "importance": 0.021722689270973206
       },
       {
         "feature": "cost_category",
-        "importance": 0.02235102653503418
+        "importance": 0.020539207383990288
       },
       {
         "feature": "season",
-        "importance": 0.01904544234275818
+        "importance": 0.017925888299942017
       },
       {
         "feature": "month",
-        "importance": 0.0179857537150383
-      },
-      {
-        "feature": "has_cost",
-        "importance": 0.016243964433670044
+        "importance": 0.017562707886099815
       },
       {
         "feature": "medication_count",
-        "importance": 0.015289612114429474
+        "importance": 0.013701600953936577
+      },
+      {
+        "feature": "has_cost",
+        "importance": 0.012619021348655224
       },
       {
         "feature": "is_male",
-        "importance": 0.01128825917840004
-      },
-      {
-        "feature": "is_pregnant",
-        "importance": 0.011202429421246052
+        "importance": 0.01052763406187296
       },
       {
         "feature": "locality_encoded",
-        "importance": 0.010256951674818993
+        "importance": 0.010048452764749527
+      },
+      {
+        "feature": "is_pregnant",
+        "importance": 0.007782608270645142
       },
       {
         "feature": "has_medication",
@@ -167,8 +167,8 @@
     ],
     "model_path": "src/artifacts/models/malaria_xgboost_model_v2.pkl",
     "performance": {
-      "accuracy": 0.9552599758162031,
-      "auc": 0.9882590261020484
+      "accuracy": 0.9396863691194209,
+      "auc": 0.9823416251179893
     }
   }
 }

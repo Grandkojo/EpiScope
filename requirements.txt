@@ -26,6 +26,7 @@ matplotlib
 seaborn
 plotly
 plotly-express
+urllib3<2.0.0
 pytrends
 scipy
 nbformat
@@ -33,3 +34,4 @@ requests
 shap
 django-ratelimit
 channels
+tensorflow

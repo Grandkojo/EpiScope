@@ -20,42 +20,42 @@
     "feature_importance": [
       {
         "feature": "diabetes_icd_present",
-        "importance": 0.9385049343109131
+        "importance": 0.9421829581260681
       },
       {
         "feature": "diabetes_medication_present",
-        "importance": 0.05876750126481056
+        "importance": 0.05394681915640831
+      },
+      {
+        "feature": "is_insured",
+        "importance": 0.0012065289774909616
       },
       {
         "feature": "season",
-        "importance": 0.0012049383949488401
-      },
-      {
-        "feature": "year",
-        "importance": 0.000526483345311135
+        "importance": 0.0009557478479109704
       },
       {
         "feature": "medication_count",
-        "importance": 0.0005060681723989546
+        "importance": 0.0006040199659764767
+      },
+      {
+        "feature": "year",
+        "importance": 0.0005958717665635049
       },
       {
         "feature": "age_numeric",
-        "importance": 0.0004900827771052718
+        "importance": 0.00043423898750916123
       },
       {
-        "feature": "is_male",
-        "importance": 0.0
+        "feature": "month",
+        "importance": 7.381130853900686e-05
       },
       {
         "feature": "day_of_week",
         "importance": 0.0
       },
       {
-        "feature": "month",
-        "importance": 0.0
-      },
-      {
-        "feature": "is_insured",
+        "feature": "is_male",
         "importance": 0.0
       },
       {
@@ -82,7 +82,7 @@
     "model_path": "src/artifacts/models/diabetes_xgboost_model.pkl",
     "performance": {
       "accuracy": 1.0,
-      "auc": 1.0
+      "auc": 0.9999999999999999
     }
   },
   "malaria": {
@@ -106,38 +106,38 @@
     "feature_importance": [
       {
         "feature": "malaria_icd_present",
-        "importance": 0.9631608128547668
+        "importance": 0.9585164785385132
       },
       {
         "feature": "malaria_medication_present",
-        "importance": 0.028170784935355186
-      },
-      {
-        "feature": "is_insured",
-        "importance": 0.002569514326751232
-      },
-      {
-        "feature": "season",
-        "importance": 0.002552676247432828
-      },
-      {
-        "feature": "medication_count",
-        "importance": 0.0010061365319415927
+        "importance": 0.03640542924404144
       },
       {
         "feature": "year",
-        "importance": 0.0009716161293908954
+        "importance": 0.0031766339670866728
       },
       {
         "feature": "age_numeric",
-        "importance": 0.0008420006488449872
+        "importance": 0.0009210596326738596
       },
       {
-        "feature": "month",
-        "importance": 0.0007264367886818945
+        "feature": "is_insured",
+        "importance": 0.0007370514795184135
+      },
+      {
+        "feature": "medication_count",
+        "importance": 0.00024331675376743078
+      },
+      {
+        "feature": "is_pregnant",
+        "importance": 0.0
       },
       {
         "feature": "day_of_week",
+        "importance": 0.0
+      },
+      {
+        "feature": "month",
         "importance": 0.0
       },
       {
@@ -145,7 +145,7 @@
         "importance": 0.0
       },
       {
-        "feature": "is_pregnant",
+        "feature": "season",
         "importance": 0.0
       },
       {
@@ -167,7 +167,7 @@
     ],
     "model_path": "src/artifacts/models/malaria_xgboost_model.pkl",
     "performance": {
-      "accuracy": 0.997610513739546,
+      "accuracy": 1.0,
       "auc": 1.0
     }
   }

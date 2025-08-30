@@ -17,6 +17,9 @@ from sklearn.metrics import classification_report, confusion_matrix, roc_auc_sco
 from sklearn.feature_selection import SelectKBest, f_classif
 import xgboost as xgb
 
+# SHAP for model interpretability
+import shap
+
 warnings.filterwarnings('ignore')
 np.random.seed(42)
 
@@ -305,8 +308,197 @@ def prepare_features_for_model(df, disease_type):
     
     return X, y, feature_columns
 
+def generate_shap_plots(model, X_test, feature_names, disease_type, output_dir="src/artifacts/shap_plots"):
+    """
+    Generate comprehensive SHAP plots for model interpretability
+    
+    Args:
+        model: Trained XGBoost model
+        X_test: Test data features
+        feature_names: List of feature names
+        disease_type: Name of the disease (diabetes/malaria)
+        output_dir: Directory to save SHAP plots
+    """
+    print(f"\n📊 Generating SHAP plots for {disease_type}...")
+    
+    # Create output directory
+    os.makedirs(output_dir, exist_ok=True)
+    
+    try:
+        # Initialize SHAP explainer
+        explainer = shap.TreeExplainer(model)
+        shap_values = explainer.shap_values(X_test)
+        
+        # Set style for better plots
+        plt.style.use('default')
+        
+        # 1. Summary Plot (Beeswarm)
+        plt.figure(figsize=(12, 8))
+        shap.summary_plot(shap_values, X_test, feature_names=feature_names, show=False)
+        plt.title(f'SHAP Summary Plot - {disease_type.title()}', fontsize=16, fontweight='bold')
+        plt.tight_layout()
+        summary_path = os.path.join(output_dir, f'{disease_type}_shap_summary.png')
+        plt.savefig(summary_path, dpi=300, bbox_inches='tight')
+        plt.close()
+        print(f"✅ Summary plot saved: {summary_path}")
+        
+        # 2. Bar Plot (Feature Importance) - Fixed for better label visibility
+        plt.figure(figsize=(12, 8))  # Increased figure size
+        shap.summary_plot(shap_values, X_test, feature_names=feature_names, plot_type="bar", show=False)
+        plt.title(f'SHAP Feature Importance - Malaria & Diabetes', fontsize=16, fontweight='bold')
+        plt.xlabel('mean(|SHAP value|) (average impact on model output magnitude)', fontsize=12)
+        plt.tight_layout(pad=2.0)  # Increased padding
+        bar_path = os.path.join(output_dir, f'{disease_type}_shap_bar.png')
+        plt.savefig(bar_path, dpi=300, bbox_inches='tight', pad_inches=0.3)  # Added padding
+        plt.close()
+        print(f"✅ Bar plot saved: {bar_path}")
+        
+        # 3. Waterfall Plot (for a sample case)
+        plt.figure(figsize=(12, 8))
+        shap.waterfall_plot(explainer.expected_value, shap_values[0], X_test.iloc[0], 
+                           feature_names=feature_names, show=False)
+        plt.title(f'SHAP Waterfall Plot - {disease_type.title()} (Sample Case)', fontsize=16, fontweight='bold')
+        plt.tight_layout()
+        waterfall_path = os.path.join(output_dir, f'{disease_type}_shap_waterfall.png')
+        plt.savefig(waterfall_path, dpi=300, bbox_inches='tight')
+        plt.close()
+        print(f"✅ Waterfall plot saved: {waterfall_path}")
+        
+        # 4. Force Plot (for a sample case)
+        plt.figure(figsize=(12, 6))
+        shap.force_plot(explainer.expected_value, shap_values[0], X_test.iloc[0], 
+                       feature_names=feature_names, show=False, matplotlib=True)
+        plt.title(f'SHAP Force Plot - {disease_type.title()} (Sample Case)', fontsize=16, fontweight='bold')
+        plt.tight_layout()
+        force_path = os.path.join(output_dir, f'{disease_type}_shap_force.png')
+        plt.savefig(force_path, dpi=300, bbox_inches='tight')
+        plt.close()
+        print(f"✅ Force plot saved: {force_path}")
+        
+        # 5. Dependence Plot (for top feature)
+        top_feature_idx = np.argmax(np.abs(shap_values).mean(0))
+        top_feature = feature_names[top_feature_idx]
+        
+        plt.figure(figsize=(10, 6))
+        shap.dependence_plot(top_feature_idx, shap_values, X_test, 
+                           feature_names=feature_names, show=False)
+        plt.title(f'SHAP Dependence Plot - {top_feature} ({disease_type.title()})', 
+                 fontsize=16, fontweight='bold')
+        plt.tight_layout()
+        dependence_path = os.path.join(output_dir, f'{disease_type}_shap_dependence_{top_feature}.png')
+        plt.savefig(dependence_path, dpi=300, bbox_inches='tight')
+        plt.close()
+        print(f"✅ Dependence plot saved: {dependence_path}")
+        
+        # Save SHAP values for later use
+        shap_values_path = os.path.join(output_dir, f'{disease_type}_shap_values.pkl')
+        with open(shap_values_path, 'wb') as f:
+            pickle.dump({
+                'shap_values': shap_values,
+                'expected_value': explainer.expected_value,
+                'feature_names': feature_names
+            }, f)
+        print(f"✅ SHAP values saved: {shap_values_path}")
+        
+        return True
+        
+    except Exception as e:
+        print(f"❌ Error generating SHAP plots for {disease_type}: {e}")
+        return False
+
+def generate_shap_plots_generic(model, X_test, feature_names, disease_type, output_dir="src/artifacts/shap_plots"):
+    """
+    Generate SHAP plots with generic titles for the temporary script
+    """
+    print(f"\n📊 Generating SHAP plots for {disease_type}...")
+    
+    # Create output directory
+    os.makedirs(output_dir, exist_ok=True)
+    
+    try:
+        # Initialize SHAP explainer
+        explainer = shap.TreeExplainer(model)
+        shap_values = explainer.shap_values(X_test)
+        
+        # Set style for better plots
+        plt.style.use('default')
+        
+        # 1. Summary Plot (Beeswarm)
+        plt.figure(figsize=(12, 8))
+        shap.summary_plot(shap_values, X_test, feature_names=feature_names, show=False)
+        plt.title(f'SHAP Summary Plot - {disease_type.title()}', fontsize=16, fontweight='bold')
+        plt.tight_layout()
+        summary_path = os.path.join(output_dir, f'{disease_type}_shap_summary.png')
+        plt.savefig(summary_path, dpi=300, bbox_inches='tight')
+        plt.close()
+        print(f"✅ Summary plot saved: {summary_path}")
+        
+        # 2. Bar Plot (Feature Importance) - Fixed for better label visibility
+        plt.figure(figsize=(12, 8))  # Increased figure size
+        shap.summary_plot(shap_values, X_test, feature_names=feature_names, plot_type="bar", show=False)
+        plt.title(f'SHAP Feature Importance - {disease_type.title()}', fontsize=16, fontweight='bold')
+        plt.xlabel('mean(|SHAP value|) (average impact on model output magnitude)', fontsize=12)
+        plt.tight_layout(pad=2.0)  # Increased padding
+        bar_path = os.path.join(output_dir, f'{disease_type}_shap_bar.png')
+        plt.savefig(bar_path, dpi=300, bbox_inches='tight', pad_inches=0.3)  # Added padding
+        plt.close()
+        print(f"✅ Bar plot saved: {bar_path}")
+        
+        # 3. Waterfall Plot (for a sample case)
+        plt.figure(figsize=(12, 8))
+        shap.waterfall_plot(explainer.expected_value, shap_values[0], X_test.iloc[0], 
+                           feature_names=feature_names, show=False)
+        plt.title(f'SHAP Waterfall Plot - {disease_type.title()} (Sample Case)', fontsize=16, fontweight='bold')
+        plt.tight_layout()
+        waterfall_path = os.path.join(output_dir, f'{disease_type}_shap_waterfall.png')
+        plt.savefig(waterfall_path, dpi=300, bbox_inches='tight')
+        plt.close()
+        print(f"✅ Waterfall plot saved: {waterfall_path}")
+        
+        # 4. Force Plot (for a sample case)
+        plt.figure(figsize=(12, 6))
+        shap.force_plot(explainer.expected_value, shap_values[0], X_test.iloc[0], 
+                       feature_names=feature_names, show=False, matplotlib=True)
+        plt.title(f'SHAP Force Plot - {disease_type.title()} (Sample Case)', fontsize=16, fontweight='bold')
+        plt.tight_layout()
+        force_path = os.path.join(output_dir, f'{disease_type}_shap_force.png')
+        plt.savefig(force_path, dpi=300, bbox_inches='tight')
+        plt.close()
+        print(f"✅ Force plot saved: {force_path}")
+        
+        # 5. Dependence Plot (for top feature)
+        top_feature_idx = np.argmax(np.abs(shap_values).mean(0))
+        top_feature = feature_names[top_feature_idx]
+        
+        plt.figure(figsize=(10, 6))
+        shap.dependence_plot(top_feature_idx, shap_values, X_test, 
+                           feature_names=feature_names, show=False)
+        plt.title(f'SHAP Dependence Plot - {top_feature} ({disease_type.title()})', 
+                 fontsize=16, fontweight='bold')
+        plt.tight_layout()
+        dependence_path = os.path.join(output_dir, f'{disease_type}_shap_dependence_{top_feature}.png')
+        plt.savefig(dependence_path, dpi=300, bbox_inches='tight')
+        plt.close()
+        print(f"✅ Dependence plot saved: {dependence_path}")
+        
+        # Save SHAP values for later use
+        shap_values_path = os.path.join(output_dir, f'{disease_type}_shap_values.pkl')
+        with open(shap_values_path, 'wb') as f:
+            pickle.dump({
+                'shap_values': shap_values,
+                'expected_value': explainer.expected_value,
+                'feature_names': feature_names
+            }, f)
+        print(f"✅ SHAP values saved: {shap_values_path}")
+        
+        return True
+        
+    except Exception as e:
+        print(f"❌ Error generating SHAP plots for {disease_type}: {e}")
+        return False
+
 def train_xgboost_model(X, y, disease_type, test_size=0.2):
-    """Train XGBoost model with cross-validation"""
+    """Train XGBoost model with cross-validation and SHAP analysis"""
     
     # Split data
     X_train, X_test, y_train, y_test = train_test_split(
@@ -351,6 +543,9 @@ def train_xgboost_model(X, y, disease_type, test_size=0.2):
     
     print(f"\nTop 5 important features for {disease_type}:")
     print(feature_importance.head())
+    
+    # Generate SHAP plots
+    generate_shap_plots(model, X_test, X.columns.tolist(), disease_type)
     
     return model, X_test, y_test, y_pred, y_pred_proba, feature_importance
 
@@ -477,5 +672,123 @@ def main():
     
     print(f"\n✅ IMPROVED training pipeline completed successfully!")
 
+def generate_shap_for_existing_models():
+    """
+    Temporary function to generate SHAP plots for existing trained v2 models
+    Run this function to create SHAP visualizations for your current models
+    """
+    print("🔍 Generating SHAP plots for existing v2 models...")
+    print("=" * 60)
+    
+    # Define paths
+    models_path = "src/artifacts/models/"
+    data_path = "src/artifacts/merged_data/"
+    
+    # Load existing models
+    try:
+        # Load diabetes model
+        with open(os.path.join(models_path, 'diabetes_xgboost_model_v2.pkl'), 'rb') as f:
+            diabetes_model = pickle.load(f)
+        print("✅ Loaded diabetes model")
+        
+        # Load malaria model
+        with open(os.path.join(models_path, 'malaria_xgboost_model_v2.pkl'), 'rb') as f:
+            malaria_model = pickle.load(f)
+        print("✅ Loaded malaria model")
+        
+    except FileNotFoundError as e:
+        print(f"❌ Error loading models: {e}")
+        print("Make sure the v2 models exist in src/artifacts/models/")
+        return
+    
+    # Load and prepare test data
+    try:
+        print("\n📊 Loading and preparing test data...")
+        
+        # Load datasets
+        diabetes_df = pd.read_csv(os.path.join(data_path, "weija_diabetes_merged.csv"))
+        malaria_df = pd.read_csv(os.path.join(data_path, "weija_malaria_merged.csv"))
+        
+        # Clean and engineer features
+        diabetes_clean = clean_dataset(diabetes_df, 'diabetes')
+        malaria_clean = clean_dataset(malaria_df, 'malaria')
+        
+        diabetes_engineered = engineer_features(diabetes_clean, 'diabetes')
+        malaria_engineered = engineer_features(malaria_clean, 'malaria')
+        
+        # Create balanced datasets
+        diabetes_balanced = create_balanced_dataset(diabetes_engineered, malaria_engineered, 'diabetes')
+        malaria_balanced = create_balanced_dataset(diabetes_engineered, malaria_engineered, 'malaria')
+        
+        # Prepare features
+        X_diabetes, y_diabetes, diabetes_features = prepare_features_for_model(diabetes_balanced, 'diabetes')
+        X_malaria, y_malaria, malaria_features = prepare_features_for_model(malaria_balanced, 'malaria')
+        
+        print("✅ Test data prepared")
+        
+    except Exception as e:
+        print(f"❌ Error preparing test data: {e}")
+        return
+    
+    # Generate SHAP plots for diabetes
+    print(f"\n📊 Generating SHAP plots for diabetes model...")
+    diabetes_success = generate_shap_plots_generic(
+        diabetes_model, 
+        X_diabetes.sample(min(100, len(X_diabetes)), random_state=42),  # Sample for faster processing
+        diabetes_features, 
+        'diabetes',
+        output_dir="src/artifacts/shap_plots"
+    )
+    
+    # Generate SHAP plots for malaria
+    print(f"\n📊 Generating SHAP plots for malaria model...")
+    malaria_success = generate_shap_plots_generic(
+        malaria_model, 
+        X_malaria.sample(min(100, len(X_malaria)), random_state=42),  # Sample for faster processing
+        malaria_features, 
+        'malaria',
+        output_dir="src/artifacts/shap_plots"
+    )
+    
+    # Summary
+    print("\n" + "=" * 60)
+    print("SHAP GENERATION SUMMARY")
+    print("=" * 60)
+    
+    if diabetes_success:
+        print("✅ Diabetes SHAP plots generated successfully")
+    else:
+        print("❌ Failed to generate diabetes SHAP plots")
+    
+    if malaria_success:
+        print("✅ Malaria SHAP plots generated successfully")
+    else:
+        print("❌ Failed to generate malaria SHAP plots")
+    
+    print(f"\n📁 SHAP plots saved to: src/artifacts/shap_plots/")
+    print("Files generated:")
+    print("  - diabetes_shap_summary.png")
+    print("  - diabetes_shap_bar.png")
+    print("  - diabetes_shap_waterfall.png")
+    print("  - diabetes_shap_force.png")
+    print("  - diabetes_shap_dependence_[feature].png")
+    print("  - malaria_shap_summary.png")
+    print("  - malaria_shap_bar.png")
+    print("  - malaria_shap_waterfall.png")
+    print("  - malaria_shap_force.png")
+    print("  - malaria_shap_dependence_[feature].png")
+    print("  - diabetes_shap_values.pkl")
+    print("  - malaria_shap_values.pkl")
+    
+    print("\n🎯 SHAP plots show:")
+    print("  • Feature importance and impact")
+    print("  • How each feature contributes to predictions")
+    print("  • Individual case explanations")
+    print("  • Feature interactions and dependencies")
+
 if __name__ == "__main__":
+    # Uncomment the line below to generate SHAP plots for existing models
+    generate_shap_for_existing_models()
+    
+    # Run the main training pipeline (with SHAP included)
     main() 

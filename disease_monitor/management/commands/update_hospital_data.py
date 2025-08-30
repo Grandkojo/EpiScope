@@ -204,8 +204,8 @@ class Command(BaseCommand):
         self.stdout.write(f"Using {len(final_localities)} final localities for normalization")
         
         # Load merged data
-        diabetes_path = 'src/artifacts/merged_data/weija_diabetes_merged.csv'
-        malaria_path = 'src/artifacts/merged_data/weija_malaria_merged.csv'
+        diabetes_path = 'src/artifacts/merged_data/weija_diabetes_merged_cleaned.csv'
+        malaria_path = 'src/artifacts/merged_data/weija_malaria_merged_cleaned.csv'
         
         try:
             diabetes_df = pd.read_csv(diabetes_path)

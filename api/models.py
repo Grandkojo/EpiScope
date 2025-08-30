@@ -2,15 +2,17 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.conf import settings
 
 
 class User(AbstractUser):
     email = models.EmailField(unique=True)
-    phone = models.CharField(max_length=10, unique=True)
+    phone = models.CharField(max_length=10, null=True, blank=True, unique=True)
     address = models.TextField()
     is_admin = models.BooleanField(default=False)
     is_email_verified = models.BooleanField(default=False)
     is_phone_verified = models.BooleanField(default=False)
+    hospital = models.ForeignKey('disease_monitor.Hospital', null=True, blank=True, on_delete=models.SET_NULL, related_name='users', help_text="Hospital this admin manages")
     
     def __str__(self):
         return self.username

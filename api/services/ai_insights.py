@@ -205,13 +205,134 @@ class AIInsightsService:
         except Exception as e:
             return {'success': False, 'error': str(e)}
     
-    def _call_vertex_ai(self, prompt: str) -> str:
-        """Call Vertex AI Gemini model"""
+    def get_prediction_ai_insights(self, prediction_data: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Generate AI insights for prediction results using Gemini
+        
+        Args:
+            prediction_data: Dictionary containing prediction results and metadata
+        """
         try:
-            response = self.model.generate_content(prompt)
-            return response.text
+            if not self.vertex_ai_initialized:
+                return {
+                    'success': False,
+                    'error': 'Vertex AI not configured',
+                    'insights': self._generate_mock_prediction_insights(prediction_data)
+                }
+            
+            # Create prompt for prediction insights
+            prompt = self._create_prediction_insights_prompt(prediction_data)
+            
+            # Call Vertex AI with timeout handling
+            try:
+                response = self._call_vertex_ai(prompt)
+                
+                # Check if the response contains an error
+                if response.startswith('Error calling Vertex AI:'):
+                    # Fallback to mock insights if Vertex AI fails
+                    return {
+                        'success': False,
+                        'error': response,
+                        'insights': self._generate_mock_prediction_insights(prediction_data)
+                    }
+                
+                # Parse the response
+                insights = self._parse_prediction_insights_response(response)
+                
+                return {
+                    'success': True,
+                    'insights': insights,
+                    'raw_response': response
+                }
+                
+            except Exception as ai_error:
+                # Handle Vertex AI connection errors gracefully
+                return {
+                    'success': False,
+                    'error': f'AI service temporarily unavailable: {str(ai_error)}',
+                    'insights': self._generate_mock_prediction_insights(prediction_data)
+                }
+            
         except Exception as e:
-            return f"Error calling Vertex AI: {str(e)}"
+            return {
+                'success': False,
+                'error': str(e),
+                'insights': self._generate_mock_prediction_insights(prediction_data)
+            }
+    
+    def get_dashboard_insights(self, analytics_data: Dict, disease: str = None, year: str = None, locality: str = None, hospital: str = None) -> Dict[str, Any]:
+        """
+        Get simple dashboard-focused AI insights for quick decision-making
+        
+        Args:
+            analytics_data: The analytics data from your dashboard
+            disease: Disease type ('diabetes', 'malaria', etc.)
+            year: Specific year (e.g., '2023')
+            locality: Specific locality filter
+            hospital: Specific hospital filter (orgname)
+        """
+        try:
+            if not self.vertex_ai_initialized:
+                return {
+                    'success': False,
+                    'error': 'Vertex AI not configured',
+                    'mock_response': self._generate_mock_dashboard_insights(analytics_data, disease, year, locality, hospital)
+                }
+            
+            # Create simple dashboard prompt
+            prompt = self._create_dashboard_insights_prompt(analytics_data, disease, year, locality, hospital)
+            
+            # Call Vertex AI
+            response = self._call_vertex_ai(prompt)
+            
+            # Parse and validate response
+            parsed_response = self._parse_dashboard_response(response)
+            
+            return {
+                'success': True,
+                'data': {
+                    'insights': parsed_response,
+                    'metadata': {
+                        'disease': disease,
+                        'year': year,
+                        'locality': locality,
+                        'hospital': hospital,
+                        'generated_at': datetime.now().isoformat(),
+                        'insight_type': 'dashboard_summary'
+                    }
+                }
+            }
+        except Exception as e:
+            return {'success': False, 'error': str(e)}
+    
+    def _call_vertex_ai(self, prompt: str) -> str:
+        """Call Vertex AI Gemini model with improved error handling"""
+        try:
+            # Add timeout to prevent hanging requests
+            import time
+            start_time = time.time()
+            timeout_seconds = 30  # 30 second timeout
+            
+            response = self.model.generate_content(prompt)
+            
+            # Check if we exceeded timeout
+            if time.time() - start_time > timeout_seconds:
+                return "Error calling Vertex AI: Request timeout"
+            
+            return response.text
+            
+        except Exception as e:
+            error_msg = str(e)
+            
+            # Handle specific error types
+            if "timeout" in error_msg.lower() or "503" in error_msg:
+                return "Error calling Vertex AI: Service temporarily unavailable"
+            elif "connection" in error_msg.lower():
+                return "Error calling Vertex AI: Connection failed"
+            elif "authentication" in error_msg.lower():
+                return "Error calling Vertex AI: Authentication failed"
+            else:
+                return f"Error calling Vertex AI: {error_msg}"
     
     def _prepare_data_summary(self, disease: str = None) -> Dict[str, Any]:
         """Prepare comprehensive data summary for AI analysis"""
@@ -795,6 +916,307 @@ Return ONLY the JSON object as specified above. Do not include any additional te
                 "regional_variations": "Urban-rural differences observed",
                 "international_context": "Similar patterns to other developing countries"
             }
+        }
+
+    def _create_prediction_insights_prompt(self, prediction_data: Dict[str, Any]) -> str:
+        """
+        Create a prompt for prediction AI insights
+        """
+        prompt = f"""
+You are a healthcare AI specialist analyzing disease prediction results. Based on the following prediction data, provide exactly 3 essential bullet points that would help healthcare professionals in decision-making.
+
+PREDICTION DATA:
+{json.dumps(prediction_data, indent=2)}
+
+INSTRUCTIONS:
+- Provide exactly 3 bullet points
+- Keep each bullet point SHORT and CONCISE (maximum 15-20 words each)
+- Focus on actionable insights for healthcare decision-making
+- Consider the confidence level, model version, and feature analysis
+- Use clear, simple medical terminology
+- Avoid long, complex sentences
+- Be direct and to the point
+
+FORMAT YOUR RESPONSE AS:
+• [First essential insight - keep it short]
+• [Second essential insight - keep it short] 
+• [Third essential insight - keep it short]
+
+Focus on:
+1. Clinical significance of the prediction
+2. Confidence level interpretation
+3. Key factors influencing the prediction
+4. Recommended next steps
+5. Model reliability assessment
+
+Provide only the 3 bullet points, no additional text or explanations.
+"""
+        return prompt
+    
+    def _parse_prediction_insights_response(self, response: str) -> List[str]:
+        """
+        Parse the AI response into structured insights
+        """
+        try:
+            # Check if response contains an error
+            if response.startswith('Error calling Vertex AI:'):
+                # Return mock insights if there's an error
+                return self._generate_mock_prediction_insights({})
+            
+            # Extract bullet points from the response
+            lines = response.strip().split('\n')
+            insights = []
+            
+            for line in lines:
+                line = line.strip()
+                if line.startswith('•') or line.startswith('-') or line.startswith('*'):
+                    # Remove bullet point markers and clean up
+                    insight = line.lstrip('•-* ').strip()
+                    if insight and not insight.startswith('Error'):
+                        insights.append(insight)
+                elif (line and 
+                      not line.startswith('PREDICTION') and 
+                      not line.startswith('INSTRUCTIONS') and 
+                      not line.startswith('FORMAT') and
+                      not line.startswith('Error') and
+                      not line.startswith('AI service') and
+                      len(line) > 10):  # Only include substantial lines
+                    # If no bullet point marker, treat as insight if it's not a header
+                    insights.append(line)
+            
+            # Ensure we have exactly 3 insights
+            if len(insights) > 3:
+                insights = insights[:3]
+            elif len(insights) < 3:
+                # Pad with default insights if needed
+                default_insights = [
+                    "Consider additional diagnostic testing to confirm the prediction",
+                    "Monitor patient response to treatment closely",
+                    "Review model confidence level for clinical decision support"
+                ]
+                while len(insights) < 3:
+                    insights.append(default_insights[len(insights)])
+            
+            return insights
+            
+        except Exception as e:
+            return self._generate_mock_prediction_insights({})
+    
+    def _generate_mock_prediction_insights(self, prediction_data: Dict[str, Any]) -> List[str]:
+        """
+        Generate mock prediction insights when AI is not available
+        """
+        prediction = prediction_data.get('prediction', 0)
+        confidence = prediction_data.get('combined_probability', 0.5)
+        model_version = prediction_data.get('analysis_breakdown', {}).get('model_version', 'v2_enhanced')
+        
+        if prediction == 1:  # Positive prediction
+            if confidence > 0.8:
+                return [
+                    "High confidence prediction - recommend immediate diagnostic testing",
+                    "Strong clinical indicators present - consider treatment initiation",
+                    "Model shows high reliability - proceed with clinical assessment"
+                ]
+            elif confidence > 0.6:
+                return [
+                    "Moderate confidence - additional testing recommended",
+                    "Mixed clinical indicators - consider comprehensive evaluation",
+                    "Proceed with caution - monitor patient response closely"
+                ]
+            else:
+                return [
+                    "Low confidence prediction - extensive diagnostic workup needed",
+                    "Limited clinical indicators - consider alternative diagnoses",
+                    "High uncertainty - recommend specialist consultation"
+                ]
+        else:  # Negative prediction
+            if confidence > 0.8:
+                return [
+                    "High confidence negative - low disease probability",
+                    "Strong indicators against diagnosis - consider other conditions",
+                    "Model suggests alternative diagnostic pathways"
+                ]
+            elif confidence > 0.6:
+                return [
+                    "Moderate confidence negative - continue monitoring",
+                    "Some clinical indicators present - periodic reassessment recommended",
+                    "Consider preventive measures and follow-up"
+                ]
+            else:
+                return [
+                    "Low confidence negative - maintain clinical vigilance",
+                    "Uncertain prediction - recommend comprehensive evaluation",
+                    "Consider specialist consultation for definitive diagnosis"
+                ]
+
+    def _create_dashboard_insights_prompt(self, analytics_data: Dict, disease: str = None, year: str = None, locality: str = None, hospital: str = None) -> str:
+        """
+        Create a simple dashboard-focused prompt for quick insights based on actual dashboard data
+        """
+        prompt = f"""
+You are a healthcare dashboard assistant. Analyze ONLY the dashboard data provided below and provide insights. DO NOT use any external knowledge, training data, or assumptions.
+
+CONTEXT:
+- Disease: {disease.upper() if disease else 'All diseases'}
+- Year: {year if year else 'All years'}
+- Locality: {locality if locality else 'All localities'}
+- Hospital: {hospital if hospital else 'All facilities'}
+
+DASHBOARD DATA TO ANALYZE:
+{json.dumps(analytics_data, indent=2)}
+
+CRITICAL INSTRUCTIONS:
+- ONLY analyze the data provided above
+- DO NOT reference any external knowledge about locations, diseases, or healthcare
+- DO NOT use any information from your training data
+- Base ALL insights purely on the numbers and patterns in the provided data
+- If the data shows "KASOA" with 408 cases, say "KASOA with 408 cases"
+- If the data shows "GBAWE" with 339 cases, say "GBAWE with 339 cases"
+- Do not make assumptions about what these locations are or their characteristics
+
+TASK:
+Based ONLY on the data above, provide a concise summary in this JSON format:
+
+{{
+    "dashboard_summary": {{
+        "key_insight": "One main insight derived ONLY from the data above",
+        "trend": "Brief trend description based ONLY on the trends data above",
+        "highlight": "One notable finding from the actual data patterns above",
+        "recommendation": "One actionable recommendation based ONLY on the data above"
+    }},
+    "quick_stats": {{
+        "total_cases": "Actual total cases from the data (if available)",
+        "age_group": "Most affected age group from age_distribution data above",
+        "gender_pattern": "Gender pattern from sex_distribution data above",
+        "geographic_focus": "Key locality from localities or hotspots data above"
+    }},
+    "alert_level": "low/medium/high (based on data severity above)",
+    "last_updated": "Current timestamp"
+}}
+
+DATA ANALYSIS REQUIREMENTS:
+- Look at age_distribution data for age patterns
+- Look at sex_distribution data for gender patterns  
+- Look at localities data for geographic information
+- Look at trends data for temporal patterns
+- Look at hotspots data for case concentration
+- Look at principal_diagnoses for main conditions
+- Look at additional_diagnoses for comorbidities
+- Look at nhia_status for insurance patterns
+- Look at pregnancy_status for pregnancy data
+
+EXAMPLE OF CORRECT ANALYSIS:
+If the data shows "KASOA": 408 cases, "GBAWE": 339 cases, "WEIJA": 320 cases, then say:
+"KASOA has the highest cases (408), followed by GBAWE (339) and WEIJA (320)"
+
+DO NOT SAY:
+"KASOA, GBAWE, and WEIJA are significant diabetes hotspots" (this sounds like external knowledge)
+
+SAY INSTEAD:
+"KASOA (408 cases), GBAWE (339 cases), and WEIJA (320 cases) show the highest case counts"
+
+RESPONSE FORMAT:
+Return ONLY the JSON object as specified above. No additional text or explanations.
+"""
+        return prompt
+
+    def _parse_dashboard_response(self, response: str) -> Dict[str, Any]:
+        """
+        Parse and validate the dashboard response from Gemini
+        """
+        try:
+            # Clean the response to extract JSON
+            response = response.strip()
+            
+            # Remove markdown code blocks if present
+            if response.startswith('```json'):
+                response = response[7:]
+            if response.startswith('```'):
+                response = response[3:]
+            if response.endswith('```'):
+                response = response[:-3]
+            
+            response = response.strip()
+            
+            # Parse JSON
+            parsed = json.loads(response)
+            
+            # Validate required structure
+            required_sections = ['dashboard_summary', 'quick_stats', 'alert_level']
+            
+            for section in required_sections:
+                if section not in parsed:
+                    parsed[section] = {"error": f"Missing {section} section"}
+            
+            return parsed
+            
+        except json.JSONDecodeError as e:
+            return {
+                "error": "Failed to parse dashboard response",
+                "raw_response": response,
+                "parse_error": str(e)
+            }
+        except Exception as e:
+            return {
+                "error": "Error processing dashboard response",
+                "raw_response": response,
+                "error_details": str(e)
+            }
+    
+    def _generate_mock_dashboard_insights(self, analytics_data: Dict, disease: str = None, year: str = None, locality: str = None, hospital: str = None) -> Dict[str, Any]:
+        """
+        Generate mock dashboard insights when Vertex AI is not available
+        """
+        # Try to extract actual data from the provided analytics_data
+        total_cases = "Unknown"
+        age_group = "Unknown"
+        gender_pattern = "Unknown"
+        geographic_focus = "Unknown"
+        
+        # Extract age distribution data
+        if 'age_distribution' in analytics_data and 'data' in analytics_data['age_distribution']:
+            age_data = analytics_data['age_distribution']['data'].get(disease, {})
+            if age_data:
+                # Find the age group with highest cases
+                max_age_group = max(age_data.items(), key=lambda x: x[1] if isinstance(x[1], (int, float)) else 0)
+                age_group = max_age_group[0]
+                total_cases = str(sum(age_data.values()))
+        
+        # Extract gender distribution data
+        if 'sex_distribution' in analytics_data and 'data' in analytics_data['sex_distribution']:
+            sex_data = analytics_data['sex_distribution']['data'].get(disease, {})
+            if sex_data:
+                if 'Female' in sex_data and 'Male' in sex_data:
+                    female_cases = sex_data['Female']
+                    male_cases = sex_data['Male']
+                    if female_cases > male_cases:
+                        gender_pattern = f"Females ({female_cases}) higher than males ({male_cases})"
+                    else:
+                        gender_pattern = f"Males ({male_cases}) higher than females ({female_cases})"
+        
+        # Extract geographic data from hotspots
+        if 'hotspots' in analytics_data and 'data' in analytics_data['hotspots']:
+            hotspots_data = analytics_data['hotspots']['data'].get(disease, [])
+            if hotspots_data:
+                # Get the locality with highest cases
+                top_locality = max(hotspots_data, key=lambda x: x.get('cases', 0))
+                geographic_focus = f"{top_locality.get('locality', 'Unknown')} ({top_locality.get('cases', 0)} cases)"
+        
+        return {
+            "dashboard_summary": {
+                "key_insight": f"Analysis of {disease or 'health'} data shows {total_cases} total cases with {age_group} being most affected",
+                "trend": "Data shows varying case distribution across different localities",
+                "highlight": f"Geographic analysis reveals {geographic_focus} as the primary focus area",
+                "recommendation": f"Focus interventions in areas with highest case counts based on the data"
+            },
+            "quick_stats": {
+                "total_cases": total_cases,
+                "age_group": age_group,
+                "gender_pattern": gender_pattern,
+                "geographic_focus": geographic_focus
+            },
+            "alert_level": "medium",
+            "last_updated": datetime.now().isoformat()
         }
 
 # Create singleton instance

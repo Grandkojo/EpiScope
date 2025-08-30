@@ -1,34 +1,51 @@
+# Virtual Environment
 episcope_env/
+
+# Node modules
 node_modules/
+frontend/
+.vite/
+package-lock.json
+
+# Environment files
+.env
+.env.local
+
+# Logs
+*.log
+*.log.*
 logs/
 disease_monitor.log
 training.log
-rr/
-.env
-.env.local
-frontend/
-*.log
-*.log.*
+
+# Python cache
 *.pyc
-__pycache__/
 *.pyo
 *.pyd
 *.pyw
 *.pyz
 *.pywz
-*.
-test_gemini.py
-test-deploy.sh
-deploy.sh
-check_permissions.py
-show_permissions.py
-tt.py
-# *.py
-*.pyc
-*.pyo
-*.pyd
-*.pyw
-*.pywz
-*.joblib
-MRCONSO.RRF
+__pycache__/
+
+# Database
+db.sqlite3
+*.db
+
+# Data and artifacts
+src/artifacts/
 src/vertex_ai.json
+
+# Documentation
+docs/readme/
+
+# Temporary files
+tt.txt
+*.tmp
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

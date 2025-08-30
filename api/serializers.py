@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import User
 from disease_monitor.models import Disease, DiseaseYear, NationalHotspots
 from .services.national_hotspots import get_available_years
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 class DiseaseSerializer(serializers.ModelSerializer):
     class Meta:
@@ -189,3 +190,45 @@ class NationalHotspotsSerializer(serializers.ModelSerializer):
         for field in exclude_fields:
             if field in self.fields:
                 del self.fields[field]
+
+
+class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
+    """Return JWTs plus user role metadata for routing."""
+    @classmethod
+    def get_token(cls, user):
+        token = super().get_token(user)
+        # Optional: add custom claims if needed in future
+        token['is_admin'] = user.is_admin
+        token['is_superuser'] = user.is_superuser
+        return token
+
+    def validate(self, attrs):
+        data = super().validate(attrs)
+
+        user = self.user
+        status_value = 'admin' if (user.is_superuser or user.is_admin) else 'user'
+        hospital_data = None
+        if getattr(user, 'hospital_id', None) or getattr(user, 'hospital', None):
+            h = user.hospital
+            if h:
+                hospital_data = {
+                    'id': h.id,
+                    'hospital_id': getattr(h, 'hospital_id', None),
+                    'name': h.name,
+                    'slug': h.slug,
+                }
+
+        data.update({
+            'status': status_value,
+            # 'user': {
+            #     'id': user.id,
+            #     'username': user.username,
+            #     'email': user.email,
+            #     'is_admin': user.is_admin,
+            #     'is_superuser': user.is_superuser,
+            #     'is_staff': user.is_staff,
+            #     'hospital': hospital_data,
+            # }
+        })
+
+        return data
