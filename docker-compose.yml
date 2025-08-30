@@ -15,17 +15,6 @@ services:
     volumes:
       - static_volume:/app/staticfiles
     restart: unless-stopped
-  nginx:
-    image: nginx:alpine
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
-      - static_volume:/var/www/static
-    depends_on:
-      - episcope
-    restart: unless-stopped
 
 volumes:
   static_volume:

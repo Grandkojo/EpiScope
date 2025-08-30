@@ -7,7 +7,8 @@ RUN apt-get update && apt-get upgrade -y \
         gcc \
         g++ \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+    pip cache purge
 
 # Create virtual environment
 RUN python -m venv /opt/venv
@@ -18,7 +19,8 @@ COPY requirements.txt .
 
 # Install Python dependencies with security updates
 RUN pip install --no-cache-dir --upgrade pip setuptools wheel \
-    && pip install --no-cache-dir -r requirements.txt
+    && pip install --no-cache-dir -r requirements.txt \
+    && pip cache purge
 
 # Final stage
 FROM python:3.12-slim
@@ -28,7 +30,8 @@ RUN apt-get update && apt-get upgrade -y \
     && apt-get install -y --no-install-recommends \
         ca-certificates \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+    pip cache purge
 
 # Copy virtual environment
 COPY --from=builder /opt/venv /opt/venv
@@ -39,7 +42,8 @@ COPY . /app
 WORKDIR /app
 
 # Install gunicorn
-RUN pip install --no-cache-dir gunicorn
+RUN pip install --no-cache-dir gunicorn \
+    && pip cache purge
 
 EXPOSE 8000
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "episcope.wsgi:application"]
