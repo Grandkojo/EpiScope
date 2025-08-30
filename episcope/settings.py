@@ -39,8 +39,32 @@ CORS_ALLOWED_ORIGINS = [
     "https://www.episcope.grandkojo.my",
     "http://episcope.grandkojo.my",
     "http://www.episcope.grandkojo.my",
+    "https://api-episcope.grandkojo.my",
+    "http://api-episcope.grandkojo.my",
 ]
 CORS_ALLOW_CREDENTIALS = True
+
+# Additional CORS settings
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
+CORS_EXPOSE_HEADERS = ['content-type', 'content-disposition']
 
 # Application definition
 
@@ -104,6 +128,7 @@ SIMPLE_JWT = {
 }
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',  # Must be at the top
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -112,8 +137,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
     # Custom rate limiting middleware
     'api.middleware.IPWhitelistMiddleware',
     'api.middleware.RateLimitMiddleware',
