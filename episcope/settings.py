@@ -66,6 +66,20 @@ CORS_ALLOW_HEADERS = [
 ]
 CORS_EXPOSE_HEADERS = ['content-type', 'content-disposition']
 
+# CSRF Configuration for HTTPS/Proxy
+CSRF_TRUSTED_ORIGINS = [
+    "https://api-episcope.grandkojo.my",
+    "http://api-episcope.grandkojo.my",
+    "https://localhost",
+    "http://localhost",
+]
+
+# Proxy/HTTPS settings
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = False
+USE_X_FORWARDED_HOST = True
+USE_X_FORWARDED_PORT = True
+
 # Application definition
 
 INSTALLED_APPS = [
