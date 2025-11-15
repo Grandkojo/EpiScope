@@ -1,0 +1,4 @@
+*.rb linguist-language=Python
+*.rb linguist-language=JavaScript
+*.rb linguist-language=React
+
